@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased — GUM School Phase 0
+## Unreleased — GUM School Phase 1
 
 - Added the complete human-readable GUM School curriculum and exact promotion,
   retention, transfer-matrix, sealed-evaluation, and rollback rules.
@@ -13,6 +13,11 @@
   and infeasible budgets.
 - Added adversarial fixtures and tests, while keeping the local language model
   optional, disabled, and outside grading and sealed data.
+- Hardened the reviewed curriculum with explicit prerequisites, all-promoted
+  retention, confidence-bound gates, provisional-budget labeling, and an
+  isolated-source 3×3 transfer design.
+- Added the Phase 1 content-addressed snapshot, candidate, evaluation,
+  promotion, quarantine, recovery, transfer-matrix, ledger, and report engine.
 
 ## 0.2.1 — 2026-10-08
 

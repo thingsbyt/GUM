@@ -1,0 +1,8 @@
+{
+  "fixture": "future-prerequisite",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "replace", "path": ["lessons", 1, "prerequisites", 0], "value": "changing-maze.revision.002"}
+  ],
+  "expected_error": "is not earlier in the sequence"
+}

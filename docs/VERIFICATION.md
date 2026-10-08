@@ -1,5 +1,40 @@
 # Frozen release verification
 
+## GUM School Phase 1 verification
+
+The reviewed curriculum and generic school lifecycle were verified on
+2026-10-08 without implementing a school adapter, training GUM, or generating a
+sealed world. The focused curriculum and lifecycle suite passed **39/39 tests**:
+
+```powershell
+python -m gum.school curriculum/gum-school-v1.json
+python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py
+```
+
+The tests cover strict schemas and adversarial fixtures, explicit prerequisites,
+global budgets, confidence-bound gates, content-addressed snapshots, candidate
+isolation, evaluation-copy mutation detection, all-promoted retention,
+quarantine, atomic promotion, initialization/abort/promotion recovery,
+idempotent ledger decisions, progress-tamper detection, frozen curriculum
+checks, evidence path confinement, and all nine isolated-source transfer cells.
+
+The complete repository suite passed **306/306 tests** on Python 3.12 in 147.75
+seconds. It emitted the existing test-only PyTorch scalar-conversion warning in
+`tests/test_method.py`; there were no failures. The secured Studio smoke test,
+package/link check, dependency check, and public-package integrity scan also
+passed. The integrity scan reported zero publication-leak hits.
+
+Verify the exact Phase 1 tree with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_1.json
+```
+
+The Phase 0 and v0.2.1 manifests remain unchanged historical snapshots. Phase 1
+is infrastructure evidence only: the three foundational adapters remain
+`specified-not-admitted`, the 3×3 transfer matrix has no experimental cells,
+and no learning result is claimed.
+
 ## GUM School Phase 0 verification
 
 The Phase 0 specification was verified on 2026-10-08 without running any school

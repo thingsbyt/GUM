@@ -173,6 +173,7 @@ def _semantic_curriculum_errors(document: dict[str, Any]) -> list[str]:
 
     exam_by_id = {row.get("examination_id"): row for row in examinations if isinstance(row, dict)}
     admission_by_id = {row.get("admission_id"): row for row in admissions if isinstance(row, dict)}
+    lesson_by_id = {row.get("lesson_id"): row for row in lessons if isinstance(row, dict)}
     adapters = set(document.get("adapter_catalog", []))
     capabilities = set(document.get("capability_catalog", []))
     global_seed_partitions = {"training": set(), "development": set(), "retention": set()}
@@ -184,6 +185,18 @@ def _semantic_curriculum_errors(document: dict[str, Any]) -> list[str]:
         if not isinstance(lesson, dict):
             continue
         label = f"$.lessons[{index}]"
+        lesson_sequence = lesson.get("sequence")
+        prerequisites = lesson.get("prerequisites", [])
+        if isinstance(lesson_sequence, int) and lesson_sequence != 1 and not prerequisites:
+            errors.append(f"{label}.prerequisites: non-initial lessons need a prerequisite")
+        for prerequisite_id in prerequisites if isinstance(prerequisites, list) else []:
+            prerequisite = lesson_by_id.get(prerequisite_id)
+            if prerequisite is None:
+                errors.append(f"{label}.prerequisites: unknown lesson {prerequisite_id!r}")
+            elif (isinstance(lesson_sequence, int)
+                  and isinstance(prerequisite.get("sequence"), int)
+                  and prerequisite["sequence"] >= lesson_sequence):
+                errors.append(f"{label}.prerequisites: {prerequisite_id!r} is not earlier in the sequence")
         adapter = lesson.get("adapter")
         if adapter not in adapters:
             errors.append(f"{label}.adapter: adapter {adapter!r} is not in adapter_catalog")
@@ -242,10 +255,16 @@ def _semantic_curriculum_errors(document: dict[str, Any]) -> list[str]:
                 )
         trials = evaluation.get("trials")
         new_seed_trials = evaluation.get("new_seed_trials")
+        baseline_trials = lesson.get("baseline", {}).get("trials")
+        retention_trials = retention.get("trials")
         if isinstance(trials, int):
             total_evaluation_trials += trials
         if isinstance(new_seed_trials, int):
             total_evaluation_trials += new_seed_trials
+        if isinstance(baseline_trials, int):
+            total_evaluation_trials += baseline_trials
+        if isinstance(retention_trials, int):
+            total_evaluation_trials += retention_trials
 
         allowed = set(lesson.get("learner_inputs", []))
         prohibited = set(lesson.get("prohibited_inputs", []))
@@ -253,19 +272,40 @@ def _semantic_curriculum_errors(document: dict[str, Any]) -> list[str]:
         if collision:
             errors.append(f"{label}: learner_inputs and prohibited_inputs overlap: {collision}")
 
+        earlier_capabilities = {
+            capability
+            for earlier in lessons
+            if (isinstance(earlier, dict)
+                and isinstance(earlier.get("sequence"), int)
+                and isinstance(lesson.get("sequence"), int)
+                and earlier["sequence"] < lesson["sequence"])
+            for capability in earlier.get("capabilities", [])
+        }
+        invalid_protected = sorted(
+            set(lesson.get("retention", {}).get("protected_skills", [])) - earlier_capabilities
+        )
+        if invalid_protected:
+            errors.append(
+                f"{label}.retention.protected_skills: not introduced by an earlier lesson: {invalid_protected}"
+            )
+        promotion = lesson.get("promotion", {})
+        lower_success = promotion.get("minimum_success_lower_bound")
+        point_success = promotion.get("minimum_success")
+        if (isinstance(lower_success, (int, float)) and isinstance(point_success, (int, float))
+                and lower_success > point_success):
+            errors.append(f"{label}.promotion: success lower-bound threshold exceeds point threshold")
+        lower_advantage = promotion.get("minimum_fresh_advantage_lower_bound")
+        point_advantage = promotion.get("minimum_fresh_advantage")
+        if (isinstance(lower_advantage, (int, float)) and isinstance(point_advantage, (int, float))
+                and lower_advantage > point_advantage):
+            errors.append(f"{label}.promotion: advantage lower-bound threshold exceeds point threshold")
+
     maximum_total = budgets.get("maximum_total_training_interactions")
     if isinstance(maximum_total, int) and total_training_interactions > maximum_total:
         errors.append(
             "$.policies.budgets.maximum_total_training_interactions: impossible budget; "
             f"less than declared lesson total {total_training_interactions}"
         )
-    maximum_trials = budgets.get("maximum_evaluation_trials")
-    if isinstance(maximum_trials, int) and total_evaluation_trials > maximum_trials:
-        errors.append(
-            "$.policies.budgets.maximum_evaluation_trials: impossible budget; "
-            f"less than declared lesson total {total_evaluation_trials}"
-        )
-
     errors.extend(_overlap_error("$", global_seed_partitions))
 
     expected_sequences = list(range(1, len(lessons) + 1))
@@ -316,6 +356,35 @@ def _semantic_curriculum_errors(document: dict[str, Any]) -> list[str]:
         maximum = declaration.get("reward_maximum")
         if isinstance(minimum, (int, float)) and isinstance(maximum, (int, float)) and minimum >= maximum:
             errors.append(f"{label}.declaration: reward_minimum must be lower than reward_maximum")
+
+    transfer = document.get("transfer_matrix", {})
+    source_schools = transfer.get("source_schools", [])
+    target_rows = transfer.get("targets", [])
+    target_schools = [row.get("school") for row in target_rows if isinstance(row, dict)]
+    curriculum_schools = sorted({row.get("school") for row in lessons if isinstance(row, dict)})
+    if sorted(source_schools) != curriculum_schools:
+        errors.append("$.transfer_matrix.source_schools: must exactly match lesson schools")
+    if len(target_schools) != len(set(target_schools)):
+        errors.append("$.transfer_matrix.targets: duplicate target school")
+    if sorted(target_schools) != curriculum_schools:
+        errors.append("$.transfer_matrix.targets: must include exactly one target per lesson school")
+    for index, target in enumerate(target_rows):
+        if not isinstance(target, dict):
+            continue
+        examination = exam_by_id.get(target.get("examination_id"))
+        if examination is None:
+            errors.append(f"$.transfer_matrix.targets[{index}]: unknown examination")
+        elif examination.get("school") != target.get("school"):
+            errors.append(f"$.transfer_matrix.targets[{index}]: examination school does not match target")
+    trials_per_cell = transfer.get("trials_per_cell")
+    if isinstance(trials_per_cell, int):
+        total_evaluation_trials += len(source_schools) * len(target_rows) * trials_per_cell
+    maximum_trials = budgets.get("maximum_evaluation_trials")
+    if isinstance(maximum_trials, int) and total_evaluation_trials > maximum_trials:
+        errors.append(
+            "$.policies.budgets.maximum_evaluation_trials: impossible budget; "
+            f"less than declared baseline, evaluation, retention, and matrix total {total_evaluation_trials}"
+        )
 
     return errors
 

@@ -100,6 +100,35 @@ def test_local_language_model_is_optional_disabled_and_untrusted():
     }
 
 
+def test_prerequisites_retention_and_transfer_design_are_machine_enforced():
+    curriculum = validate_curriculum_file()
+    lessons = sorted(curriculum["lessons"], key=lambda row: row["sequence"])
+    assert lessons[0]["prerequisites"] == []
+    assert lessons[0]["retention"] == {
+        "scope": "all-promoted-skills",
+        "protected_skills": [],
+        "evaluation_seeds": [11201, 11202, 11203, 11204],
+        "trials": 24,
+        "maximum_regression": 0.05,
+    }
+    assert all(lesson["prerequisites"] for lesson in lessons[1:])
+    matrix = curriculum["transfer_matrix"]
+    assert matrix["design"] == "isolated-source-branches"
+    assert matrix["branch_origin"] == "pre-curriculum-promoted-snapshot"
+    assert len(matrix["source_schools"]) * len(matrix["targets"]) == 9
+    assert matrix["target_evaluation_training"] is False
+    assert curriculum["policies"]["budgets"]["status"] == "provisional-until-adapter-admission"
+    declared_trials = sum(
+        lesson["baseline"]["trials"]
+        + lesson["evaluation"]["trials"]
+        + lesson["evaluation"]["new_seed_trials"]
+        + lesson["retention"]["trials"]
+        for lesson in lessons
+    ) + len(matrix["source_schools"]) * len(matrix["targets"]) * matrix["trials_per_cell"]
+    assert declared_trials == 864
+    assert declared_trials <= curriculum["policies"]["budgets"]["maximum_evaluation_trials"]
+
+
 def test_public_curriculum_contains_commitments_not_sealed_seed_lists_or_answers():
     curriculum = validate_curriculum_file()
     normalized_keys = {key.lower().replace("-", "_") for key in _keys(curriculum)}

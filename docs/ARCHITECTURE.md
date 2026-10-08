@@ -2,17 +2,19 @@
 
 ## GUM School specification boundary
 
-Phase 0 adds specification-time validation, not another learner. The
+Phase 0 added specification-time validation, not another learner. The
 human-readable curriculum is in `docs/GUM_SCHOOL_CURRICULUM.md`; the canonical
 machine curriculum and its four strict schemas are in `curriculum/`; and
 `gum.school` performs structural, leakage, seed-partition, reference, and budget
-checks. It contains no scheduler, trainer, promotion runner, or sealed answers.
+checks. It contains no sealed answers.
 
-The future engine must keep the last promoted mind read-only, train only a
-candidate snapshot, and cross all seven precommitted gates before atomic
-replacement. Planned school adapters are allowlisted identifiers but are not
-runtime-admitted until their protocol, hidden-state, baseline, horizon, replay,
-and evidence checks pass.
+Phase 1 implements the generic lifecycle in `gum.school`: content-addressed
+snapshots keep the last promoted mind isolated, training touches only a run
+candidate, evaluation uses a separate frozen copy, and all seven precommitted
+gates must pass before atomic pointer replacement. Prepared decisions resume
+without double promotion after interruption. Planned school adapters are
+allowlisted identifiers but are not runtime-admitted until their protocol,
+hidden-state, baseline, horizon, replay, and evidence checks pass.
 
 ## The shortest explanation
 

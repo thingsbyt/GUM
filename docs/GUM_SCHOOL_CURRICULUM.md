@@ -207,20 +207,32 @@ The v1 JSON intentionally specifies only the first milestone. Later schools
 remain human-authored here but do not enter the executable curriculum until the
 candidate/promotion boundary works reliably.
 
-| Sequence | Lesson | Grade | Structural teaching change | Training interactions |
-|---:|---|---:|---|---:|
-| 1 | `object-laboratory.occlusion.001` | 1 | Occlusion plus appearance change breaks color matching. | 12,000 |
-| 2 | `object-laboratory.functional-category.002` | 4 | Function is preserved while shape and texture change. | 16,000 |
-| 3 | `causal-workshop.controls.001` | 2 | Anonymous controls produce distinguishable consequences. | 12,000 |
-| 4 | `causal-workshop.composition.002` | 6 | Tool roles must be ordered around prerequisites and decoys. | 18,000 |
-| 5 | `changing-maze.memory.001` | 5 | Local views require persistent landmark memory. | 15,000 |
-| 6 | `changing-maze.revision.002` | 7 | Paths and control meanings change, invalidating the old strategy. | 20,000 |
+| Sequence | Lesson | Grade | Explicit prerequisite | Structural teaching change | Training interactions |
+|---:|---|---:|---|---|---:|
+| 1 | `object-laboratory.occlusion.001` | 1 | None; first school lesson | Occlusion plus appearance change breaks color matching. | 12,000 |
+| 2 | `object-laboratory.functional-category.002` | 4 | Object occlusion | Function is preserved while shape and texture change. | 16,000 |
+| 3 | `causal-workshop.controls.001` | 2 | Object occlusion | Anonymous controls produce distinguishable consequences. | 12,000 |
+| 4 | `causal-workshop.composition.002` | 6 | Causal controls and object function | Tool roles must be ordered around prerequisites and decoys. | 18,000 |
+| 5 | `changing-maze.memory.001` | 5 | Causal controls | Local views require persistent landmark memory. | 15,000 |
+| 6 | `changing-maze.revision.002` | 7 | Maze memory and causal composition | Paths and control meanings change, invalidating the old strategy. | 20,000 |
 
 Generators have names such as `authored-object-occlusion-v1`. The name denotes
 a reviewed family template with bounded variation. It is not permission to
 sample arbitrary mechanics. Each implementation must document which properties
 vary, which remain invariant, and why the resulting tasks teach the named
 capability.
+
+Prerequisites are machine-checked: every non-initial lesson names an earlier
+lesson, and a future or unknown dependency is invalid. Grade labels remain
+capability categories rather than a demand for numerically increasing grades.
+The first lesson has no earlier school skill to retain; after that, retention
+automatically covers every capability of every previously promoted lesson, with
+the listed `protected_skills` acting as an explicit minimum rather than the
+complete set.
+
+The numeric budgets are precommitted safety ceilings but remain
+`provisional-until-adapter-admission`. Admission dry runs may justify a new
+curriculum version; they may not silently change the frozen v1 thresholds.
 
 ## Seed and examination policy
 
@@ -279,17 +291,23 @@ and bootstrap confidence intervals. Raw trial rows remain available.
 
 ## Transfer matrix
 
-The primary report is a matrix, not a highlight reel. Cell `(A, B)` compares a
-candidate that has completed promoted family `A` with a matched fresh learner
-on family `B`. Each cell records candidate and fresh success, success difference,
+The primary report is a matrix, not a highlight reel. Each source row is an
+isolated branch cloned from the same pre-curriculum promoted snapshot. Branch
+`A` trains on family `A` only, freezes, and is evaluated without learning on
+every target family `B`. Cell `(A, B)` compares that branch with a matched fresh
+learner on `B`. A sequential candidate that has already studied other schools
+cannot fill an official cell because prior training would confound the source.
+Each cell records candidate and fresh success, success difference,
 fresh-advantage ratio, interaction cost, uncertainty, unnecessary actions,
 trial count, confidence interval, and evidence references. Negative and null
 transfer remain visible.
 
-The first milestone requires the complete 3×3 matrix for Object Laboratory,
-Causal Workshop, and Changing Maze. At least one off-diagonal cell must beat
-the matched fresh threshold in its lesson specification. No claim extends to an
-unmeasured school.
+The first milestone requires all nine cells for Object Laboratory, Causal
+Workshop, and Changing Maze. The machine contract fixes the common branch
+origin, source-only training rule, frozen target evaluation, matched-fresh
+control, 32 trials per cell, and 95% confidence level. At least one off-diagonal
+cell must beat the matched fresh threshold in its lesson specification. No
+claim extends to an unmeasured school.
 
 ## Exact promotion and retention decision
 
@@ -298,7 +316,8 @@ to a candidate workspace. The promoted snapshot is read-only for the duration
 of a lesson. A candidate is promoted only when **all seven gates** pass:
 
 1. **Sealed performance:** success is at least the lesson's
-   `minimum_success` on the sealed examination.
+   `minimum_success`, and its precommitted 95% Wilson lower bound is at least
+   `minimum_success_lower_bound`, on the sealed examination.
 2. **Retention:** every protected skill's absolute success regression is no
    greater than `maximum_regression` (0.05 in v1).
 3. **Evidence integrity:** source and protocol hashes, append-only ledger,
@@ -307,8 +326,9 @@ of a lesson. A candidate is promoted only when **all seven gates** pass:
    stay at or below every declared limit. A measurement failure is a gate
    failure, not zero usage.
 5. **Control advantage:** sealed fresh advantage meets
-   `minimum_fresh_advantage`; the same perception and resource limits are
-   verified for both learners.
+   `minimum_fresh_advantage`, its paired-bootstrap lower bound meets
+   `minimum_fresh_advantage_lower_bound`, and the same perception and resource
+   limits are verified for both learners.
 6. **Input boundary:** no prohibited input, audit-only state, sealed data, or
    task answer reached the learner, proposal system, or training process.
 7. **Replay:** the decision-relevant run reproduces from frozen source, protocol,

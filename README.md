@@ -121,17 +121,18 @@ The strongest defensible description is:
 
 ## GUM School
 
-GUM School now has a Phase 0 specification: a human-readable curriculum,
-strict machine schemas, a validated six-lesson foundational sequence, and
-adversarial rejection tests. It defines how future candidates will be compared
-with matched fresh learners, checked for retention, and promoted or rolled back.
+GUM School now has a reviewed specification and a Phase 1 lifecycle engine: a
+human-readable curriculum, strict machine schemas, a validated six-lesson
+foundational sequence, content-addressed candidate snapshots, computed
+promotion gates, quarantine, interruption recovery, and append-only reporting.
 
-This is a specification milestone, not a training result. The Object
+This is infrastructure, not a training result. The Object
 Laboratory, Causal Workshop, and Changing Maze adapters are explicitly marked
 `specified-not-admitted`; no school lesson has run and no school capability is
 claimed yet.
 
 [Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
+[Read the GUM School engine boundary](docs/GUM_SCHOOL_ENGINE.md)
 
 ## Research package
 
@@ -145,6 +146,7 @@ claimed yet.
 - [Is it intelligent?](docs/INTELLIGENCE_ASSESSMENT.md)
 - [How the project evolved](docs/PROJECT_HISTORY.md)
 - [GUM School curriculum and promotion rules](docs/GUM_SCHOOL_CURRICULUM.md)
+- [GUM School engine and interruption safety](docs/GUM_SCHOOL_ENGINE.md)
 - [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)
@@ -171,11 +173,11 @@ Core verification:
 ```bash
 python -m pytest -q
 python -m gum.school curriculum/gum-school-v1.json
-python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_0.json
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_1.json
 ```
 
-The separate `RELEASE_MANIFEST_v0.2.1.json` remains the immutable historical
-v0.2.1 record; it is not regenerated when later source changes.
+The separate Phase 0 and v0.2.1 manifests remain immutable historical records;
+they are not regenerated when later source changes.
 
 The older neural experiments need `python -m pip install -e ".[dev,neural]"`.
 Some experiment suites are longer and have separate commands in [Reproducing the work](docs/REPRODUCING.md).

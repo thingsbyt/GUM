@@ -1,0 +1,8 @@
+{
+  "fixture": "incomplete-transfer-matrix",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "replace", "path": ["transfer_matrix", "targets", 2, "school"], "value": "object-laboratory"}
+  ],
+  "expected_error": "duplicate target school"
+}

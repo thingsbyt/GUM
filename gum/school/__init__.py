@@ -1,7 +1,8 @@
-"""Specification-time validation for GUM School.
+"""Validated curriculum and crash-resumable GUM School lifecycle."""
 
-Phase 0 deliberately contains no training, scheduling, or promotion runner.
-"""
+from .engine import SchoolEngine, SchoolEngineError
+from .evaluation import SchoolEvaluationError, evaluate_promotion_gates
+from .snapshots import SnapshotError, SnapshotStore
 
 from .validation import (
     CurriculumValidationError,
@@ -13,6 +14,12 @@ from .validation import (
 
 __all__ = [
     "CurriculumValidationError",
+    "SchoolEngine",
+    "SchoolEngineError",
+    "SchoolEvaluationError",
+    "SnapshotError",
+    "SnapshotStore",
+    "evaluate_promotion_gates",
     "load_json",
     "validate_curriculum",
     "validate_curriculum_file",

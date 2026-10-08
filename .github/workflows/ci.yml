@@ -39,6 +39,7 @@ jobs:
           tests/test_reveal_gate.py
           tests/test_dual_reveal_gate.py
           tests/test_school_curriculum.py
+          tests/test_school_engine.py
 
   full:
     name: Full suite with neural extras

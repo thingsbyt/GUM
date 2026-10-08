@@ -14,6 +14,7 @@
     "adapter_catalog",
     "capability_catalog",
     "policies",
+    "transfer_matrix",
     "world_admissions",
     "examinations",
     "lessons"
@@ -117,13 +118,57 @@
         "budgets": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["maximum_total_training_interactions", "maximum_lesson_interactions", "maximum_evaluation_trials"],
+          "required": ["status", "maximum_total_training_interactions", "maximum_lesson_interactions", "maximum_evaluation_trials"],
           "properties": {
+            "status": {"const": "provisional-until-adapter-admission"},
             "maximum_total_training_interactions": {"type": "integer", "minimum": 1, "maximum": 100000000},
             "maximum_lesson_interactions": {"type": "integer", "minimum": 1, "maximum": 10000000},
             "maximum_evaluation_trials": {"type": "integer", "minimum": 1, "maximum": 1000000}
           }
         }
+      }
+    },
+    "transfer_matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "design",
+        "branch_origin",
+        "source_schools",
+        "targets",
+        "target_evaluation_training",
+        "matched_fresh_required",
+        "trials_per_cell",
+        "confidence_level",
+        "require_all_cells"
+      ],
+      "properties": {
+        "design": {"const": "isolated-source-branches"},
+        "branch_origin": {"const": "pre-curriculum-promoted-snapshot"},
+        "source_schools": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"enum": ["object-laboratory", "causal-workshop", "changing-maze"]}
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["school", "examination_id"],
+            "properties": {
+              "school": {"enum": ["object-laboratory", "causal-workshop", "changing-maze"]},
+              "examination_id": {"type": "string", "pattern": "^exam\\.[a-z0-9]+(?:[.-][a-z0-9]+)+$"}
+            }
+          }
+        },
+        "target_evaluation_training": {"const": false},
+        "matched_fresh_required": {"const": true},
+        "trials_per_cell": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "confidence_level": {"type": "number", "minimum": 0.8, "maximum": 0.999},
+        "require_all_cells": {"const": true}
       }
     },
     "world_admissions": {
