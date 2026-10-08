@@ -1,0 +1,50 @@
+{
+  "classification": "precommitted internal audit of unsupervised visual concept selection",
+  "created_at_utc": "2026-10-08T18:41:01.002987+00:00",
+  "format": "gum-concept-genesis-challenge-v1",
+  "learner_inputs": [
+    "raw RGB frames",
+    "five anonymous actions",
+    "terminal scalar reward",
+    "termination"
+  ],
+  "learner_not_given": [
+    "number of event concepts",
+    "event definitions",
+    "mechanism identities",
+    "control mappings",
+    "target programs",
+    "surface masks",
+    "solution sequences"
+  ],
+  "protocol": {
+    "curriculum_worlds": 4,
+    "discovery_worlds": 8,
+    "fifth_world_created_from_post_curriculum_brain_hash": true,
+    "fifth_world_distinct_parent_skills": true,
+    "held_out_variants_per_skill": 5
+  },
+  "seeds": {
+    "curriculum": 131000000,
+    "discovery": 121000000,
+    "sealed": 171000000
+  },
+  "source_hashes": {
+    "gum/concept_genesis.py": "8e2b9bff1c3eb6fa0989c2f0fecf57e86c099a598ddd71bb6c0a35461c7bc4ae",
+    "gum/concept_genesis_challenge.py": "79e7e8d83806ae5cc1ccecd98dfd101fda1c691442434a95d807970ad7c02795"
+  },
+  "thresholds": {
+    "curriculum_successes": 4,
+    "fifth_world_distinct_parents": true,
+    "fifth_world_success": true,
+    "held_out_successes": 20,
+    "minimum_fifth_speedup": 10.0,
+    "old_engineered_signature_must_fail": true,
+    "perfect_hidden_alignment_audit_only": true,
+    "retention_successes": 4,
+    "selected_concepts_max": 5,
+    "selected_concepts_min": 5,
+    "source_frozen": true,
+    "traces_valid": true
+  }
+}

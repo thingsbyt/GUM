@@ -44,6 +44,19 @@ class ConceptGenesisTests(unittest.TestCase):
         self.assertTrue(retained["success"])
         self.assertEqual(retained["interactions"], 3)
 
+    def test_acquisition_respects_candidate_and_cancellation_budgets(self):
+        mind = self._mind(); world = GenesisWorld(40_001, (4, 4, 4), 0)
+        limited = mind.acquire(world, max_candidates=1)
+        self.assertFalse(limited["success"])
+        self.assertEqual(limited["reason"], "candidate-budget")
+        cancelled = self._mind().acquire(world, cancel=lambda: True)
+        self.assertFalse(cancelled["success"])
+        self.assertEqual(cancelled["reason"], "cancelled")
+        self.assertEqual(cancelled["interactions"], 0)
+        interaction_limited = self._mind().acquire(world, max_interactions=3)
+        self.assertEqual(interaction_limited["reason"], "interaction-budget")
+        self.assertEqual(interaction_limited["interactions"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

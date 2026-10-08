@@ -4,15 +4,27 @@ This page records what was actually checked before the first local Git release w
 
 ## Result
 
-**234 tests ran; 234 passed.**
+**Historical v0.2.0 result: 234 tests ran; 234 passed.**
 
 The test suite covers the neural JEPA foundation, pixel-only worlds, concept formation, skill memory, continual learning, cooperation, language grounding, file workflows, safety checks, dashboard behavior, and the later GUM challenges.
 
-Command:
+Historical command:
 
 ```powershell
 python -m unittest discover -s tests -p 'test_*.py'
 ```
+
+That command only discovers class-based `unittest` cases. The repository also
+contains module-level pytest tests, so v0.2.1 makes pytest the official test
+collector:
+
+```powershell
+python -m pip install -e ".[dev,neural]"
+python -m pytest -q
+```
+
+The 234-test figure remains a truthful record of the frozen v0.2.0 run; it is
+not presented as the count produced by the broader collector.
 
 Runtime: 133.435 seconds on the release machine.
 
@@ -29,6 +41,34 @@ python scripts/audit_release_integrity.py
 ```
 
 This is a strong automated check, not a mathematical guarantee that no undiscovered bug or indirect cue exists. See `docs/LEARNING_INTEGRITY.md`.
+
+## Current v0.2.1 hardening run
+
+The broader official collector ran on 2026-10-08 after the Studio, persistence,
+ledger, and bounded-search hardening:
+
+```powershell
+python -m pytest -q
+```
+
+**267 tests passed** in 141.25 seconds on Python 3.12. That run emitted one
+test-only warning while converting an attached PyTorch tensor to a scalar. The
+test was then changed to detach explicitly, and its five-test module passed
+without warnings. The secured end-to-end Studio smoke test and publication scan
+are separate commands and are reported separately so stored-evidence validation
+is not confused with experiment reruns.
+
+A fresh, precommitted Concept Genesis reproduction also passed against the
+hardened source: 5 concepts selected, 20/20 transfer, 4/4 retention, and a
+543.09× experienced-versus-fresh advantage on the composed fifth world. Its
+protocol, audit, summary, and full raw-trace archive are linked from
+`docs/EVIDENCE.md`. This remains an internal reproduction.
+
+Verify the v0.2.1 source and evidence package with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_v0.2.1.json
+```
 
 ## Tested software
 
@@ -55,7 +95,7 @@ This history is documented because a serious evidence package should include mis
 python scripts/verify_freeze.py
 ```
 
-A valid result means every binary byte and every canonical text byte still matches the frozen release. The Git commit and annotated tag provide a second, independent snapshot mechanism.
+A valid result means every binary byte and every canonical text byte still matches the v0.2.0 frozen release. Later source hardening intentionally changes the working tree and must be verified against its own release manifest. The Git commit and annotated tag provide a second, independent snapshot mechanism.
 
 ## What this does not prove
 

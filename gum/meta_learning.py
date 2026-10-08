@@ -12,6 +12,8 @@ from pathlib import Path
 
 import numpy as np
 
+from .storage import atomic_write_json
+
 
 FAMILIES = ("toggle", "counter", "rotate", "permutation")
 
@@ -216,8 +218,7 @@ class MetaLearningMind:
         value = self.status() | {"seed": self.seed, "population_size": self.population_size,
                                  "initial_weights": self.initial_weights.tolist(),
                                  "rng_state": self.rng.bit_generator.state}
-        path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(value, indent=2, sort_keys=True), encoding="utf-8")
+        atomic_write_json(Path(path), value, sort_keys=True)
 
     @classmethod
     def load(cls, path: Path):

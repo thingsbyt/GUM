@@ -26,7 +26,8 @@ def scan(name: str, data: bytes, hits: list[dict]) -> None:
 
 leak_hits: list[dict] = []
 for path in root.rglob("*"):
-    if not path.is_file() or excluded_dirs.intersection(path.parts):
+    if (not path.is_file() or excluded_dirs.intersection(path.parts)
+            or any(part.endswith(".egg-info") for part in path.parts)):
         continue
     relative = path.relative_to(root).as_posix()
     if path.suffix.lower() == ".zip":
@@ -66,10 +67,15 @@ gates = {
 report = {
     "format": "gum-public-release-integrity-v1",
     "publication_leak_scan": {"passed": not leak_hits, "hits": leak_hits},
-    "learning_evidence_gates": gates,
+    "learning_evidence_gates": {
+        "source": "saved release evidence; experiments are not rerun by this audit",
+        "saved_evidence_only": True,
+        "gates": gates,
+    },
     "all_learning_evidence_gates_passed": all(gates.values()),
     "interpretation": (
-        "These gates support experience-dependent learning in the documented bounded tasks. "
+        "This command validates stored gate fields and scans the package; it does not rerun experiments. "
+        "The saved gates support experience-dependent learning in the documented bounded tasks. "
         "They do not prove that no bug or indirect leakage exists, nor do they establish general intelligence."
     ),
 }

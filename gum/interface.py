@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+import ipaddress
 import json
 import mimetypes
 from pathlib import Path
+import secrets
+import socket
 import threading
-from urllib.parse import unquote, urlparse
+from urllib.parse import parse_qs, quote, unquote, urlparse
 import webbrowser
 
 from .harness import GUMHarness
@@ -36,7 +39,7 @@ main{padding:24px clamp(20px,4vw,58px) 52px;max-width:1480px;margin:auto}.view{d
 </section>
 <section id="teach" class="view">
  <div class="teaching-grid">
-  <div class="card"><h2>Teach by showing</h2><p class="muted">Type what the object means, then click it. GUM receives the sentence, the pointing location, and pixels—not a hidden color/shape answer table.</p><img id="teachScene" class="scene" src="/api/teaching/image" alt="Three colored shapes used for a pointing lesson"><label>Your teaching phrase <input id="teachPhrase" value="please choose the red circle"></label><div class="actions" style="margin-top:10px"><button id="newLesson">New lesson scene</button><button id="learnWords" class="primary">Learn meanings</button></div><p id="pointHint" class="muted">Click an object to store this phrase as a pointing example. Reliable words need repeated, varied examples.</p><div class="actions"><button id="starter">Load starter lessons</button><button id="resetTeaching">Reset teaching memory</button></div></div>
+  <div class="card"><h2>Teach by showing</h2><p class="muted">Type what the object means, then click it. GUM receives the sentence, the pointing location, and pixels—not a hidden color/shape answer table.</p><img id="teachScene" class="scene" alt="Three colored shapes used for a pointing lesson"><label>Your teaching phrase <input id="teachPhrase" value="please choose the red circle"></label><div class="actions" style="margin-top:10px"><button id="newLesson">New lesson scene</button><button id="learnWords" class="primary">Learn meanings</button></div><p id="pointHint" class="muted">Click an object to store this phrase as a pointing example. Reliable words need repeated, varied examples.</p><div class="actions"><button id="starter">Load starter lessons</button><button id="resetTeaching">Reset teaching memory</button></div></div>
   <div class="card"><h2>Test what it understood</h2><div class="steps"><p>Load the starter lessons—or teach repeated examples yourself.</p><p>Open the ambiguity test and ask it to approach the red object.</p><p>When it asks which one, answer “the square” or “the circle.”</p></div><div class="actions"><button id="ambiguity">Open ambiguity test</button><button id="auditTeaching">Run fresh 45-trial audit</button></div><div class="composer"><input id="teachMessage" value="approach the red object"><button id="sendTeaching" class="primary">Send</button></div><div id="teachChat" class="chat" style="height:210px;margin-top:10px"></div><h3>Learned vocabulary</h3><div id="lexicon" class="lexicon"></div><pre id="teachState"></pre></div>
  </div>
 </section>
@@ -46,20 +49,22 @@ main{padding:24px clamp(20px,4vw,58px) 52px;max-width:1480px;margin:auto}.view{d
 <div class="footer">GUM Studio is an evidence viewer and bounded experimental harness. It is not a claim of consciousness, unrestricted general intelligence, or medical capability.</div>
 </main>
 <script>
-const $=id=>document.getElementById(id); let index={};
+const $=id=>document.getElementById(id); const studioToken=__GUM_STUDIO_TOKEN__; let index={};
+function securedURL(url){const join=url.includes('?')?'&':'?';return url+join+'token='+encodeURIComponent(studioToken)}
 function bubble(who,text){const d=document.createElement('div');d.className='bubble '+who;d.textContent=(who==='you'?'You: ':'GUM: ')+text;$('chat').appendChild(d);$('chat').scrollTop=$('chat').scrollHeight}
-async function api(url,opt){const r=await fetch(url,opt);const j=await r.json();if(!r.ok)throw Error(j.error||r.statusText);return j}
+async function request(url,opt={}){opt.headers=new Headers(opt.headers||{});opt.headers.set('X-GUM-Studio-Token',studioToken);return fetch(url,opt)}
+async function api(url,opt={}){const r=await request(url,opt);const j=await r.json();if(!r.ok)throw Error(j.error||r.statusText);return j}
 async function refresh(){const s=await api('/api/state');$('states').textContent=s.mind.learned_states;$('worldCount').textContent=s.mind.worlds_retained;$('records').textContent=s.evolution.records;$('activeName').textContent=s.active_world?s.active_world.world_id:'none';$('state').textContent=JSON.stringify(s,null,2);const w=await api('/api/worlds');$('worlds').replaceChildren(...w.worlds.map(x=>{const d=document.createElement('div');d.className='world';const t=document.createElement('strong');t.textContent=x.world_id;const p=document.createElement('div');p.className='muted';p.textContent=`${x.family} · ${x.agents} agent${x.agents===1?'':'s'} · ${x.action_count} anonymous actions`;const b=document.createElement('button');b.textContent=x.active?'Active':'Load';b.disabled=x.active;b.onclick=()=>loadWorld(x.world_id);d.append(t,p,b);return d}))}
 async function send(text){text=(text||$('msg').value).trim();if(!text)return;bubble('you',text);$('msg').value='';try{const j=await api('/api/message',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({text})});bubble('gum',j.response);await refresh()}catch(e){bubble('gum','Error: '+e.message)}}
 async function loadWorld(id){try{await api('/api/world',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({world_id:id})});await refresh()}catch(e){alert(e.message)}}
 async function learn(){const episodes=Number($('episodes').value);$('busy').classList.add('on');$('learn').disabled=true;try{const j=await api('/api/practice',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({episodes})});$('runResult').textContent=JSON.stringify({learned:j.learned,before:j.before,after:j.after,trace:j.transition_trace},null,2);bubble('gum',`Run complete. Success changed from ${(100*j.before.success_rate).toFixed(1)}% to ${(100*j.after.success_rate).toFixed(1)}%.`);await refresh()}catch(e){$('runResult').textContent='Run stopped: '+e.message}finally{$('busy').classList.remove('on');$('learn').disabled=false}}
 function teachingBubble(who,text){const d=document.createElement('div');d.className='bubble '+who;d.textContent=(who==='you'?'You: ':'GUM: ')+text;$('teachChat').appendChild(d);$('teachChat').scrollTop=$('teachChat').scrollHeight}
-function renderTeaching(s){$('teachState').textContent=JSON.stringify({examples:s.examples,learned_word_count:s.learned_word_count,scene_mode:s.scene_mode,pending_clarification:s.pending_clarification,last_turn:s.last_turn},null,2);$('lexicon').replaceChildren(...Object.keys(s.learned_words||{}).map(word=>{const d=document.createElement('span');d.className='word';d.textContent=word;return d}));if(s.message)teachingBubble('gum',s.message);$('teachScene').src='/api/teaching/image?scene='+s.scene_number+'&t='+Date.now()}
+function renderTeaching(s){$('teachState').textContent=JSON.stringify({examples:s.examples,learned_word_count:s.learned_word_count,scene_mode:s.scene_mode,pending_clarification:s.pending_clarification,last_turn:s.last_turn},null,2);$('lexicon').replaceChildren(...Object.keys(s.learned_words||{}).map(word=>{const d=document.createElement('span');d.className='word';d.textContent=word;return d}));if(s.message)teachingBubble('gum',s.message);$('teachScene').src=securedURL('/api/teaching/image?scene='+s.scene_number+'&t='+Date.now())}
 async function teachingAction(action,value={}){try{const s=await api('/api/teaching/'+action,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(value)});renderTeaching(s);return s}catch(e){teachingBubble('gum','Error: '+e.message)}}
 async function refreshTeaching(){try{renderTeaching(await api('/api/teaching/state'))}catch(e){teachingBubble('gum','Startup error: '+e.message)}}
 async function sendTeaching(){const text=$('teachMessage').value.trim();if(!text)return;teachingBubble('you',text);const state=await api('/api/teaching/state');await teachingAction(state.pending_clarification?'answer':'begin',{text})}
-function renderIndex(){$('globalWarning').textContent=index.global_warning||'';$('claims').replaceChildren(...(index.claims||[]).map(c=>{const d=document.createElement('article');d.className='card claim '+(c.status==='mixed-result'?'mixed':'');const st=document.createElement('div');st.className='status';st.textContent=c.status.replaceAll('-',' ');const h=document.createElement('h3');h.textContent=c.title;const lead=document.createElement('strong');lead.textContent=c.headline;const ul=document.createElement('ul');c.metrics.forEach(m=>{const li=document.createElement('li');li.textContent=m;ul.appendChild(li)});const scope=document.createElement('div');scope.className='scope';scope.textContent=c.scope;d.append(st,h,lead,ul,scope);return d}));$('replays').replaceChildren(...(index.replays||[]).map(r=>{const d=document.createElement('article');d.className='card replay';const h=document.createElement('h3');h.textContent=r.title;const img=document.createElement('img');img.loading='lazy';img.src='/api/media/'+encodeURIComponent(r.id);img.alt=r.title;d.append(h,img);return d}));$('docList').replaceChildren(...(index.documents||[]).map(doc=>{const b=document.createElement('button');b.textContent=doc.title;b.onclick=()=>loadDoc(doc.id);return b}))}
-async function loadDoc(id){const r=await fetch('/api/document/'+encodeURIComponent(id));$('docBody').textContent=await r.text()}
+function renderIndex(){$('globalWarning').textContent=index.global_warning||'';$('claims').replaceChildren(...(index.claims||[]).map(c=>{const d=document.createElement('article');d.className='card claim '+(c.status==='mixed-result'?'mixed':'');const st=document.createElement('div');st.className='status';st.textContent=c.status.replaceAll('-',' ');const h=document.createElement('h3');h.textContent=c.title;const lead=document.createElement('strong');lead.textContent=c.headline;const ul=document.createElement('ul');c.metrics.forEach(m=>{const li=document.createElement('li');li.textContent=m;ul.appendChild(li)});const scope=document.createElement('div');scope.className='scope';scope.textContent=c.scope;d.append(st,h,lead,ul,scope);return d}));$('replays').replaceChildren(...(index.replays||[]).map(r=>{const d=document.createElement('article');d.className='card replay';const h=document.createElement('h3');h.textContent=r.title;const img=document.createElement('img');img.loading='lazy';img.src=securedURL('/api/media/'+encodeURIComponent(r.id));img.alt=r.title;d.append(h,img);return d}));$('docList').replaceChildren(...(index.documents||[]).map(doc=>{const b=document.createElement('button');b.textContent=doc.title;b.onclick=()=>loadDoc(doc.id);return b}))}
+async function loadDoc(id){const r=await request('/api/document/'+encodeURIComponent(id));if(!r.ok)throw Error(r.statusText);$('docBody').textContent=await r.text()}
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.view').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.view).classList.add('active')});document.querySelectorAll('[data-say]').forEach(b=>b.onclick=()=>send(b.dataset.say));$('send').onclick=()=>send();$('msg').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}};$('learn').onclick=learn;$('refresh').onclick=refresh;
 $('starter').onclick=()=>teachingAction('starter');$('resetTeaching').onclick=()=>teachingAction('reset');$('newLesson').onclick=()=>teachingAction('scene',{mode:'lesson'});$('ambiguity').onclick=()=>teachingAction('scene',{mode:'ambiguity'});$('learnWords').onclick=()=>teachingAction('learn');$('sendTeaching').onclick=sendTeaching;$('teachMessage').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();sendTeaching()}};$('auditTeaching').onclick=async()=>{teachingBubble('gum','Running the fresh-learner audit…');const result=await teachingAction('audit');if(result&&result.audit){const a=result.audit;teachingBubble('gum',`Audit ${a.passed?'passed':'failed'}: ${a.results.overall_successes}/${a.results.overall_trials} completed successfully.`)}};$('teachScene').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();const x=Math.round((e.clientX-r.left)*e.currentTarget.naturalWidth/r.width);const y=Math.round((e.clientY-r.top)*e.currentTarget.naturalHeight/r.height);teachingAction('demonstrate',{phrase:$('teachPhrase').value,x,y})};
 (async()=>{try{index=await api('/api/evidence');renderIndex();await refresh();await refreshTeaching();bubble('gum','Studio ready. Create a world, teach visual words, inspect evidence, or start an explicit bounded learning run.')}catch(e){bubble('gum','Startup error: '+e.message)}})();
@@ -92,45 +97,87 @@ class StudioFiles:
     def document(self, item_id: str) -> Path | None: return self._declared("documents", item_id)
 
 
-def serve(workspace: Path, host="127.0.0.1", port=8765, release_root: Path | None = None,
-          open_browser: bool = False):
-    harness = GUMHarness(workspace); studio = StudioFiles(release_root); run_lock = threading.Lock()
-    teaching = TeachingLab(Path(workspace) / "teaching-lab"); teaching_lock = threading.Lock()
+def build_studio_server(workspace: Path, host="127.0.0.1", port=8765,
+                        release_root: Path | None = None, *, token: str | None = None):
+    """Build a loopback-only, token-protected Studio server for use or tests."""
+    try:
+        loopback = host.lower() == "localhost" or ipaddress.ip_address(host).is_loopback
+    except ValueError:
+        loopback = False
+    if not loopback:
+        raise ValueError("GUM Studio only binds to a loopback address")
+
+    harness = GUMHarness(workspace); studio = StudioFiles(release_root)
+    session_token = token or secrets.token_urlsafe(32)
+    run_lock = threading.Lock(); harness_lock = threading.RLock(); teaching_lock = threading.RLock()
+    teaching = TeachingLab(Path(workspace) / "teaching-lab")
 
     def worlds():
-        rows = []; active = None if harness.active_world is None else harness.active_world.resolve()
-        for folder in sorted(harness.world_root.iterdir()) if harness.world_root.exists() else []:
-            public, private = folder / "world.json", folder / "genome.private.json"
-            if not public.is_file() or not private.is_file(): continue
-            try:
-                row = json.loads(public.read_text(encoding="utf-8")); row["active"] = active == folder.resolve(); rows.append(row)
-            except (OSError, json.JSONDecodeError): continue
-        return rows
+        with harness_lock:
+            rows = []; active = None if harness.active_world is None else harness.active_world.resolve()
+            for folder in sorted(harness.world_root.iterdir()) if harness.world_root.exists() else []:
+                public, private = folder / "world.json", folder / "genome.private.json"
+                if not public.is_file() or not private.is_file(): continue
+                try:
+                    row = json.loads(public.read_text(encoding="utf-8")); row["active"] = active == folder.resolve(); rows.append(row)
+                except (OSError, json.JSONDecodeError): continue
+            return rows
 
     class Handler(BaseHTTPRequestHandler):
+        server_version = "GUMStudio/0.2.1"
+
+        def setup(self):
+            super().setup(); self.connection.settimeout(15)
+
+        def _allowed(self):
+            actual_port = self.server.server_address[1]
+            hosts = {f"127.0.0.1:{actual_port}", f"localhost:{actual_port}"}
+            if str(self.headers.get("Host", "")).lower() not in hosts: return False
+            origin = self.headers.get("Origin")
+            if origin is not None and origin.lower() not in {f"http://{value}" for value in hosts}: return False
+            query_token = parse_qs(urlparse(self.path).query).get("token", [""])[0]
+            supplied = self.headers.get("X-GUM-Studio-Token") or query_token
+            return secrets.compare_digest(str(supplied), session_token)
+
+        def _reply(self, data: bytes, status: int, content_type: str):
+            self.send_response(status); self.send_header("Content-Type", content_type)
+            self.send_header("Cache-Control", "no-store"); self.send_header("X-Content-Type-Options", "nosniff")
+            self.send_header("X-Frame-Options", "DENY"); self.send_header("Referrer-Policy", "no-referrer")
+            self.send_header("Cross-Origin-Resource-Policy", "same-origin")
+            self.send_header("Content-Security-Policy", "default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'")
+            self.send_header("Content-Length", str(len(data))); self.end_headers(); self.wfile.write(data)
+
         def _json(self, value, status=200):
-            data = json.dumps(value).encode("utf-8"); self.send_response(status)
-            self.send_header("Content-Type", "application/json; charset=utf-8"); self.send_header("Cache-Control", "no-store")
-            self.send_header("Content-Length", str(len(data))); self.end_headers(); self.wfile.write(data)
+            self._reply(json.dumps(value).encode("utf-8"), status, "application/json; charset=utf-8")
+
         def _body(self):
-            length = int(self.headers.get("Content-Length", "0"))
-            if length > 1_000_000: raise ValueError("request too large")
+            content_type = self.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+            if content_type != "application/json": raise ValueError("Content-Type must be application/json")
+            raw_length = self.headers.get("Content-Length")
+            if raw_length is None: raise ValueError("Content-Length is required")
+            length = int(raw_length)
+            if not 0 < length <= 1_000_000: raise ValueError("invalid request size")
             return json.loads(self.rfile.read(length) or b"{}")
+
         def _file(self, path: Path, content_type: str | None = None):
-            data = path.read_bytes(); self.send_response(200)
-            self.send_header("Content-Type", content_type or mimetypes.guess_type(path.name)[0] or "application/octet-stream")
-            self.send_header("Content-Length", str(len(data))); self.end_headers(); self.wfile.write(data)
+            data = path.read_bytes()
+            self._reply(data, 200, content_type or mimetypes.guess_type(path.name)[0] or "application/octet-stream")
+
         def do_GET(self):
+            if not self._allowed(): self._json({"error": "local Studio token and same-origin Host are required"}, 403); return
             route = urlparse(self.path).path
             try:
                 if route == "/":
-                    data = HTML.encode("utf-8"); self.send_response(200); self.send_header("Content-Type", "text/html; charset=utf-8")
-                    self.send_header("Content-Length", str(len(data))); self.end_headers(); self.wfile.write(data)
-                elif route == "/api/state": self._json(harness.status())
+                    data = HTML.replace("__GUM_STUDIO_TOKEN__", json.dumps(session_token)).encode("utf-8")
+                    self._reply(data, 200, "text/html; charset=utf-8")
+                elif route == "/api/state":
+                    with harness_lock: self._json(harness.status())
                 elif route == "/api/worlds": self._json({"worlds": worlds()})
                 elif route == "/api/evidence": self._json(studio.index)
-                elif route == "/api/teaching/state": self._json(teaching.state())
-                elif route == "/api/teaching/image": self._file(teaching.image_path, "image/png")
+                elif route == "/api/teaching/state":
+                    with teaching_lock: self._json(teaching.state())
+                elif route == "/api/teaching/image":
+                    with teaching_lock: self._file(teaching.image_path, "image/png")
                 elif route.startswith("/api/media/"):
                     path = studio.media(unquote(route.removeprefix("/api/media/")))
                     self._json({"error": "unknown replay"}, 404) if path is None else self._file(path)
@@ -138,28 +185,35 @@ def serve(workspace: Path, host="127.0.0.1", port=8765, release_root: Path | Non
                     path = studio.document(unquote(route.removeprefix("/api/document/")))
                     self._json({"error": "unknown document"}, 404) if path is None else self._file(path, "text/plain; charset=utf-8")
                 else: self._json({"error": "not found"}, 404)
+            except socket.timeout: self._json({"error": "request timed out"}, 408)
             except Exception as error: self._json({"error": str(error)}, 500)
+
         def do_POST(self):
+            if not self._allowed(): self._json({"error": "local Studio token and same-origin Host are required"}, 403); return
             route = urlparse(self.path).path
             try:
                 value = self._body()
                 if route == "/api/message":
                     text = str(value.get("text", "")).strip()
-                    response = ("Learning is an explicit operation in Studio. Choose an episode budget and press Run bounded learning."
-                                if "practice" in text.lower() or "learn this world" in text.lower() else harness.communicate(text))
-                    self._json({"response": response, "state": harness.status()})
+                    with harness_lock:
+                        response = ("Learning is an explicit operation in Studio. Choose an episode budget and press Run bounded learning."
+                                    if "practice" in text.lower() or "learn this world" in text.lower() else harness.communicate(text))
+                        self._json({"response": response, "state": harness.status()})
                 elif route == "/api/world":
-                    requested = str(value.get("world_id", "")); options = {row["world_id"]: harness.world_root / row["world_id"] for row in worlds()}
-                    if requested not in options: self._json({"error": "world is not in the local library"}, 404); return
-                    self._json({"world": harness.load_world(options[requested])})
+                    with harness_lock:
+                        requested = str(value.get("world_id", "")); options = {row["world_id"]: harness.world_root / row["world_id"] for row in worlds()}
+                        if requested not in options: self._json({"error": "world is not in the local library"}, 404); return
+                        self._json({"world": harness.load_world(options[requested])})
                 elif route == "/api/practice":
-                    if harness.active_world is None: self._json({"error": "create or load a world first"}, 409); return
-                    public = json.loads((harness.active_world / "world.json").read_text(encoding="utf-8"))
-                    if int(public.get("agents", 1)) != 1:
-                        self._json({"error": "The bounded learning button is for one-agent grid worlds; cooperative replays are in Evidence."}, 409); return
-                    episodes = max(20, min(600, int(value.get("episodes", 120))))
                     if not run_lock.acquire(blocking=False): self._json({"error": "a learning run is already active"}, 409); return
-                    try: self._json(harness.practice(training_episodes=episodes, evaluation_episodes=max(10, min(60, episodes // 3))))
+                    try:
+                        with harness_lock:
+                            if harness.active_world is None: self._json({"error": "create or load a world first"}, 409); return
+                            public = json.loads((harness.active_world / "world.json").read_text(encoding="utf-8"))
+                            if int(public.get("agents", 1)) != 1:
+                                self._json({"error": "The bounded learning button is for one-agent grid worlds; cooperative replays are in Evidence."}, 409); return
+                            episodes = max(20, min(600, int(value.get("episodes", 120))))
+                            self._json(harness.practice(training_episodes=episodes, evaluation_episodes=max(10, min(60, episodes // 3))))
                     finally: run_lock.release()
                 elif route.startswith("/api/teaching/"):
                     action = route.removeprefix("/api/teaching/")
@@ -178,12 +232,33 @@ def serve(workspace: Path, host="127.0.0.1", port=8765, release_root: Path | Non
                         self._json(result)
                     finally: teaching_lock.release()
                 else: self._json({"error": "not found"}, 404)
+            except socket.timeout: self._json({"error": "request timed out"}, 408)
             except (ValueError, TypeError, json.JSONDecodeError) as error: self._json({"error": str(error)}, 400)
             except Exception as error: self._json({"error": str(error)}, 500)
+
+        def do_OPTIONS(self):
+            self._json({"error": "cross-origin requests are not supported"}, 403)
+
         def log_message(self, format, *args): pass
 
     server = ThreadingHTTPServer((host, int(port)), Handler)
-    url = f"http://{host}:{port}"
+    server.daemon_threads = True
+    actual_port = server.server_address[1]
+    url = f"http://{host}:{actual_port}/?token={quote(session_token)}"
+    server.gum_session_token = session_token
+    server.gum_url = url
+    return server, url
+
+
+def serve(workspace: Path, host="127.0.0.1", port=8765, release_root: Path | None = None,
+          open_browser: bool = False):
+    server, url = build_studio_server(workspace, host, port, release_root)
     if open_browser:
         threading.Timer(0.5, lambda: webbrowser.open(url)).start()
-    print(f"GUM Studio: {url}"); server.serve_forever()
+    print(f"GUM Studio: {url}", flush=True)
+    try:
+        server.serve_forever(poll_interval=.3)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        server.server_close()

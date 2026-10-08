@@ -29,6 +29,29 @@ def test_hash_ledger_detects_tampering(tmp_path: Path):
     assert not ledger.verify()["valid"]
 
 
+def test_hash_ledger_anchor_detects_deleted_suffix(tmp_path: Path):
+    path = tmp_path / "ledger.jsonl"; ledger = HashLedger(path)
+    ledger.append("one", {"value": 1}); ledger.append("two", {"value": 2})
+    assert ledger.verify()["valid"] and ledger.verify()["anchored"]
+    path.write_text(path.read_text().splitlines()[0] + "\n", encoding="utf-8")
+    result = ledger.verify()
+    assert not result["valid"]
+    assert "record count differs from anchor" in result["errors"]
+    reopened = HashLedger(path)
+    try: reopened.append("three", {"value": 3})
+    except RuntimeError as error: assert "disagrees with its anchor" in str(error)
+    else: raise AssertionError("truncated ledger was extended and re-anchored")
+
+
+def test_atomic_brain_save_keeps_previous_backup(tmp_path: Path):
+    from gum.mind import PixelQLearner
+    path = tmp_path / "mind.json"; mind = PixelQLearner()
+    mind.episodes = 1; mind.save(path)
+    first = path.read_bytes(); mind.episodes = 2; mind.save(path)
+    assert json.loads(path.read_text())["episodes"] == 2
+    assert path.with_name("mind.json.bak").read_bytes() == first
+
+
 def test_harness_persists_mind_and_conversation(tmp_path: Path):
     harness = GUMHarness(tmp_path); folder = harness.create_world(seed=202, difficulty=0)
     assert folder.exists(); assert "verified records" in harness.communicate("what do you know?")
@@ -66,10 +89,13 @@ def test_builtin_worlds_keep_hidden_state_out_of_public_contract(tmp_path: Path)
 def test_cooperative_mind_snapshot_round_trip_and_checksum(tmp_path: Path):
     path = tmp_path / "immune.json"; mind = CooperativeTeamMind("immune-savior")
     mind.episodes = 3; mind.steps = 17; mind.save(path)
-    restored = CooperativeTeamMind.load(path)
+    try: CooperativeTeamMind.load(path)
+    except ValueError as error: assert "trusted=True" in str(error)
+    else: raise AssertionError("pickle state loaded without explicit trust")
+    restored = CooperativeTeamMind.load(path, trusted=True)
     assert restored.episodes == 3 and restored.steps == 17
     state = path.with_suffix(".state.pkl"); state.write_bytes(state.read_bytes() + b"tamper")
-    try: CooperativeTeamMind.load(path)
+    try: CooperativeTeamMind.load(path, trusted=True)
     except ValueError as error: assert "checksum" in str(error)
     else: raise AssertionError("tampered specialist state was accepted")
 

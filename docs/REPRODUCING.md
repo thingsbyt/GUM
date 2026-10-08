@@ -13,17 +13,23 @@ Create an isolated environment if possible:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install -e ".[dev]"
+```
+
+For the complete historical neural suite:
+
+```powershell
+python -m pip install -e ".[dev,neural]"
 ```
 
 ## Core tests
 
 ```powershell
-python -m unittest `
-  tests.test_concept_skill_factory `
-  tests.test_concept_genesis `
-  tests.test_data_rescue_world `
-  tests.test_meta_learning -v
+python -m pytest -q `
+  tests/test_concept_skill_factory.py `
+  tests/test_concept_genesis.py `
+  tests/test_data_rescue_world.py `
+  tests/test_meta_learning.py
 ```
 
 Run the complete suite:
@@ -32,10 +38,14 @@ Run the complete suite:
 $env:TEMP = Join-Path $PWD '.test-temp'
 $env:TMP = $env:TEMP
 New-Item -ItemType Directory -Path $env:TEMP -Force | Out-Null
-python -m unittest discover -s tests -p 'test_*.py'
+python -m pytest -q
 ```
 
 The explicit temporary folder avoids a Windows app-sandbox restriction that can otherwise prevent tests from writing to the operating system's default temporary directory. It does not change the learner or its results.
+
+Pytest is intentional: unlike `unittest discover`, it collects both
+`unittest.TestCase` methods and the repository's module-level `test_*`
+functions.
 
 ## Correct freeze procedure
 

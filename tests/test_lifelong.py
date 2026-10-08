@@ -53,7 +53,7 @@ class LifelongBankTests(unittest.TestCase):
             self.assertFalse(event['accepted'])
             self.assertEqual(digest(skill.path), before)
             saved = bank.open(self.spec('remember'))
-            self.assertLess(max(float(p.abs().max()) for p in saved.online.parameters()), 10)
+            self.assertLess(max(float(p.detach().abs().max()) for p in saved.online.parameters()), 10)
 
     def test_context_router_handles_known_and_novel_scenes(self):
         with tempfile.TemporaryDirectory() as td:

@@ -21,6 +21,8 @@ import re
 import numpy as np
 from PIL import Image, ImageDraw
 
+from .storage import atomic_write_json
+
 
 COLORS = {
     "red": (220, 62, 62),
@@ -170,7 +172,7 @@ class VisualWordGrounder:
         value = {"format": self.format, "examples": self.examples,
                  "word_to_feature": self.word_to_feature,
                  "feature_to_word": self.feature_to_word, "scores": self.scores}
-        Path(path).write_text(json.dumps(value, indent=2), encoding="utf-8")
+        atomic_write_json(Path(path), value)
 
     @classmethod
     def load(cls, path: Path):

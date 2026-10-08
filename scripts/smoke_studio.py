@@ -7,12 +7,18 @@ from pathlib import Path
 import subprocess
 import sys
 import time
+from urllib.parse import parse_qs, urlsplit
 from urllib.request import Request, urlopen
 
 
 def request(url: str, path: str, body: dict | None = None) -> dict:
     data = None if body is None else json.dumps(body).encode("utf-8")
-    req = Request(url + path, data=data, headers={"Content-Type": "application/json"})
+    parsed = urlsplit(url)
+    token = parse_qs(parsed.query)["token"][0]
+    origin = f"{parsed.scheme}://{parsed.netloc}"
+    headers = {"X-GUM-Studio-Token": token}
+    if body is not None: headers["Content-Type"] = "application/json"
+    req = Request(origin + path, data=data, headers=headers)
     with urlopen(req, timeout=5) as response:
         return json.loads(response.read())
 
@@ -25,10 +31,13 @@ def main(argv=None) -> int:
     root = Path(__file__).resolve().parents[1]
     command = [sys.executable, "-m", "gum", "--workspace", str(args.workspace),
                "serve", "--release", str(root), "--port", str(args.port)]
-    process = subprocess.Popen(command, cwd=root, stdout=subprocess.DEVNULL,
+    process = subprocess.Popen(command, cwd=root, stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE, text=True)
-    url = f"http://127.0.0.1:{args.port}"
     try:
+        announcement = process.stdout.readline().strip()
+        if not announcement.startswith("GUM Studio: "):
+            raise RuntimeError(announcement or process.stderr.read())
+        url = announcement.removeprefix("GUM Studio: ")
         for _ in range(50):
             try:
                 request(url, "/api/teaching/state")

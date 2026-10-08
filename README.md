@@ -78,6 +78,12 @@ The final row is intentionally shown as a mixed result: the apple sub-result pas
 
 [Trace every claim to its audit](docs/EVIDENCE.md)
 
+The v0.2.1 hardening build was also rerun from a fresh precommitted Concept
+Genesis protocol: 20/20 transfer, 4/4 retention, and a 543.09×
+experienced-versus-fresh advantage. This is a fresh internal reproduction, not
+independent replication; its protocol and raw traces are included in the
+evidence package.
+
 ## See it work
 
 | Logic and navigation | Real-file work |
@@ -140,17 +146,18 @@ GUM requires Python 3.10 or newer.
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -e ".[dev]"
 python -m gum --workspace .gum-workspace serve --release . --open-browser
 ```
 
 Core verification:
 
 ```bash
-python -m unittest discover -s tests -v
-python scripts/verify_freeze.py
+python -m pytest -q
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_v0.2.1.json
 ```
 
+The older neural experiments need `python -m pip install -e ".[dev,neural]"`.
 Some experiment suites are longer and have separate commands in [Reproducing the work](docs/REPRODUCING.md).
 
 ## Repository status

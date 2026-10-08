@@ -171,7 +171,8 @@ class GUMHarness:
         specialist_root = self.artifact_root / "specialists"; specialist_root.mkdir(exist_ok=True)
         safe_family = str(family).replace("/", "-"); persistent = specialist_root / f"{safe_family}--{spec.world_id}.json"
         resumed = persistent.exists()
-        mind = CooperativeTeamMind.load(persistent) if resumed else CooperativeTeamMind(family, communicate=communicate)
+        mind = (CooperativeTeamMind.load(persistent, trusted=True) if resumed
+                else CooperativeTeamMind(family, communicate=communicate))
         run_id = str(uuid.uuid4()); folder = self.run_root / run_id; folder.mkdir(parents=True)
         trace = TransitionTrace(folder / "TRANSITIONS.jsonl"); rows = []
         self.ledger.append("specialist-run-started", {"world": spec.to_json(), "mind": mind.status(),

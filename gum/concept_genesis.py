@@ -2,8 +2,9 @@
 
 The learner is not given event classes or a requested number of concepts.  It
 learns a vocabulary of pixel changes, represents each transition as a bag of
-those learned visual tokens, and selects its own event partition by held-out
-cluster quality.  Successful event sequences are compiled into reusable skills.
+those learned visual tokens, and selects its own event partition using an
+internal silhouette score.  Separate worlds test later transfer.  Successful
+event sequences are compiled into reusable skills.
 """
 from __future__ import annotations
 
@@ -17,6 +18,8 @@ from typing import Iterable
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+
+from .storage import atomic_write_json
 from sklearn.preprocessing import StandardScaler
 
 
@@ -271,21 +274,52 @@ class ConceptGenesisMind:
         if skill is None: skill = GenesisSkill(skill_id, sequence); self.skills[skill_id] = skill
         skill.support += 1; skill.contexts.add(context); return skill
 
-    def acquire(self, world: GenesisWorld, trace=None):
-        context, mapping, interactions = self.ground(world, trace); length = world.public_spec["horizon"]
+    @staticmethod
+    def _cancelled(cancel) -> bool:
+        if cancel is None: return False
+        return bool(cancel.is_set() if hasattr(cancel, "is_set") else cancel())
+
+    def acquire(self, world: GenesisWorld, trace=None, *, max_candidates: int = 100_000,
+                max_interactions: int = 500_000, cancel=None):
+        """Acquire a skill within explicit search and interaction budgets."""
+        if int(max_candidates) < 1 or int(max_interactions) < 1:
+            raise ValueError("acquisition budgets must be positive")
+        if self._cancelled(cancel):
+            return {"success": False, "reason": "cancelled", "interactions": 0, "candidates": 0}
+        if int(max_interactions) < ACTION_COUNT:
+            return {"success": False, "reason": "interaction-budget", "interactions": 0, "candidates": 0}
+        try: context, mapping, interactions = self.ground(world, trace)
+        except RuntimeError as error:
+            return {"success": False, "reason": "unsupported-world", "detail": str(error),
+                    "interactions": 0, "candidates": 0}
+        length = world.public_spec["horizon"]
         for tried, candidate in enumerate(itertools.product(range(ACTION_COUNT), repeat=length), 1):
+            if self._cancelled(cancel):
+                return {"success": False, "reason": "cancelled", "context": context,
+                        "interactions": interactions, "candidates": tried - 1}
+            if tried > int(max_candidates):
+                return {"success": False, "reason": "candidate-budget", "context": context,
+                        "interactions": interactions, "candidates": tried - 1}
+            if interactions + length > int(max_interactions):
+                return {"success": False, "reason": "interaction-budget", "context": context,
+                        "interactions": interactions, "candidates": tried - 1}
             success, steps = self._run(world, candidate, trace); interactions += steps; self.interactions += steps
             if success:
                 skill = self._compile([mapping[action] for action in candidate], context); skill.successes += 1
                 self.contexts[context] = {"mapping": {str(k): v for k, v in mapping.items()}, "skill_id": skill.skill_id}
                 return {"success": True, "context": context, "skill_id": skill.skill_id,
-                        "interactions": interactions, "candidates": tried}
-        return {"success": False, "context": context, "interactions": interactions}
+                        "interactions": interactions, "candidates": tried, "reason": "learned"}
+        return {"success": False, "reason": "search-exhausted", "context": context,
+                "interactions": interactions, "candidates": ACTION_COUNT ** length}
 
     def solve(self, world: GenesisWorld, trace=None):
-        context, mapping, interactions = self.ground(world, trace); inverse = {v: k for k, v in mapping.items()}; tried = 0
+        try: context, mapping, interactions = self.ground(world, trace)
+        except RuntimeError as error:
+            return {"success": False, "reason": "unsupported-world", "detail": str(error), "interactions": 0}
+        inverse = {v: k for k, v in mapping.items()}; tried = 0; incompatible = 0
         for skill in sorted(self.skills.values(), key=lambda row: (-row.confidence, row.skill_id)):
             if len(skill.sequence) != world.public_spec["horizon"]: continue
+            if any(value not in inverse for value in skill.sequence): incompatible += 1; continue
             success, steps = self._run(world, [inverse[value] for value in skill.sequence], trace)
             interactions += steps; self.interactions += steps; tried += 1
             skill.successes += int(success); skill.failures += int(not success)
@@ -293,22 +327,31 @@ class ConceptGenesisMind:
                 self.contexts[context] = {"mapping": {str(k): v for k, v in mapping.items()}, "skill_id": skill.skill_id}
                 return {"success": True, "context": context, "skill_id": skill.skill_id,
                         "interactions": interactions, "skills_tried": tried}
-        return {"success": False, "context": context, "interactions": interactions, "skills_tried": tried}
+        reason = "unknown-concept" if incompatible and not tried else "no-compatible-skill"
+        return {"success": False, "reason": reason, "context": context,
+                "interactions": interactions, "skills_tried": tried, "incompatible_skills": incompatible}
 
     def revisit(self, world: GenesisWorld, trace=None):
         context = self.context_id(world); memory = self.contexts.get(context)
         if memory is None: return self.solve(world, trace)
         inverse = {concept: int(action) for action, concept in memory["mapping"].items()}
-        skill = self.skills[memory["skill_id"]]; success, steps = self._run(world, [inverse[x] for x in skill.sequence], trace)
+        skill = self.skills.get(memory["skill_id"])
+        if skill is None or any(value not in inverse for value in skill.sequence):
+            return {"success": False, "reason": "stale-memory", "context": context, "interactions": 0}
+        success, steps = self._run(world, [inverse[x] for x in skill.sequence], trace)
         self.interactions += steps; skill.successes += int(success); skill.failures += int(not success)
         return {"success": success, "context": context, "skill_id": skill.skill_id, "interactions": steps}
 
     def compose(self, world: GenesisWorld, trace=None):
-        context, mapping, interactions = self.ground(world, trace); inverse = {v: k for k, v in mapping.items()}; tried = 0
+        try: context, mapping, interactions = self.ground(world, trace)
+        except RuntimeError as error:
+            return {"success": False, "reason": "unsupported-world", "detail": str(error), "interactions": 0}
+        inverse = {v: k for k, v in mapping.items()}; tried = 0
         base = [row for row in sorted(self.skills.values(), key=lambda row: row.skill_id)
                 if len(row.sequence) * 2 == world.public_spec["horizon"]]
         for left, right in itertools.product(base, repeat=2):
             sequence = left.sequence + right.sequence
+            if any(value not in inverse for value in sequence): continue
             success, steps = self._run(world, [inverse[x] for x in sequence], trace)
             interactions += steps; self.interactions += steps; tried += 1
             if success:
@@ -317,7 +360,7 @@ class ConceptGenesisMind:
                 return {"success": True, "context": context, "skill_id": skill.skill_id,
                         "interactions": interactions, "compositions_tried": tried,
                         "parents": [left.skill_id, right.skill_id]}
-        return {"success": False, "context": context, "interactions": interactions,
+        return {"success": False, "reason": "no-compatible-composition", "context": context, "interactions": interactions,
                 "compositions_tried": tried}
 
     def status(self):
@@ -329,8 +372,7 @@ class ConceptGenesisMind:
 
     def save(self, path: Path):
         value = self.status() | {"encoder": self.encoder.to_json(), "contexts": self.contexts}
-        path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(value, indent=2, sort_keys=True), encoding="utf-8")
+        atomic_write_json(Path(path), value, sort_keys=True)
 
     @classmethod
     def load(cls, path: Path):

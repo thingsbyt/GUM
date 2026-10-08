@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "growing-understanding-machine"
-version = "0.2.0"
+version = "0.2.1"
 description = "A compact auditable continual learner for concepts, skills, and acquisition strategies"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -18,6 +18,16 @@ dependencies = [
   "scikit-learn>=1.4,<2",
 ]
 
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+]
+neural = [
+  "torch>=2.5,<3",
+  "torchvision>=0.20,<1",
+  "transformers>=4.45,<6",
+]
+
 [project.urls]
 Homepage = "https://github.com/thingsbyt/GUM"
 Repository = "https://github.com/thingsbyt/GUM"
@@ -25,4 +35,7 @@ Documentation = "https://github.com/thingsbyt/GUM/tree/main/docs"
 
 [tool.setuptools.packages.find]
 include = ["gum*", "jepa_asteroids*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
 

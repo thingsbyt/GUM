@@ -7,6 +7,7 @@ import pickle
 from pathlib import Path
 
 from .protocol import PublicWorldSpec, Transition
+from .storage import atomic_write_bytes, atomic_write_json
 
 
 class CooperativeTeamMind:
@@ -49,17 +50,23 @@ class CooperativeTeamMind:
     def save(self, path: Path):
         path = Path(path); state_path = path.with_suffix(".state.pkl")
         state_path.parent.mkdir(parents=True, exist_ok=True)
-        state_path.write_bytes(pickle.dumps(self.team, protocol=pickle.HIGHEST_PROTOCOL))
+        atomic_write_bytes(state_path, pickle.dumps(self.team, protocol=pickle.HIGHEST_PROTOCOL))
         payload = {"format": self.format, "family": self.family, "communicate": self.communicate,
                    "episodes": self.episodes, "steps": self.steps, "status": self.status(),
                    "state_file": state_path.name,
                    "state_sha256": hashlib.sha256(state_path.read_bytes()).hexdigest(),
                    "trust_boundary": "load only snapshots created in this GUM workspace"}
-        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        atomic_write_json(path, payload)
 
     @classmethod
-    def load(cls, path: Path):
-        """Reload a checksum-verified snapshot from the harness-owned artifact store."""
+    def load(cls, path: Path, *, trusted: bool = False):
+        """Reload a checksum-verified, explicitly trusted local snapshot.
+
+        Pickle is executable input.  A digest detects corruption but cannot make
+        an untrusted file safe, so callers must opt in at the boundary.
+        """
+        if not trusted:
+            raise ValueError("refusing to load pickle state without trusted=True")
         path = Path(path); payload = json.loads(path.read_text(encoding="utf-8"))
         if payload.get("format") != cls.format: raise ValueError("unsupported specialist mind format")
         state_path = path.with_name(payload["state_file"]); data = state_path.read_bytes()

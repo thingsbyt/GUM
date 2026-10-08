@@ -17,6 +17,8 @@ from typing import Iterable
 
 import numpy as np
 
+from .storage import atomic_write_json
+
 
 ACTION_COUNT = 5
 SLOTS = 10
@@ -304,8 +306,7 @@ class ConceptSkillFactory:
     def save(self, path: Path) -> None:
         value = self.status() | {"context_memory": self.context_memory,
             "concept_events": self.concept_events, "skill_events": self.skill_events}
-        Path(path).parent.mkdir(parents=True, exist_ok=True)
-        Path(path).write_text(json.dumps(value, indent=2, sort_keys=True), encoding="utf-8")
+        atomic_write_json(Path(path), value, sort_keys=True)
 
     @classmethod
     def load(cls, path: Path):

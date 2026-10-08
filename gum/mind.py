@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from .protocol import PublicWorldSpec, Transition
+from .storage import atomic_write_json
 
 
 def observation_id(observation) -> str:
@@ -84,8 +85,7 @@ class PixelQLearner:
             "epsilon": self.epsilon, "episodes": self.episodes, "training_steps": self.training_steps,
             "evaluation_steps": self.evaluation_steps, "q": {key: value.tolist() for key, value in self.q.items()},
             "world_states": {world: sorted(states) for world, states in self.world_states.items()}}
-        Path(path).parent.mkdir(parents=True, exist_ok=True)
-        Path(path).write_text(json.dumps(payload, separators=(",", ":")), encoding="utf-8")
+        atomic_write_json(Path(path), payload, indent=None)
 
     @classmethod
     def load(cls, path: Path):

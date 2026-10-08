@@ -80,6 +80,22 @@ The `evidence/showcase` folder preserves earlier or complementary experiments us
 
 Showcase experiments have different protocols and generations. Their scores must not be averaged into a universal GUM score.
 
+## v0.2.1 fresh hardening reproduction
+
+After the persistence, Studio, and bounded-search changes, Concept Genesis was
+run again from a newly written protocol against the changed source hashes. It
+again selected five event concepts without receiving a requested count, passed
+4/4 curriculum tasks, 20/20 separate transfer worlds, and 4/4 retention checks.
+On the composed fifth world, the experienced mind succeeded in 23 interactions;
+the perception-matched fresh mind needed 12,491, a **543.09×** advantage.
+
+This is a fresh internal reproduction, not an independent replication. The
+readable [protocol](../evidence/v0.2.1-fresh-concept/CONCEPT_GENESIS_PROTOCOL.json),
+[audit](../evidence/v0.2.1-fresh-concept/CONCEPT_GENESIS_AUDIT.json), and
+[summary](../evidence/v0.2.1-fresh-concept/RESULTS.md) are included. The complete
+archive in `evidence/archives/GUM_V021_FRESH_CONCEPT_GENESIS_EVIDENCE.zip`
+contains the mind snapshots and raw hash-anchored traces.
+
 ## Evidence archives
 
 The `evidence/archives` directory contains the larger evidence packages, including source snapshots and raw transition traces. Public-preview copies have release-machine home paths sanitized as documented above; the release manifest records their current SHA-256 values.
