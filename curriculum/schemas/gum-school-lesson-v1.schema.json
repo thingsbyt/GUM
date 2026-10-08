@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thingsbyt.github.io/GUM/schemas/gum-school-lesson-v1.schema.json",
+  "title": "GUM School lesson v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "lesson_id",
+    "title",
+    "school",
+    "grade",
+    "sequence",
+    "authored_family",
+    "rationale",
+    "adapter",
+    "world_admission_id",
+    "capabilities",
+    "baseline",
+    "training",
+    "evaluation",
+    "retention",
+    "promotion",
+    "learner_inputs",
+    "prohibited_inputs",
+    "resource_limits",
+    "evidence",
+    "failure_policy"
+  ],
+  "properties": {
+    "schema": {"const": "gum-school-lesson-v1"},
+    "lesson_id": {"type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)+$"},
+    "title": {"type": "string", "minLength": 8, "maxLength": 120},
+    "school": {"$ref": "#/$defs/school"},
+    "grade": {"type": "integer", "minimum": 1, "maximum": 12},
+    "sequence": {"type": "integer", "minimum": 1},
+    "authored_family": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)+$"},
+    "rationale": {"type": "string", "minLength": 40, "maxLength": 500},
+    "adapter": {"$ref": "#/$defs/adapter"},
+    "world_admission_id": {"type": "string", "pattern": "^admission\\.[a-z0-9]+(?:[.-][a-z0-9]+)+$"},
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/capability"}
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["controls", "trials", "same_perception", "same_resource_limits"],
+      "properties": {
+        "controls": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"enum": ["candidate-before-training", "matched-fresh", "random"]}
+        },
+        "trials": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "same_perception": {"const": true},
+        "same_resource_limits": {"const": true}
+      }
+    },
+    "training": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generator", "seeds", "worlds_per_seed", "interaction_budget"],
+      "properties": {
+        "generator": {"type": "string", "pattern": "^authored-[a-z0-9]+(?:-[a-z0-9]+)*-v1$"},
+        "seeds": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 2147483647}
+        },
+        "worlds_per_seed": {"type": "integer", "minimum": 1, "maximum": 100},
+        "interaction_budget": {"type": "integer", "minimum": 1, "maximum": 10000000}
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "examination_ids",
+        "development_seeds",
+        "trials",
+        "new_seed_trials",
+        "structurally_shifted",
+        "metrics"
+      ],
+      "properties": {
+        "examination_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^exam\\.[a-z0-9]+(?:[.-][a-z0-9]+)+$"}
+        },
+        "development_seeds": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 2147483647}
+        },
+        "trials": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "new_seed_trials": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "structurally_shifted": {"type": "boolean"},
+        "metrics": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"enum": ["success", "efficiency", "uncertainty", "unnecessary-actions"]},
+          "allOf": [
+            {"contains": {"const": "success"}},
+            {"contains": {"const": "efficiency"}},
+            {"contains": {"const": "uncertainty"}},
+            {"contains": {"const": "unnecessary-actions"}}
+          ]
+        }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protected_skills", "evaluation_seeds", "trials", "maximum_regression"],
+      "properties": {
+        "protected_skills": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/capability"}
+        },
+        "evaluation_seeds": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 1000,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 2147483647}
+        },
+        "trials": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "maximum_regression": {"type": "number", "minimum": 0, "maximum": 0.25}
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimum_success",
+        "minimum_fresh_advantage",
+        "maximum_uncertainty_rate",
+        "maximum_unnecessary_action_rate",
+        "required_gates"
+      ],
+      "properties": {
+        "minimum_success": {"type": "number", "minimum": 0.5, "maximum": 1},
+        "minimum_fresh_advantage": {"type": "number", "minimum": 1, "maximum": 100},
+        "maximum_uncertainty_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "maximum_unnecessary_action_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "required_gates": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "sealed-performance",
+              "retention",
+              "evidence-integrity",
+              "resource-limits",
+              "control-advantage",
+              "input-boundary",
+              "replay"
+            ]
+          }
+        }
+      }
+    },
+    "learner_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/input"}
+    },
+    "prohibited_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/prohibitedInput"}
+    },
+    "resource_limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wall_clock_seconds", "peak_memory_mb", "artifact_storage_mb", "max_interactions"],
+      "properties": {
+        "wall_clock_seconds": {"type": "integer", "minimum": 1, "maximum": 604800},
+        "peak_memory_mb": {"type": "integer", "minimum": 1, "maximum": 1048576},
+        "artifact_storage_mb": {"type": "integer", "minimum": 1, "maximum": 1048576},
+        "max_interactions": {"type": "integer", "minimum": 1, "maximum": 10000000}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preserve_failures",
+        "hash_algorithm",
+        "source_hashes",
+        "protocol_hashes",
+        "trajectories",
+        "replay_metadata"
+      ],
+      "properties": {
+        "preserve_failures": {"const": true},
+        "hash_algorithm": {"const": "sha256"},
+        "source_hashes": {"const": true},
+        "protocol_hashes": {"const": true},
+        "trajectories": {"const": true},
+        "replay_metadata": {"const": true}
+      }
+    },
+    "failure_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["abort_on_limit_breach", "quarantine_candidate", "rollback_to_promoted", "record_diagnosis"],
+      "properties": {
+        "abort_on_limit_breach": {"const": true},
+        "quarantine_candidate": {"const": true},
+        "rollback_to_promoted": {"const": true},
+        "record_diagnosis": {"const": true}
+      }
+    }
+  },
+  "$defs": {
+    "school": {
+      "enum": [
+        "object-laboratory",
+        "causal-workshop",
+        "changing-maze",
+        "physics-playground",
+        "logic-chamber",
+        "language-classroom",
+        "cooperation-worlds",
+        "asteroids-academy",
+        "artifact-workshop",
+        "sealed-finals"
+      ]
+    },
+    "adapter": {
+      "enum": [
+        "gum-grid-v1",
+        "gum-two-rocket-asteroids-v1",
+        "gum-cooperative-immune-v1",
+        "gum-object-laboratory-v1",
+        "gum-causal-workshop-v1",
+        "gum-changing-maze-v1",
+        "gum-physics-playground-v1",
+        "gum-logic-chamber-v1",
+        "gum-language-classroom-v1",
+        "gum-cooperation-world-v1",
+        "gum-artifact-workshop-v1",
+        "gum-sealed-finals-v1"
+      ]
+    },
+    "capability": {
+      "enum": [
+        "entity-attention",
+        "object-persistence",
+        "occlusion-tracking",
+        "comparison",
+        "categorization",
+        "control-grounding",
+        "causal-intervention",
+        "affordance-discovery",
+        "immediate-prediction",
+        "event-concept-formation",
+        "skill-retention",
+        "spatial-memory",
+        "replanning",
+        "strategy-revision",
+        "prerequisite-planning",
+        "counterfactual-reasoning",
+        "momentum-prediction",
+        "collision-timing",
+        "grounded-language",
+        "clarification",
+        "evidence-linked-explanation",
+        "selective-communication",
+        "role-selection",
+        "cooperation-necessity",
+        "rapid-visual-control",
+        "safe-artifact-work",
+        "source-preservation",
+        "independent-validation",
+        "cross-family-transfer",
+        "skill-composition"
+      ]
+    },
+    "input": {
+      "enum": [
+        "rgb-pixels",
+        "local-rgb-views",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info",
+        "text-demonstrations",
+        "pointer-demonstrations",
+        "artifact-bytes",
+        "validator-feedback"
+      ]
+    },
+    "prohibitedInput": {
+      "enum": [
+        "audit-only-state",
+        "action-meanings",
+        "control-map",
+        "goal-coordinates",
+        "hazard-coordinates",
+        "mechanism-description",
+        "successful-sequence",
+        "concept-assignment",
+        "sealed-seeds",
+        "task-solution",
+        "evaluator-state"
+      ]
+    }
+  }
+}

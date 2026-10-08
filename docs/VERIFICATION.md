@@ -1,5 +1,35 @@
 # Frozen release verification
 
+## GUM School Phase 0 verification
+
+The Phase 0 specification was verified on 2026-10-08 without running any school
+training or generating sealed worlds. The standalone validator accepted the
+canonical curriculum, and all 18 focused schema/validator tests passed:
+
+```powershell
+python -m gum.school curriculum/gum-school-v1.json
+python -m pytest -q tests/test_school_curriculum.py
+```
+
+The complete repository suite then passed **285/285 tests** on Python 3.12 in
+305.88 seconds. The run emitted the already documented test-only PyTorch warning
+in `tests/test_method.py` about scalar conversion; there were no failures. The
+public-package integrity scan also passed with no path, credential, private-key,
+or other publication-leak hit, and `python -m pip check` reported no broken
+requirements.
+
+The exact Phase 0 working tree is recorded separately in
+`RELEASE_MANIFEST_GUM_SCHOOL_PHASE_0.json` and can be checked with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_0.json
+```
+
+`RELEASE_MANIFEST_v0.2.1.json` remains unchanged as a historical snapshot. It
+correctly reports that files edited for Phase 0 no longer match v0.2.1; that is
+not repaired by rewriting old evidence. No Phase 0 training result, adapter
+admission, or general-capability claim follows from these verification checks.
+
 This page records what was actually checked before the first local Git release was sealed on 2026-10-08.
 
 ## Result

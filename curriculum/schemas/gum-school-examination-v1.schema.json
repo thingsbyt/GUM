@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thingsbyt.github.io/GUM/schemas/gum-school-examination-v1.schema.json",
+  "title": "GUM School examination v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "examination_id",
+    "title",
+    "school",
+    "adapter",
+    "capabilities",
+    "selection",
+    "trials",
+    "interaction_budget",
+    "control_baselines",
+    "metrics",
+    "freeze_requirements",
+    "learner_inputs",
+    "prohibited_inputs"
+  ],
+  "properties": {
+    "schema": {"const": "gum-school-examination-v1"},
+    "examination_id": {"type": "string", "pattern": "^exam\\.[a-z0-9]+(?:[.-][a-z0-9]+)+$"},
+    "title": {"type": "string", "minLength": 8, "maxLength": 120},
+    "school": {
+      "enum": [
+        "object-laboratory",
+        "causal-workshop",
+        "changing-maze",
+        "physics-playground",
+        "logic-chamber",
+        "language-classroom",
+        "cooperation-worlds",
+        "asteroids-academy",
+        "artifact-workshop",
+        "sealed-finals"
+      ]
+    },
+    "adapter": {
+      "enum": [
+        "gum-object-laboratory-v1",
+        "gum-causal-workshop-v1",
+        "gum-changing-maze-v1",
+        "gum-physics-playground-v1",
+        "gum-logic-chamber-v1",
+        "gum-language-classroom-v1",
+        "gum-cooperation-world-v1",
+        "gum-two-rocket-asteroids-v1",
+        "gum-artifact-workshop-v1",
+        "gum-sealed-finals-v1"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/capability"}
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "commitment_scope",
+        "sealed_seed_commitment",
+        "protocol",
+        "authority",
+        "revealed_after_freeze",
+        "selected_before_evaluated_run"
+      ],
+      "properties": {
+        "status": {"enum": ["selection-protocol-committed", "seeds-committed"]},
+        "commitment_scope": {"enum": ["selection-protocol", "seed-manifest"]},
+        "sealed_seed_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "protocol": {"enum": ["post-freeze-independent-v1", "precommitted-generator-v1"]},
+        "authority": {"enum": ["independent-evaluator", "precommitted-generator"]},
+        "revealed_after_freeze": {"const": true},
+        "selected_before_evaluated_run": {"const": true}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "selection-protocol-committed"}}},
+          "then": {"properties": {"commitment_scope": {"const": "selection-protocol"}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "seeds-committed"}}},
+          "then": {"properties": {"commitment_scope": {"const": "seed-manifest"}}}
+        }
+      ]
+    },
+    "trials": {"type": "integer", "minimum": 1, "maximum": 10000},
+    "interaction_budget": {"type": "integer", "minimum": 1, "maximum": 10000000},
+    "control_baselines": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"enum": ["matched-fresh", "random", "scripted-nonsolution"]}
+    },
+    "metrics": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {"enum": ["success", "efficiency", "uncertainty", "unnecessary-actions"]}
+    },
+    "freeze_requirements": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"enum": ["learner", "school-engine", "curriculum", "adapters", "source-hashes"]}
+    },
+    "learner_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/input"}
+    },
+    "prohibited_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/prohibitedInput"}
+    }
+  },
+  "$defs": {
+    "capability": {
+      "enum": [
+        "entity-attention",
+        "object-persistence",
+        "occlusion-tracking",
+        "comparison",
+        "categorization",
+        "control-grounding",
+        "causal-intervention",
+        "affordance-discovery",
+        "immediate-prediction",
+        "event-concept-formation",
+        "skill-retention",
+        "spatial-memory",
+        "replanning",
+        "strategy-revision",
+        "prerequisite-planning",
+        "counterfactual-reasoning",
+        "momentum-prediction",
+        "collision-timing",
+        "grounded-language",
+        "clarification",
+        "evidence-linked-explanation",
+        "selective-communication",
+        "role-selection",
+        "cooperation-necessity",
+        "rapid-visual-control",
+        "safe-artifact-work",
+        "source-preservation",
+        "independent-validation",
+        "cross-family-transfer",
+        "skill-composition"
+      ]
+    },
+    "input": {
+      "enum": [
+        "rgb-pixels",
+        "local-rgb-views",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info",
+        "text-demonstrations",
+        "pointer-demonstrations",
+        "artifact-bytes",
+        "validator-feedback"
+      ]
+    },
+    "prohibitedInput": {
+      "enum": [
+        "audit-only-state",
+        "action-meanings",
+        "control-map",
+        "goal-coordinates",
+        "hazard-coordinates",
+        "mechanism-description",
+        "successful-sequence",
+        "concept-assignment",
+        "sealed-seeds",
+        "task-solution",
+        "evaluator-state"
+      ]
+    }
+  }
+}

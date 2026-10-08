@@ -1,0 +1,8 @@
+{
+  "fixture": "unsupported-capability",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "replace", "path": ["lessons", 0, "capabilities", 0], "value": "omniscience"}
+  ],
+  "expected_error": "is not one of"
+}

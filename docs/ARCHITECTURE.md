@@ -1,5 +1,19 @@
 # Architecture, without the fog
 
+## GUM School specification boundary
+
+Phase 0 adds specification-time validation, not another learner. The
+human-readable curriculum is in `docs/GUM_SCHOOL_CURRICULUM.md`; the canonical
+machine curriculum and its four strict schemas are in `curriculum/`; and
+`gum.school` performs structural, leakage, seed-partition, reference, and budget
+checks. It contains no scheduler, trainer, promotion runner, or sealed answers.
+
+The future engine must keep the last promoted mind read-only, train only a
+candidate snapshot, and cross all seven precommitted gates before atomic
+replacement. Planned school adapters are allowlisted identifiers but are not
+runtime-admitted until their protocol, hidden-state, baseline, horizon, replay,
+and evidence checks pass.
+
 ## The shortest explanation
 
 GUM has five jobs:

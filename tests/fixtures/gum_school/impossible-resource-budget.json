@@ -1,0 +1,8 @@
+{
+  "fixture": "impossible-resource-budget",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "replace", "path": ["lessons", 0, "resource_limits", "max_interactions"], "value": 100}
+  ],
+  "expected_error": "impossible budget"
+}

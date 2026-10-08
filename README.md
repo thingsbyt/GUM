@@ -119,6 +119,20 @@ The strongest defensible description is:
 
 > GUM is a compact, auditable continual learner that forms event concepts from unlabeled experience, compiles them into persistent skills, and evolves a reusable task-acquisition strategy within tested environment families.
 
+## GUM School
+
+GUM School now has a Phase 0 specification: a human-readable curriculum,
+strict machine schemas, a validated six-lesson foundational sequence, and
+adversarial rejection tests. It defines how future candidates will be compared
+with matched fresh learners, checked for retention, and promoted or rolled back.
+
+This is a specification milestone, not a training result. The Object
+Laboratory, Causal Workshop, and Changing Maze adapters are explicitly marked
+`specified-not-admitted`; no school lesson has run and no school capability is
+claimed yet.
+
+[Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
+
 ## Research package
 
 - [Start here](docs/START_HERE.md)
@@ -130,6 +144,7 @@ The strongest defensible description is:
 - [Learning integrity: leaks and hardcoding](docs/LEARNING_INTEGRITY.md)
 - [Is it intelligent?](docs/INTELLIGENCE_ASSESSMENT.md)
 - [How the project evolved](docs/PROJECT_HISTORY.md)
+- [GUM School curriculum and promotion rules](docs/GUM_SCHOOL_CURRICULUM.md)
 - [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)
@@ -155,8 +170,12 @@ Core verification:
 
 ```bash
 python -m pytest -q
-python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_v0.2.1.json
+python -m gum.school curriculum/gum-school-v1.json
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_0.json
 ```
+
+The separate `RELEASE_MANIFEST_v0.2.1.json` remains the immutable historical
+v0.2.1 record; it is not regenerated when later source changes.
 
 The older neural experiments need `python -m pip install -e ".[dev,neural]"`.
 Some experiment suites are longer and have separate commands in [Reproducing the work](docs/REPRODUCING.md).

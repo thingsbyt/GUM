@@ -1,0 +1,8 @@
+{
+  "fixture": "unsupported-adapter",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "replace", "path": ["lessons", 0, "adapter"], "value": "download-and-execute-plugin-v1"}
+  ],
+  "expected_error": "is not one of"
+}

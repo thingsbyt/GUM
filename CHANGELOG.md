@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased — GUM School Phase 0
+
+- Added the complete human-readable GUM School curriculum and exact promotion,
+  retention, transfer-matrix, sealed-evaluation, and rollback rules.
+- Added strict Draft 2020-12 schemas for curricula, lessons, examinations, and
+  world admission.
+- Added a validated six-lesson authored sequence across Object Laboratory,
+  Causal Workshop, and Changing Maze without running training.
+- Added structural and semantic validation for unknown fields, unsupported
+  identifiers, answer-bearing fields, seed overlap, input leaks, references,
+  and infeasible budgets.
+- Added adversarial fixtures and tests, while keeping the local language model
+  optional, disabled, and outside grading and sealed data.
+
 ## 0.2.1 — 2026-10-08
 
 - Made pytest the official collector and added core/full continuous integration.

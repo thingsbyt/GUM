@@ -1,5 +1,20 @@
 # Roadmap
 
+## Current: GUM School Phase 0
+
+- authored curriculum for all ten planned schools and twelve capability grades;
+- machine-readable foundational sequence for Object Laboratory, Causal
+  Workshop, and Changing Maze;
+- strict curriculum, lesson, examination, and world-admission schemas;
+- semantic validation for leakage, seed separation, supported identifiers, and
+  feasible budgets; and
+- adversarial negative fixtures.
+
+Phase 0 does not train GUM. Its three planned world adapters remain
+`specified-not-admitted`. The next implementation milestone is the candidate,
+evaluation, retention, rollback, and append-only promotion engine described in
+[the curriculum](GUM_SCHOOL_CURRICULUM.md).
+
 ## Now: frozen research snapshot
 
 - persistent concepts and skills;
@@ -8,7 +23,7 @@
 - multi-seed narrow meta-learning;
 - auditable protocols and evidence packages.
 
-## Next: external validity
+## External validity
 
 1. Give a frozen commit to an independent evaluator.
 2. Accept task packages created after the freeze.

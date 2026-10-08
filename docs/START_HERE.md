@@ -28,6 +28,7 @@ A replay is an illustration. An audit file is evidence. Neither is independent r
 - [Architecture](ARCHITECTURE.md) for how the machine grows
 - [Evidence](EVIDENCE.md) for claim-to-file traceability
 - [Learning integrity](LEARNING_INTEGRITY.md) for leaks, hardcoding, and what “learns” means
+- [GUM School curriculum](GUM_SCHOOL_CURRICULUM.md) for the pre-training lesson, transfer, retention, and promotion specification
 - [Preliminary paper](PRELIMINARY_PAPER.md) for the research argument
 - [Claims and limitations](CLAIMS_AND_LIMITATIONS.md) for the boundaries
 

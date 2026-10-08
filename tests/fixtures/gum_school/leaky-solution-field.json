@@ -1,0 +1,8 @@
+{
+  "fixture": "leaky-solution-field",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "add", "path": ["lessons", 0, "answer_key"], "value": "synthetic fixture; not an actual answer"}
+  ],
+  "expected_error": "prohibited solution-bearing field"
+}

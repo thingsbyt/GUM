@@ -1,0 +1,8 @@
+{
+  "fixture": "invalid-zero-budget",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "replace", "path": ["lessons", 0, "training", "interaction_budget"], "value": 0}
+  ],
+  "expected_error": "is less than the minimum"
+}

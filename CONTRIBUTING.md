@@ -1,5 +1,21 @@
 # Contributing
 
+## GUM School specifications
+
+Changes to the curriculum, lessons, examinations, or world-admission records
+must keep the schemas strict and pass both validation layers:
+
+```powershell
+python -m gum.school curriculum/gum-school-v1.json
+python -m pytest -q tests/test_school_curriculum.py
+```
+
+Do not add sealed seed lists, action maps, answer keys, successful sequences, or
+other task solutions to the public tree. A new adapter identifier is not an
+admitted adapter: source review, deterministic reset, hard horizon, leakage
+checks, nontrivial controls, replay, disjoint seed partitions, and hashed
+evidence are required before its admission status can change.
+
 GUM values reproducible failures as much as successful demonstrations.
 
 Before proposing a change, open an issue describing the behavior, world contract, withheld information, baseline, success criterion, and expected compute. A new capability claim should include a frozen protocol, machine-readable audit, random seeds, control or ablation, and an explicit limitation statement.

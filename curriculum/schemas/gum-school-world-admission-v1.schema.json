@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thingsbyt.github.io/GUM/schemas/gum-school-world-admission-v1.schema.json",
+  "title": "GUM School world admission v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "admission_id",
+    "title",
+    "school",
+    "adapter",
+    "status",
+    "protocol_version",
+    "source_review_required",
+    "world_packages_are_data",
+    "arbitrary_code_allowed",
+    "declaration",
+    "seed_partitions",
+    "checks",
+    "evidence_hashes"
+  ],
+  "properties": {
+    "schema": {"const": "gum-school-world-admission-v1"},
+    "admission_id": {"type": "string", "pattern": "^admission\\.[a-z0-9]+(?:[.-][a-z0-9]+)+$"},
+    "title": {"type": "string", "minLength": 8, "maxLength": 120},
+    "school": {
+      "enum": [
+        "object-laboratory",
+        "causal-workshop",
+        "changing-maze",
+        "physics-playground",
+        "logic-chamber",
+        "language-classroom",
+        "cooperation-worlds",
+        "asteroids-academy",
+        "artifact-workshop",
+        "sealed-finals"
+      ]
+    },
+    "adapter": {
+      "enum": [
+        "gum-object-laboratory-v1",
+        "gum-causal-workshop-v1",
+        "gum-changing-maze-v1",
+        "gum-physics-playground-v1",
+        "gum-logic-chamber-v1",
+        "gum-language-classroom-v1",
+        "gum-cooperation-world-v1",
+        "gum-two-rocket-asteroids-v1",
+        "gum-artifact-workshop-v1",
+        "gum-sealed-finals-v1"
+      ]
+    },
+    "status": {"enum": ["specified-not-admitted", "admitted"]},
+    "protocol_version": {"const": 1},
+    "source_review_required": {"const": true},
+    "world_packages_are_data": {"const": true},
+    "arbitrary_code_allowed": {"const": false},
+    "declaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_kind",
+        "action_kind",
+        "action_count",
+        "horizon",
+        "reward_minimum",
+        "reward_maximum"
+      ],
+      "properties": {
+        "observation_kind": {"enum": ["rgb", "local-rgb", "structured-artifact", "text-and-rgb"]},
+        "action_kind": {"enum": ["discrete-anonymous", "two-anonymous-discrete-actions", "bounded-tool-actions"]},
+        "action_count": {"type": "integer", "minimum": 2, "maximum": 10000},
+        "horizon": {"type": "integer", "minimum": 1, "maximum": 1000000},
+        "reward_minimum": {"type": "number", "minimum": -1000000, "maximum": 1000000},
+        "reward_maximum": {"type": "number", "minimum": -1000000, "maximum": 1000000}
+      }
+    },
+    "seed_partitions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["training", "development", "sealed_seed_commitment"],
+      "properties": {
+        "training": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 2147483647}
+        },
+        "development": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 2147483647}
+        },
+        "sealed_seed_commitment": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deterministic_reset",
+        "hard_horizon",
+        "safe_inspection",
+        "replay",
+        "hidden_state_leakage",
+        "random_baseline",
+        "scripted_baseline"
+      ],
+      "properties": {
+        "deterministic_reset": {"enum": ["required-before-admission", "passed"]},
+        "hard_horizon": {"enum": ["required-before-admission", "passed"]},
+        "safe_inspection": {"enum": ["required-before-admission", "passed"]},
+        "replay": {"enum": ["required-before-admission", "passed"]},
+        "hidden_state_leakage": {"enum": ["required-before-admission", "passed"]},
+        "random_baseline": {"enum": ["required-before-admission", "nontrivial"]},
+        "scripted_baseline": {"enum": ["required-before-admission", "nontrivial"]}
+      }
+    },
+    "evidence_hashes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "admitted"}}},
+      "then": {
+        "properties": {
+          "checks": {
+            "properties": {
+              "deterministic_reset": {"const": "passed"},
+              "hard_horizon": {"const": "passed"},
+              "safe_inspection": {"const": "passed"},
+              "replay": {"const": "passed"},
+              "hidden_state_leakage": {"const": "passed"},
+              "random_baseline": {"const": "nontrivial"},
+              "scripted_baseline": {"const": "nontrivial"}
+            }
+          },
+          "evidence_hashes": {"minItems": 1}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thingsbyt.github.io/GUM/schemas/gum-school-curriculum-v1.schema.json",
+  "title": "GUM School curriculum v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "curriculum_id",
+    "title",
+    "version",
+    "phase",
+    "status",
+    "adapter_catalog",
+    "capability_catalog",
+    "policies",
+    "world_admissions",
+    "examinations",
+    "lessons"
+  ],
+  "properties": {
+    "schema": {"const": "gum-school-curriculum-v1"},
+    "curriculum_id": {"const": "gum-school-v1"},
+    "title": {"type": "string", "minLength": 8, "maxLength": 120},
+    "version": {"const": 1},
+    "phase": {"const": 0},
+    "status": {"const": "specified-not-trained"},
+    "adapter_catalog": {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "gum-grid-v1",
+          "gum-two-rocket-asteroids-v1",
+          "gum-cooperative-immune-v1",
+          "gum-object-laboratory-v1",
+          "gum-causal-workshop-v1",
+          "gum-changing-maze-v1",
+          "gum-physics-playground-v1",
+          "gum-logic-chamber-v1",
+          "gum-language-classroom-v1",
+          "gum-cooperation-world-v1",
+          "gum-artifact-workshop-v1",
+          "gum-sealed-finals-v1"
+        ]
+      }
+    },
+    "capability_catalog": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "entity-attention",
+          "object-persistence",
+          "occlusion-tracking",
+          "comparison",
+          "categorization",
+          "control-grounding",
+          "causal-intervention",
+          "affordance-discovery",
+          "immediate-prediction",
+          "event-concept-formation",
+          "skill-retention",
+          "spatial-memory",
+          "replanning",
+          "strategy-revision",
+          "prerequisite-planning",
+          "counterfactual-reasoning",
+          "momentum-prediction",
+          "collision-timing",
+          "grounded-language",
+          "clarification",
+          "evidence-linked-explanation",
+          "selective-communication",
+          "role-selection",
+          "cooperation-necessity",
+          "rapid-visual-control",
+          "safe-artifact-work",
+          "source-preservation",
+          "independent-validation",
+          "cross-family-transfer",
+          "skill-composition"
+        ]
+      }
+    },
+    "policies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "training_on_candidate_only",
+        "promotion_requires_all_gates",
+        "failures_are_preserved",
+        "sealed_data_available_during_training",
+        "local_llm",
+        "budgets"
+      ],
+      "properties": {
+        "training_on_candidate_only": {"const": true},
+        "promotion_requires_all_gates": {"const": true},
+        "failures_are_preserved": {"const": true},
+        "sealed_data_available_during_training": {"const": false},
+        "local_llm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["optional", "enabled_by_default", "trusted", "may_execute_code", "may_grade", "may_view_sealed_data"],
+          "properties": {
+            "optional": {"const": true},
+            "enabled_by_default": {"const": false},
+            "trusted": {"const": false},
+            "may_execute_code": {"const": false},
+            "may_grade": {"const": false},
+            "may_view_sealed_data": {"const": false}
+          }
+        },
+        "budgets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["maximum_total_training_interactions", "maximum_lesson_interactions", "maximum_evaluation_trials"],
+          "properties": {
+            "maximum_total_training_interactions": {"type": "integer", "minimum": 1, "maximum": 100000000},
+            "maximum_lesson_interactions": {"type": "integer", "minimum": 1, "maximum": 10000000},
+            "maximum_evaluation_trials": {"type": "integer", "minimum": 1, "maximum": 1000000}
+          }
+        }
+      }
+    },
+    "world_admissions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "https://thingsbyt.github.io/GUM/schemas/gum-school-world-admission-v1.schema.json"}
+    },
+    "examinations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "https://thingsbyt.github.io/GUM/schemas/gum-school-examination-v1.schema.json"}
+    },
+    "lessons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "https://thingsbyt.github.io/GUM/schemas/gum-school-lesson-v1.schema.json"}
+    }
+  }
+}

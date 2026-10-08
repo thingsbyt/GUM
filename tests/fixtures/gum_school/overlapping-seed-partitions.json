@@ -1,0 +1,8 @@
+{
+  "fixture": "overlapping-seed-partitions",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "replace", "path": ["lessons", 0, "evaluation", "development_seeds", 0], "value": 11001}
+  ],
+  "expected_error": "overlapping seed partitions"
+}

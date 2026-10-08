@@ -1,0 +1,8 @@
+{
+  "fixture": "malformed-unknown-field",
+  "base": "curriculum/gum-school-v1.json",
+  "operations": [
+    {"operation": "add", "path": ["lessons", 0, "unreviewed_note"], "value": "schema drift"}
+  ],
+  "expected_error": "Additional properties are not allowed"
+}
