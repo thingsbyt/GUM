@@ -120,7 +120,7 @@
         "random_baseline": "nontrivial",
         "scripted_baseline": "nontrivial"
       },
-      "evidence_hashes": ["sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"]
+      "evidence_hashes": ["sha256:4a24c22dcc88ddb7d005f469d597ceca70e7de5a680fc86e253a42aff292019c"]
     },
     {
       "schema": "gum-school-world-admission-v1",
@@ -155,7 +155,7 @@
         "random_baseline": "nontrivial",
         "scripted_baseline": "nontrivial"
       },
-      "evidence_hashes": ["sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"]
+      "evidence_hashes": ["sha256:4a24c22dcc88ddb7d005f469d597ceca70e7de5a680fc86e253a42aff292019c"]
     },
     {
       "schema": "gum-school-world-admission-v1",
@@ -190,7 +190,7 @@
         "random_baseline": "nontrivial",
         "scripted_baseline": "nontrivial"
       },
-      "evidence_hashes": ["sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"]
+      "evidence_hashes": ["sha256:4a24c22dcc88ddb7d005f469d597ceca70e7de5a680fc86e253a42aff292019c"]
     }
   ],
   "examinations": [

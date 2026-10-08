@@ -1,20 +1,20 @@
 {
   "curriculum_id": "gum-school-v1",
-  "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
+  "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
   "decisions": [],
   "format": "gum-school-report-v1",
-  "generated_at_utc": "2026-10-08T22:19:19.520269+00:00",
+  "generated_at_utc": "2026-10-08T23:37:34.511441+00:00",
   "initial_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
   "ledger": {
     "anchor": {
       "format": "gum-ledger-anchor-v1",
-      "head": "6edb28ce98c2c723ac549e05c40ee105f6296a526bd2580ffe050fc881d1dd2c",
+      "head": "4a4e1e61c084b046de736fd3b8b11a4fe97fd893165905fdeec061e2d59b9056",
       "ledger": "SCHOOL_LEDGER.jsonl",
       "records": 1
     },
     "anchored": true,
     "errors": [],
-    "head": "6edb28ce98c2c723ac549e05c40ee105f6296a526bd2580ffe050fc881d1dd2c",
+    "head": "4a4e1e61c084b046de736fd3b8b11a4fe97fd893165905fdeec061e2d59b9056",
     "records": 1,
     "valid": true
   },

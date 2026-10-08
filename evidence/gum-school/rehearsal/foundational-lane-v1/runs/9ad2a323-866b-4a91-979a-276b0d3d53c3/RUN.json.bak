@@ -1,8 +1,8 @@
 {
   "base_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
-  "candidate_snapshot_id": "sha256-c16a199b71f0746b03a72eae473cf32f88c69d319b64242cdbbcb31eb3d8459f",
-  "created_at_utc": "2026-10-08T22:19:19.528404+00:00",
-  "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
+  "candidate_snapshot_id": "sha256-4ac7120af13935ebf050b72e2ee2ea29752acdfc36a012439eb14ebd10a17501",
+  "created_at_utc": "2026-10-08T23:37:34.518178+00:00",
+  "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
   "decision_intent": {
     "gates": {
       "all_passed": false,
@@ -46,12 +46,12 @@
       }
     },
     "outcome": "quarantine",
-    "prepared_at_utc": "2026-10-08T22:19:22.243412+00:00"
+    "prepared_at_utc": "2026-10-08T23:37:37.368107+00:00"
   },
   "format": "gum-school-run-v1",
   "lesson_id": "object-laboratory.occlusion.001",
   "lesson_sha256": "67715f5ec9c4bfbe748fd3e7a4fe892fff9f64532f4e01294709c6fb7bb268d2",
-  "run_id": "e7bac1f7-3fc9-465c-94e1-3348fc8e3566",
+  "run_id": "9ad2a323-866b-4a91-979a-276b0d3d53c3",
   "status": "decision-prepared",
-  "updated_at_utc": "2026-10-08T22:19:22.243412+00:00"
+  "updated_at_utc": "2026-10-08T23:37:37.368107+00:00"
 }

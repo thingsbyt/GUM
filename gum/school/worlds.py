@@ -37,7 +37,9 @@ _SCHOOL_BY_ADAPTER = {
     CHANGING_MAZE_ADAPTER: "changing-maze",
 }
 _ALLOWED_MECHANISMS = {
-    OBJECT_LABORATORY_ADAPTER: {"occlusion", "functional-category", "mixed"},
+    OBJECT_LABORATORY_ADAPTER: {
+        "occlusion", "occlusion-shifted", "functional-category", "mixed"
+    },
     CAUSAL_WORKSHOP_ADAPTER: {"controls", "composition", "mixed"},
     CHANGING_MAZE_ADAPTER: {"memory", "revision", "mixed"},
 }
@@ -143,6 +145,19 @@ class ObjectLaboratoryWorld(_EpisodeWorld):
     _changed = ((243, 154, 75), (83, 210, 211), (232, 99, 184), (164, 206, 75))
     _role_colors = ((240, 181, 64), (75, 210, 224))
 
+    _sealed_palettes = (
+        ((255, 118, 72), (69, 205, 239), (159, 229, 92), (223, 104, 255)),
+        ((255, 202, 74), (69, 151, 255), (236, 91, 132), (83, 224, 175)),
+        ((128, 221, 255), (255, 111, 174), (191, 236, 74), (244, 148, 65)),
+        ((101, 237, 199), (255, 130, 79), (123, 163, 255), (235, 99, 231)),
+    )
+    _sealed_changed_palettes = (
+        ((76, 181, 255), (247, 91, 117), (117, 226, 169), (230, 173, 67)),
+        ((218, 112, 255), (80, 224, 196), (255, 157, 73), (105, 145, 244)),
+        ((242, 105, 85), (92, 206, 255), (232, 190, 74), (132, 220, 119)),
+        ((255, 185, 89), (105, 221, 236), (220, 105, 168), (139, 226, 94)),
+    )
+
     def reset(self, seed: int | None = None) -> np.ndarray:
         rng = self._begin_reset(seed)
         self.active_mechanism = self.mechanism
@@ -157,26 +172,58 @@ class ObjectLaboratoryWorld(_EpisodeWorld):
         self.target_role = int(rng.integers(2))
         self.probed: dict[int, int] = {}
         self.last_effect: int | None = None
+        self.episode_slots = self._slots.copy()
+        self.episode_palette = self._palette
+        self.episode_changed_palette = self._changed
+        self.episode_start_y = 8
+        self.episode_vertical_step = 8
+        self.episode_final_phase = 6
+        self.episode_barrier = (23, 41)
+        self.episode_background = (10, 17, 25)
+        self.episode_barrier_color = (67, 72, 83)
+        if self.active_mechanism == "occlusion-shifted":
+            # These variations are fixed before sealed seeds are selected. They
+            # change appearance, geometry, occlusion timing, and motion speed
+            # without changing the public contract or revealing the answer.
+            jitter = rng.integers(-2, 3, size=4).astype(np.float64)
+            self.episode_slots = self._slots + jitter
+            palette_index = int(rng.integers(len(self._sealed_palettes)))
+            self.episode_palette = self._sealed_palettes[palette_index]
+            self.episode_changed_palette = self._sealed_changed_palettes[
+                (palette_index + int(rng.integers(1, 4))) % len(self._sealed_changed_palettes)
+            ]
+            self.episode_start_y = int(rng.integers(6, 10))
+            self.episode_vertical_step = int(rng.integers(6, 9))
+            self.episode_final_phase = int(rng.integers(5, 9))
+            barrier_top = int(rng.integers(23, 31))
+            barrier_height = int(rng.integers(15, 21))
+            self.episode_barrier = (barrier_top, min(52, barrier_top + barrier_height))
+            self.episode_background = tuple(int(value) for value in rng.integers(6, 25, size=3))
+            shade = int(rng.integers(52, 88))
+            self.episode_barrier_color = (shade, shade + 4, shade + 9)
         self._last_observation = self._render()
         return self._last_observation.copy()
 
     def _positions(self) -> np.ndarray:
-        progress = min(self.phase, 6) / 6.0
+        progress = min(self.phase, self.episode_final_phase) / self.episode_final_phase
         destinations = np.empty(4, dtype=float)
         for final_slot, identity in enumerate(self.final_order):
-            destinations[identity] = self._slots[final_slot]
-        return self._slots + (destinations - self._slots) * progress
+            destinations[identity] = self.episode_slots[final_slot]
+        return self.episode_slots + (destinations - self.episode_slots) * progress
 
     def _render(self) -> np.ndarray:
         if self.active_mechanism == "functional-category":
             return self._render_functional()
-        image = Image.new("RGB", (64, 64), (10, 17, 25))
+        image = Image.new("RGB", (64, 64), self.episode_background)
         draw = ImageDraw.Draw(image)
-        for slot in self._slots:
+        for slot in self.episode_slots:
             draw.line((int(slot), 3, int(slot), 60), fill=(25, 38, 49), width=1)
         positions = self._positions()
-        y = 8 + self.phase * 8
-        palette = self._palette if self.phase < 4 else self._changed
+        y = self.episode_start_y + self.phase * self.episode_vertical_step
+        palette = (
+            self.episode_palette
+            if y < self.episode_barrier[1] else self.episode_changed_palette
+        )
         for identity, x in enumerate(positions):
             x = int(round(float(x)))
             color = palette[identity]
@@ -186,9 +233,10 @@ class ObjectLaboratoryWorld(_EpisodeWorld):
                 draw.rectangle((x - 4, y - 4, x + 4, y + 4), fill=color)
             if self.phase == 0 and identity == self.target:
                 draw.rectangle((x - 6, y - 6, x + 6, y + 6), outline=(250, 212, 60), width=2)
-        draw.rectangle((0, 23, 63, 41), fill=(67, 72, 83))
-        draw.line((0, 22, 63, 22), fill=(125, 134, 145), width=1)
-        draw.line((0, 42, 63, 42), fill=(125, 134, 145), width=1)
+        barrier_top, barrier_bottom = self.episode_barrier
+        draw.rectangle((0, barrier_top, 63, barrier_bottom), fill=self.episode_barrier_color)
+        draw.line((0, barrier_top - 1, 63, barrier_top - 1), fill=(125, 134, 145), width=1)
+        draw.line((0, barrier_bottom + 1, 63, barrier_bottom + 1), fill=(125, 134, 145), width=1)
         return np.asarray(image, dtype=np.uint8)
 
     def _render_functional(self) -> np.ndarray:
@@ -227,7 +275,7 @@ class ObjectLaboratoryWorld(_EpisodeWorld):
         event = "advanced"
         reward = -0.01 if slot == 0 else -0.02
         terminated = False
-        if self.phase < 6:
+        if self.phase < self.episode_final_phase:
             self.phase += 1
             event = "observed" if slot == 1 else "advanced"
         elif slot >= 2:
@@ -272,6 +320,9 @@ class ObjectLaboratoryWorld(_EpisodeWorld):
             "target_role": self.target_role,
             "probed": dict(self.probed),
             "phase": self.phase,
+            "episode_slots": [float(value) for value in self.episode_slots],
+            "episode_final_phase": self.episode_final_phase,
+            "episode_barrier": list(self.episode_barrier),
             "steps": self.steps,
         }
 

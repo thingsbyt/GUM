@@ -1,12 +1,12 @@
 {
   "curriculum_id": "gum-school-v1",
-  "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
+  "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
   "decisions": [
     {
       "base_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
-      "candidate_snapshot_id": "sha256-c16a199b71f0746b03a72eae473cf32f88c69d319b64242cdbbcb31eb3d8459f",
-      "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
-      "decided_at_utc": "2026-10-08T22:19:22.252646+00:00",
+      "candidate_snapshot_id": "sha256-4ac7120af13935ebf050b72e2ee2ea29752acdfc36a012439eb14ebd10a17501",
+      "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
+      "decided_at_utc": "2026-10-08T23:37:37.378744+00:00",
       "format": "gum-school-decision-v1",
       "gates": {
         "all_passed": false,
@@ -51,22 +51,22 @@
       },
       "lesson_id": "object-laboratory.occlusion.001",
       "outcome": "quarantine",
-      "run_id": "e7bac1f7-3fc9-465c-94e1-3348fc8e3566"
+      "run_id": "9ad2a323-866b-4a91-979a-276b0d3d53c3"
     }
   ],
   "format": "gum-school-report-v1",
-  "generated_at_utc": "2026-10-08T22:19:22.315923+00:00",
+  "generated_at_utc": "2026-10-08T23:37:37.429544+00:00",
   "initial_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
   "ledger": {
     "anchor": {
       "format": "gum-ledger-anchor-v1",
-      "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
+      "head": "3dc397121a91bd47d26229f2bfbf00f4a183994a40883aa9b256df9fe5ae84b2",
       "ledger": "SCHOOL_LEDGER.jsonl",
       "records": 5
     },
     "anchored": true,
     "errors": [],
-    "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
+    "head": "3dc397121a91bd47d26229f2bfbf00f4a183994a40883aa9b256df9fe5ae84b2",
     "records": 5,
     "valid": true
   },

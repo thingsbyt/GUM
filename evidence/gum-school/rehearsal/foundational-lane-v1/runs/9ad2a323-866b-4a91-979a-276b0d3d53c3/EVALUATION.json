@@ -12,15 +12,15 @@
   },
   "replay": {
     "artifact_path": "evidence/development-replay.json",
-    "artifact_sha256": "sha256:21e55aa33e9fbc25dfe5991569ac19c5d31779744dfbdb464cd7f891be44b015",
+    "artifact_sha256": "sha256:5e82a3ac152179ed2ae5bbe0714e8bc2fecd64051d80564094b3e2cf5ae59aa1",
     "deterministic": true,
     "verified": true
   },
   "resources": {
-    "artifact_storage_mb": 2.0894298553466797,
+    "artifact_storage_mb": 2.0909366607666016,
     "interactions": 5481,
-    "peak_memory_mb": 47.5703125,
-    "wall_clock_seconds": 2.550018000001728
+    "peak_memory_mb": 47.8046875,
+    "wall_clock_seconds": 2.6578957000019727
   },
   "retention": [],
   "sealed": {
@@ -41,7 +41,7 @@
     },
     "success_rate": 1.0,
     "trials": 32,
-    "uncertainty_rate": 0.84375,
+    "uncertainty_rate": 0.4375,
     "unnecessary_action_rate": 0.0
   },
   "transfer_results": []

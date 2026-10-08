@@ -212,6 +212,11 @@ class CrossSeedSchoolLearner:
         slot = "unknown" if self._predicted_slot is None else str(self._predicted_slot)
         return f"object-memory:step={step}:slot={slot}"
 
+    def _resolved_action_key(self) -> str | None:
+        if not self._tracker_active or self._predicted_slot is None:
+            return None
+        return f"object-action-map:slot={self._predicted_slot}"
+
     def _swarm_parameters(self, adapter: str, state_key: str) -> tuple[np.ndarray, np.ndarray]:
         action_count = self.action_counts[adapter]
         values_by_state = self.swarm_values.setdefault(adapter, {})
@@ -291,6 +296,15 @@ class CrossSeedSchoolLearner:
         self.features = self.visual_features(array)
         self._update_tracker(array)
         state_key = self._state_key()
+        resolved_key = self._resolved_action_key()
+        if not training and resolved_key is not None:
+            # The terminal reward teaches a time-independent mapping from the
+            # predicted destination to an anonymous action. Evaluation uses
+            # that mapping so speed and occlusion-duration shifts do not create
+            # a new, untrained animation-step state.
+            resolved_values, _ = self._swarm_parameters(self.spec.adapter, resolved_key)
+            if self._q_confidence(resolved_values.mean(axis=0)) >= 0.05:
+                state_key = resolved_key
         self.last_state_key = state_key
         if state_key is not None:
             values, _ = self._swarm_parameters(self.spec.adapter, state_key)
@@ -357,6 +371,16 @@ class CrossSeedSchoolLearner:
                 target += self.gamma * float(np.max(next_values[self.active_replica]))
             values[self.active_replica, action] += self.swarm_alpha * (target - current)
             visits[self.active_replica, action] += 1
+            resolved_key = self._resolved_action_key()
+            if terminal and resolved_key is not None:
+                resolved_values, resolved_visits = self._swarm_parameters(
+                    self.spec.adapter, resolved_key
+                )
+                resolved_current = float(resolved_values[self.active_replica, action])
+                resolved_values[self.active_replica, action] += self.swarm_alpha * (
+                    float(transition.reward) - resolved_current
+                )
+                resolved_visits[self.active_replica, action] += 1
         elif training:
             parameters = self._parameters(self.spec)
             current = float(parameters[action] @ self.features)

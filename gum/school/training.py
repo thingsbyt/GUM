@@ -154,7 +154,11 @@ def _write_sized_artifact(path: Path, value: dict[str, Any], evidence_directory:
     return _directory_megabytes(evidence_directory)
 
 
-def make_rehearsal_trainer(config: TrainingLaneConfig = TrainingLaneConfig()):
+def _make_trainer(
+    config: TrainingLaneConfig,
+    *,
+    official_curriculum_run: bool,
+):
     config.validate()
 
     def trainer(candidate_directory: Path, lesson: dict, evidence_directory: Path) -> dict:
@@ -199,7 +203,11 @@ def make_rehearsal_trainer(config: TrainingLaneConfig = TrainingLaneConfig()):
         atomic_write_json(
             trajectory_path,
             {
-                "format": "gum-school-rehearsal-trajectories-v1",
+                "format": (
+                    "gum-school-training-trajectories-v1"
+                    if official_curriculum_run
+                    else "gum-school-rehearsal-trajectories-v1"
+                ),
                 "development_or_sealed": False,
                 "rows": trajectories,
             },
@@ -211,8 +219,12 @@ def make_rehearsal_trainer(config: TrainingLaneConfig = TrainingLaneConfig()):
         wall = max(0.001, time.perf_counter() - started)
         peak = psutil.Process().memory_info().rss / (1024.0 * 1024.0)
         artifact = {
-            "format": "gum-school-rehearsal-training-evidence-v1",
-            "official_curriculum_run": False,
+            "format": (
+                "gum-school-training-evidence-v1"
+                if official_curriculum_run
+                else "gum-school-rehearsal-training-evidence-v1"
+            ),
+            "official_curriculum_run": official_curriculum_run,
             "sealed_data_used": False,
             "lesson_id": lesson["lesson_id"],
             "interaction_limit": config.max_training_interactions,
@@ -245,6 +257,15 @@ def make_rehearsal_trainer(config: TrainingLaneConfig = TrainingLaneConfig()):
         }
 
     return trainer
+
+
+def make_rehearsal_trainer(config: TrainingLaneConfig = TrainingLaneConfig()):
+    return _make_trainer(config, official_curriculum_run=False)
+
+
+def make_official_trainer(config: TrainingLaneConfig = TrainingLaneConfig()):
+    """Return the bounded trainer used after an official source freeze."""
+    return _make_trainer(config, official_curriculum_run=True)
 
 
 def _wilson(successes: int, trials: int, z: float = 1.959963984540054) -> tuple[float, float]:

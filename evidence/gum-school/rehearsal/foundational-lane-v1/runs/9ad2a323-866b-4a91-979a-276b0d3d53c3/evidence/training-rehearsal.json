@@ -7,8 +7,8 @@
     "evaluation_steps": 0,
     "format": "gum-school-cross-seed-learner-v2",
     "max_replicas": 4,
-    "memory_states": 25,
-    "parameter_count": 930,
+    "memory_states": 29,
+    "parameter_count": 1026,
     "replica_count": 4,
     "replica_episodes": [
       4,
@@ -42,7 +42,7 @@
     ],
     "training_steps": 130
   },
-  "artifact_storage_mb": 0.05536174774169922,
+  "artifact_storage_mb": 0.05536460876464844,
   "before": {
     "boundary_violations": [],
     "communication_rounds": 0,
@@ -73,15 +73,15 @@
   "interactions": 130,
   "lesson_id": "object-laboratory.occlusion.001",
   "official_curriculum_run": false,
-  "peak_memory_mb": 42.6171875,
+  "peak_memory_mb": 42.41796875,
   "sealed_data_used": false,
   "source_hashes": {
     "gum/protocol.py": "sha256:5c1998eb02d5086e149fb16e7bd8517aefff88abcb9563deef2368db72554909",
-    "gum/school/learner.py": "sha256:7a10ebbe6235ecbce35b8c2ea39909a98849d8d3c3721f968a179a71772c5d1c",
-    "gum/school/training.py": "sha256:93dc09a2bd78d40c56822f6d7a13d3bc61400e13f3551db99f54e29c3a0dc5f9",
-    "gum/school/worlds.py": "sha256:c62f4926866c9d2afb7059352cf66d415e9a79c3bee5b57a898f12153c0d73be"
+    "gum/school/learner.py": "sha256:d706927c9c90c3be732c3eadc6131da8aacd48b2881908a3f497d369c788adde",
+    "gum/school/training.py": "sha256:39a08cabe7908cc1009d032440401835c82901c87c14e88be9109cca125994ae",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91"
   },
   "trajectory_path": "training-trajectories.json",
-  "trajectory_sha256": "sha256:4b7b71564bf451b842fd2bc98501c6c7dd9005ae0e8396906a03b7df7fd76b92",
-  "wall_clock_seconds": 0.1421900000059395
+  "trajectory_sha256": "sha256:e2deec706ee06b30e7861c6d6b6a0c2c9f39950b593f320fc01dabf7be6c892d",
+  "wall_clock_seconds": 0.15207260000170209
 }

@@ -1,17 +1,17 @@
 {
   "artifact_hashes": {
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/DECISION.json": "sha256:3bf95b0d9240c1ed629e5c8cd5756c6ccbd8e2e4fb8ac75634c79b46f60ea7b5",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/EVALUATION.json": "sha256:6ab515044b7f87f7f48009db6e8ef65b5784b80db9a24564717cca481d07dcbb",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/RUN.json": "sha256:e8bfaf33dafe22df21c3da9210deef1fcab3e192cbd557cbc3542790255571a0",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/RUN.json.bak": "sha256:b08df21677b2cd23362ccd9d23b3ee7f4cddcfef7708d1930dcbefd04bf0f73d",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/TRAINING.json": "sha256:2db7590d39a8621ff14c1101b7b7ce1f4900017a3933cc8b3a801f25a4dcec76",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/candidate/SCHOOL_LEARNER.json": "sha256:96c2c64674f0ea2a591daa3046e7dc3c10f744c6b4512622357f83ee91a3a62e",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/candidate/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evaluation-state/SCHOOL_LEARNER.json": "sha256:96c2c64674f0ea2a591daa3046e7dc3c10f744c6b4512622357f83ee91a3a62e",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evidence/development-replay.json": "sha256:21e55aa33e9fbc25dfe5991569ac19c5d31779744dfbdb464cd7f891be44b015",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evidence/training-rehearsal.json": "sha256:4eed6c7b8548dcf5a370acbae773a2d261ccbbacd53302ec60a71aef469837d8",
-    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evidence/training-trajectories.json": "sha256:4b7b71564bf451b842fd2bc98501c6c7dd9005ae0e8396906a03b7df7fd76b92"
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/DECISION.json": "sha256:9c762ca5a94d6f78efdca9e3450249160a550781e99d17f12ee786d360b05340",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/EVALUATION.json": "sha256:0e11d6b6d399ec7b72a0094b1e3cdafcf481ece4b8639f119fb9a3d31352b116",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/RUN.json": "sha256:532739ac8cecad1a330cb9b1544386082f19034ec7d61bf6efafcbfd04c36d52",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/RUN.json.bak": "sha256:59257a02e18b8db9d9ab63d8980d63901d392190f407cd5b8f927b865cf9723c",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/TRAINING.json": "sha256:056a10d659860241c79ec5d73bf317b66ae7064cb232a3a35d7f04f3492dd471",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/candidate/SCHOOL_LEARNER.json": "sha256:ef792d16af2ac727fa9d639d087e1440e85dfd0350000537eeb3c22a16373308",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/candidate/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/evaluation-state/SCHOOL_LEARNER.json": "sha256:ef792d16af2ac727fa9d639d087e1440e85dfd0350000537eeb3c22a16373308",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/evidence/development-replay.json": "sha256:5e82a3ac152179ed2ae5bbe0714e8bc2fecd64051d80564094b3e2cf5ae59aa1",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/evidence/training-rehearsal.json": "sha256:84869232f0a7ff09216a4e975789446a14ccc8ef8f6b94c1e3801e8e7bc7b527",
+    "runs/9ad2a323-866b-4a91-979a-276b0d3d53c3/evidence/training-trajectories.json": "sha256:e2deec706ee06b30e7861c6d6b6a0c2c9f39950b593f320fc01dabf7be6c892d"
   },
   "candidate_rehearsal_training_performed": true,
   "config": {
@@ -28,13 +28,13 @@
   "ledger": {
     "anchor": {
       "format": "gum-ledger-anchor-v1",
-      "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
+      "head": "3dc397121a91bd47d26229f2bfbf00f4a183994a40883aa9b256df9fe5ae84b2",
       "ledger": "SCHOOL_LEDGER.jsonl",
       "records": 5
     },
     "anchored": true,
     "errors": [],
-    "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
+    "head": "3dc397121a91bd47d26229f2bfbf00f4a183994a40883aa9b256df9fe5ae84b2",
     "records": 5,
     "valid": true
   },
@@ -89,16 +89,16 @@
     },
     "training_interactions": 130
   },
-  "run_id": "e7bac1f7-3fc9-465c-94e1-3348fc8e3566",
+  "run_id": "9ad2a323-866b-4a91-979a-276b0d3d53c3",
   "scripted_admission_controllers_used_for_training": false,
   "sealed_data_used": false,
   "source_hashes": {
     "gum/protocol.py": "sha256:5c1998eb02d5086e149fb16e7bd8517aefff88abcb9563deef2368db72554909",
     "gum/school/engine.py": "sha256:b72818816e225903e1d72aefafcaa72d3c30bfe0b28594b49dcff52310b3ed41",
     "gum/school/evaluation.py": "sha256:494a1a8d4cddd95a1b2935f98fcf30d64edf78f36dba757ad44dbc1c549671bd",
-    "gum/school/learner.py": "sha256:7a10ebbe6235ecbce35b8c2ea39909a98849d8d3c3721f968a179a71772c5d1c",
+    "gum/school/learner.py": "sha256:d706927c9c90c3be732c3eadc6131da8aacd48b2881908a3f497d369c788adde",
     "gum/school/rehearsal.py": "sha256:0eb7bedc764fb620eddae49c67d113016738f906b752867e4fe6e5c16342900e",
-    "gum/school/training.py": "sha256:93dc09a2bd78d40c56822f6d7a13d3bc61400e13f3551db99f54e29c3a0dc5f9",
-    "gum/school/worlds.py": "sha256:c62f4926866c9d2afb7059352cf66d415e9a79c3bee5b57a898f12153c0d73be"
+    "gum/school/training.py": "sha256:39a08cabe7908cc1009d032440401835c82901c87c14e88be9109cca125994ae",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91"
   }
 }

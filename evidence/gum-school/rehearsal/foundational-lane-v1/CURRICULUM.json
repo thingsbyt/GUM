@@ -1073,7 +1073,7 @@
         "reward_minimum": -1.0
       },
       "evidence_hashes": [
-        "sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"
+        "sha256:4a24c22dcc88ddb7d005f469d597ceca70e7de5a680fc86e253a42aff292019c"
       ],
       "protocol_version": 1,
       "schema": "gum-school-world-admission-v1",
@@ -1120,7 +1120,7 @@
         "reward_minimum": -1.0
       },
       "evidence_hashes": [
-        "sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"
+        "sha256:4a24c22dcc88ddb7d005f469d597ceca70e7de5a680fc86e253a42aff292019c"
       ],
       "protocol_version": 1,
       "schema": "gum-school-world-admission-v1",
@@ -1167,7 +1167,7 @@
         "reward_minimum": -1.0
       },
       "evidence_hashes": [
-        "sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"
+        "sha256:4a24c22dcc88ddb7d005f469d597ceca70e7de5a680fc86e253a42aff292019c"
       ],
       "protocol_version": 1,
       "schema": "gum-school-world-admission-v1",
