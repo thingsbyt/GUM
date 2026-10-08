@@ -123,15 +123,15 @@ The strongest defensible description is:
 
 GUM School now has a reviewed curriculum, a crash-resumable promotion engine,
 three admitted foundational adapters, and a bounded cross-seed training lane.
-A development-only rehearsal trained one disposable candidate through the real
-engine, verified replay and the learner-input boundary, then quarantined it
-without changing the promoted learner.
+The learner now forms pixel-derived temporal object memory and can spawn helper
+policies when uncertainty persists, up to a hard maximum of four. Helpers learn
+on separate episodes, exchange value estimates, and vote during evaluation.
 
-This is infrastructure plus an honestly failed development result, not a
-capability claim. The trained candidate and matched fresh learner each scored
-0/8; no official lesson, sealed examination, promotion, or transfer-matrix cell
-has run. The next step is to improve temporal cross-seed learning on public
-development data before freezing an official run.
+In the development-only first-lesson rehearsal, the trained swarm scored
+32/32 on unseen development seeds versus 0/32 for a matched fresh swarm. It was
+still quarantined: development data is not a sealed examination. No official
+lesson, promotion, or transfer-matrix cell has run, so this is a bounded
+development result rather than an official curriculum capability claim.
 
 [Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
 [Read the GUM School engine boundary](docs/GUM_SCHOOL_ENGINE.md)
@@ -178,11 +178,12 @@ Core verification:
 ```bash
 python -m pytest -q
 python -m gum.school curriculum/gum-school-v1.json
-python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_TRAINING_LANE.json
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_SWARM.json
 ```
 
-The separate Phase 0, Phase 1, Phase 2, and v0.2.1 manifests remain immutable
-historical records; they are not regenerated when later source changes.
+The separate Phase 0, Phase 1, Phase 2, training-lane, and v0.2.1 manifests
+remain immutable historical records; they are not regenerated when later
+source changes.
 
 The older neural experiments need `python -m pip install -e ".[dev,neural]"`.
 Some experiment suites are longer and have separate commands in [Reproducing the work](docs/REPRODUCING.md).

@@ -25,30 +25,37 @@ LEARNER_FILENAME = "SCHOOL_LEARNER.json"
 
 @dataclass(frozen=True)
 class TrainingLaneConfig:
-    max_training_interactions: int = 256
-    training_episodes_per_seed: int = 2
-    development_trials: int = 8
+    max_training_interactions: int = 300
+    training_episodes_per_seed: int = 4
+    development_trials: int = 32
     replay_trial_index: int = 0
+    max_replicas: int = 4
 
     def validate(self) -> None:
         for name in (
             "max_training_interactions", "training_episodes_per_seed",
-            "development_trials",
+            "development_trials", "max_replicas",
         ):
             value = getattr(self, name)
             if isinstance(value, bool) or not isinstance(value, int) or value < 1:
                 raise ValueError(f"{name} must be a positive integer")
+        if self.max_replicas > CrossSeedSchoolLearner.replica_limit:
+            raise ValueError(
+                f"max_replicas cannot exceed {CrossSeedSchoolLearner.replica_limit}"
+            )
         if not 0 <= self.replay_trial_index < self.development_trials:
             raise ValueError("replay_trial_index is outside the development trials")
 
 
-def initialize_school_learner(directory: Path, *, seed: int = 8_620_001) -> Path:
+def initialize_school_learner(
+    directory: Path, *, seed: int = 8_620_001, max_replicas: int = 4
+) -> Path:
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / LEARNER_FILENAME
     if path.exists():
         raise FileExistsError(f"learner state already exists: {path}")
-    CrossSeedSchoolLearner(seed).save(path)
+    CrossSeedSchoolLearner(seed, max_replicas=max_replicas).save(path)
     return path
 
 
@@ -286,7 +293,11 @@ def make_development_rehearsal_evaluator(config: TrainingLaneConfig = TrainingLa
         evidence_directory = Path(evidence_directory)
         candidate_path = candidate_directory / LEARNER_FILENAME
         candidate = CrossSeedSchoolLearner.load(candidate_path)
-        fresh = CrossSeedSchoolLearner(candidate.seed)
+        fresh = CrossSeedSchoolLearner(
+            candidate.seed,
+            max_replicas=candidate.max_replicas,
+            initial_replicas=candidate.replica_count,
+        )
         worlds_root = evidence_directory / "development-worlds"
         worlds_root.mkdir()
         seeds = _trial_seeds(lesson["evaluation"]["development_seeds"], config.development_trials)

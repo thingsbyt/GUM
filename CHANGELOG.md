@@ -4,11 +4,14 @@
 
 - Added a strict persistent cross-seed learner, bounded trainer, matched-fresh
   development evaluator, deterministic replay, and one-shot rehearsal command.
+- Added temporal object memory plus uncertainty-triggered helper policies,
+  capped at four, with separate episode assignments, value communication, and
+  evaluation voting.
 - Ran the first lesson through the actual candidate/evaluation/decision engine
-  using public partitions only. The candidate scored 0/8, was quarantined, and
-  left the promoted snapshot unchanged.
-- Preserved the failed run and hashes as development evidence without claiming
-  a sealed evaluation, promotion, transfer result, or learned capability.
+  using public partitions only. The trained swarm scored 32/32 against 0/32
+  fresh, while a matching single-replica ablation scored 25/32.
+- Preserved the learned development run in quarantine without claiming a sealed
+  evaluation, promotion, transfer result, or official curriculum pass.
 
 ### Phase 2 foundational worlds
 

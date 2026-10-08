@@ -18,10 +18,13 @@ Their admission audit verifies protocol, hidden-state boundary, baseline,
 horizon, replay, and evidence checks before training.
 
 The training lane adds a strict JSON learner whose action-value parameters are
-shared by adapter rather than exact world identity. Candidate training is
-bounded, evaluation reads a frozen snapshot, and public development rehearsals
-are explicitly unable to satisfy the sealed-protocol gates. The first such
-rehearsal was quarantined without moving the promoted pointer.
+shared by adapter and observation-derived memory state rather than exact world
+identity. Sustained uncertainty can spawn helper policies up to a hard maximum
+of four. Helpers explore separate episodes, exchange learned value summaries,
+and vote during evaluation. Candidate training remains bounded, evaluation
+reads a frozen snapshot, and public development rehearsals cannot satisfy the
+sealed-protocol gates. The first swarm rehearsal learned the development task
+but was quarantined without moving the promoted pointer.
 
 ## The shortest explanation
 

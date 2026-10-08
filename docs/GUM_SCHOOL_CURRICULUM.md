@@ -8,11 +8,12 @@ and the strict schemas beginning with
 [`gum-school-curriculum-v1.schema.json`](../curriculum/schemas/gum-school-curriculum-v1.schema.json).
 
 The curriculum machine file remains at **adapters admitted, not officially
-trained**. One disposable candidate has completed a development-only rehearsal
-of the first lesson and was quarantined after scoring 0/8, so no learning
-capability is claimed. No sealed examination, promotion, or transfer-matrix
-cell has run. The distinction between this rehearsal and an official run is
-documented in [`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md).
+trained**. One disposable four-replica swarm completed a development-only
+rehearsal of the first lesson and scored 32/32 against 0/32 for a matched fresh
+swarm. It was still quarantined because no sealed protocol was used. No sealed
+examination, promotion, or transfer-matrix cell has run. The distinction
+between development learning and an official result is documented in
+[`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md).
 
 The curriculum asks whether a persistent learner can gain reusable competence
 from an authored sequence of meaningfully different worlds. A high score on a

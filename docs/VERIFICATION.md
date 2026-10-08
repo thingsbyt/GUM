@@ -11,26 +11,31 @@ python scripts/rehearse_school_training.py --workspace .test-temp/school-rehears
 python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py tests/test_school_worlds.py tests/test_school_training.py
 ```
 
-The focused school suite passed **60/60 tests**. The complete repository suite
-passed **327/327 tests** in 149.28 seconds and emitted only the existing PyTorch
+The focused school suite passed **63/63 tests**. The complete repository suite
+passed **330/330 tests** in 158.67 seconds and emitted only the existing PyTorch
 scalar-conversion warning in `tests/test_method.py`.
 The secured Studio smoke test, documentation/package links, installed
 dependencies, and public-package integrity scan also passed.
 
-The saved run used 63 training interactions over eight episodes. The trained
-candidate and matched fresh learner each scored 0/8 on development trials.
-Replay and input-boundary verification passed; sealed-performance,
-evidence-integrity, and control-advantage failed. The engine quarantined the
-candidate, preserved the initial promoted snapshot, and recorded no promoted
-lesson. The canonical report digest is
-`sha256:99ddb90a0361e335ce4e8c210daf7e0055df87eff83974b3e25e0454e5bcfde5`.
+The saved run used 130 training interactions over 16 episodes. Sustained
+uncertainty spawned three helpers, reaching the maximum of four; each handled
+four episodes and the group communicated four times. The trained swarm scored
+32/32 on development trials versus 0/32 fresh. A deterministic same-budget
+single-replica test scored 25/32 and missed the 0.80 development threshold.
 
-This verifies the training system's safety path, not first-lesson competence.
-No sealed data was generated or used, and no promotion or transfer claim
-follows. Verify the exact tree with:
+Replay and input-boundary verification passed. Sealed-performance and
+evidence-integrity failed by design, because no sealed protocol was used. The
+engine quarantined the candidate, preserved the initial promoted snapshot, and
+recorded no promoted lesson. The canonical report digest is
+`sha256:864f02550bc880df4f667e1e52182c7993eb106031bca2667016b7c261d485bd`.
+
+This establishes narrow first-lesson development learning, not an official
+curriculum pass. Pixel tracking is engineered; anonymous action values are
+learned from experience. No sealed data was generated or used, and no promotion
+or transfer claim follows. Verify the exact tree with:
 
 ```powershell
-python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_TRAINING_LANE.json
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_SWARM.json
 ```
 
 ## GUM School Phase 2 verification

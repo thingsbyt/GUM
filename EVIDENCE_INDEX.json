@@ -4,11 +4,11 @@
   "claims": [
     {
       "id": "school-training-rehearsal",
-      "status": "failed-development",
+      "status": "passed-development",
       "title": "GUM School training-lane rehearsal",
-      "headline": "0/8 candidate and 0/8 fresh; candidate safely quarantined",
-      "metrics": ["63 bounded training interactions", "Deterministic replay passed", "Promoted snapshot unchanged"],
-      "scope": "Public development-only rehearsal of the first lesson. Not sealed evidence, a promotion, or a capability claim.",
+      "headline": "32/32 trained swarm versus 0/32 fresh; candidate safely quarantined",
+      "metrics": ["130 bounded training interactions", "Four uncertainty-triggered replicas", "Deterministic replay passed", "Promoted snapshot unchanged"],
+      "scope": "Public development-only rehearsal of the first lesson. Pixel tracking is engineered; anonymous action values are learned. Not sealed evidence or an official promotion.",
       "evidence": "evidence/gum-school/rehearsal/foundational-lane-v1/REHEARSAL_REPORT.json"
     },
     {

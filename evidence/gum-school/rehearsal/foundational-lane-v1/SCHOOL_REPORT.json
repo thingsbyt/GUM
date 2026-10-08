@@ -3,22 +3,19 @@
   "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
   "decisions": [
     {
-      "base_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
-      "candidate_snapshot_id": "sha256-09ca2c8482137a7a0069999348ec71f63d86051eb749041fcb8004a7aa103742",
+      "base_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
+      "candidate_snapshot_id": "sha256-c16a199b71f0746b03a72eae473cf32f88c69d319b64242cdbbcb31eb3d8459f",
       "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
-      "decided_at_utc": "2026-10-08T21:20:17.863718+00:00",
+      "decided_at_utc": "2026-10-08T22:19:22.252646+00:00",
       "format": "gum-school-decision-v1",
       "gates": {
         "all_passed": false,
         "format": "gum-school-gate-result-v1",
         "gates": {
           "control-advantage": {
-            "fresh_advantage": 0.0,
-            "passed": false,
-            "reasons": [
-              "fresh advantage is below minimum_fresh_advantage",
-              "fresh-advantage confidence lower bound is below its minimum"
-            ]
+            "fresh_advantage": 32.0,
+            "passed": true,
+            "reasons": []
           },
           "evidence-integrity": {
             "passed": false,
@@ -47,9 +44,6 @@
             "passed": false,
             "reasons": [
               "sealed protocol was not verified",
-              "sealed trials 8 are below required 32",
-              "sealed success is below minimum_success",
-              "sealed success confidence lower bound is below its minimum",
               "uncertainty rate exceeds its maximum"
             ]
           }
@@ -57,28 +51,28 @@
       },
       "lesson_id": "object-laboratory.occlusion.001",
       "outcome": "quarantine",
-      "run_id": "af80e4d7-707d-40f3-b30d-3872a2f1a01e"
+      "run_id": "e7bac1f7-3fc9-465c-94e1-3348fc8e3566"
     }
   ],
   "format": "gum-school-report-v1",
-  "generated_at_utc": "2026-10-08T21:20:17.964079+00:00",
-  "initial_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+  "generated_at_utc": "2026-10-08T22:19:22.315923+00:00",
+  "initial_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
   "ledger": {
     "anchor": {
       "format": "gum-ledger-anchor-v1",
-      "head": "de5237655f0935a64d68d05135e4f067318f2fb400a5af56528a5d290a735052",
+      "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
       "ledger": "SCHOOL_LEDGER.jsonl",
       "records": 5
     },
     "anchored": true,
     "errors": [],
-    "head": "de5237655f0935a64d68d05135e4f067318f2fb400a5af56528a5d290a735052",
+    "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
     "records": 5,
     "valid": true
   },
   "next_lesson_id": "object-laboratory.occlusion.001",
   "promoted_lessons": [],
-  "promoted_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+  "promoted_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
   "transfer_matrix": {
     "cells": [],
     "complete": false,

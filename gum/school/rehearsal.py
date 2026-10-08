@@ -60,7 +60,9 @@ def run_nonpromoting_rehearsal(
 
     engine = SchoolEngine(workspace, Path(curriculum_path))
     bootstrap = workspace / "bootstrap"
-    initialize_school_learner(bootstrap, seed=learner_seed)
+    initialize_school_learner(
+        bootstrap, seed=learner_seed, max_replicas=config.max_replicas
+    )
     initial_pointer = engine.initialize_promoted(bootstrap)
     lesson = engine.next_lesson()
     if lesson is None:
@@ -84,6 +86,7 @@ def run_nonpromoting_rehearsal(
     run_id = decision["run_id"]
     run_directory = workspace / "runs" / run_id
     training = _read_json(run_directory / "TRAINING.json")
+    training_evidence = _read_json(run_directory / "evidence" / "training-rehearsal.json")
     evaluation = _read_json(run_directory / "EVALUATION.json")
     failed_gates = sorted(
         gate for gate, result in decision["gates"]["gates"].items()
@@ -100,6 +103,21 @@ def run_nonpromoting_rehearsal(
     if not ledger["valid"]:
         raise RuntimeError(f"rehearsal ledger is invalid: {ledger['errors']}")
 
+    candidate_rate = float(evaluation["sealed"]["success_rate"])
+    fresh_rate = float(evaluation["sealed"]["fresh_success_rate"])
+    development_advantage = candidate_rate / max(
+        fresh_rate, 1.0 / float(evaluation["sealed"]["trials"])
+    )
+    development_learning_observed = bool(
+        candidate_rate >= lesson["promotion"]["minimum_success"]
+        and evaluation["sealed"]["success_interval"]["lower"]
+        >= lesson["promotion"]["minimum_success_lower_bound"]
+        and development_advantage >= lesson["promotion"]["minimum_fresh_advantage"]
+        and evaluation["replay"]["verified"]
+        and evaluation["input_boundary"]["verified"]
+    )
+    learner_after = training_evidence["after"]
+
     report = {
         "format": "gum-school-training-lane-rehearsal-v1",
         "official_curriculum_run": False,
@@ -115,22 +133,33 @@ def run_nonpromoting_rehearsal(
             "training_episodes_per_seed": config.training_episodes_per_seed,
             "development_trials": config.development_trials,
             "replay_trial_index": config.replay_trial_index,
+            "max_replicas": config.max_replicas,
         },
         "result": {
             "outcome": decision["outcome"],
             "failed_gates": failed_gates,
             "training_interactions": training["interactions"],
             "development_trials": evaluation["sealed"]["trials"],
-            "candidate_development_success_rate": evaluation["sealed"]["success_rate"],
-            "fresh_development_success_rate": evaluation["sealed"]["fresh_success_rate"],
+            "candidate_development_success_rate": candidate_rate,
+            "fresh_development_success_rate": fresh_rate,
+            "development_advantage": development_advantage,
+            "development_learning_observed": development_learning_observed,
             "replay_verified": evaluation["replay"]["verified"],
             "input_boundary_verified": evaluation["input_boundary"]["verified"],
             "promoted_snapshot_unchanged": True,
             "promoted_lessons": progress["promoted_lessons"],
+            "swarm": {
+                "spawned_on_demand": len(learner_after["spawn_events"]) > 0,
+                "replica_count": learner_after["replica_count"],
+                "max_replicas": learner_after["max_replicas"],
+                "replica_episodes": learner_after["replica_episodes"],
+                "communication_rounds": learner_after["communication_rounds"],
+                "spawn_events": learner_after["spawn_events"],
+            },
         },
         "interpretation": (
-            "This is a development-only systems rehearsal, not a sealed evaluation or a "
-            "learning claim. Its candidate was deliberately quarantined."
+            "This development-only rehearsal may establish development learning but is not "
+            "a sealed evaluation or promotion claim. Its candidate was deliberately quarantined."
         ),
         "source_hashes": _source_hashes(),
         "artifact_hashes": artifacts,

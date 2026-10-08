@@ -12,36 +12,36 @@
   },
   "replay": {
     "artifact_path": "evidence/development-replay.json",
-    "artifact_sha256": "sha256:e1391389166067803e8badea7c58d9176893e04729d0b9014353980c2da4ff93",
+    "artifact_sha256": "sha256:21e55aa33e9fbc25dfe5991569ac19c5d31779744dfbdb464cd7f891be44b015",
     "deterministic": true,
     "verified": true
   },
   "resources": {
-    "artifact_storage_mb": 1.1367816925048828,
-    "interactions": 2783,
-    "peak_memory_mb": 46.22265625,
-    "wall_clock_seconds": 1.5441102999975556
+    "artifact_storage_mb": 2.0894298553466797,
+    "interactions": 5481,
+    "peak_memory_mb": 47.5703125,
+    "wall_clock_seconds": 2.550018000001728
   },
   "retention": [],
   "sealed": {
     "confidence_level": 0.95,
     "fresh_advantage_interval": {
-      "lower": 0.0,
+      "lower": 32.0,
       "method": "paired-bootstrap",
-      "upper": 0.0
+      "upper": 32.0
     },
     "fresh_success_rate": 0.0,
     "protocol_verified": false,
     "same_perception": true,
     "same_resource_limits": true,
     "success_interval": {
-      "lower": 0.0,
+      "lower": 0.8928208017449293,
       "method": "wilson",
-      "upper": 0.32440756488388023
+      "upper": 1.0
     },
-    "success_rate": 0.0,
-    "trials": 8,
-    "uncertainty_rate": 1.0,
+    "success_rate": 1.0,
+    "trials": 32,
+    "uncertainty_rate": 0.84375,
     "unnecessary_action_rate": 0.0
   },
   "transfer_results": []

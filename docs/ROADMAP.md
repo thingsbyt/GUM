@@ -19,16 +19,19 @@
 - deterministic admission evidence covering horizons, replay, leakage,
   inspection, and random/scripted controls.
 - a strict persistent learner whose parameters are shared across seeds;
+- on-demand uncertainty-triggered replication capped at four helpers;
+- separate helper episode streams, value communication, and evaluation voting;
 - bounded candidate training and matched-fresh development evaluation;
 - deterministic evaluation replay and source/artifact hashing; and
 - a real engine rehearsal that quarantined the candidate and preserved the
   promoted snapshot.
 
-The rehearsal candidate scored 0/8, equal to its matched fresh control. The
-systems lane is working, but the learner is not ready for an official run. The
-next milestone is a stronger temporal learner calibrated only on public
-training and development partitions. After that, freeze the complete evaluated
-system and let an independent evaluator select withheld examination material.
+The first-lesson swarm scored 32/32, compared with 0/32 for a matched fresh
+swarm. Under the same 16-episode budget, a deterministic single-replica
+ablation scored 25/32 and missed the development threshold. The learner is now
+development-ready for the first lesson, but not officially passed. The next
+milestone is an immutable first-lesson freeze and independent withheld
+evaluation, alongside development work on the later lessons.
 
 ## Now: frozen research snapshot
 

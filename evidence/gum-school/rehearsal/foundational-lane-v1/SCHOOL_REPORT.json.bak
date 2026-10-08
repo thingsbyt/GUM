@@ -3,24 +3,24 @@
   "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
   "decisions": [],
   "format": "gum-school-report-v1",
-  "generated_at_utc": "2026-10-08T21:20:15.997117+00:00",
-  "initial_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+  "generated_at_utc": "2026-10-08T22:19:19.520269+00:00",
+  "initial_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
   "ledger": {
     "anchor": {
       "format": "gum-ledger-anchor-v1",
-      "head": "9182a8c448e9bc44d27d008e3dab8ddda638138c208089cd78339433eea80112",
+      "head": "6edb28ce98c2c723ac549e05c40ee105f6296a526bd2580ffe050fc881d1dd2c",
       "ledger": "SCHOOL_LEDGER.jsonl",
       "records": 1
     },
     "anchored": true,
     "errors": [],
-    "head": "9182a8c448e9bc44d27d008e3dab8ddda638138c208089cd78339433eea80112",
+    "head": "6edb28ce98c2c723ac549e05c40ee105f6296a526bd2580ffe050fc881d1dd2c",
     "records": 1,
     "valid": true
   },
   "next_lesson_id": "object-laboratory.occlusion.001",
   "promoted_lessons": [],
-  "promoted_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+  "promoted_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
   "transfer_matrix": {
     "cells": [],
     "complete": false,

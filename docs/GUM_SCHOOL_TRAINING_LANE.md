@@ -2,10 +2,11 @@
 
 ## Status
 
-The bounded training lane is implemented and has completed one development-only
-rehearsal through the real school engine. The disposable candidate was
-quarantined. No official curriculum lesson, sealed examination, promotion, or
-transfer-matrix cell has run.
+The bounded training lane has completed a learned development-only rehearsal
+through the real school engine. The trained swarm scored 32/32 on unseen public
+development seeds against 0/32 for a matched fresh swarm. The disposable
+candidate was nevertheless quarantined. No official curriculum lesson, sealed
+examination, promotion, or transfer-matrix cell has run.
 
 The canonical rehearsal record is
 [`evidence/gum-school/rehearsal/foundational-lane-v1/REHEARSAL_REPORT.json`](../evidence/gum-school/rehearsal/foundational-lane-v1/REHEARSAL_REPORT.json).
@@ -23,16 +24,36 @@ sealed seeds.
 Generated world packages are temporary. The saved public evidence retains
 public trajectories and replay data but no `genome.private.json` files.
 
-Its trainable state is a linear action-value table per admitted adapter. The
-visual input is reduced to a 4×4 RGB sample, channel means and standard
-deviations, and a bias term. The weights are shared by adapter, not keyed by
-world identity or seed, so an update in one training world can affect behavior
-on another. The random-generator state, counters, weights, and audit metadata
-survive save/reload in a strict JSON format.
+The learner combines a small linear visual value function with episodic object
+memory derived from public pixels. In the first lesson it detects a visually
+marked object, associates it across visible frames, estimates its motion, and
+retains the predicted destination through occlusion. Action values are shared
+by adapter and memory state, not keyed by world identity or seed.
 
-The feature grid, update rule, discount, exploration schedule, and adapter
-boundary are engineered biases. The learned weights are experience-dependent.
-The learner does not store task solutions or semantic action maps.
+The object segmentation and motion-fitting procedure, feature grid, update
+rule, discount, exploration schedule, and replica protocol are engineered
+biases. The anonymous action values are learned from reward. No action meaning,
+correct destination, control map, or task answer is hardcoded or supplied by
+the world. All persistent state survives save/reload in strict JSON.
+
+## On-demand swarm
+
+Every run starts with one policy. If action confidence remains below the
+predeclared threshold for three consecutive decisions, the learner spawns a
+helper by copying the current shared knowledge. It can do this only until four
+policies exist.
+
+The trainer rotates later episodes across the available policies, giving each
+helper its own experience stream. After each full rotation, the policies share
+value estimates for actions they have actually tried. Evaluation is
+deterministic: the policies vote, with their mean value breaking ties. They
+exchange learned summaries only—never live hidden state, private packages, or
+answers.
+
+The reference runner interleaves those learning lanes deterministically rather
+than launching four operating-system processes. This keeps evidence replayable;
+the lanes are independent and can later be executed concurrently without
+changing their information boundary.
 
 ## Bounded rehearsal protocol
 
@@ -40,10 +61,11 @@ The rehearsal:
 
 1. creates a fresh persistent learner and initializes the promoted snapshot;
 2. clones that snapshot into the first lesson's candidate directory;
-3. permits at most 256 interactions over two episodes for each of four public
+3. permits at most 300 interactions over four episodes for each of four public
    training seeds;
 4. freezes the resulting candidate snapshot;
-5. compares it with a matched fresh learner on eight public development trials;
+5. compares it with an equally sized matched fresh swarm on 32 public
+   development trials;
 6. replays one candidate trial exactly; and
 7. submits the record to the ordinary seven-gate decision engine.
 
@@ -54,29 +76,34 @@ performance looks strong.
 
 ## Recorded result
 
-The learner completed eight early-terminating training episodes and 63 total
-training interactions, below the 256-interaction ceiling. On eight development
-trials, both the trained candidate and the matched fresh learner succeeded 0/8.
-Deterministic replay and the learner-input boundary passed. The
-sealed-performance, evidence-integrity, and control-advantage gates failed, so
-the candidate was quarantined and the promoted snapshot remained unchanged.
+The learner spawned its second and third policies during the first episode and
+its fourth during the second, always because confidence remained low. Each
+policy then received four of the 16 training episodes. The group communicated
+four times and used 130 interactions, below the 300-interaction ceiling.
 
-This is a successful systems rehearsal and an unsuccessful learning result. It
-shows that the lifecycle, persistence, limits, evidence, replay, and rollback
-path work together. It does not show that this simple learner can solve the
-first lesson.
+The trained swarm succeeded 32/32 times on development trials; an equally sized
+fresh swarm succeeded 0/32. The 95% Wilson lower bound for the trained result is
+0.893. Deterministic replay and the learner-input boundary passed. A
+deterministic same-budget ablation with replication disabled reached 25/32,
+below the 0.80 development threshold.
+
+Only the sealed-performance and evidence-integrity gates failed, because the
+run intentionally used public development seeds and marked protocol hashes as
+unverified. The candidate was quarantined and the promoted snapshot remained
+unchanged.
 
 ## Readiness decision
 
-GUM School is ready for continued development training, but not for an official
-curriculum run. The immediate research task is to improve the cross-seed learner
-on public training and development partitions—especially temporal memory for
-occlusion—while preserving the same input boundary and reporting failed runs.
+The student has learned the first lesson on the public development protocol.
+That is a real but narrow development result: its pixel tracker is engineered,
+while its anonymous action policy is learned. It says nothing yet about the
+later schools.
 
-Only after the learner and trainer are calibrated should their source hashes be
-frozen and an independent evaluator select the withheld examination material.
-No change made after seeing sealed results may flow back into that evaluated
-run.
+An official first-lesson run now requires freezing this learner, trainer,
+engine, curriculum, adapters, and source hashes before an independent evaluator
+selects withheld examination material. No change made after seeing sealed
+results may flow back into that run. Later lessons should continue in the
+development lane until they meet the same standard.
 
 ## Reproduce
 

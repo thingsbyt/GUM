@@ -98,12 +98,13 @@ adapters, and source hashes are frozen for an evaluated run.
 ## What remains before official training
 
 The bounded cross-seed learner and trainer now run these adapters through the
-Phase 1 engine. Their first development-only rehearsal was safely quarantined:
-the trained candidate and a matched fresh learner both scored 0/8. See
+Phase 1 engine. A temporal object-memory learner with up to four on-demand
+helper policies scored 32/32 against 0/32 for a matched fresh swarm on public
+development seeds. The run was safely quarantined. See
 [`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md).
 
-The remaining work is learner research, not world admission. In particular,
-the first lesson needs a temporal representation capable of carrying identity
-through occlusion. Official curriculum training must not begin by substituting
-the scripted admission controllers or relabeling public development trials as
-sealed evidence.
+The first lesson is development-ready, not officially passed. The remaining
+work is to freeze the complete system and obtain independently selected sealed
+material, while continuing development of the later lessons. Official evidence
+must not substitute scripted admission controllers or relabel public
+development trials as sealed.

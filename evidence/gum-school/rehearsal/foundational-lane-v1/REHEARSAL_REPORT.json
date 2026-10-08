@@ -1,49 +1,51 @@
 {
   "artifact_hashes": {
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/DECISION.json": "sha256:d05cb139289ba25017c694c22e37ce343aee2ee528d75c8638cf3cd084fc5354",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/EVALUATION.json": "sha256:71aa7f03084973c5e9a407aa9594b18777694cfc1bd61e46ed5354c50d6dee22",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/RUN.json": "sha256:9494428438bc25d7ad47cca43a1272070f9f0cbeafc912abef7214f6de852800",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/RUN.json.bak": "sha256:974d0b8fbfded3ca146352ab1df512bcd9d382ccf1f5a32feb9c7f2ed1b33789",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/TRAINING.json": "sha256:d58052e4e979029133abd4d0baa1ad3100efe802d7cb3c30c8f93b1aed74e570",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/candidate/SCHOOL_LEARNER.json": "sha256:d6903174f35312b5bd960e3138f215fab3703f83cac683c71568168e5713fcf6",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/candidate/SCHOOL_LEARNER.json.bak": "sha256:481dbee52a32055cd049e699da75e8dc63ea848ef6154bf440ee9c8a4d978475",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/evaluation-state/SCHOOL_LEARNER.json": "sha256:d6903174f35312b5bd960e3138f215fab3703f83cac683c71568168e5713fcf6",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:481dbee52a32055cd049e699da75e8dc63ea848ef6154bf440ee9c8a4d978475",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/evidence/development-replay.json": "sha256:e1391389166067803e8badea7c58d9176893e04729d0b9014353980c2da4ff93",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/evidence/training-rehearsal.json": "sha256:3a092d6fc5ccfb863cb141c0675de73a8e7ec50be286b2d43132714442ddec0d",
-    "runs/af80e4d7-707d-40f3-b30d-3872a2f1a01e/evidence/training-trajectories.json": "sha256:e8f2d5b42cbb744038dbbabfb7e8d9e12606b493e6eff95161ec3548d60d65ea"
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/DECISION.json": "sha256:3bf95b0d9240c1ed629e5c8cd5756c6ccbd8e2e4fb8ac75634c79b46f60ea7b5",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/EVALUATION.json": "sha256:6ab515044b7f87f7f48009db6e8ef65b5784b80db9a24564717cca481d07dcbb",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/RUN.json": "sha256:e8bfaf33dafe22df21c3da9210deef1fcab3e192cbd557cbc3542790255571a0",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/RUN.json.bak": "sha256:b08df21677b2cd23362ccd9d23b3ee7f4cddcfef7708d1930dcbefd04bf0f73d",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/TRAINING.json": "sha256:2db7590d39a8621ff14c1101b7b7ce1f4900017a3933cc8b3a801f25a4dcec76",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/candidate/SCHOOL_LEARNER.json": "sha256:96c2c64674f0ea2a591daa3046e7dc3c10f744c6b4512622357f83ee91a3a62e",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/candidate/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evaluation-state/SCHOOL_LEARNER.json": "sha256:96c2c64674f0ea2a591daa3046e7dc3c10f744c6b4512622357f83ee91a3a62e",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evidence/development-replay.json": "sha256:21e55aa33e9fbc25dfe5991569ac19c5d31779744dfbdb464cd7f891be44b015",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evidence/training-rehearsal.json": "sha256:4eed6c7b8548dcf5a370acbae773a2d261ccbbacd53302ec60a71aef469837d8",
+    "runs/e7bac1f7-3fc9-465c-94e1-3348fc8e3566/evidence/training-trajectories.json": "sha256:4b7b71564bf451b842fd2bc98501c6c7dd9005ae0e8396906a03b7df7fd76b92"
   },
   "candidate_rehearsal_training_performed": true,
   "config": {
-    "development_trials": 8,
-    "max_training_interactions": 256,
+    "development_trials": 32,
+    "max_replicas": 4,
+    "max_training_interactions": 300,
     "replay_trial_index": 0,
-    "training_episodes_per_seed": 2
+    "training_episodes_per_seed": 4
   },
   "development_only": true,
   "format": "gum-school-training-lane-rehearsal-v1",
-  "interpretation": "This is a development-only systems rehearsal, not a sealed evaluation or a learning claim. Its candidate was deliberately quarantined.",
+  "interpretation": "This development-only rehearsal may establish development learning but is not a sealed evaluation or promotion claim. Its candidate was deliberately quarantined.",
   "learner_seed": 8620001,
   "ledger": {
     "anchor": {
       "format": "gum-ledger-anchor-v1",
-      "head": "de5237655f0935a64d68d05135e4f067318f2fb400a5af56528a5d290a735052",
+      "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
       "ledger": "SCHOOL_LEDGER.jsonl",
       "records": 5
     },
     "anchored": true,
     "errors": [],
-    "head": "de5237655f0935a64d68d05135e4f067318f2fb400a5af56528a5d290a735052",
+    "head": "d228487c1a43a2c2fdd84bf8e7f676f3ff6ee9ea18f47b41f851a1b20f9f3353",
     "records": 5,
     "valid": true
   },
   "lesson_id": "object-laboratory.occlusion.001",
   "official_curriculum_run": false,
   "result": {
-    "candidate_development_success_rate": 0.0,
-    "development_trials": 8,
+    "candidate_development_success_rate": 1.0,
+    "development_advantage": 32.0,
+    "development_learning_observed": true,
+    "development_trials": 32,
     "failed_gates": [
-      "control-advantage",
       "evidence-integrity",
       "sealed-performance"
     ],
@@ -53,18 +55,50 @@
     "promoted_lessons": [],
     "promoted_snapshot_unchanged": true,
     "replay_verified": true,
-    "training_interactions": 63
+    "swarm": {
+      "communication_rounds": 4,
+      "max_replicas": 4,
+      "replica_count": 4,
+      "replica_episodes": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "spawn_events": [
+        {
+          "episode": 0,
+          "reason": "sustained-low-action-confidence",
+          "replica_count": 2,
+          "training_step": 2
+        },
+        {
+          "episode": 0,
+          "reason": "sustained-low-action-confidence",
+          "replica_count": 3,
+          "training_step": 5
+        },
+        {
+          "episode": 1,
+          "reason": "sustained-low-action-confidence",
+          "replica_count": 4,
+          "training_step": 9
+        }
+      ],
+      "spawned_on_demand": true
+    },
+    "training_interactions": 130
   },
-  "run_id": "af80e4d7-707d-40f3-b30d-3872a2f1a01e",
+  "run_id": "e7bac1f7-3fc9-465c-94e1-3348fc8e3566",
   "scripted_admission_controllers_used_for_training": false,
   "sealed_data_used": false,
   "source_hashes": {
     "gum/protocol.py": "sha256:5c1998eb02d5086e149fb16e7bd8517aefff88abcb9563deef2368db72554909",
     "gum/school/engine.py": "sha256:b72818816e225903e1d72aefafcaa72d3c30bfe0b28594b49dcff52310b3ed41",
     "gum/school/evaluation.py": "sha256:494a1a8d4cddd95a1b2935f98fcf30d64edf78f36dba757ad44dbc1c549671bd",
-    "gum/school/learner.py": "sha256:a59ab246cf5648fc3d17a94707e1e50f4489b3cc373d6b7720a9e43b8f7e492c",
-    "gum/school/rehearsal.py": "sha256:70c45fdafefee7017cc376a3169cffd48ac0939b6c7cec6f8524340439c853c9",
-    "gum/school/training.py": "sha256:f3f9ca1d4cca87ec60dba9d9b2e48cd1fe14eb5f587404c567f7b5d23d90f0d9",
+    "gum/school/learner.py": "sha256:7a10ebbe6235ecbce35b8c2ea39909a98849d8d3c3721f968a179a71772c5d1c",
+    "gum/school/rehearsal.py": "sha256:0eb7bedc764fb620eddae49c67d113016738f906b752867e4fe6e5c16342900e",
+    "gum/school/training.py": "sha256:93dc09a2bd78d40c56822f6d7a13d3bc61400e13f3551db99f54e29c3a0dc5f9",
     "gum/school/worlds.py": "sha256:c62f4926866c9d2afb7059352cf66d415e9a79c3bee5b57a898f12153c0d73be"
   }
 }
