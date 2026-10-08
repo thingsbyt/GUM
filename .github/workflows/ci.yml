@@ -25,7 +25,7 @@ jobs:
       - run: python -m pip install -e ".[dev]"
       - name: Run dependency-light verification
         run: >-
-          python -m pytest -q
+          python -m pytest -q -m "not neural"
           tests/test_gum_studio.py
           tests/test_gum_harness.py
           tests/test_concept_genesis.py

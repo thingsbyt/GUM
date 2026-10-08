@@ -38,4 +38,7 @@ include = ["gum*", "jepa_asteroids*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+  "neural: test requires the optional neural dependency group",
+]
 

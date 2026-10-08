@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-10-08T18:48:25.366235+00:00",
+  "created_at_utc": "2026-10-08T18:54:29.187860+00:00",
   "file_count": 279,
   "files": {
     ".gitattributes": "2f5b5eee45c8b010b34e6df0f29fb42dee676467d4d35d0535348ae75d4598d9",
@@ -7,7 +7,7 @@
     ".github/ISSUE_TEMPLATE/config.yml": "13064e7bea658e01e718b414fbb7b3b244f36411fe25ee2055c151f7b534547a",
     ".github/ISSUE_TEMPLATE/replication.yml": "431d68fce900016f8029d0fb936250eb1d39c96ae8c151b28466e3a44a209238",
     ".github/PULL_REQUEST_TEMPLATE.md": "cb29253e497ed5d1ccb796803134b91c37b27e0f9a4355f4ccce110ff5544e38",
-    ".github/workflows/ci.yml": "cb9fb9e1e64e38c0c7d3c06a878762ba04e5d9b7c068cff1199ca8672af9b098",
+    ".github/workflows/ci.yml": "7100879ce51e83a18196ad51779bd9785ff1ffd39b2b249b8fe125ac7fe65444",
     ".gitignore": "ca60995440ac51952e0a9fd4e1ce05b51c5746e6ce83d33334ad5aa86e8b4070",
     "AI_COLLABORATION.md": "e7191ee95f4c12411604c139f8530fcc79256b3285c45dbd85a5b4d0dfb21529",
     "CHANGELOG.md": "e964777c5b118dc71470ef47cded0116de6b775542260a1c5da7282b2f67a342",
@@ -207,7 +207,7 @@
     "jepa_asteroids/verify_problem_solving_audit.py": "fa394185ae5fee33a03998654203338762394c05027be698d35983a83bc745a2",
     "jepa_asteroids/visual_goal_planner.py": "a7d60166e1934701ab020e73fba3060f75504fc40f371ee18c88a213ce9a3dcb",
     "jepa_asteroids/warehouse_spill.py": "931e1af2386363c1f06e0be31382965750c1e0dd3ceed9702630ec784761ebb7",
-    "pyproject.toml": "3dd0ec1cf6b8f3127c31b9ae797aabe995c12077a51e6d764c9b8c6dde8e77c0",
+    "pyproject.toml": "ac2891519ad49a22bd762d1547a01174ced645dd6e2e9a625b848d3163dbfdfc",
     "requirements-neural.txt": "a303c8e44e6002ef33471297d84576bcaa16e5554c9c15707eb3276d46338fd7",
     "requirements.txt": "398fe9de318873323f6e6704b587be5a7764df90a0f80975ad4632c3b4676869",
     "scripts/audit_release_integrity.py": "0e0995f5e79add6d903b732222ff46255b80a1d18e93904cd05c567193f46ce3",
@@ -242,7 +242,7 @@
     "tests/test_frontier.py": "b2e66b9ad16086fa8bd19db92e4f995ded49747fbfdd2a1a392b488e0f09a01a",
     "tests/test_grammar_discovery.py": "30aadd7d51ead40fe67cf595c9642196128f340edb479ce32693a5cbf99422af",
     "tests/test_grounded_dialogue.py": "1e702d31dadc264252261e560d4e7795540f5aef76397a458f6397ae8aeede91",
-    "tests/test_gum_harness.py": "6b625af6ec277d5aad64a0e2c6cd5cfbe6676d0b928d3d51483a65f9bfa3a5c5",
+    "tests/test_gum_harness.py": "8221022e946846c6bcc83c9845fbd3c8fbd6f9be9a2c10c29cd28321ac1b2dff",
     "tests/test_gum_studio.py": "6d57645c9eb20638e079bff2173a5032ac0afdda17996827d6595ebb2b868cd3",
     "tests/test_hypothesis_engine.py": "bc5244df40299171d8f6a127b5d384c81bb5b1aa2618b99c82fb211222049399",
     "tests/test_immune_savior.py": "9162fbdb1da9560452323e3d3a425034af55f47c5058bfba5f56da5a6810138e",

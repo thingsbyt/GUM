@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import pytest
 
 from gum.harness import GUMHarness
 from gum.lineage import HashLedger
@@ -7,7 +8,6 @@ from gum.world_creator import WorldCreator, load_world
 from gum.builtin_worlds import create_builtin_world, load_asteroids, load_immune
 from gum.mind import observation_id
 from gum.specialist_minds import CooperativeTeamMind
-from jepa_asteroids.grounded_dialogue import GroundedLanguageBridge, teach_default_language
 
 
 def test_world_package_separates_public_contract_from_private_genome(tmp_path: Path):
@@ -100,7 +100,9 @@ def test_cooperative_mind_snapshot_round_trip_and_checksum(tmp_path: Path):
     else: raise AssertionError("tampered specialist state was accepted")
 
 
+@pytest.mark.neural
 def test_grounded_language_memory_attaches_to_same_interface(tmp_path: Path):
+    from jepa_asteroids.grounded_dialogue import GroundedLanguageBridge, teach_default_language
     model = GroundedLanguageBridge(); teach_default_language(model); source = tmp_path / "source_language.json"; model.save(source)
     harness = GUMHarness(tmp_path / "gum"); result = harness.attach_language_memory(source)
     assert result["learned_words"] > 10
