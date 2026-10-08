@@ -87,6 +87,7 @@
     {"id": "reproduce", "title": "Reproducing the work", "file": "docs/REPRODUCING.md"},
     {"id": "intelligence", "title": "Is it intelligent?", "file": "docs/INTELLIGENCE_ASSESSMENT.md"},
     {"id": "gallery", "title": "Demo gallery", "file": "docs/DEMO_GALLERY.md"},
+    {"id": "school-handoff", "title": "GUM School handoff", "file": "docs/GUM_SCHOOL_HANDOFF.md"},
     {"id": "collaboration", "title": "Human–AI collaboration", "file": "AI_COLLABORATION.md"}
   ]
 }

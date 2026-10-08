@@ -130,6 +130,7 @@ The strongest defensible description is:
 - [Learning integrity: leaks and hardcoding](docs/LEARNING_INTEGRITY.md)
 - [Is it intelligent?](docs/INTELLIGENCE_ASSESSMENT.md)
 - [How the project evolved](docs/PROJECT_HISTORY.md)
+- [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)
 - [Release verification](docs/VERIFICATION.md)
