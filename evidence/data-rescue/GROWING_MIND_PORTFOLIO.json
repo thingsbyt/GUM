@@ -1,0 +1,16 @@
+{
+  "data_rescue_domain": {
+    "brain": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\DATA_RESCUE_MIND.json",
+    "brain_sha256": "0b5dac0a17e407d1bf94ddeaadfabeac03c43cc2e0022e7530108853e2b011da",
+    "concepts": 5,
+    "skills": 1
+  },
+  "domains_retained": 2,
+  "format": "gum-growing-mind-portfolio-v1",
+  "shared_learning_implementation_sha256": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+  "visual_domain": {
+    "audit": "RELEASE_MACHINE_OUTPUTS\\gum_concept_genesis_v1\\CONCEPT_GENESIS_AUDIT.json",
+    "concept_genesis_source_sha256": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+    "passed": true
+  }
+}

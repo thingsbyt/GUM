@@ -1,0 +1,45 @@
+{
+  "classification": "precommitted internal test of autonomous opaque concepts and distinct-skill composition",
+  "created_at_utc": "2026-10-08T13:27:41.952243+00:00",
+  "curriculum": {
+    "fifth_world_created_from_post-curriculum_brain_hash": true,
+    "fifth_world_program_length": 6,
+    "fifth_world_requires_distinct_parent_skills": true,
+    "held_out_variants_per_family": 3,
+    "initial_surface_families": 4
+  },
+  "development_seed_family": 61000000,
+  "format": "gum-growth-challenge-v2",
+  "learner_inputs": [
+    "RGB pixels",
+    "five anonymous actions",
+    "terminal scalar reward",
+    "termination"
+  ],
+  "learner_not_given": [
+    "human concept names",
+    "hidden primitive identities",
+    "control maps",
+    "target programs",
+    "surface permutations",
+    "family identity",
+    "solution sequences"
+  ],
+  "sealed_seed_family": 91000000,
+  "source_hashes": {
+    "gum/concept_skill_factory.py": "43bde44f790f31003abc8ac22ddcaaabab08a15868b42da7740817b89b53f38b",
+    "gum/growth_challenge_v2.py": "b7369faf16e9e7e975477d4eee41e4c290476c2a1a04aaeb45a5a61238436210"
+  },
+  "thresholds": {
+    "fifth_world_distinct_parent_skills": true,
+    "held_out_variant_successes": 12,
+    "initial_world_successes": 4,
+    "maximum_created_concepts": 5,
+    "maximum_mapping_branches": 0,
+    "minimum_fifth_world_speedup_over_fresh": 10.0,
+    "portable_skill_recipient_success": true,
+    "retention_successes_after_reload": 4,
+    "source_must_remain_unchanged": true,
+    "traces_must_verify": true
+  }
+}

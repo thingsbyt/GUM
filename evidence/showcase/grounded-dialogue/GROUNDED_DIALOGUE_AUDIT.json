@@ -1,0 +1,1110 @@
+{
+  "format": "wailah-grounded-dialogue-v23-audit-v1",
+  "protocol": {
+    "word_dictionary_preinstalled": false,
+    "learning_signal": "human utterance paired with a successful observed action trace",
+    "perception_vocabulary": [
+      "apple",
+      "bicycle",
+      "butterfly",
+      "clock",
+      "dolphin",
+      "lamp",
+      "pickup_truck",
+      "pine_tree",
+      "telephone",
+      "wardrobe"
+    ],
+    "training_utterances": 178,
+    "sealed_novel_compositions": 60,
+    "exact_test_sentences_seen_during_training": 0,
+    "language_model_used": "none"
+  },
+  "results": {
+    "correct_and_executed": 60,
+    "trials": 60,
+    "accuracy": 1.0,
+    "all_test_sentences_novel": true,
+    "clarifications_requested": 3,
+    "clarification_trials": 3,
+    "memory_reload_preserved_meaning": true
+  },
+  "sample_cases": [
+    {
+      "command": "please locate the apple then move to the dolphin while staying away from the clock",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "apple"
+          ],
+          [
+            "approach",
+            "dolphin"
+          ]
+        ],
+        "avoid": [
+          "clock"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "apple"
+            ],
+            [
+              "approach",
+              "dolphin"
+            ]
+          ],
+          "avoid": [
+            "clock"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find apple; then approach dolphin; avoid clock.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "apple"
+          ],
+          [
+            "approach",
+            "dolphin"
+          ]
+        ],
+        "avoided": [
+          "clock"
+        ],
+        "movement_steps": 9,
+        "path": [
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            5
+          ]
+        ]
+      },
+      "correct_meaning": true
+    },
+    {
+      "command": "please locate the clock then move to the pickup truck while staying away from the dolphin",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "clock"
+          ],
+          [
+            "approach",
+            "pickup_truck"
+          ]
+        ],
+        "avoid": [
+          "dolphin"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "clock"
+            ],
+            [
+              "approach",
+              "pickup_truck"
+            ]
+          ],
+          "avoid": [
+            "dolphin"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find clock; then approach pickup_truck; avoid dolphin.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "clock"
+          ],
+          [
+            "approach",
+            "pickup_truck"
+          ]
+        ],
+        "avoided": [
+          "dolphin"
+        ],
+        "movement_steps": 13,
+        "path": [
+          [
+            7,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            4
+          ]
+        ]
+      },
+      "correct_meaning": true
+    },
+    {
+      "command": "please locate the apple then move to the clock while staying away from the telephone",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "apple"
+          ],
+          [
+            "approach",
+            "clock"
+          ]
+        ],
+        "avoid": [
+          "telephone"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "apple"
+            ],
+            [
+              "approach",
+              "clock"
+            ]
+          ],
+          "avoid": [
+            "telephone"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find apple; then approach clock; avoid telephone.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "apple"
+          ],
+          [
+            "approach",
+            "clock"
+          ]
+        ],
+        "avoided": [
+          "telephone"
+        ],
+        "movement_steps": 14,
+        "path": [
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      "correct_meaning": true
+    },
+    {
+      "command": "please locate the lamp then move to the telephone while staying away from the bicycle",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "lamp"
+          ],
+          [
+            "approach",
+            "telephone"
+          ]
+        ],
+        "avoid": [
+          "bicycle"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "lamp"
+            ],
+            [
+              "approach",
+              "telephone"
+            ]
+          ],
+          "avoid": [
+            "bicycle"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find lamp; then approach telephone; avoid bicycle.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "lamp"
+          ],
+          [
+            "approach",
+            "telephone"
+          ]
+        ],
+        "avoided": [
+          "bicycle"
+        ],
+        "movement_steps": 9,
+        "path": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            8
+          ]
+        ]
+      },
+      "correct_meaning": true
+    },
+    {
+      "command": "please locate the bicycle then move to the clock while staying away from the apple",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "bicycle"
+          ],
+          [
+            "approach",
+            "clock"
+          ]
+        ],
+        "avoid": [
+          "apple"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "bicycle"
+            ],
+            [
+              "approach",
+              "clock"
+            ]
+          ],
+          "avoid": [
+            "apple"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find bicycle; then approach clock; avoid apple.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "bicycle"
+          ],
+          [
+            "approach",
+            "clock"
+          ]
+        ],
+        "avoided": [
+          "apple"
+        ],
+        "movement_steps": 14,
+        "path": [
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            8,
+            5
+          ]
+        ]
+      },
+      "correct_meaning": true
+    },
+    {
+      "command": "please locate the lamp then move to the pine tree while staying away from the dolphin",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "lamp"
+          ],
+          [
+            "approach",
+            "pine_tree"
+          ]
+        ],
+        "avoid": [
+          "dolphin"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "lamp"
+            ],
+            [
+              "approach",
+              "pine_tree"
+            ]
+          ],
+          "avoid": [
+            "dolphin"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find lamp; then approach pine_tree; avoid dolphin.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "lamp"
+          ],
+          [
+            "approach",
+            "pine_tree"
+          ]
+        ],
+        "avoided": [
+          "dolphin"
+        ],
+        "movement_steps": 20,
+        "path": [
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            6,
+            6
+          ]
+        ]
+      },
+      "correct_meaning": true
+    },
+    {
+      "command": "please locate the clock then move to the bicycle while staying away from the dolphin",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "clock"
+          ],
+          [
+            "approach",
+            "bicycle"
+          ]
+        ],
+        "avoid": [
+          "dolphin"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "clock"
+            ],
+            [
+              "approach",
+              "bicycle"
+            ]
+          ],
+          "avoid": [
+            "dolphin"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find clock; then approach bicycle; avoid dolphin.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "clock"
+          ],
+          [
+            "approach",
+            "bicycle"
+          ]
+        ],
+        "avoided": [
+          "dolphin"
+        ],
+        "movement_steps": 6,
+        "path": [
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            0
+          ]
+        ]
+      },
+      "correct_meaning": true
+    },
+    {
+      "command": "please locate the lamp then move to the pickup truck while staying away from the pine tree",
+      "never_demonstrated_verbatim": true,
+      "expected": {
+        "steps": [
+          [
+            "find",
+            "lamp"
+          ],
+          [
+            "approach",
+            "pickup_truck"
+          ]
+        ],
+        "avoid": [
+          "pine_tree"
+        ]
+      },
+      "interpretation": {
+        "status": "understood",
+        "task": {
+          "steps": [
+            [
+              "find",
+              "lamp"
+            ],
+            [
+              "approach",
+              "pickup_truck"
+            ]
+          ],
+          "avoid": [
+            "pine_tree"
+          ]
+        },
+        "confidence": 0.4863046758858654,
+        "response": "I understood: find lamp; then approach pickup_truck; avoid pine_tree.",
+        "uncertain_words": []
+      },
+      "execution": {
+        "success": true,
+        "visited": [
+          [
+            "find",
+            "lamp"
+          ],
+          [
+            "approach",
+            "pickup_truck"
+          ]
+        ],
+        "avoided": [
+          "pine_tree"
+        ],
+        "movement_steps": 9,
+        "path": [
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ]
+        ]
+      },
+      "correct_meaning": true
+    }
+  ],
+  "clarification_cases": [
+    {
+      "command": "find the bank",
+      "status": "clarify",
+      "task": null,
+      "confidence": 0.0,
+      "response": "I have not grounded 'bank' well enough. Please demonstrate what it means.",
+      "uncertain_words": [
+        "bank"
+      ]
+    },
+    {
+      "command": "approach the apple while avoid the apple",
+      "status": "clarify",
+      "task": null,
+      "confidence": 0.0,
+      "response": "You asked me to approach and avoid apple. Which instruction has priority?",
+      "uncertain_words": []
+    },
+    {
+      "command": "avoid the lamp",
+      "status": "clarify",
+      "task": null,
+      "confidence": 0.0,
+      "response": "I understood what to avoid, but I still need a positive goal.",
+      "uncertain_words": []
+    }
+  ],
+  "learned_lexicon": {
+    "about": {
+      "meaning": "action:report",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "apple": {
+      "meaning": "object:apple",
+      "probability": 0.49199040846708614,
+      "margin": 0.4904786023219305
+    },
+    "approach": {
+      "meaning": "action:approach",
+      "probability": 0.4949221354106141,
+      "margin": 0.4940976544710432
+    },
+    "avoid": {
+      "meaning": "action:avoid",
+      "probability": 0.4945942018664633,
+      "margin": 0.4936955328549516
+    },
+    "away": {
+      "meaning": "action:avoid",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "bicycle": {
+      "meaning": "object:bicycle",
+      "probability": 0.4926311880295461,
+      "margin": 0.4911176416658485
+    },
+    "butterfly": {
+      "meaning": "object:butterfly",
+      "probability": 0.492631188029546,
+      "margin": 0.49111764166584837
+    },
+    "clear": {
+      "meaning": "action:avoid",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "clock": {
+      "meaning": "object:clock",
+      "probability": 0.4926311938331014,
+      "margin": 0.4911176709458524
+    },
+    "describe": {
+      "meaning": "action:report",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "dolphin": {
+      "meaning": "object:dolphin",
+      "probability": 0.492631188029546,
+      "margin": 0.49111764166584837
+    },
+    "find": {
+      "meaning": "action:find",
+      "probability": 0.49491001926639394,
+      "margin": 0.4940109723470305
+    },
+    "for": {
+      "meaning": "action:find",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "from": {
+      "meaning": "action:avoid",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "go": {
+      "meaning": "action:approach",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "keep": {
+      "meaning": "action:avoid",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "lamp": {
+      "meaning": "object:lamp",
+      "probability": 0.4926311880295461,
+      "margin": 0.4911176416658485
+    },
+    "locate": {
+      "meaning": "action:find",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "me": {
+      "meaning": "action:report",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "move": {
+      "meaning": "action:approach",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "of": {
+      "meaning": "action:avoid",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "pickup": {
+      "meaning": "object:pickup_truck",
+      "probability": 0.492631188029546,
+      "margin": 0.49111764166584837
+    },
+    "pine": {
+      "meaning": "object:pine_tree",
+      "probability": 0.4926311938331014,
+      "margin": 0.4911176709458524
+    },
+    "please": {
+      "meaning": "meaning:null",
+      "probability": 0.9934288606683582,
+      "margin": 0.9927663909913904
+    },
+    "report": {
+      "meaning": "action:report",
+      "probability": 0.49520513807565203,
+      "margin": 0.49438035220286713
+    },
+    "search": {
+      "meaning": "action:find",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "stay": {
+      "meaning": "action:avoid",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "telephone": {
+      "meaning": "object:telephone",
+      "probability": 0.492631188029546,
+      "margin": 0.49111764166584837
+    },
+    "tell": {
+      "meaning": "action:report",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "the": {
+      "meaning": "meaning:null",
+      "probability": 0.9961956029568207,
+      "margin": 0.9958634239077312
+    },
+    "then": {
+      "meaning": "meaning:null",
+      "probability": 0.9395006672518041,
+      "margin": 0.9207003977867401
+    },
+    "to": {
+      "meaning": "action:approach",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "toward": {
+      "meaning": "action:approach",
+      "probability": 0.4863046758858654,
+      "margin": 0.48414813533488305
+    },
+    "tree": {
+      "meaning": "object:pine_tree",
+      "probability": 0.4926311938331014,
+      "margin": 0.4911176709458524
+    },
+    "truck": {
+      "meaning": "object:pickup_truck",
+      "probability": 0.492631188029546,
+      "margin": 0.49111764166584837
+    },
+    "wardrobe": {
+      "meaning": "object:wardrobe",
+      "probability": 0.49199040846708614,
+      "margin": 0.4904786023219305
+    },
+    "while": {
+      "meaning": "meaning:null",
+      "probability": 0.9511106723835645,
+      "margin": 0.9415629925917923
+    }
+  },
+  "integrity": {
+    "implementation_sha256": "5b6232f9faecbde3b44a7e0cabaae5e8aecd2138449a60316ff3f6e78f167ede",
+    "memory_sha256": "84ea702ed72c971838614b756056c07f8c0cb27de0dfd17a88b9078f6366f169"
+  },
+  "passed": true
+}

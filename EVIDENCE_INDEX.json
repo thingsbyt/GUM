@@ -1,0 +1,92 @@
+{
+  "format": "gum-evidence-index-v1",
+  "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
+  "claims": [
+    {
+      "id": "growth-v2",
+      "status": "passed-internal",
+      "title": "Concepts, skills, and transfer",
+      "headline": "20/20 held-out transfer; 1,230.59× experienced-vs-blank advantage",
+      "metrics": ["Concepts learned from transitions", "Solutions withheld", "Persistent skills reused and composed"],
+      "scope": "Synthetic pixel worlds with anonymous actions. Not arbitrary natural environments.",
+      "evidence": "evidence/growth/GROWTH_CHALLENGE_AUDIT.json"
+    },
+    {
+      "id": "concept-genesis",
+      "status": "passed-internal",
+      "title": "Autonomous concept-count selection",
+      "headline": "Five event concepts selected; 20/20 transfer; 498.06× advantage",
+      "metrics": ["Concept count was not supplied", "Four retained tasks rechecked", "A fifth skill was composed"],
+      "scope": "Structured rendered events; the changed-pixel and clustering biases remain engineered.",
+      "evidence": "evidence/concept-genesis/CONCEPT_GENESIS_AUDIT.json"
+    },
+    {
+      "id": "data-rescue",
+      "status": "passed-internal",
+      "title": "Real-file data rescue",
+      "headline": "5/5 unfamiliar JSONL files repaired; 348× experience advantage",
+      "metrics": ["Operated on actual files", "Operation names and order withheld", "Validator used only for scalar feedback"],
+      "scope": "A bounded JSONL repair family, not arbitrary office work.",
+      "evidence": "evidence/data-rescue/DATA_RESCUE_AUDIT.json"
+    },
+    {
+      "id": "learning-to-learn",
+      "status": "passed-internal",
+      "title": "Learning-to-learn",
+      "headline": "Median 2.30× and mean 4.48× held-out speedup across five minds",
+      "metrics": ["160 training tasks", "120 held-out tasks", "Zero task solutions retained", "Four of five improved; one regressed to 0.90×"],
+      "scope": "A learned three-number acquisition policy within the tested task distribution.",
+      "evidence": "evidence/learning-to-learn/LEARNING_TO_LEARN_AUDIT.json"
+    },
+    {
+      "id": "clarification",
+      "status": "passed-internal",
+      "title": "Grounded words and clarification",
+      "headline": "45/45 successful trials; 30/30 ambiguous references resolved",
+      "metrics": ["Six words induced from pixels, utterances, and pointing", "No language model", "Unknown word refused instead of guessed"],
+      "scope": "Colors and simple shapes in a fixed approach-action family.",
+      "evidence": "evidence/clarification-test/CLARIFICATION_AUDIT.json"
+    },
+    {
+      "id": "two-rocket",
+      "status": "passed-internal",
+      "title": "Two-rocket Asteroids coordination",
+      "headline": "350 hits with both agents active in 8/8 runs",
+      "metrics": ["Zero friendly-fire incidents", "Zero life loss", "Communication ablation: 311 hits and one life lost", "Solo: 148; random: 93"],
+      "scope": "A purpose-built two-agent Asteroids test, not open-ended cooperation.",
+      "evidence": "evidence/showcase/two-rocket/TWO_ROCKET_FINAL_AUDIT.json"
+    },
+    {
+      "id": "concept-bridge",
+      "status": "mixed-result",
+      "title": "Photo → glyph → word composition",
+      "headline": "Apple reached 96%; overall composed accuracy was 53.22%",
+      "metrics": ["10,000 sealed CIFAR-100 trials", "No direct photo-to-word training", "Several categories failed badly"],
+      "scope": "A valuable mixed result. The precommitted overall claim failed.",
+      "evidence": "evidence/showcase/concept-bridge/CONCEPT_BRIDGE_AUDIT.json"
+    }
+  ],
+  "replays": [
+    {"id": "two-rocket", "title": "Two agents coordinate in Asteroids", "file": "assets/demos/two-rocket-asteroids.gif"},
+    {"id": "maze", "title": "Maze escape", "file": "assets/demos/maze-escape.gif"},
+    {"id": "logic", "title": "Hidden logic chain", "file": "assets/demos/logic-chain.gif"},
+    {"id": "json", "title": "Real-file JSON normalization", "file": "assets/demos/json-normalizer.gif"},
+    {"id": "rescue", "title": "Fictional cooperative rescue", "file": "assets/demos/cooperative-rescue.gif"},
+    {"id": "lifelong", "title": "Lifelong learning showcase", "file": "assets/demos/lifelong-showcase.gif"},
+    {"id": "apple", "title": "Apple concept bridge (mixed study)", "file": "assets/demos/apple-concept.gif"}
+  ],
+  "documents": [
+    {"id": "start", "title": "Start here", "file": "docs/START_HERE.md"},
+    {"id": "playground", "title": "Play and teach", "file": "docs/PLAYGROUND_GUIDE.md"},
+    {"id": "capabilities", "title": "Capabilities", "file": "docs/CAPABILITIES.md"},
+    {"id": "architecture", "title": "Architecture", "file": "docs/ARCHITECTURE.md"},
+    {"id": "paper", "title": "Preliminary paper", "file": "docs/PRELIMINARY_PAPER.md"},
+    {"id": "evidence", "title": "Evidence catalog", "file": "docs/EVIDENCE.md"},
+    {"id": "integrity", "title": "Learning integrity", "file": "docs/LEARNING_INTEGRITY.md"},
+    {"id": "limitations", "title": "Claims and limitations", "file": "docs/CLAIMS_AND_LIMITATIONS.md"},
+    {"id": "reproduce", "title": "Reproducing the work", "file": "docs/REPRODUCING.md"},
+    {"id": "intelligence", "title": "Is it intelligent?", "file": "docs/INTELLIGENCE_ASSESSMENT.md"},
+    {"id": "gallery", "title": "Demo gallery", "file": "docs/DEMO_GALLERY.md"},
+    {"id": "collaboration", "title": "Human–AI collaboration", "file": "AI_COLLABORATION.md"}
+  ]
+}

@@ -1,0 +1,969 @@
+{
+  "brain": {
+    "bytes": 13247,
+    "path": "RELEASE_MACHINE_OUTPUTS\\gum_growth_challenge_v2\\GROWN_MIND_FINAL.json",
+    "sha256": "0889a71aa8ca7e334752b6e35c95dd9b14594679318a381dc2b54693ab8fb2d2"
+  },
+  "checks": {
+    "concept_budget": true,
+    "fifth_distinct_parents": true,
+    "fifth_experienced": true,
+    "fifth_fresh": true,
+    "fifth_speedup": true,
+    "held_out_variants": true,
+    "hidden_state_absent_from_learner_traces": true,
+    "initial_worlds": true,
+    "no_unnecessary_branches": true,
+    "portable_recipient": true,
+    "retention_after_reload": true,
+    "source_frozen": true,
+    "traces_valid": true
+  },
+  "classification": "precommitted internal test of autonomous opaque concepts and distinct-skill composition",
+  "curriculum_audit_only": {
+    "fifth_parent_indices": [
+      3,
+      2
+    ],
+    "fifth_seed": 91904277,
+    "fifth_target": [
+      0,
+      4,
+      1,
+      1,
+      4,
+      0
+    ],
+    "initial_targets": [
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        1,
+        4,
+        0
+      ],
+      [
+        0,
+        4,
+        1
+      ]
+    ]
+  },
+  "fifth_world": {
+    "created_after_curriculum_from_brain_hash": "7e81419fa0fc8755762f56fe770f5bf35ffaf592e1b5e282457bbb0c5367817e",
+    "experienced": {
+      "compositions_tried": 4,
+      "context": "bbaba71f9dce1c15fb52",
+      "grounding_interactions": 5,
+      "interactions": 29,
+      "parents": [
+        "skill-43af7ba614",
+        "skill-ca29e0bbfd"
+      ],
+      "skill_id": "skill-b5dae488ee",
+      "success": true
+    },
+    "fresh": {
+      "candidates": 5947,
+      "context": "bbaba71f9dce1c15fb52",
+      "interactions": 35687,
+      "sequence": [
+        "concept-5aaf1e183f",
+        "concept-e61b9f584d",
+        "concept-c37273e587",
+        "concept-c37273e587",
+        "concept-e61b9f584d",
+        "concept-5aaf1e183f"
+      ],
+      "skill_id": "skill-b5dae488ee",
+      "success": true
+    },
+    "speedup": 1230.5862068965516
+  },
+  "format": "gum-growth-challenge-v2",
+  "held_out_variants": {
+    "mean_interactions": 9.75,
+    "rows": [
+      {
+        "context": "00eb4193d00cbad02b37",
+        "family_audit_only": 0,
+        "grounding_interactions": 5,
+        "interactions": 11,
+        "skill_id": "skill-82690b2e18",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_operator": [
+            4,
+            3,
+            1,
+            2,
+            0
+          ],
+          "presentation": 4,
+          "surface_permutation": [
+            3,
+            4,
+            2,
+            5,
+            0,
+            1,
+            7,
+            9,
+            8,
+            6
+          ],
+          "target_operators": [
+            0,
+            1,
+            3
+          ],
+          "world_id": "d70fef3b28f13149"
+        }
+      },
+      {
+        "context": "cd032760cfdacc62fad5",
+        "family_audit_only": 0,
+        "grounding_interactions": 5,
+        "interactions": 8,
+        "skill_id": "skill-82690b2e18",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_operator": [
+            1,
+            3,
+            4,
+            2,
+            0
+          ],
+          "presentation": 5,
+          "surface_permutation": [
+            5,
+            7,
+            3,
+            0,
+            6,
+            4,
+            1,
+            8,
+            9,
+            2
+          ],
+          "target_operators": [
+            0,
+            1,
+            3
+          ],
+          "world_id": "4078a35f4752177e"
+        }
+      },
+      {
+        "context": "be07c754cbe77e82568f",
+        "family_audit_only": 0,
+        "grounding_interactions": 5,
+        "interactions": 8,
+        "skill_id": "skill-82690b2e18",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_operator": [
+            1,
+            0,
+            3,
+            2,
+            4
+          ],
+          "presentation": 6,
+          "surface_permutation": [
+            1,
+            7,
+            6,
+            2,
+            3,
+            8,
+            9,
+            5,
+            0,
+            4
+          ],
+          "target_operators": [
+            0,
+            1,
+            3
+          ],
+          "world_id": "f50dd516b36c94fb"
+        }
+      },
+      {
+        "context": "17d04afcae6636c50545",
+        "family_audit_only": 1,
+        "grounding_interactions": 5,
+        "interactions": 11,
+        "skill_id": "skill-c9135c34d1",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_operator": [
+            0,
+            4,
+            2,
+            1,
+            3
+          ],
+          "presentation": 5,
+          "surface_permutation": [
+            6,
+            2,
+            4,
+            8,
+            1,
+            9,
+            3,
+            5,
+            7,
+            0
+          ],
+          "target_operators": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "182b82cd041fe025"
+        }
+      },
+      {
+        "context": "0090e3c490475e759a55",
+        "family_audit_only": 1,
+        "grounding_interactions": 5,
+        "interactions": 8,
+        "skill_id": "skill-c9135c34d1",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_operator": [
+            2,
+            1,
+            3,
+            4,
+            0
+          ],
+          "presentation": 6,
+          "surface_permutation": [
+            1,
+            3,
+            0,
+            5,
+            7,
+            6,
+            9,
+            2,
+            4,
+            8
+          ],
+          "target_operators": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "1d49d33b2935df58"
+        }
+      },
+      {
+        "context": "add81d7190a0cb919f1a",
+        "family_audit_only": 1,
+        "grounding_interactions": 5,
+        "interactions": 8,
+        "skill_id": "skill-c9135c34d1",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_operator": [
+            3,
+            1,
+            0,
+            2,
+            4
+          ],
+          "presentation": 7,
+          "surface_permutation": [
+            0,
+            8,
+            6,
+            2,
+            9,
+            7,
+            3,
+            4,
+            5,
+            1
+          ],
+          "target_operators": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "cb34be29e4da72f5"
+        }
+      },
+      {
+        "context": "c6df4510ca8dfb715946",
+        "family_audit_only": 2,
+        "grounding_interactions": 5,
+        "interactions": 11,
+        "skill_id": "skill-ca29e0bbfd",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_operator": [
+            2,
+            4,
+            3,
+            1,
+            0
+          ],
+          "presentation": 6,
+          "surface_permutation": [
+            3,
+            1,
+            7,
+            2,
+            8,
+            9,
+            5,
+            0,
+            6,
+            4
+          ],
+          "target_operators": [
+            1,
+            4,
+            0
+          ],
+          "world_id": "99c11781264942f2"
+        }
+      },
+      {
+        "context": "4712c50126395340da01",
+        "family_audit_only": 2,
+        "grounding_interactions": 5,
+        "interactions": 8,
+        "skill_id": "skill-ca29e0bbfd",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_operator": [
+            1,
+            3,
+            4,
+            2,
+            0
+          ],
+          "presentation": 7,
+          "surface_permutation": [
+            5,
+            3,
+            0,
+            7,
+            9,
+            6,
+            8,
+            4,
+            1,
+            2
+          ],
+          "target_operators": [
+            1,
+            4,
+            0
+          ],
+          "world_id": "03a6fafae3813d9c"
+        }
+      },
+      {
+        "context": "a9fc05707a52902bad0d",
+        "family_audit_only": 2,
+        "grounding_interactions": 5,
+        "interactions": 8,
+        "skill_id": "skill-ca29e0bbfd",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_operator": [
+            2,
+            4,
+            3,
+            1,
+            0
+          ],
+          "presentation": 8,
+          "surface_permutation": [
+            1,
+            3,
+            5,
+            0,
+            9,
+            4,
+            8,
+            2,
+            7,
+            6
+          ],
+          "target_operators": [
+            1,
+            4,
+            0
+          ],
+          "world_id": "eacbecedb5292907"
+        }
+      },
+      {
+        "context": "d6fed193026a939f309f",
+        "family_audit_only": 3,
+        "grounding_interactions": 5,
+        "interactions": 17,
+        "skill_id": "skill-43af7ba614",
+        "skills_tried": 4,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_operator": [
+            3,
+            4,
+            2,
+            0,
+            1
+          ],
+          "presentation": 7,
+          "surface_permutation": [
+            0,
+            2,
+            7,
+            4,
+            5,
+            6,
+            8,
+            3,
+            9,
+            1
+          ],
+          "target_operators": [
+            0,
+            4,
+            1
+          ],
+          "world_id": "504a54c4fbf5e1ba"
+        }
+      },
+      {
+        "context": "4ad21fa0ce9b4c4c10c9",
+        "family_audit_only": 3,
+        "grounding_interactions": 5,
+        "interactions": 11,
+        "skill_id": "skill-43af7ba614",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_operator": [
+            3,
+            0,
+            1,
+            4,
+            2
+          ],
+          "presentation": 8,
+          "surface_permutation": [
+            5,
+            8,
+            6,
+            4,
+            9,
+            2,
+            7,
+            3,
+            1,
+            0
+          ],
+          "target_operators": [
+            0,
+            4,
+            1
+          ],
+          "world_id": "e9ac525eb5fe12d7"
+        }
+      },
+      {
+        "context": "5aa5c450ef653ee48253",
+        "family_audit_only": 3,
+        "grounding_interactions": 5,
+        "interactions": 8,
+        "skill_id": "skill-43af7ba614",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_operator": [
+            2,
+            1,
+            0,
+            3,
+            4
+          ],
+          "presentation": 9,
+          "surface_permutation": [
+            2,
+            0,
+            7,
+            5,
+            6,
+            1,
+            8,
+            4,
+            9,
+            3
+          ],
+          "target_operators": [
+            0,
+            4,
+            1
+          ],
+          "world_id": "ce4d9ddc79a3487b"
+        }
+      }
+    ],
+    "successes": 12,
+    "worlds": 12
+  },
+  "hidden_state_scan": {
+    "clean": true,
+    "matches": []
+  },
+  "initial_acquisition": [
+    {
+      "candidates": 96,
+      "context": "41aeeb8d4dcb6437c588",
+      "interactions": 293,
+      "sequence": [
+        "concept-5aaf1e183f",
+        "concept-c37273e587",
+        "concept-45e1c0b759"
+      ],
+      "skill_id": "skill-82690b2e18",
+      "success": true
+    },
+    {
+      "candidates": 23,
+      "context": "dc2c997dc9f366a7f6b0",
+      "interactions": 74,
+      "sequence": [
+        "concept-c37273e587",
+        "concept-463f299832",
+        "concept-e61b9f584d"
+      ],
+      "skill_id": "skill-c9135c34d1",
+      "success": true
+    },
+    {
+      "candidates": 10,
+      "context": "bfc658c57a3ecc26fdff",
+      "interactions": 35,
+      "sequence": [
+        "concept-c37273e587",
+        "concept-e61b9f584d",
+        "concept-5aaf1e183f"
+      ],
+      "skill_id": "skill-ca29e0bbfd",
+      "success": true
+    },
+    {
+      "candidates": 45,
+      "context": "2ea1815adff7bb1aa05d",
+      "interactions": 140,
+      "sequence": [
+        "concept-5aaf1e183f",
+        "concept-e61b9f584d",
+        "concept-c37273e587"
+      ],
+      "skill_id": "skill-43af7ba614",
+      "success": true
+    }
+  ],
+  "interpretation": "Tests self-created structural transition concepts and reusable skill composition in surface-diverse mechanistic micro-worlds. It does not establish open-world concept invention.",
+  "learner_inputs": [
+    "RGB pixels",
+    "five anonymous actions",
+    "terminal scalar reward",
+    "termination"
+  ],
+  "learner_not_given": [
+    "human concept names",
+    "hidden primitive identities",
+    "control maps",
+    "target programs",
+    "surface permutations",
+    "family identity",
+    "solution sequences"
+  ],
+  "mind": {
+    "concept_evidence": 85,
+    "concepts": [
+      {
+        "concept_id": "concept-45e1c0b759",
+        "contexts": [
+          "0090e3c490475e759a55",
+          "00eb4193d00cbad02b37",
+          "17d04afcae6636c50545",
+          "2ea1815adff7bb1aa05d",
+          "41aeeb8d4dcb6437c588",
+          "4712c50126395340da01",
+          "4ad21fa0ce9b4c4c10c9",
+          "5aa5c450ef653ee48253",
+          "a9fc05707a52902bad0d",
+          "add81d7190a0cb919f1a",
+          "bbaba71f9dce1c15fb52",
+          "be07c754cbe77e82568f",
+          "bfc658c57a3ecc26fdff",
+          "c6df4510ca8dfb715946",
+          "cd032760cfdacc62fad5",
+          "d6fed193026a939f309f",
+          "dc2c997dc9f366a7f6b0"
+        ],
+        "evidence": 17,
+        "signature": [
+          0,
+          2
+        ]
+      },
+      {
+        "concept_id": "concept-463f299832",
+        "contexts": [
+          "0090e3c490475e759a55",
+          "00eb4193d00cbad02b37",
+          "17d04afcae6636c50545",
+          "2ea1815adff7bb1aa05d",
+          "41aeeb8d4dcb6437c588",
+          "4712c50126395340da01",
+          "4ad21fa0ce9b4c4c10c9",
+          "5aa5c450ef653ee48253",
+          "a9fc05707a52902bad0d",
+          "add81d7190a0cb919f1a",
+          "bbaba71f9dce1c15fb52",
+          "be07c754cbe77e82568f",
+          "bfc658c57a3ecc26fdff",
+          "c6df4510ca8dfb715946",
+          "cd032760cfdacc62fad5",
+          "d6fed193026a939f309f",
+          "dc2c997dc9f366a7f6b0"
+        ],
+        "evidence": 17,
+        "signature": [
+          0,
+          1
+        ]
+      },
+      {
+        "concept_id": "concept-5aaf1e183f",
+        "contexts": [
+          "0090e3c490475e759a55",
+          "00eb4193d00cbad02b37",
+          "17d04afcae6636c50545",
+          "2ea1815adff7bb1aa05d",
+          "41aeeb8d4dcb6437c588",
+          "4712c50126395340da01",
+          "4ad21fa0ce9b4c4c10c9",
+          "5aa5c450ef653ee48253",
+          "a9fc05707a52902bad0d",
+          "add81d7190a0cb919f1a",
+          "bbaba71f9dce1c15fb52",
+          "be07c754cbe77e82568f",
+          "bfc658c57a3ecc26fdff",
+          "c6df4510ca8dfb715946",
+          "cd032760cfdacc62fad5",
+          "d6fed193026a939f309f",
+          "dc2c997dc9f366a7f6b0"
+        ],
+        "evidence": 17,
+        "signature": [
+          1,
+          0
+        ]
+      },
+      {
+        "concept_id": "concept-c37273e587",
+        "contexts": [
+          "0090e3c490475e759a55",
+          "00eb4193d00cbad02b37",
+          "17d04afcae6636c50545",
+          "2ea1815adff7bb1aa05d",
+          "41aeeb8d4dcb6437c588",
+          "4712c50126395340da01",
+          "4ad21fa0ce9b4c4c10c9",
+          "5aa5c450ef653ee48253",
+          "a9fc05707a52902bad0d",
+          "add81d7190a0cb919f1a",
+          "bbaba71f9dce1c15fb52",
+          "be07c754cbe77e82568f",
+          "bfc658c57a3ecc26fdff",
+          "c6df4510ca8dfb715946",
+          "cd032760cfdacc62fad5",
+          "d6fed193026a939f309f",
+          "dc2c997dc9f366a7f6b0"
+        ],
+        "evidence": 17,
+        "signature": [
+          2,
+          0
+        ]
+      },
+      {
+        "concept_id": "concept-e61b9f584d",
+        "contexts": [
+          "0090e3c490475e759a55",
+          "00eb4193d00cbad02b37",
+          "17d04afcae6636c50545",
+          "2ea1815adff7bb1aa05d",
+          "41aeeb8d4dcb6437c588",
+          "4712c50126395340da01",
+          "4ad21fa0ce9b4c4c10c9",
+          "5aa5c450ef653ee48253",
+          "a9fc05707a52902bad0d",
+          "add81d7190a0cb919f1a",
+          "bbaba71f9dce1c15fb52",
+          "be07c754cbe77e82568f",
+          "bfc658c57a3ecc26fdff",
+          "c6df4510ca8dfb715946",
+          "cd032760cfdacc62fad5",
+          "d6fed193026a939f309f",
+          "dc2c997dc9f366a7f6b0"
+        ],
+        "evidence": 17,
+        "signature": [
+          1,
+          1
+        ]
+      }
+    ],
+    "concepts_created": 5,
+    "format": "gum-concept-skill-factory-v1",
+    "interactions": 700,
+    "known_contexts": 17,
+    "mapping_branches": 0,
+    "mapping_conflicts": 0,
+    "skills": [
+      {
+        "confidence": 0.8571428571428571,
+        "failed_uses": 1,
+        "sequence": [
+          "concept-5aaf1e183f",
+          "concept-e61b9f584d",
+          "concept-c37273e587"
+        ],
+        "skill_id": "skill-43af7ba614",
+        "source_contexts": [
+          "2ea1815adff7bb1aa05d"
+        ],
+        "successful_uses": 5,
+        "support": 1
+      },
+      {
+        "confidence": 0.75,
+        "failed_uses": 2,
+        "sequence": [
+          "concept-5aaf1e183f",
+          "concept-c37273e587",
+          "concept-45e1c0b759"
+        ],
+        "skill_id": "skill-82690b2e18",
+        "source_contexts": [
+          "41aeeb8d4dcb6437c588"
+        ],
+        "successful_uses": 5,
+        "support": 1
+      },
+      {
+        "confidence": 1.0,
+        "failed_uses": 0,
+        "sequence": [
+          "concept-5aaf1e183f",
+          "concept-e61b9f584d",
+          "concept-c37273e587",
+          "concept-c37273e587",
+          "concept-e61b9f584d",
+          "concept-5aaf1e183f"
+        ],
+        "skill_id": "skill-b5dae488ee",
+        "source_contexts": [
+          "bbaba71f9dce1c15fb52"
+        ],
+        "successful_uses": 1,
+        "support": 1
+      },
+      {
+        "confidence": 0.75,
+        "failed_uses": 2,
+        "sequence": [
+          "concept-c37273e587",
+          "concept-463f299832",
+          "concept-e61b9f584d"
+        ],
+        "skill_id": "skill-c9135c34d1",
+        "source_contexts": [
+          "dc2c997dc9f366a7f6b0"
+        ],
+        "successful_uses": 5,
+        "support": 1
+      },
+      {
+        "confidence": 0.75,
+        "failed_uses": 2,
+        "sequence": [
+          "concept-c37273e587",
+          "concept-e61b9f584d",
+          "concept-5aaf1e183f"
+        ],
+        "skill_id": "skill-ca29e0bbfd",
+        "source_contexts": [
+          "bfc658c57a3ecc26fdff"
+        ],
+        "successful_uses": 5,
+        "support": 1
+      }
+    ],
+    "skills_created": 5
+  },
+  "passed": true,
+  "portable_knowledge": {
+    "recipient": {
+      "context": "b0717777357089efd4ce",
+      "grounding_interactions": 5,
+      "interactions": 8,
+      "skill_id": "skill-43af7ba614",
+      "skills_tried": 1,
+      "success": true
+    },
+    "shared_concepts": 5,
+    "shared_skills": 5,
+    "world_audit": {
+      "control_to_operator": [
+        1,
+        0,
+        4,
+        2,
+        3
+      ],
+      "presentation": 17,
+      "surface_permutation": [
+        1,
+        5,
+        3,
+        9,
+        4,
+        0,
+        8,
+        6,
+        7,
+        2
+      ],
+      "target_operators": [
+        0,
+        4,
+        1
+      ],
+      "world_id": "a81fe364b2cd8e2b"
+    }
+  },
+  "protocol_sha256": "81181455a1a3306d028533bec5b9024a2f3acf9cad10f30835ff199ec7cdca72",
+  "reload_retention": {
+    "mean_interactions": 3.0,
+    "rows": [
+      {
+        "context": "41aeeb8d4dcb6437c588",
+        "grounding_interactions": 0,
+        "interactions": 3,
+        "skill_id": "skill-82690b2e18",
+        "skills_tried": 1,
+        "success": true
+      },
+      {
+        "context": "dc2c997dc9f366a7f6b0",
+        "grounding_interactions": 0,
+        "interactions": 3,
+        "skill_id": "skill-c9135c34d1",
+        "skills_tried": 1,
+        "success": true
+      },
+      {
+        "context": "bfc658c57a3ecc26fdff",
+        "grounding_interactions": 0,
+        "interactions": 3,
+        "skill_id": "skill-ca29e0bbfd",
+        "skills_tried": 1,
+        "success": true
+      },
+      {
+        "context": "2ea1815adff7bb1aa05d",
+        "grounding_interactions": 0,
+        "interactions": 3,
+        "skill_id": "skill-43af7ba614",
+        "skills_tried": 1,
+        "success": true
+      }
+    ],
+    "successes": 4,
+    "worlds": 4
+  },
+  "run_id": "growth-v2-20261008T132748Z",
+  "source_freeze": {
+    "after": {
+      "gum/concept_skill_factory.py": "43bde44f790f31003abc8ac22ddcaaabab08a15868b42da7740817b89b53f38b",
+      "gum/growth_challenge_v2.py": "b7369faf16e9e7e975477d4eee41e4c290476c2a1a04aaeb45a5a61238436210"
+    },
+    "before": {
+      "gum/concept_skill_factory.py": "43bde44f790f31003abc8ac22ddcaaabab08a15868b42da7740817b89b53f38b",
+      "gum/growth_challenge_v2.py": "b7369faf16e9e7e975477d4eee41e4c290476c2a1a04aaeb45a5a61238436210"
+    },
+    "expected": {
+      "gum/concept_skill_factory.py": "43bde44f790f31003abc8ac22ddcaaabab08a15868b42da7740817b89b53f38b",
+      "gum/growth_challenge_v2.py": "b7369faf16e9e7e975477d4eee41e4c290476c2a1a04aaeb45a5a61238436210"
+    },
+    "unchanged": true
+  },
+  "traces": {
+    "fifth_experienced": {
+      "errors": [],
+      "head": "c3b87746e06210c419dde6dfdb793112e1b3bbf8eed4a8f96d1b2249d913472f",
+      "records": 29,
+      "valid": true
+    },
+    "fifth_fresh": {
+      "errors": [],
+      "head": "0adee8702d5a173bc3e7be11a43053413b651df04c2b8836d5ebe7dd4a754edd",
+      "records": 35687,
+      "valid": true
+    },
+    "training": {
+      "errors": [],
+      "head": "cb42ce7ea1f9afcdeaeb0a25bad0e516f367f67060dcfbc35f867a30b6c1e061",
+      "records": 542,
+      "valid": true
+    }
+  }
+}

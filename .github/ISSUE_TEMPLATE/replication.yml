@@ -1,0 +1,25 @@
+name: Replication result
+description: Share an independent pass, failure, or mixed replication
+title: "[Replication]: "
+body:
+  - type: input
+    attributes:
+      label: Protocol and commit
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Hardware and software environment
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Result and attached evidence
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Deviations from the documented protocol
+      description: Write "none" if there were no deviations.
+    validations:
+      required: true

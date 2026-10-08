@@ -1,0 +1,211 @@
+{
+  "format": "gum-grounded-clarification-challenge-v1",
+  "protocol": {
+    "seed": 73200019,
+    "ambiguous_trials": 30,
+    "clear_trials": 15,
+    "preinstalled_word_dictionary": false,
+    "language_model_used": "none",
+    "learner_input": "rendered pixels, pointing demonstrations, utterances, answers",
+    "action_family": "approach is fixed; visual reference meanings are learned",
+    "blind_guess_baseline_on_ambiguous_trials": 0.5
+  },
+  "results": {
+    "overall_successes": 45,
+    "overall_trials": 45,
+    "ambiguous_resolved": 30,
+    "ambiguous_trials": 30,
+    "blind_guess_successes": 15,
+    "blind_guess_trials": 30,
+    "useful_questions": 30,
+    "clear_executed_without_question": 15,
+    "clear_trials": 15,
+    "unknown_word_refused": true,
+    "learned_words": 6,
+    "agent_gain_over_blind_guess": 0.5
+  },
+  "learned_lexicon": {
+    "circle": "form:mid",
+    "red": "appearance:220-62-62",
+    "square": "form:high",
+    "triangle": "form:low",
+    "blue": "appearance:65-115-225",
+    "green": "appearance:55-180-100"
+  },
+  "unknown_case": {
+    "status": "clarify",
+    "response": "I have not grounded 'crimson'. Please show me what it means.",
+    "target_id": null,
+    "candidates": [],
+    "unknown_words": [
+      "crimson"
+    ]
+  },
+  "sample_dialogues": [
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the red object",
+      "question": "Which one do you mean: the triangle or the circle?",
+      "answer": "the triangle",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-1.",
+        "target_id": "object-1",
+        "candidates": [
+          "object-1"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-1",
+      "blind_guess_success": false,
+      "useful_question": true,
+      "success": true
+    },
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the triangle",
+      "question": "Which one do you mean: the green or the blue?",
+      "answer": "the green",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-1.",
+        "target_id": "object-1",
+        "candidates": [
+          "object-1"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-1",
+      "blind_guess_success": true,
+      "useful_question": true,
+      "success": true
+    },
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the red object",
+      "question": "Which one do you mean: the triangle or the circle?",
+      "answer": "the circle",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-0.",
+        "target_id": "object-0",
+        "candidates": [
+          "object-0"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-0",
+      "blind_guess_success": true,
+      "useful_question": true,
+      "success": true
+    },
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the triangle",
+      "question": "Which one do you mean: the red or the blue?",
+      "answer": "the blue",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-1.",
+        "target_id": "object-1",
+        "candidates": [
+          "object-1"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-1",
+      "blind_guess_success": false,
+      "useful_question": true,
+      "success": true
+    },
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the green object",
+      "question": "Which one do you mean: the square or the triangle?",
+      "answer": "the triangle",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-1.",
+        "target_id": "object-1",
+        "candidates": [
+          "object-1"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-1",
+      "blind_guess_success": true,
+      "useful_question": true,
+      "success": true
+    },
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the triangle",
+      "question": "Which one do you mean: the green or the blue?",
+      "answer": "the blue",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-1.",
+        "target_id": "object-1",
+        "candidates": [
+          "object-1"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-1",
+      "blind_guess_success": false,
+      "useful_question": true,
+      "success": true
+    },
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the green object",
+      "question": "Which one do you mean: the square or the triangle?",
+      "answer": "the square",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-0.",
+        "target_id": "object-0",
+        "candidates": [
+          "object-0"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-0",
+      "blind_guess_success": true,
+      "useful_question": true,
+      "success": true
+    },
+    {
+      "kind": "ambiguous",
+      "prompt": "approach the square",
+      "question": "Which one do you mean: the red or the blue?",
+      "answer": "the blue",
+      "first_status": "clarify",
+      "final": {
+        "status": "execute",
+        "response": "Understood. I will approach object-1.",
+        "target_id": "object-1",
+        "candidates": [
+          "object-1"
+        ],
+        "unknown_words": []
+      },
+      "expected_target": "object-1",
+      "blind_guess_success": false,
+      "useful_question": true,
+      "success": true
+    }
+  ],
+  "integrity": {
+    "implementation_sha256": "738f8d5b904a5bdd4646bf635e917d880c9685152dc52cc12eee1e6da9d8353b",
+    "memory_sha256": "1d34a3310e414e717ac3c49adea40e65edb99532c243adfa136e32d4d435fc11"
+  },
+  "passed": true
+}

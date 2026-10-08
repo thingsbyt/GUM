@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "growing-understanding-machine"
+version = "0.2.0"
+description = "A compact auditable continual learner for concepts, skills, and acquisition strategies"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Tolga Uz"}]
+license = {file = "LICENSE"}
+dependencies = [
+  "numpy>=1.26,<3",
+  "Pillow>=10,<13",
+  "psutil>=5.9,<8",
+  "scipy>=1.11,<2",
+  "scikit-learn>=1.4,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/thingsbyt/GUM"
+Repository = "https://github.com/thingsbyt/GUM"
+Documentation = "https://github.com/thingsbyt/GUM/tree/main/docs"
+
+[tool.setuptools.packages.find]
+include = ["gum*", "jepa_asteroids*"]
+

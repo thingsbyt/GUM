@@ -1,0 +1,2113 @@
+{
+  "format": "wailah-ten-useful-workflows-v1",
+  "tasks": 10,
+  "all_first_runs_verified": true,
+  "all_revisits_verified": true,
+  "first_mean_actions": 12.6,
+  "revisit_mean_actions": 5.0,
+  "optimal_revisits": 10,
+  "videos_created": 20,
+  "first_runs": [
+    {
+      "task": "csv_cleaner",
+      "description": "Clean, deduplicate, and sort a CSV table",
+      "verified": true,
+      "actions": 9,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "result-validated",
+        "3": "report-created",
+        "4": "bundle-created",
+        "5": "data-transformed"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "input_rows": 5,
+        "output_rows": 4,
+        "duplicates_removed": 1,
+        "bundle_sha256": "fca19e03f8a0e8248e7584283319d61d32557deb727e5717c1dfc1fa4ae2000b"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\csv_cleaner\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\csv_cleaner\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\csv_cleaner\\first\\RESULTS.zip"
+    },
+    {
+      "task": "json_normalizer",
+      "description": "Normalize JSON while preserving its data",
+      "verified": true,
+      "actions": 8,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "report-created",
+        "3": "bundle-created",
+        "4": "data-transformed",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "top_level_keys": 3,
+        "normalized_bytes": 124,
+        "bundle_sha256": "18356886d4aae80952f665d2f5c2caffc5ae3ef53e844f68f6b145ba933d076e"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\json_normalizer\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\json_normalizer\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\json_normalizer\\first\\RESULTS.zip"
+    },
+    {
+      "task": "log_triage",
+      "description": "Extract and summarize warnings and errors",
+      "verified": true,
+      "actions": 17,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "data-transformed",
+        "2": "bundle-created",
+        "3": "report-created",
+        "4": "source-scanned",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 10,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 11,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 12,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 13,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 14,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 15,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 16,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 17,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "issues": 4,
+        "errors": 2,
+        "warnings": 2,
+        "bundle_sha256": "ea871d640ef6ba9693d42dfd64a92b17a56735c58b94af7fa9ab1375a686583f"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\log_triage\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\log_triage\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\log_triage\\first\\RESULTS.zip"
+    },
+    {
+      "task": "duplicate_finder",
+      "description": "Find byte-identical duplicate files",
+      "verified": true,
+      "actions": 14,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "result-validated",
+        "2": "source-scanned",
+        "3": "data-transformed",
+        "4": "bundle-created",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 10,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 11,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 12,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 13,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 14,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "duplicate_groups": 1,
+        "duplicate_files": 2,
+        "bundle_sha256": "c6cddd39a7715a36eadb4e71a85d3caf4d968f8eb9208661b96156312e75a4c4"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\duplicate_finder\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\duplicate_finder\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\duplicate_finder\\first\\RESULTS.zip"
+    },
+    {
+      "task": "markdown_catalog",
+      "description": "Catalog Markdown titles and word counts",
+      "verified": true,
+      "actions": 13,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "data-transformed",
+        "2": "result-validated",
+        "3": "bundle-created",
+        "4": "source-scanned",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 10,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 11,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 12,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 13,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "documents": 3,
+        "total_words": 19,
+        "bundle_sha256": "4c28649feccd28e87e551f30ca4475b1a0b2012b9d2c44f10a89a1d41d5bce98"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\markdown_catalog\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\markdown_catalog\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\markdown_catalog\\first\\RESULTS.zip"
+    },
+    {
+      "task": "file_organizer",
+      "description": "Copy mixed files into type-based folders",
+      "verified": true,
+      "actions": 13,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "result-validated",
+        "3": "bundle-created",
+        "4": "data-transformed",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 10,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 11,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 12,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 13,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "files_organized": 4,
+        "categories": 3,
+        "bundle_sha256": "2c65ac0a2701317202781ae8605496ef4ff6e8a58ab887e41aa8ea58e9eec140"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\file_organizer\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\file_organizer\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\file_organizer\\first\\RESULTS.zip"
+    },
+    {
+      "task": "verified_backup",
+      "description": "Create a checksum-verified backup",
+      "verified": true,
+      "actions": 7,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "bundle-created",
+        "3": "data-transformed",
+        "4": "result-validated",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "files_backed_up": 2,
+        "bytes_backed_up": 47,
+        "bundle_sha256": "9c8ec79bea7c347d8c836f5ecb7ca869b6d3e0c68d3e117cd54406f10c3ea535"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\verified_backup\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\verified_backup\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\verified_backup\\first\\RESULTS.zip"
+    },
+    {
+      "task": "search_index",
+      "description": "Build a local inverted text-search index",
+      "verified": true,
+      "actions": 13,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "data-transformed",
+        "3": "bundle-created",
+        "4": "report-created",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 10,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 11,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 12,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 13,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "indexed_words": 13,
+        "indexed_documents": 3,
+        "bundle_sha256": "d7957a312be48a4cc7e5174fc94bb0d8d18f46483ffd67bab392d649ead3088f"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\search_index\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\search_index\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\search_index\\first\\RESULTS.zip"
+    },
+    {
+      "task": "sensitive_audit",
+      "description": "Locate likely email, phone, and key exposures",
+      "verified": true,
+      "actions": 16,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "bundle-created",
+        "2": "report-created",
+        "3": "data-transformed",
+        "4": "result-validated",
+        "5": "source-scanned"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 10,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 11,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 12,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 13,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 14,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 15,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 16,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "findings": 3,
+        "emails": 1,
+        "phones": 1,
+        "api_keys": 1,
+        "bundle_sha256": "c20c263dfffbbb0d50048f61f90e64280a880eebcbcc5df8687ad5871509e65d"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\sensitive_audit\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\sensitive_audit\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\sensitive_audit\\first\\RESULTS.zip"
+    },
+    {
+      "task": "dataset_profiler",
+      "description": "Profile columns, missing values, and numeric ranges",
+      "verified": true,
+      "actions": 16,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "bundle-created",
+        "2": "report-created",
+        "3": "data-transformed",
+        "4": "source-scanned",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 0,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 6,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 7,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 8,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 9,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 10,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 11,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 12,
+          "action": 2,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 13,
+          "action": 3,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 14,
+          "action": 4,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 15,
+          "action": 5,
+          "reason": "ground-composed-semantic-goal",
+          "events": [],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 16,
+          "action": 1,
+          "reason": "ground-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "rows": 4,
+        "columns": 4,
+        "total_missing": 2,
+        "bundle_sha256": "9ce7c21c0f38e3c7824e963f06b798ee58f019db48f45aa64b547eadc6a2fda0"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\dataset_profiler\\first",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\dataset_profiler\\first\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\dataset_profiler\\first\\RESULTS.zip"
+    }
+  ],
+  "revisits": [
+    {
+      "task": "csv_cleaner",
+      "description": "Clean, deduplicate, and sort a CSV table",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "result-validated",
+        "3": "report-created",
+        "4": "bundle-created",
+        "5": "data-transformed"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "input_rows": 5,
+        "output_rows": 4,
+        "duplicates_removed": 1,
+        "bundle_sha256": "ecd8bac837a641f59a423c4d72c47e0f2d59390e86598fa7613f5db577eba66f"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\csv_cleaner\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\csv_cleaner\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\csv_cleaner\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "json_normalizer",
+      "description": "Normalize JSON while preserving its data",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "report-created",
+        "3": "bundle-created",
+        "4": "data-transformed",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "top_level_keys": 3,
+        "normalized_bytes": 124,
+        "bundle_sha256": "963db4477f1e007cdc48e1cae048a708b8cf34fe79f1271c1ba2cf2a651b7c1d"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\json_normalizer\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\json_normalizer\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\json_normalizer\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "log_triage",
+      "description": "Extract and summarize warnings and errors",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "data-transformed",
+        "2": "bundle-created",
+        "3": "report-created",
+        "4": "source-scanned",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "issues": 4,
+        "errors": 2,
+        "warnings": 2,
+        "bundle_sha256": "0cb7eb7174fd4e5297c99e1978e197421d462e931fb6f68a33b4df2cca6d0b8f"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\log_triage\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\log_triage\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\log_triage\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "duplicate_finder",
+      "description": "Find byte-identical duplicate files",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "result-validated",
+        "2": "source-scanned",
+        "3": "data-transformed",
+        "4": "bundle-created",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "duplicate_groups": 1,
+        "duplicate_files": 2,
+        "bundle_sha256": "2c47f6b54e227795b7b25b630dcc1a51ef261abfe1c75dba005d395d4a7ab154"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\duplicate_finder\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\duplicate_finder\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\duplicate_finder\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "markdown_catalog",
+      "description": "Catalog Markdown titles and word counts",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "data-transformed",
+        "2": "result-validated",
+        "3": "bundle-created",
+        "4": "source-scanned",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "documents": 3,
+        "total_words": 19,
+        "bundle_sha256": "cb1758ee9a984d5351a2765631ffae0bca1395404e4b3bac137e0427f633b489"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\markdown_catalog\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\markdown_catalog\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\markdown_catalog\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "file_organizer",
+      "description": "Copy mixed files into type-based folders",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "result-validated",
+        "3": "bundle-created",
+        "4": "data-transformed",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "files_organized": 4,
+        "categories": 3,
+        "bundle_sha256": "87cfd57dcba1737eb3974049f470ea6de181be48477dffd9ffe7614203c74263"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\file_organizer\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\file_organizer\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\file_organizer\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "verified_backup",
+      "description": "Create a checksum-verified backup",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "bundle-created",
+        "3": "data-transformed",
+        "4": "result-validated",
+        "5": "report-created"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "files_backed_up": 2,
+        "bytes_backed_up": 47,
+        "bundle_sha256": "5724812884b293102329602d15b8c5056e3d97af5385c872bc533c6e5e07eb67"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\verified_backup\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\verified_backup\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\verified_backup\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "search_index",
+      "description": "Build a local inverted text-search index",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "source-scanned",
+        "2": "data-transformed",
+        "3": "bundle-created",
+        "4": "report-created",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "indexed_words": 13,
+        "indexed_documents": 3,
+        "bundle_sha256": "bbdd73585a0c5409611c7a8f1cfe4ad1ca4edbc88cbba97c61d00e3d4197c6ca"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\search_index\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\search_index\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\search_index\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "sensitive_audit",
+      "description": "Locate likely email, phone, and key exposures",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "bundle-created",
+        "2": "report-created",
+        "3": "data-transformed",
+        "4": "result-validated",
+        "5": "source-scanned"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "findings": 3,
+        "emails": 1,
+        "phones": 1,
+        "api_keys": 1,
+        "bundle_sha256": "2310e7f53ec3629d170e2bf4d961e1a16c3c5ce2e5f6552d198ba393dd9727cd"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\sensitive_audit\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\sensitive_audit\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\sensitive_audit\\revisit\\RESULTS.zip"
+    },
+    {
+      "task": "dataset_profiler",
+      "description": "Profile columns, missing values, and numeric ranges",
+      "verified": true,
+      "actions": 5,
+      "source_unchanged": true,
+      "control_mapping_audit_only": {
+        "1": "bundle-created",
+        "2": "report-created",
+        "3": "data-transformed",
+        "4": "source-scanned",
+        "5": "result-validated"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "action": 4,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:source-scanned"
+          ],
+          "completed": 1,
+          "done": false
+        },
+        {
+          "step": 2,
+          "action": 3,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:data-transformed"
+          ],
+          "completed": 2,
+          "done": false
+        },
+        {
+          "step": 3,
+          "action": 5,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:result-validated"
+          ],
+          "completed": 3,
+          "done": false
+        },
+        {
+          "step": 4,
+          "action": 2,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:report-created"
+          ],
+          "completed": 4,
+          "done": false
+        },
+        {
+          "step": 5,
+          "action": 1,
+          "reason": "execute-composed-semantic-goal",
+          "events": [
+            "event:semantic:bundle-created"
+          ],
+          "completed": 5,
+          "done": true
+        }
+      ],
+      "metrics": {
+        "rows": 4,
+        "columns": 4,
+        "total_missing": 2,
+        "bundle_sha256": "fa4eef16c620357fef54691a1b43ba0decad77f2385942908473cc8e0de5b6ee"
+      },
+      "job": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\dataset_profiler\\revisit",
+      "video": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\dataset_profiler\\revisit\\ACTIONS.gif",
+      "bundle": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\runs\\dataset_profiler\\revisit\\RESULTS.zip"
+    }
+  ],
+  "persistent_brain": "RELEASE_MACHINE_OUTPUTS\\useful_tasks_10_final\\UTILITY_APPRENTICE_BRAIN.json"
+}

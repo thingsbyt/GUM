@@ -1,0 +1,32 @@
+GROUNDED DIALOGUE TRANSCRIPT
+
+Training used demonstrations, not a word dictionary.
+
+HUMAN: please locate the apple then move to the dolphin while staying away from the clock
+AGENT: I understood: find apple; then approach dolphin; avoid clock.
+RESULT: success=True
+
+HUMAN: please locate the clock then move to the pickup truck while staying away from the dolphin
+AGENT: I understood: find clock; then approach pickup_truck; avoid dolphin.
+RESULT: success=True
+
+HUMAN: please locate the apple then move to the clock while staying away from the telephone
+AGENT: I understood: find apple; then approach clock; avoid telephone.
+RESULT: success=True
+
+HUMAN: please locate the lamp then move to the telephone while staying away from the bicycle
+AGENT: I understood: find lamp; then approach telephone; avoid bicycle.
+RESULT: success=True
+
+HUMAN: please locate the bicycle then move to the clock while staying away from the apple
+AGENT: I understood: find bicycle; then approach clock; avoid apple.
+RESULT: success=True
+
+HUMAN: find the bank
+AGENT: I have not grounded 'bank' well enough. Please demonstrate what it means.
+
+HUMAN: approach the apple while avoid the apple
+AGENT: You asked me to approach and avoid apple. Which instruction has priority?
+
+HUMAN: avoid the lamp
+AGENT: I understood what to avoid, but I still need a positive goal.

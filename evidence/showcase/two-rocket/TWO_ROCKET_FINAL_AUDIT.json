@@ -1,0 +1,2008 @@
+{
+  "format": "wailah-two-rocket-asteroids-v20-final-frozen-audit-v1",
+  "seed": 2330001,
+  "worlds": 8,
+  "learner_inputs": [
+    "two RGB frames",
+    "shared scalar reward",
+    "termination"
+  ],
+  "prohibited_inputs": [
+    "positions",
+    "velocities",
+    "asteroid arrays",
+    "control labels",
+    "simulator state"
+  ],
+  "aggregate": {
+    "coordinated": {
+      "mean_hits": 43.75,
+      "total_hits": 350,
+      "both_survive": 8,
+      "mean_alive": 2.0,
+      "friendly_fire": 0,
+      "lives_lost": 0,
+      "mean_team_return": 44.71,
+      "mean_wave": 3.375
+    },
+    "uncommunicative": {
+      "mean_hits": 38.875,
+      "total_hits": 311,
+      "both_survive": 8,
+      "mean_alive": 2.0,
+      "friendly_fire": 0,
+      "lives_lost": 1,
+      "mean_team_return": 37.335,
+      "mean_wave": 2.875
+    },
+    "solo": {
+      "mean_hits": 18.5,
+      "total_hits": 148,
+      "both_survive": 0,
+      "mean_alive": 1.0,
+      "friendly_fire": 0,
+      "lives_lost": 0,
+      "mean_team_return": 18.98,
+      "mean_wave": 1.625
+    },
+    "random": {
+      "mean_hits": 11.625,
+      "total_hits": 93,
+      "both_survive": 8,
+      "mean_alive": 2.0,
+      "friendly_fire": 2,
+      "lives_lost": 7,
+      "mean_team_return": -7.415,
+      "mean_wave": 1.125
+    }
+  },
+  "controls_grounded_worlds": 8,
+  "per_world": [
+    {
+      "seed": 2330001,
+      "coordinated": {
+        "seed": 2330001,
+        "condition": "coordinated",
+        "hits": 42,
+        "hits_by_agent": [
+          25,
+          17
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 42.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 4,
+              "fire": 3,
+              "negative-turn": 1,
+              "positive-turn": 0,
+              "coast": 2
+            },
+            {
+              "thrust": 2,
+              "fire": 1,
+              "negative-turn": 3,
+              "positive-turn": 0,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 448,
+          "prevented_friendly_shots": 4,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire",
+            "thrust"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "thrust",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2330001,
+        "condition": "uncommunicative",
+        "hits": 41,
+        "hits_by_agent": [
+          24,
+          17
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 41.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 4,
+              "fire": 3,
+              "negative-turn": 1,
+              "positive-turn": 0,
+              "coast": 2
+            },
+            {
+              "thrust": 2,
+              "fire": 1,
+              "negative-turn": 3,
+              "positive-turn": 0,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire",
+            "thrust"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "thrust",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "solo": {
+        "seed": 2330001,
+        "condition": "solo",
+        "hits": 22,
+        "hits_by_agent": [
+          22,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 2,
+        "steps": 240,
+        "return": 22.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 4,
+              "fire": 3,
+              "negative-turn": 1,
+              "positive-turn": 0,
+              "coast": 2
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire",
+            "thrust"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "thrust",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2330001,
+        "condition": "random",
+        "hits": 13,
+        "hits_by_agent": [
+          11,
+          2
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          2,
+          3
+        ],
+        "lives_lost": 1,
+        "wave": 1,
+        "steps": 240,
+        "return": -6.04,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire",
+            "thrust"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "thrust",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": [
+          {
+            "step": 42,
+            "frame": 172,
+            "agent": 0,
+            "position": [
+              112.95,
+              157.928
+            ],
+            "remaining_lives": 2
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2331010,
+      "coordinated": {
+        "seed": 2331010,
+        "condition": "coordinated",
+        "hits": 42,
+        "hits_by_agent": [
+          17,
+          25
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 42.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 1,
+              "fire": 3,
+              "negative-turn": 2,
+              "positive-turn": 4,
+              "coast": 0
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 3,
+              "positive-turn": 2,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 450,
+          "prevented_friendly_shots": 3,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "thrust",
+            "negative-turn",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "thrust",
+            "fire",
+            "positive-turn",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2331010,
+        "condition": "uncommunicative",
+        "hits": 44,
+        "hits_by_agent": [
+          21,
+          23
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 44.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 1,
+              "fire": 3,
+              "negative-turn": 2,
+              "positive-turn": 4,
+              "coast": 0
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 3,
+              "positive-turn": 2,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 3,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "thrust",
+            "negative-turn",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "thrust",
+            "fire",
+            "positive-turn",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "solo": {
+        "seed": 2331010,
+        "condition": "solo",
+        "hits": 12,
+        "hits_by_agent": [
+          12,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 1,
+        "steps": 240,
+        "return": 12.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 1,
+              "fire": 3,
+              "negative-turn": 2,
+              "positive-turn": 4,
+              "coast": 0
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "thrust",
+            "negative-turn",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "thrust",
+            "fire",
+            "positive-turn",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2331010,
+        "condition": "random",
+        "hits": 11,
+        "hits_by_agent": [
+          9,
+          2
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          2,
+          3
+        ],
+        "lives_lost": 1,
+        "wave": 1,
+        "steps": 240,
+        "return": -8.04,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "thrust",
+            "negative-turn",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "thrust",
+            "fire",
+            "positive-turn",
+            "negative-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": [
+          {
+            "step": 172,
+            "frame": 689,
+            "agent": 0,
+            "position": [
+              168.261,
+              115.328
+            ],
+            "remaining_lives": 2
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2332019,
+      "coordinated": {
+        "seed": 2332019,
+        "condition": "coordinated",
+        "hits": 35,
+        "hits_by_agent": [
+          7,
+          28
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 35.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 1,
+              "fire": 3,
+              "negative-turn": 0,
+              "positive-turn": 4,
+              "coast": 2
+            },
+            {
+              "thrust": 3,
+              "fire": 4,
+              "negative-turn": 1,
+              "positive-turn": 2,
+              "coast": 0
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 460,
+          "prevented_friendly_shots": 1,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "thrust",
+            "coast",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "coast",
+            "negative-turn",
+            "positive-turn",
+            "thrust",
+            "fire"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2332019,
+        "condition": "uncommunicative",
+        "hits": 30,
+        "hits_by_agent": [
+          5,
+          25
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          2,
+          3
+        ],
+        "lives_lost": 1,
+        "wave": 3,
+        "steps": 240,
+        "return": 10.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 1,
+              "fire": 3,
+              "negative-turn": 0,
+              "positive-turn": 4,
+              "coast": 2
+            },
+            {
+              "thrust": 3,
+              "fire": 4,
+              "negative-turn": 1,
+              "positive-turn": 2,
+              "coast": 0
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 1,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "thrust",
+            "coast",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "coast",
+            "negative-turn",
+            "positive-turn",
+            "thrust",
+            "fire"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": [
+          {
+            "step": 220,
+            "frame": 884,
+            "agent": 0,
+            "position": [
+              209.464,
+              202.136
+            ],
+            "remaining_lives": 2
+          }
+        ]
+      },
+      "solo": {
+        "seed": 2332019,
+        "condition": "solo",
+        "hits": 13,
+        "hits_by_agent": [
+          13,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 1,
+        "steps": 240,
+        "return": 13.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 1,
+              "fire": 3,
+              "negative-turn": 0,
+              "positive-turn": 4,
+              "coast": 2
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "thrust",
+            "coast",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "coast",
+            "negative-turn",
+            "positive-turn",
+            "thrust",
+            "fire"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2332019,
+        "condition": "random",
+        "hits": 10,
+        "hits_by_agent": [
+          5,
+          5
+        ],
+        "friendly_fire": 1,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 1,
+        "steps": 240,
+        "return": 0.96,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "thrust",
+            "coast",
+            "fire",
+            "positive-turn"
+          ],
+          [
+            "coast",
+            "negative-turn",
+            "positive-turn",
+            "thrust",
+            "fire"
+          ]
+        ],
+        "friendly_events_audit_only": [
+          {
+            "step": 155,
+            "frame": 621,
+            "owner": 1,
+            "fired_step": 155,
+            "bullet": [
+              294.73,
+              10.516
+            ],
+            "teammate": [
+              297.336,
+              6.527
+            ],
+            "owner_angle": 2.4664,
+            "owner_action": "fire"
+          }
+        ],
+        "death_events_audit_only": []
+      }
+    },
+    {
+      "seed": 2333028,
+      "coordinated": {
+        "seed": 2333028,
+        "condition": "coordinated",
+        "hits": 48,
+        "hits_by_agent": [
+          25,
+          23
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 4,
+        "steps": 240,
+        "return": 48.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 3,
+              "fire": 1,
+              "negative-turn": 0,
+              "positive-turn": 2,
+              "coast": 4
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 396,
+          "prevented_friendly_shots": 1,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "fire",
+            "positive-turn",
+            "thrust",
+            "coast"
+          ],
+          [
+            "thrust",
+            "fire",
+            "negative-turn",
+            "positive-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2333028,
+        "condition": "uncommunicative",
+        "hits": 41,
+        "hits_by_agent": [
+          15,
+          26
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 41.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 3,
+              "fire": 1,
+              "negative-turn": 0,
+              "positive-turn": 2,
+              "coast": 4
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 2,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "fire",
+            "positive-turn",
+            "thrust",
+            "coast"
+          ],
+          [
+            "thrust",
+            "fire",
+            "negative-turn",
+            "positive-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "solo": {
+        "seed": 2333028,
+        "condition": "solo",
+        "hits": 18,
+        "hits_by_agent": [
+          18,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 2,
+        "steps": 240,
+        "return": 18.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 3,
+              "fire": 1,
+              "negative-turn": 0,
+              "positive-turn": 2,
+              "coast": 4
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "fire",
+            "positive-turn",
+            "thrust",
+            "coast"
+          ],
+          [
+            "thrust",
+            "fire",
+            "negative-turn",
+            "positive-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2333028,
+        "condition": "random",
+        "hits": 16,
+        "hits_by_agent": [
+          7,
+          9
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          1,
+          3
+        ],
+        "lives_lost": 2,
+        "wave": 2,
+        "steps": 240,
+        "return": -23.04,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "negative-turn",
+            "fire",
+            "positive-turn",
+            "thrust",
+            "coast"
+          ],
+          [
+            "thrust",
+            "fire",
+            "negative-turn",
+            "positive-turn",
+            "coast"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": [
+          {
+            "step": 40,
+            "frame": 162,
+            "agent": 0,
+            "position": [
+              258.377,
+              210.783
+            ],
+            "remaining_lives": 2
+          },
+          {
+            "step": 55,
+            "frame": 222,
+            "agent": 0,
+            "position": [
+              238.094,
+              187.209
+            ],
+            "remaining_lives": 1
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2334037,
+      "coordinated": {
+        "seed": 2334037,
+        "condition": "coordinated",
+        "hits": 52,
+        "hits_by_agent": [
+          23,
+          29
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 4,
+        "steps": 240,
+        "return": 52.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 3,
+              "positive-turn": 2,
+              "coast": 1
+            },
+            {
+              "thrust": 3,
+              "fire": 0,
+              "negative-turn": 2,
+              "positive-turn": 4,
+              "coast": 1
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 440,
+          "prevented_friendly_shots": 5,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "fire"
+          ],
+          [
+            "fire",
+            "coast",
+            "negative-turn",
+            "thrust",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2334037,
+        "condition": "uncommunicative",
+        "hits": 42,
+        "hits_by_agent": [
+          17,
+          25
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 42.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 3,
+              "positive-turn": 2,
+              "coast": 1
+            },
+            {
+              "thrust": 3,
+              "fire": 0,
+              "negative-turn": 2,
+              "positive-turn": 4,
+              "coast": 1
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "fire"
+          ],
+          [
+            "fire",
+            "coast",
+            "negative-turn",
+            "thrust",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "solo": {
+        "seed": 2334037,
+        "condition": "solo",
+        "hits": 12,
+        "hits_by_agent": [
+          12,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 1,
+        "steps": 240,
+        "return": 12.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 3,
+              "positive-turn": 2,
+              "coast": 1
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "fire"
+          ],
+          [
+            "fire",
+            "coast",
+            "negative-turn",
+            "thrust",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2334037,
+        "condition": "random",
+        "hits": 12,
+        "hits_by_agent": [
+          1,
+          11
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          2
+        ],
+        "lives_lost": 1,
+        "wave": 1,
+        "steps": 240,
+        "return": -7.04,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "fire"
+          ],
+          [
+            "fire",
+            "coast",
+            "negative-turn",
+            "thrust",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": [
+          {
+            "step": 143,
+            "frame": 574,
+            "agent": 1,
+            "position": [
+              110.011,
+              123.298
+            ],
+            "remaining_lives": 2
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2335046,
+      "coordinated": {
+        "seed": 2335046,
+        "condition": "coordinated",
+        "hits": 42,
+        "hits_by_agent": [
+          21,
+          21
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 42.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 1,
+              "positive-turn": 2,
+              "coast": 3
+            },
+            {
+              "thrust": 2,
+              "fire": 1,
+              "negative-turn": 0,
+              "positive-turn": 4,
+              "coast": 3
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 448,
+          "prevented_friendly_shots": 8,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "negative-turn",
+            "positive-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "negative-turn",
+            "fire",
+            "thrust",
+            "coast",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2335046,
+        "condition": "uncommunicative",
+        "hits": 29,
+        "hits_by_agent": [
+          14,
+          15
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 2,
+        "steps": 240,
+        "return": 29.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 1,
+              "positive-turn": 2,
+              "coast": 3
+            },
+            {
+              "thrust": 2,
+              "fire": 1,
+              "negative-turn": 0,
+              "positive-turn": 4,
+              "coast": 3
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 2,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "negative-turn",
+            "positive-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "negative-turn",
+            "fire",
+            "thrust",
+            "coast",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "solo": {
+        "seed": 2335046,
+        "condition": "solo",
+        "hits": 23,
+        "hits_by_agent": [
+          23,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 2,
+        "steps": 240,
+        "return": 23.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 1,
+              "positive-turn": 2,
+              "coast": 3
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "negative-turn",
+            "positive-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "negative-turn",
+            "fire",
+            "thrust",
+            "coast",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2335046,
+        "condition": "random",
+        "hits": 12,
+        "hits_by_agent": [
+          8,
+          4
+        ],
+        "friendly_fire": 1,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          2,
+          3
+        ],
+        "lives_lost": 1,
+        "wave": 1,
+        "steps": 240,
+        "return": -17.04,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "negative-turn",
+            "positive-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "negative-turn",
+            "fire",
+            "thrust",
+            "coast",
+            "positive-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [
+          {
+            "step": 120,
+            "frame": 483,
+            "owner": 1,
+            "fired_step": 109,
+            "bullet": [
+              187.308,
+              214.776
+            ],
+            "teammate": [
+              183.137,
+              216.456
+            ],
+            "owner_angle": 2.8414,
+            "owner_action": "coast"
+          }
+        ],
+        "death_events_audit_only": [
+          {
+            "step": 89,
+            "frame": 360,
+            "agent": 0,
+            "position": [
+              287.271,
+              291.081
+            ],
+            "remaining_lives": 2
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2336055,
+      "coordinated": {
+        "seed": 2336055,
+        "condition": "coordinated",
+        "hits": 44,
+        "hits_by_agent": [
+          21,
+          23
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 44.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 3,
+              "fire": 4,
+              "negative-turn": 2,
+              "positive-turn": 1,
+              "coast": 0
+            },
+            {
+              "thrust": 3,
+              "fire": 1,
+              "negative-turn": 4,
+              "positive-turn": 0,
+              "coast": 2
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 440,
+          "prevented_friendly_shots": 4,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "thrust",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "coast",
+            "thrust",
+            "negative-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2336055,
+        "condition": "uncommunicative",
+        "hits": 43,
+        "hits_by_agent": [
+          21,
+          22
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 43.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 3,
+              "fire": 4,
+              "negative-turn": 2,
+              "positive-turn": 1,
+              "coast": 0
+            },
+            {
+              "thrust": 3,
+              "fire": 1,
+              "negative-turn": 4,
+              "positive-turn": 0,
+              "coast": 2
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 2,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "thrust",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "coast",
+            "thrust",
+            "negative-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "solo": {
+        "seed": 2336055,
+        "condition": "solo",
+        "hits": 28,
+        "hits_by_agent": [
+          28,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 2,
+        "steps": 240,
+        "return": 28.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 3,
+              "fire": 4,
+              "negative-turn": 2,
+              "positive-turn": 1,
+              "coast": 0
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "thrust",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "coast",
+            "thrust",
+            "negative-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2336055,
+        "condition": "random",
+        "hits": 10,
+        "hits_by_agent": [
+          4,
+          6
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 1,
+        "steps": 240,
+        "return": 10.96,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "coast",
+            "positive-turn",
+            "negative-turn",
+            "thrust",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "fire",
+            "coast",
+            "thrust",
+            "negative-turn"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      }
+    },
+    {
+      "seed": 2337064,
+      "coordinated": {
+        "seed": 2337064,
+        "condition": "coordinated",
+        "hits": 45,
+        "hits_by_agent": [
+          23,
+          22
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 4,
+        "steps": 240,
+        "return": 45.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 2,
+              "positive-turn": 1,
+              "coast": 3
+            },
+            {
+              "thrust": 4,
+              "fire": 2,
+              "negative-turn": 3,
+              "positive-turn": 0,
+              "coast": 1
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": true,
+          "target_messages": 400,
+          "prevented_friendly_shots": 1,
+          "pixel_track_updates": 230
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "coast",
+            "fire",
+            "negative-turn",
+            "thrust"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "uncommunicative": {
+        "seed": 2337064,
+        "condition": "uncommunicative",
+        "hits": 41,
+        "hits_by_agent": [
+          19,
+          22
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          3
+        ],
+        "lives_lost": 0,
+        "wave": 3,
+        "steps": 240,
+        "return": 41.96,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 2,
+              "positive-turn": 1,
+              "coast": 3
+            },
+            {
+              "thrust": 4,
+              "fire": 2,
+              "negative-turn": 3,
+              "positive-turn": 0,
+              "coast": 1
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "coast",
+            "fire",
+            "negative-turn",
+            "thrust"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "solo": {
+        "seed": 2337064,
+        "condition": "solo",
+        "hits": 20,
+        "hits_by_agent": [
+          20,
+          0
+        ],
+        "friendly_fire": 0,
+        "alive": 1,
+        "both_survive": false,
+        "lives": [
+          3,
+          0
+        ],
+        "lives_lost": 0,
+        "wave": 2,
+        "steps": 240,
+        "return": 20.48,
+        "learner": {
+          "controls_grounded": [
+            {
+              "thrust": 0,
+              "fire": 4,
+              "negative-turn": 2,
+              "positive-turn": 1,
+              "coast": 3
+            },
+            {
+              "thrust": 0,
+              "fire": 1,
+              "negative-turn": 2,
+              "positive-turn": 3,
+              "coast": 4
+            }
+          ],
+          "both_controls_grounded": true,
+          "communication": false,
+          "target_messages": 0,
+          "prevented_friendly_shots": 0,
+          "pixel_track_updates": 460
+        },
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "coast",
+            "fire",
+            "negative-turn",
+            "thrust"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": []
+      },
+      "random": {
+        "seed": 2337064,
+        "condition": "random",
+        "hits": 9,
+        "hits_by_agent": [
+          7,
+          2
+        ],
+        "friendly_fire": 0,
+        "alive": 2,
+        "both_survive": true,
+        "lives": [
+          3,
+          2
+        ],
+        "lives_lost": 1,
+        "wave": 1,
+        "steps": 240,
+        "return": -10.04,
+        "learner": {},
+        "control_maps_audit_only": [
+          [
+            "thrust",
+            "positive-turn",
+            "negative-turn",
+            "coast",
+            "fire"
+          ],
+          [
+            "positive-turn",
+            "coast",
+            "fire",
+            "negative-turn",
+            "thrust"
+          ]
+        ],
+        "friendly_events_audit_only": [],
+        "death_events_audit_only": [
+          {
+            "step": 126,
+            "frame": 505,
+            "agent": 1,
+            "position": [
+              307.883,
+              23.43
+            ],
+            "remaining_lives": 2
+          }
+        ]
+      }
+    }
+  ],
+  "classification": "fourth precommit after three disclosed failed seals; new untouched seeds",
+  "team_objective": "hits - 10*friendly_fire - 20*life_loss + survival ticks",
+  "cooperation_decision": {
+    "necessary_for_raw_shooting": false,
+    "useful_for_shared_safe_objective": true,
+    "basis": "matched communicating versus message-disabled pair"
+  },
+  "both_rockets_contributed_worlds": 8,
+  "team_utility_wins": 7,
+  "frozen_implementation": {
+    "expected": "0E43CAA81B2A1BDF139E58238C28D7E67A2AEFE2BE7F0F9F587542D264159947",
+    "before": "0E43CAA81B2A1BDF139E58238C28D7E67A2AEFE2BE7F0F9F587542D264159947",
+    "after": "0E43CAA81B2A1BDF139E58238C28D7E67A2AEFE2BE7F0F9F587542D264159947",
+    "unchanged": true
+  },
+  "precommitted_criteria": [
+    "all controls visually grounded",
+    "coordinated return beats all baselines",
+    "at least 85 percent of uncommunicative hit throughput",
+    "both rockets score and stay active in every world",
+    "zero coordinated friendly fire",
+    "at least half of matched team-utility comparisons won",
+    "hash unchanged"
+  ],
+  "precommitted_pass": true
+}

@@ -1,0 +1,254 @@
+{
+  "format": "gum-visual-word-grounder-v1",
+  "examples": [
+    [
+      [
+        "approach",
+        "the",
+        "red",
+        "circle"
+      ],
+      [
+        "appearance:220-62-62",
+        "form:mid"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "red",
+        "circle"
+      ],
+      [
+        "appearance:220-62-62",
+        "form:mid"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "red",
+        "square"
+      ],
+      [
+        "appearance:220-62-62",
+        "form:high"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "red",
+        "square"
+      ],
+      [
+        "appearance:220-62-62",
+        "form:high"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "red",
+        "triangle"
+      ],
+      [
+        "appearance:220-62-62",
+        "form:low"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "red",
+        "triangle"
+      ],
+      [
+        "appearance:220-62-62",
+        "form:low"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "blue",
+        "circle"
+      ],
+      [
+        "appearance:65-115-225",
+        "form:mid"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "blue",
+        "circle"
+      ],
+      [
+        "appearance:65-115-225",
+        "form:mid"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "blue",
+        "square"
+      ],
+      [
+        "appearance:65-115-225",
+        "form:high"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "blue",
+        "square"
+      ],
+      [
+        "appearance:65-115-225",
+        "form:high"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "blue",
+        "triangle"
+      ],
+      [
+        "appearance:65-115-225",
+        "form:low"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "blue",
+        "triangle"
+      ],
+      [
+        "appearance:65-115-225",
+        "form:low"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "green",
+        "circle"
+      ],
+      [
+        "appearance:55-180-100",
+        "form:mid"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "green",
+        "circle"
+      ],
+      [
+        "appearance:55-180-100",
+        "form:mid"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "green",
+        "square"
+      ],
+      [
+        "appearance:55-180-100",
+        "form:high"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "green",
+        "square"
+      ],
+      [
+        "appearance:55-180-100",
+        "form:high"
+      ]
+    ],
+    [
+      [
+        "approach",
+        "the",
+        "green",
+        "triangle"
+      ],
+      [
+        "appearance:55-180-100",
+        "form:low"
+      ]
+    ],
+    [
+      [
+        "please",
+        "choose",
+        "the",
+        "green",
+        "triangle"
+      ],
+      [
+        "appearance:55-180-100",
+        "form:low"
+      ]
+    ]
+  ],
+  "word_to_feature": {
+    "circle": "form:mid",
+    "red": "appearance:220-62-62",
+    "square": "form:high",
+    "triangle": "form:low",
+    "blue": "appearance:65-115-225",
+    "green": "appearance:55-180-100"
+  },
+  "feature_to_word": {
+    "form:mid": "circle",
+    "appearance:220-62-62": "red",
+    "form:high": "square",
+    "form:low": "triangle",
+    "appearance:65-115-225": "blue",
+    "appearance:55-180-100": "green"
+  },
+  "scores": {
+    "circle": 1.584962500721156,
+    "red": 1.584962500721156,
+    "square": 1.584962500721156,
+    "triangle": 1.584962500721156,
+    "blue": 1.584962500721156,
+    "green": 1.584962500721156
+  }
+}

@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this research snapshot, please cite it using this metadata."
+title: "GUM: Growing Understanding Machine"
+type: software
+version: 0.2.0
+date-released: 2026-10-08
+authors:
+  - family-names: "Uz"
+    given-names: "Tolga"
+abstract: "A compact, auditable continual learner for concept formation, skill compilation, transfer, and strategy meta-learning."
+repository-code: "https://github.com/thingsbyt/GUM"
+license: "Apache-2.0"
+keywords:
+  - continual learning
+  - grounded learning
+  - human-AI collaboration
+  - autonomous agents
+

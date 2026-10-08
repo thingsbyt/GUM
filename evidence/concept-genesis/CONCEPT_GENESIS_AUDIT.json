@@ -1,0 +1,1072 @@
+{
+  "brain": {
+    "bytes": 12642,
+    "path": "RELEASE_MACHINE_OUTPUTS\\gum_concept_genesis_v1\\GENESIS_MIND_FINAL.json",
+    "sha256": "93a9051936c55d40305fa7adc9ec29a1b244eef2d395f4149cb8688ced2e0eaa"
+  },
+  "checks": {
+    "autonomous_concept_count": true,
+    "curriculum": true,
+    "fifth_distinct_parents": true,
+    "fifth_speedup": true,
+    "fifth_success": true,
+    "fresh_success": true,
+    "held_out": true,
+    "hidden_state_absent_from_learner_traces": true,
+    "no_forgetting_of_concept_count": true,
+    "old_engineered_signature_failed": true,
+    "perfect_hidden_alignment_audit_only": true,
+    "retention": true,
+    "source_frozen": true,
+    "traces_valid": true
+  },
+  "curriculum": {
+    "rows": [
+      {
+        "candidates": 55,
+        "context": "064fc4b07dd313e94787",
+        "interactions": 170,
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "success": true
+      },
+      {
+        "candidates": 111,
+        "context": "e9ce5cc0e5b349bd4d6f",
+        "interactions": 338,
+        "skill_id": "genesis-skill-15a0550ce539",
+        "success": true
+      },
+      {
+        "candidates": 70,
+        "context": "4c2fbd1e268ab203b801",
+        "interactions": 215,
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "success": true
+      },
+      {
+        "candidates": 102,
+        "context": "f7f05a536aa034a31423",
+        "interactions": 311,
+        "skill_id": "genesis-skill-9456457020e2",
+        "success": true
+      }
+    ],
+    "successes": 4
+  },
+  "discovery": {
+    "concept_support": {
+      "genesis-05c45482b326": 8,
+      "genesis-4ccdb537af7f": 8,
+      "genesis-680f909419b7": 8,
+      "genesis-79172d773915": 8,
+      "genesis-97ae5d3a1f3a": 8
+    },
+    "event_candidates": [
+      {
+        "clusters": 2,
+        "silhouette": 0.5404912117217979
+      },
+      {
+        "clusters": 3,
+        "silhouette": 0.7316705248261389
+      },
+      {
+        "clusters": 4,
+        "silhouette": 0.8601671782857144
+      },
+      {
+        "clusters": 5,
+        "silhouette": 0.9999999977515891
+      }
+    ],
+    "pixel_candidates": [
+      {
+        "clusters": 2,
+        "silhouette": 1.0
+      }
+    ],
+    "selected_event_concepts": 5,
+    "selected_pixel_tokens": 2,
+    "transitions": 40
+  },
+  "fifth_world": {
+    "created_from_post_curriculum_brain_hash": "56b702ae3bb4a02ccd752b4b984baadab5371830015b98e023fa54ba1e6547e4",
+    "experienced": {
+      "compositions_tried": 13,
+      "context": "0caf87d25ae876a6aa44",
+      "interactions": 83,
+      "parents": [
+        "genesis-skill-ed6606c5c925",
+        "genesis-skill-15a0550ce539"
+      ],
+      "skill_id": "genesis-skill-1d50b1354aea",
+      "success": true
+    },
+    "parent_indices_audit_only": [
+      0,
+      1
+    ],
+    "perception_matched_fresh": {
+      "candidates": 6889,
+      "context": "0caf87d25ae876a6aa44",
+      "interactions": 41339,
+      "skill_id": "genesis-skill-1d50b1354aea",
+      "success": true
+    },
+    "speedup": 498.06024096385545,
+    "target_audit_only": [
+      1,
+      3,
+      4,
+      4,
+      1,
+      2
+    ]
+  },
+  "format": "gum-concept-genesis-challenge-v1",
+  "held_out": {
+    "mean_interactions": 9.8,
+    "rows": [
+      {
+        "context": "9c2f65bb48f11c02165e",
+        "family_audit_only": 0,
+        "interactions": 17,
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "skills_tried": 4,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            4,
+            1,
+            3,
+            0
+          ],
+          "presentation": 60,
+          "target_mechanisms": [
+            1,
+            3,
+            4
+          ],
+          "world_id": "6d6c4b770daa525b"
+        }
+      },
+      {
+        "context": "42a6fc131e3e5869306b",
+        "family_audit_only": 0,
+        "interactions": 8,
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            1,
+            3,
+            4,
+            0
+          ],
+          "presentation": 61,
+          "target_mechanisms": [
+            1,
+            3,
+            4
+          ],
+          "world_id": "94ae7f957714e69a"
+        }
+      },
+      {
+        "context": "6402b24103ba7b14cafb",
+        "family_audit_only": 0,
+        "interactions": 8,
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            1,
+            3,
+            4,
+            0
+          ],
+          "presentation": 62,
+          "target_mechanisms": [
+            1,
+            3,
+            4
+          ],
+          "world_id": "cd8e71c59a5b17af"
+        }
+      },
+      {
+        "context": "7c3e178345bd58b8e516",
+        "family_audit_only": 0,
+        "interactions": 8,
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 3,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            1,
+            4,
+            0,
+            3
+          ],
+          "presentation": 63,
+          "target_mechanisms": [
+            1,
+            3,
+            4
+          ],
+          "world_id": "336cf211f0991574"
+        }
+      },
+      {
+        "context": "1028a3205615683be9cf",
+        "family_audit_only": 0,
+        "interactions": 8,
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 4,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            3,
+            4,
+            0,
+            1
+          ],
+          "presentation": 64,
+          "target_mechanisms": [
+            1,
+            3,
+            4
+          ],
+          "world_id": "a20912b0495f2ad5"
+        }
+      },
+      {
+        "context": "e77bc3cdeeff4fc0211b",
+        "family_audit_only": 1,
+        "interactions": 11,
+        "skill_id": "genesis-skill-15a0550ce539",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_mechanism": [
+            0,
+            1,
+            3,
+            4,
+            2
+          ],
+          "presentation": 65,
+          "target_mechanisms": [
+            4,
+            1,
+            2
+          ],
+          "world_id": "a7be252f29b135fe"
+        }
+      },
+      {
+        "context": "066a88472b8167b214c3",
+        "family_audit_only": 1,
+        "interactions": 11,
+        "skill_id": "genesis-skill-15a0550ce539",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_mechanism": [
+            0,
+            3,
+            1,
+            2,
+            4
+          ],
+          "presentation": 66,
+          "target_mechanisms": [
+            4,
+            1,
+            2
+          ],
+          "world_id": "d634aa4cbd542c6b"
+        }
+      },
+      {
+        "context": "ae95ff0b573172988e86",
+        "family_audit_only": 1,
+        "interactions": 8,
+        "skill_id": "genesis-skill-15a0550ce539",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            3,
+            1,
+            4,
+            0
+          ],
+          "presentation": 67,
+          "target_mechanisms": [
+            4,
+            1,
+            2
+          ],
+          "world_id": "f4f9d478c8647637"
+        }
+      },
+      {
+        "context": "996cf0f76f22cf37dfcb",
+        "family_audit_only": 1,
+        "interactions": 8,
+        "skill_id": "genesis-skill-15a0550ce539",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 3,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            1,
+            0,
+            4,
+            3
+          ],
+          "presentation": 68,
+          "target_mechanisms": [
+            4,
+            1,
+            2
+          ],
+          "world_id": "7f506f776cf9ab10"
+        }
+      },
+      {
+        "context": "3bf30758707ac5c6da9e",
+        "family_audit_only": 1,
+        "interactions": 8,
+        "skill_id": "genesis-skill-15a0550ce539",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 4,
+        "world_audit": {
+          "control_to_mechanism": [
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "presentation": 69,
+          "target_mechanisms": [
+            4,
+            1,
+            2
+          ],
+          "world_id": "a91729d3bde6f8ee"
+        }
+      },
+      {
+        "context": "4f1d53cbae1834e50afc",
+        "family_audit_only": 2,
+        "interactions": 14,
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "skills_tried": 3,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_mechanism": [
+            0,
+            4,
+            1,
+            3,
+            2
+          ],
+          "presentation": 70,
+          "target_mechanisms": [
+            3,
+            0,
+            1
+          ],
+          "world_id": "693d7f5bb3c0e06b"
+        }
+      },
+      {
+        "context": "a887892906cc8fe666f3",
+        "family_audit_only": 2,
+        "interactions": 11,
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_mechanism": [
+            3,
+            4,
+            0,
+            2,
+            1
+          ],
+          "presentation": 71,
+          "target_mechanisms": [
+            3,
+            0,
+            1
+          ],
+          "world_id": "da2ad54bd9b3c396"
+        }
+      },
+      {
+        "context": "7733421ef6673b61a25c",
+        "family_audit_only": 2,
+        "interactions": 8,
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_mechanism": [
+            0,
+            4,
+            2,
+            3,
+            1
+          ],
+          "presentation": 72,
+          "target_mechanisms": [
+            3,
+            0,
+            1
+          ],
+          "world_id": "b8b1364da4fa3f58"
+        }
+      },
+      {
+        "context": "67e58b32accd280c4cbc",
+        "family_audit_only": 2,
+        "interactions": 8,
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 3,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            0,
+            4,
+            1,
+            3
+          ],
+          "presentation": 73,
+          "target_mechanisms": [
+            3,
+            0,
+            1
+          ],
+          "world_id": "6dece1094f0cc6dd"
+        }
+      },
+      {
+        "context": "5f5fbd767ee45d15cb8d",
+        "family_audit_only": 2,
+        "interactions": 8,
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 4,
+        "world_audit": {
+          "control_to_mechanism": [
+            3,
+            4,
+            2,
+            1,
+            0
+          ],
+          "presentation": 74,
+          "target_mechanisms": [
+            3,
+            0,
+            1
+          ],
+          "world_id": "1f8c03a1b3082277"
+        }
+      },
+      {
+        "context": "a1adfb0a0eea6c2bb7c4",
+        "family_audit_only": 3,
+        "interactions": 17,
+        "skill_id": "genesis-skill-9456457020e2",
+        "skills_tried": 4,
+        "success": true,
+        "variant": 0,
+        "world_audit": {
+          "control_to_mechanism": [
+            1,
+            0,
+            4,
+            3,
+            2
+          ],
+          "presentation": 75,
+          "target_mechanisms": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "749d11d3fc467fe4"
+        }
+      },
+      {
+        "context": "628a239dc61670fd6162",
+        "family_audit_only": 3,
+        "interactions": 11,
+        "skill_id": "genesis-skill-9456457020e2",
+        "skills_tried": 2,
+        "success": true,
+        "variant": 1,
+        "world_audit": {
+          "control_to_mechanism": [
+            1,
+            4,
+            2,
+            3,
+            0
+          ],
+          "presentation": 76,
+          "target_mechanisms": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "5bbe5a5d84030d30"
+        }
+      },
+      {
+        "context": "20f26597860ce3294174",
+        "family_audit_only": 3,
+        "interactions": 8,
+        "skill_id": "genesis-skill-9456457020e2",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 2,
+        "world_audit": {
+          "control_to_mechanism": [
+            4,
+            2,
+            0,
+            1,
+            3
+          ],
+          "presentation": 77,
+          "target_mechanisms": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "18ce002a87044d71"
+        }
+      },
+      {
+        "context": "676a6a44e00ca1e3ef64",
+        "family_audit_only": 3,
+        "interactions": 8,
+        "skill_id": "genesis-skill-9456457020e2",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 3,
+        "world_audit": {
+          "control_to_mechanism": [
+            2,
+            4,
+            0,
+            1,
+            3
+          ],
+          "presentation": 78,
+          "target_mechanisms": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "3b231063e8943f10"
+        }
+      },
+      {
+        "context": "35fd7f62558fcd4a2243",
+        "family_audit_only": 3,
+        "interactions": 8,
+        "skill_id": "genesis-skill-9456457020e2",
+        "skills_tried": 1,
+        "success": true,
+        "variant": 4,
+        "world_audit": {
+          "control_to_mechanism": [
+            1,
+            4,
+            3,
+            0,
+            2
+          ],
+          "presentation": 79,
+          "target_mechanisms": [
+            1,
+            2,
+            4
+          ],
+          "world_id": "8d2936e755eca47c"
+        }
+      }
+    ],
+    "successes": 20,
+    "worlds": 20
+  },
+  "hidden_alignment_audit_only": {
+    "mechanism_to_concepts_audit_only": {
+      "0": [
+        "genesis-680f909419b7"
+      ],
+      "1": [
+        "genesis-79172d773915"
+      ],
+      "2": [
+        "genesis-97ae5d3a1f3a"
+      ],
+      "3": [
+        "genesis-4ccdb537af7f"
+      ],
+      "4": [
+        "genesis-05c45482b326"
+      ]
+    },
+    "perfect_one_to_one": true,
+    "rows": [
+      {
+        "anonymous_action": 0,
+        "learned_concept": "genesis-680f909419b7",
+        "mechanism_audit_only": 0,
+        "world_audit_only": "143956f362440588"
+      },
+      {
+        "anonymous_action": 1,
+        "learned_concept": "genesis-79172d773915",
+        "mechanism_audit_only": 1,
+        "world_audit_only": "143956f362440588"
+      },
+      {
+        "anonymous_action": 2,
+        "learned_concept": "genesis-05c45482b326",
+        "mechanism_audit_only": 4,
+        "world_audit_only": "143956f362440588"
+      },
+      {
+        "anonymous_action": 3,
+        "learned_concept": "genesis-97ae5d3a1f3a",
+        "mechanism_audit_only": 2,
+        "world_audit_only": "143956f362440588"
+      },
+      {
+        "anonymous_action": 4,
+        "learned_concept": "genesis-4ccdb537af7f",
+        "mechanism_audit_only": 3,
+        "world_audit_only": "143956f362440588"
+      },
+      {
+        "anonymous_action": 0,
+        "learned_concept": "genesis-680f909419b7",
+        "mechanism_audit_only": 0,
+        "world_audit_only": "f32ecde3d8fa1c4d"
+      },
+      {
+        "anonymous_action": 1,
+        "learned_concept": "genesis-79172d773915",
+        "mechanism_audit_only": 1,
+        "world_audit_only": "f32ecde3d8fa1c4d"
+      },
+      {
+        "anonymous_action": 2,
+        "learned_concept": "genesis-97ae5d3a1f3a",
+        "mechanism_audit_only": 2,
+        "world_audit_only": "f32ecde3d8fa1c4d"
+      },
+      {
+        "anonymous_action": 3,
+        "learned_concept": "genesis-4ccdb537af7f",
+        "mechanism_audit_only": 3,
+        "world_audit_only": "f32ecde3d8fa1c4d"
+      },
+      {
+        "anonymous_action": 4,
+        "learned_concept": "genesis-05c45482b326",
+        "mechanism_audit_only": 4,
+        "world_audit_only": "f32ecde3d8fa1c4d"
+      },
+      {
+        "anonymous_action": 0,
+        "learned_concept": "genesis-4ccdb537af7f",
+        "mechanism_audit_only": 3,
+        "world_audit_only": "dff8a3641c16eeab"
+      },
+      {
+        "anonymous_action": 1,
+        "learned_concept": "genesis-05c45482b326",
+        "mechanism_audit_only": 4,
+        "world_audit_only": "dff8a3641c16eeab"
+      },
+      {
+        "anonymous_action": 2,
+        "learned_concept": "genesis-79172d773915",
+        "mechanism_audit_only": 1,
+        "world_audit_only": "dff8a3641c16eeab"
+      },
+      {
+        "anonymous_action": 3,
+        "learned_concept": "genesis-680f909419b7",
+        "mechanism_audit_only": 0,
+        "world_audit_only": "dff8a3641c16eeab"
+      },
+      {
+        "anonymous_action": 4,
+        "learned_concept": "genesis-97ae5d3a1f3a",
+        "mechanism_audit_only": 2,
+        "world_audit_only": "dff8a3641c16eeab"
+      },
+      {
+        "anonymous_action": 0,
+        "learned_concept": "genesis-79172d773915",
+        "mechanism_audit_only": 1,
+        "world_audit_only": "ba97ea6b7dddd77c"
+      },
+      {
+        "anonymous_action": 1,
+        "learned_concept": "genesis-4ccdb537af7f",
+        "mechanism_audit_only": 3,
+        "world_audit_only": "ba97ea6b7dddd77c"
+      },
+      {
+        "anonymous_action": 2,
+        "learned_concept": "genesis-97ae5d3a1f3a",
+        "mechanism_audit_only": 2,
+        "world_audit_only": "ba97ea6b7dddd77c"
+      },
+      {
+        "anonymous_action": 3,
+        "learned_concept": "genesis-680f909419b7",
+        "mechanism_audit_only": 0,
+        "world_audit_only": "ba97ea6b7dddd77c"
+      },
+      {
+        "anonymous_action": 4,
+        "learned_concept": "genesis-05c45482b326",
+        "mechanism_audit_only": 4,
+        "world_audit_only": "ba97ea6b7dddd77c"
+      },
+      {
+        "anonymous_action": 0,
+        "learned_concept": "genesis-97ae5d3a1f3a",
+        "mechanism_audit_only": 2,
+        "world_audit_only": "588b6f297dbaab28"
+      },
+      {
+        "anonymous_action": 1,
+        "learned_concept": "genesis-680f909419b7",
+        "mechanism_audit_only": 0,
+        "world_audit_only": "588b6f297dbaab28"
+      },
+      {
+        "anonymous_action": 2,
+        "learned_concept": "genesis-79172d773915",
+        "mechanism_audit_only": 1,
+        "world_audit_only": "588b6f297dbaab28"
+      },
+      {
+        "anonymous_action": 3,
+        "learned_concept": "genesis-05c45482b326",
+        "mechanism_audit_only": 4,
+        "world_audit_only": "588b6f297dbaab28"
+      },
+      {
+        "anonymous_action": 4,
+        "learned_concept": "genesis-4ccdb537af7f",
+        "mechanism_audit_only": 3,
+        "world_audit_only": "588b6f297dbaab28"
+      },
+      {
+        "anonymous_action": 0,
+        "learned_concept": "genesis-4ccdb537af7f",
+        "mechanism_audit_only": 3,
+        "world_audit_only": "0d612ffb6ae0389a"
+      },
+      {
+        "anonymous_action": 1,
+        "learned_concept": "genesis-97ae5d3a1f3a",
+        "mechanism_audit_only": 2,
+        "world_audit_only": "0d612ffb6ae0389a"
+      },
+      {
+        "anonymous_action": 2,
+        "learned_concept": "genesis-79172d773915",
+        "mechanism_audit_only": 1,
+        "world_audit_only": "0d612ffb6ae0389a"
+      },
+      {
+        "anonymous_action": 3,
+        "learned_concept": "genesis-05c45482b326",
+        "mechanism_audit_only": 4,
+        "world_audit_only": "0d612ffb6ae0389a"
+      },
+      {
+        "anonymous_action": 4,
+        "learned_concept": "genesis-680f909419b7",
+        "mechanism_audit_only": 0,
+        "world_audit_only": "0d612ffb6ae0389a"
+      }
+    ]
+  },
+  "hidden_state_scan": {
+    "clean": true,
+    "matches": []
+  },
+  "interpretation": "The concept count and visual categories were selected from raw transition evidence, then used for skill transfer and composition. The generic changed-pixel/token-distribution bias remains engineered; arbitrary natural-scene concept discovery is not yet established.",
+  "learner_inputs": [
+    "raw RGB frames",
+    "five anonymous actions",
+    "terminal scalar reward",
+    "termination"
+  ],
+  "learner_not_given": [
+    "number of event concepts",
+    "event definitions",
+    "mechanism identities",
+    "control mappings",
+    "target programs",
+    "surface masks",
+    "solution sequences"
+  ],
+  "mind": {
+    "concept_evidence": {
+      "genesis-05c45482b326": 39,
+      "genesis-4ccdb537af7f": 39,
+      "genesis-680f909419b7": 39,
+      "genesis-79172d773915": 39,
+      "genesis-97ae5d3a1f3a": 39
+    },
+    "concept_merges": 0,
+    "concept_splits": 0,
+    "concepts_created": 5,
+    "encoder_selection": {
+      "event_candidates": [
+        {
+          "clusters": 2,
+          "silhouette": 0.5404912117217979
+        },
+        {
+          "clusters": 3,
+          "silhouette": 0.7316705248261389
+        },
+        {
+          "clusters": 4,
+          "silhouette": 0.8601671782857144
+        },
+        {
+          "clusters": 5,
+          "silhouette": 0.9999999977515891
+        }
+      ],
+      "pixel_candidates": [
+        {
+          "clusters": 2,
+          "silhouette": 1.0
+        }
+      ],
+      "selected_event_concepts": 5,
+      "selected_pixel_tokens": 2
+    },
+    "format": "gum-concept-genesis-mind-v1",
+    "interactions": 1395,
+    "known_contexts": 25,
+    "skills": [
+      {
+        "confidence": 0.6666666666666666,
+        "contexts": [
+          "e9ce5cc0e5b349bd4d6f"
+        ],
+        "failures": 4,
+        "sequence": [
+          "genesis-05c45482b326",
+          "genesis-79172d773915",
+          "genesis-97ae5d3a1f3a"
+        ],
+        "skill_id": "genesis-skill-15a0550ce539",
+        "successes": 7,
+        "support": 1
+      },
+      {
+        "confidence": 1.0,
+        "contexts": [
+          "0caf87d25ae876a6aa44"
+        ],
+        "failures": 0,
+        "sequence": [
+          "genesis-79172d773915",
+          "genesis-4ccdb537af7f",
+          "genesis-05c45482b326",
+          "genesis-05c45482b326",
+          "genesis-79172d773915",
+          "genesis-97ae5d3a1f3a"
+        ],
+        "skill_id": "genesis-skill-1d50b1354aea",
+        "successes": 1,
+        "support": 1
+      },
+      {
+        "confidence": 0.7272727272727273,
+        "contexts": [
+          "4c2fbd1e268ab203b801"
+        ],
+        "failures": 3,
+        "sequence": [
+          "genesis-4ccdb537af7f",
+          "genesis-680f909419b7",
+          "genesis-79172d773915"
+        ],
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "successes": 7,
+        "support": 1
+      },
+      {
+        "confidence": 0.8888888888888888,
+        "contexts": [
+          "f7f05a536aa034a31423"
+        ],
+        "failures": 1,
+        "sequence": [
+          "genesis-79172d773915",
+          "genesis-97ae5d3a1f3a",
+          "genesis-05c45482b326"
+        ],
+        "skill_id": "genesis-skill-9456457020e2",
+        "successes": 7,
+        "support": 1
+      },
+      {
+        "confidence": 0.6666666666666666,
+        "contexts": [
+          "064fc4b07dd313e94787"
+        ],
+        "failures": 4,
+        "sequence": [
+          "genesis-79172d773915",
+          "genesis-4ccdb537af7f",
+          "genesis-05c45482b326"
+        ],
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "successes": 7,
+        "support": 1
+      }
+    ],
+    "skills_created": 5
+  },
+  "passed": true,
+  "prior_engineered_signature_baseline": {
+    "anonymous_action_signatures": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "can_distinguish_all_actions": false,
+    "distinct_signatures": 3
+  },
+  "retention": {
+    "rows": [
+      {
+        "context": "064fc4b07dd313e94787",
+        "interactions": 3,
+        "skill_id": "genesis-skill-ed6606c5c925",
+        "success": true
+      },
+      {
+        "context": "e9ce5cc0e5b349bd4d6f",
+        "interactions": 3,
+        "skill_id": "genesis-skill-15a0550ce539",
+        "success": true
+      },
+      {
+        "context": "4c2fbd1e268ab203b801",
+        "interactions": 3,
+        "skill_id": "genesis-skill-6c1e74ca2663",
+        "success": true
+      },
+      {
+        "context": "f7f05a536aa034a31423",
+        "interactions": 3,
+        "skill_id": "genesis-skill-9456457020e2",
+        "success": true
+      }
+    ],
+    "successes": 4
+  },
+  "run_id": "concept-genesis-20261008T145707Z",
+  "source_freeze": {
+    "after": {
+      "gum/concept_genesis.py": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+      "gum/concept_genesis_challenge.py": "79e7e8d83806ae5cc1ccecd98dfd101fda1c691442434a95d807970ad7c02795"
+    },
+    "before": {
+      "gum/concept_genesis.py": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+      "gum/concept_genesis_challenge.py": "79e7e8d83806ae5cc1ccecd98dfd101fda1c691442434a95d807970ad7c02795"
+    },
+    "expected": {
+      "gum/concept_genesis.py": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+      "gum/concept_genesis_challenge.py": "79e7e8d83806ae5cc1ccecd98dfd101fda1c691442434a95d807970ad7c02795"
+    },
+    "unchanged": true
+  },
+  "traces": {
+    "curriculum": {
+      "errors": [],
+      "head": "b91c7c22b0e09a84f717f2f0ef9376321a681f62cd7cf6128681d4a90b064df4",
+      "records": 1034,
+      "valid": true
+    },
+    "fifth_experienced": {
+      "errors": [],
+      "head": "afef70b34a29a744771e0ff4917a77e0e1055d4dbc6b5d97aedc709680c63512",
+      "records": 83,
+      "valid": true
+    },
+    "fifth_fresh": {
+      "errors": [],
+      "head": "0dd213b27242abbe40d96ef111c52e9cfbc4340618fffa0f9041d5572315476f",
+      "records": 41339,
+      "valid": true
+    }
+  }
+}

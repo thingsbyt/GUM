@@ -1,0 +1,6769 @@
+{
+  "aggregate": {
+    "held_out_tasks": 120,
+    "mean_speedup_over_initial": 4.479202271166288,
+    "median_speedup_over_initial": 2.30327868852459,
+    "runs": 5,
+    "runs_beating_initial": 4,
+    "runs_with_late_curve_better": 4,
+    "total_solutions_retained": 0,
+    "training_tasks": 160
+  },
+  "checks": {
+    "all_families_covered": true,
+    "five_runs": true,
+    "late_curve_improvement": true,
+    "ledger_valid": true,
+    "median_speedup": true,
+    "reload_preserved": true,
+    "runs_beating_initial": true,
+    "source_frozen": true,
+    "strategies_evolved": true,
+    "zero_solutions_retained": true
+  },
+  "classification": "precommitted multi-seed learning-to-learn audit",
+  "format": "gum-learning-to-learn-challenge-v1",
+  "interpretation": "GUM changed a persistent acquisition-policy genome and learned new pixel-goal puzzles more efficiently without retaining any task solution paths. Candidate search operators and the three genome features remain engineered; this is strategy meta-learning, not unrestricted self-rewriting.",
+  "learner_inputs": [
+    "current RGB state",
+    "RGB goal",
+    "anonymous action count",
+    "sparse success reward"
+  ],
+  "learner_not_given": [
+    "task family",
+    "state variables",
+    "transition rules",
+    "action meanings",
+    "goal state values",
+    "solution path",
+    "best acquisition strategy"
+  ],
+  "ledger": {
+    "errors": [],
+    "head": "e5b5cf6d88c0be1d0df14813d88d610f702eeafdae94a2eaaf88b915c21f3e0c",
+    "records": 165,
+    "valid": true
+  },
+  "passed": true,
+  "runs": [
+    {
+      "brain": {
+        "bytes": 27855,
+        "path": "RELEASE_MACHINE_OUTPUTS\\gum_learning_to_learn_v1\\META_MIND_77.json",
+        "sha256": "21f93e1c779780ec8d0e19b4c2da3c99e4ec358bbe77c9753837f2fd8e56ba50"
+      },
+      "champion": {
+        "evaluations": 3,
+        "genome_id": "strategy-00032b7dfd10",
+        "mean_cost": 10.753580729166666,
+        "parent": "strategy-5d97e04ee882",
+        "total_cost": 32.2607421875,
+        "weights": [
+          2.37934014,
+          0.5622964,
+          -0.11383126
+        ]
+      },
+      "curve": [
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 245,
+          "population_successes": 18,
+          "post_update_champion": "strategy-a8f0a490e623",
+          "pre_update_interactions": 245,
+          "pre_update_strategy": "strategy-9d908ecfb6b2",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "47c5923a4b6c9443",
+          "task_index": 1
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 13,
+          "population_successes": 12,
+          "post_update_champion": "strategy-a8f0a490e623",
+          "pre_update_interactions": 13,
+          "pre_update_strategy": "strategy-a8f0a490e623",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "9d1dbc7840489fac",
+          "task_index": 2
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-272bc333bd14",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-a8f0a490e623",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "73564e7a198a483f",
+          "task_index": 3
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-272bc333bd14",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-272bc333bd14",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "71dfe87e6b2a5256",
+          "task_index": 4
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 5,
+          "population_successes": 18,
+          "post_update_champion": "strategy-272bc333bd14",
+          "pre_update_interactions": 5,
+          "pre_update_strategy": "strategy-272bc333bd14",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "d56144712787c7aa",
+          "task_index": 5
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 220,
+          "population_successes": 18,
+          "post_update_champion": "strategy-4fae739ffbf9",
+          "pre_update_interactions": 105,
+          "pre_update_strategy": "strategy-272bc333bd14",
+          "pre_update_success": true,
+          "relative_efficiency": 2.0952380952380953,
+          "solutions_retained": 0,
+          "task_id": "c4c960b51bb5c6e5",
+          "task_index": 6
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-4fae739ffbf9",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-4fae739ffbf9",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "3c220a1edc5095cd",
+          "task_index": 7
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 39,
+          "population_successes": 18,
+          "post_update_champion": "strategy-c746c5996a4d",
+          "pre_update_interactions": 21,
+          "pre_update_strategy": "strategy-4fae739ffbf9",
+          "pre_update_success": true,
+          "relative_efficiency": 1.8571428571428572,
+          "solutions_retained": 0,
+          "task_id": "c145b145a6ec2d7f",
+          "task_index": 8
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-2a3a94a027a2",
+          "pre_update_interactions": 44,
+          "pre_update_strategy": "strategy-c746c5996a4d",
+          "pre_update_success": true,
+          "relative_efficiency": 0.06818181818181818,
+          "solutions_retained": 0,
+          "task_id": "a4683aa7e2c31640",
+          "task_index": 9
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 132,
+          "population_successes": 16,
+          "post_update_champion": "strategy-4fae739ffbf9",
+          "pre_update_interactions": 36,
+          "pre_update_strategy": "strategy-2a3a94a027a2",
+          "pre_update_success": true,
+          "relative_efficiency": 3.6666666666666665,
+          "solutions_retained": 0,
+          "task_id": "df2e19eae2b924df",
+          "task_index": 10
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-4fae739ffbf9",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-4fae739ffbf9",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "abccd34890611b85",
+          "task_index": 11
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 69,
+          "population_successes": 18,
+          "post_update_champion": "strategy-4fae739ffbf9",
+          "pre_update_interactions": 33,
+          "pre_update_strategy": "strategy-4fae739ffbf9",
+          "pre_update_success": true,
+          "relative_efficiency": 2.090909090909091,
+          "solutions_retained": 0,
+          "task_id": "864575bb4d6316ad",
+          "task_index": 12
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 70,
+          "population_successes": 18,
+          "post_update_champion": "strategy-d2a68c4d3eb4",
+          "pre_update_interactions": 30,
+          "pre_update_strategy": "strategy-4fae739ffbf9",
+          "pre_update_success": true,
+          "relative_efficiency": 2.3333333333333335,
+          "solutions_retained": 0,
+          "task_id": "1dcada56c8ead08a",
+          "task_index": 13
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 232,
+          "population_successes": 18,
+          "post_update_champion": "strategy-d2a68c4d3eb4",
+          "pre_update_interactions": 36,
+          "pre_update_strategy": "strategy-d2a68c4d3eb4",
+          "pre_update_success": true,
+          "relative_efficiency": 6.444444444444445,
+          "solutions_retained": 0,
+          "task_id": "7ac613a217b0333e",
+          "task_index": 14
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-d2a68c4d3eb4",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-d2a68c4d3eb4",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "89435f3384cad83f",
+          "task_index": 15
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-22bfda161915",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-d2a68c4d3eb4",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "4bcf2b7c27985e00",
+          "task_index": 16
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 87,
+          "population_successes": 18,
+          "post_update_champion": "strategy-353e4e94a92f",
+          "pre_update_interactions": 19,
+          "pre_update_strategy": "strategy-22bfda161915",
+          "pre_update_success": true,
+          "relative_efficiency": 4.578947368421052,
+          "solutions_retained": 0,
+          "task_id": "598e4640de90335f",
+          "task_index": 17
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 16,
+          "post_update_champion": "strategy-5df10bed98c0",
+          "pre_update_interactions": 124,
+          "pre_update_strategy": "strategy-353e4e94a92f",
+          "pre_update_success": true,
+          "relative_efficiency": 9.67741935483871,
+          "solutions_retained": 0,
+          "task_id": "7454298c52d7af6a",
+          "task_index": 18
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-5df10bed98c0",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-5df10bed98c0",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "150cf2de7f9c0cde",
+          "task_index": 19
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 62,
+          "population_successes": 18,
+          "post_update_champion": "strategy-851068821367",
+          "pre_update_interactions": 30,
+          "pre_update_strategy": "strategy-5df10bed98c0",
+          "pre_update_success": true,
+          "relative_efficiency": 2.066666666666667,
+          "solutions_retained": 0,
+          "task_id": "792ca8bd7a3919ba",
+          "task_index": 20
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-851068821367",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-851068821367",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "48890d0add1768ea",
+          "task_index": 21
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 427,
+          "population_successes": 18,
+          "post_update_champion": "strategy-ba8b6cc7282b",
+          "pre_update_interactions": 86,
+          "pre_update_strategy": "strategy-851068821367",
+          "pre_update_success": true,
+          "relative_efficiency": 4.965116279069767,
+          "solutions_retained": 0,
+          "task_id": "ba7a33285952b9e7",
+          "task_index": 22
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-ba8b6cc7282b",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-ba8b6cc7282b",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "77505836a54cb846",
+          "task_index": 23
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 22,
+          "population_successes": 18,
+          "post_update_champion": "strategy-ba8b6cc7282b",
+          "pre_update_interactions": 6,
+          "pre_update_strategy": "strategy-ba8b6cc7282b",
+          "pre_update_success": true,
+          "relative_efficiency": 3.6666666666666665,
+          "solutions_retained": 0,
+          "task_id": "b3a8f5147227c7f3",
+          "task_index": 24
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 219,
+          "population_successes": 18,
+          "post_update_champion": "strategy-ba8b6cc7282b",
+          "pre_update_interactions": 33,
+          "pre_update_strategy": "strategy-ba8b6cc7282b",
+          "pre_update_success": true,
+          "relative_efficiency": 6.636363636363637,
+          "solutions_retained": 0,
+          "task_id": "e294a4d2c2cefaaf",
+          "task_index": 25
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 96,
+          "population_successes": 18,
+          "post_update_champion": "strategy-f4539744da64",
+          "pre_update_interactions": 52,
+          "pre_update_strategy": "strategy-ba8b6cc7282b",
+          "pre_update_success": true,
+          "relative_efficiency": 1.8461538461538463,
+          "solutions_retained": 0,
+          "task_id": "257fc8163698dc40",
+          "task_index": 26
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-f4539744da64",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-f4539744da64",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "1481226d27fea92c",
+          "task_index": 27
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-f4539744da64",
+          "pre_update_interactions": 120,
+          "pre_update_strategy": "strategy-f4539744da64",
+          "pre_update_success": true,
+          "relative_efficiency": 10.0,
+          "solutions_retained": 0,
+          "task_id": "80620557cc350bfc",
+          "task_index": 28
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-f4539744da64",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-f4539744da64",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "6d5f3f8a37b13f90",
+          "task_index": 29
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 16,
+          "population_successes": 18,
+          "post_update_champion": "strategy-00032b7dfd10",
+          "pre_update_interactions": 8,
+          "pre_update_strategy": "strategy-f4539744da64",
+          "pre_update_success": true,
+          "relative_efficiency": 2.0,
+          "solutions_retained": 0,
+          "task_id": "fc4029b1871c2c12",
+          "task_index": 30
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-00032b7dfd10",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-00032b7dfd10",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "a9be89caac15f0b3",
+          "task_index": 31
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-00032b7dfd10",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-00032b7dfd10",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "8bd048ed7916dae6",
+          "task_index": 32
+        }
+      ],
+      "early_relative_efficiency": 1.0,
+      "evaluation_rows": [
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "8c9347757cd78752"
+        },
+        {
+          "evolved": {
+            "expansions": 310,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 319,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 245,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "1b55e519f8f8f213"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 2,
+            "interactions": 3,
+            "solution": [
+              0,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "f759cf41bcf9c023"
+        },
+        {
+          "evolved": {
+            "expansions": 22,
+            "interactions": 42,
+            "solution": [
+              1,
+              3,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 25,
+            "interactions": 51,
+            "solution": [
+              0,
+              2,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 28,
+            "interactions": 80,
+            "solution": [
+              0,
+              2,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "de670922c7588e69"
+        },
+        {
+          "evolved": {
+            "expansions": 83,
+            "interactions": 206,
+            "solution": [
+              5,
+              0,
+              2,
+              4
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 138,
+            "interactions": 390,
+            "solution": [
+              0,
+              2,
+              4,
+              5
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 103,
+            "interactions": 332,
+            "solution": [
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "task_id": "5748a217bea27500"
+        },
+        {
+          "evolved": {
+            "expansions": 64,
+            "interactions": 161,
+            "solution": [
+              1,
+              1,
+              3,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 184,
+            "interactions": 596,
+            "solution": [
+              1,
+              1,
+              3,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 175,
+            "interactions": 774,
+            "solution": [
+              3,
+              3,
+              1,
+              1
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "563431886a7cc8b8"
+        },
+        {
+          "evolved": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 2,
+            "interactions": 3,
+            "solution": [
+              0,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "688d12ec18263841"
+        },
+        {
+          "evolved": {
+            "expansions": 12,
+            "interactions": 20,
+            "solution": [
+              0,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 8,
+            "interactions": 12,
+            "solution": [
+              0,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 23,
+            "interactions": 59,
+            "solution": [
+              1,
+              2,
+              1,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "5afe1af7c700936f"
+        },
+        {
+          "evolved": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 4,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "f5821e21a0ca8bcb"
+        },
+        {
+          "evolved": {
+            "expansions": 22,
+            "interactions": 42,
+            "solution": [
+              4,
+              3,
+              3
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 137,
+            "interactions": 363,
+            "solution": [
+              3,
+              3,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 245,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "1f82f2fd5e86b1f7"
+        },
+        {
+          "evolved": {
+            "expansions": 7,
+            "interactions": 10,
+            "solution": [
+              0,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 7,
+            "interactions": 10,
+            "solution": [
+              0,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 6,
+            "interactions": 12,
+            "solution": [
+              1,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "5083526cef7798ec"
+        },
+        {
+          "evolved": {
+            "expansions": 6,
+            "interactions": 6,
+            "solution": [
+              5
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 6,
+            "interactions": 6,
+            "solution": [
+              5
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 264,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "b78bce04f120c32f"
+        },
+        {
+          "evolved": {
+            "expansions": 9,
+            "interactions": 13,
+            "solution": [
+              1,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 14,
+            "interactions": 23,
+            "solution": [
+              1,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 28,
+            "interactions": 68,
+            "solution": [
+              3,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "739434dd0971978c"
+        },
+        {
+          "evolved": {
+            "expansions": 342,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 354,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 245,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "089adc7e26af0251"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 10,
+            "solution": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "bf7d8f95b29c862f"
+        },
+        {
+          "evolved": {
+            "expansions": 23,
+            "interactions": 49,
+            "solution": [
+              1,
+              0,
+              2
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 28,
+            "interactions": 60,
+            "solution": [
+              0,
+              2,
+              3
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 45,
+            "interactions": 148,
+            "solution": [
+              1,
+              0,
+              2
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "ef1af42d55aa1b1a"
+        },
+        {
+          "evolved": {
+            "expansions": 6,
+            "interactions": 8,
+            "solution": [
+              0,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 6,
+            "interactions": 8,
+            "solution": [
+              0,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 6,
+            "solution": [
+              1,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "275824840f8464c8"
+        },
+        {
+          "evolved": {
+            "expansions": 333,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 354,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 244,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "4a957d06bb60a9ed"
+        },
+        {
+          "evolved": {
+            "expansions": 5,
+            "interactions": 6,
+            "solution": [
+              1,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 6,
+            "interactions": 8,
+            "solution": [
+              0,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 5,
+            "interactions": 9,
+            "solution": [
+              1,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "1e548a027fe85d75"
+        },
+        {
+          "evolved": {
+            "expansions": 14,
+            "interactions": 20,
+            "solution": [
+              4,
+              5
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 13,
+            "interactions": 18,
+            "solution": [
+              0,
+              4
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 269,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "9d42bf45131f2b75"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 25,
+            "interactions": 61,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "1f47ce21e4b3e687"
+        },
+        {
+          "evolved": {
+            "expansions": 37,
+            "interactions": 88,
+            "solution": [
+              0,
+              3,
+              1,
+              1
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 129,
+            "interactions": 376,
+            "solution": [
+              0,
+              1,
+              1,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 91,
+            "interactions": 355,
+            "solution": [
+              3,
+              1,
+              1,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "051772c1cbec72a9"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 2,
+            "interactions": 3,
+            "solution": [
+              0,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "58abd97d3a3e8ac3"
+        },
+        {
+          "evolved": {
+            "expansions": 6,
+            "interactions": 8,
+            "solution": [
+              2,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 11,
+            "interactions": 18,
+            "solution": [
+              1,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 16,
+            "interactions": 38,
+            "solution": [
+              2,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "068ca8e11df5562b"
+        }
+      ],
+      "held_out": {
+        "evolved_mean_cost": 254.125,
+        "evolved_successes": 21,
+        "families": {
+          "counter": {
+            "evolved_mean": 948.5,
+            "evolved_successes": 3,
+            "initial_mean": 1122.5,
+            "tasks": 6
+          },
+          "permutation": {
+            "evolved_mean": 24.166666666666668,
+            "evolved_successes": 6,
+            "initial_mean": 27.5,
+            "tasks": 6
+          },
+          "rotate": {
+            "evolved_mean": 4.833333333333333,
+            "evolved_successes": 6,
+            "initial_mean": 5.166666666666667,
+            "tasks": 6
+          },
+          "toggle": {
+            "evolved_mean": 39.0,
+            "evolved_successes": 6,
+            "initial_mean": 71.33333333333333,
+            "tasks": 6
+          }
+        },
+        "initial_mean_cost": 306.625,
+        "initial_successes": 21,
+        "shuffled_mean_cost": 531.9166666666666,
+        "speedup_over_initial": 1.206591244466306,
+        "tasks": 24,
+        "wins_over_initial": 9
+      },
+      "late_curve_better": true,
+      "late_relative_efficiency": 1.4230769230769231,
+      "meta_seed": 77,
+      "reload_preserved": true,
+      "solutions_retained": 0,
+      "strategy_changed": true,
+      "tasks_seen": 32
+    },
+    {
+      "brain": {
+        "bytes": 28117,
+        "path": "RELEASE_MACHINE_OUTPUTS\\gum_learning_to_learn_v1\\META_MIND_177.json",
+        "sha256": "5602f85e7d2bb355b131acf52c250a63aa3bca8bd57557541271ef94fc2952b0"
+      },
+      "champion": {
+        "evaluations": 3,
+        "genome_id": "strategy-b5650403b311",
+        "mean_cost": 27.238147099812824,
+        "parent": "strategy-6a79609a61a4",
+        "total_cost": 81.71444129943848,
+        "weights": [
+          2.54071611,
+          0.01181512,
+          -0.06330971
+        ]
+      },
+      "curve": [
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 127,
+          "population_successes": 18,
+          "post_update_champion": "strategy-145dbbae1622",
+          "pre_update_interactions": 127,
+          "pre_update_strategy": "strategy-9d908ecfb6b2",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "f6f8110692e19d3a",
+          "task_index": 1
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 955,
+          "population_successes": 8,
+          "post_update_champion": "strategy-145dbbae1622",
+          "pre_update_interactions": 55,
+          "pre_update_strategy": "strategy-145dbbae1622",
+          "pre_update_success": true,
+          "relative_efficiency": 17.363636363636363,
+          "solutions_retained": 0,
+          "task_id": "7b4a4fee763f8436",
+          "task_index": 2
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 12,
+          "population_successes": 18,
+          "post_update_champion": "strategy-10bdd0e848e9",
+          "pre_update_interactions": 8,
+          "pre_update_strategy": "strategy-145dbbae1622",
+          "pre_update_success": true,
+          "relative_efficiency": 1.5,
+          "solutions_retained": 0,
+          "task_id": "330df3819a10e219",
+          "task_index": 3
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 91,
+          "population_successes": 18,
+          "post_update_champion": "strategy-10bdd0e848e9",
+          "pre_update_interactions": 21,
+          "pre_update_strategy": "strategy-10bdd0e848e9",
+          "pre_update_success": true,
+          "relative_efficiency": 4.333333333333333,
+          "solutions_retained": 0,
+          "task_id": "2d9e8501bfddb8c9",
+          "task_index": 4
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 175,
+          "population_successes": 18,
+          "post_update_champion": "strategy-145dbbae1622",
+          "pre_update_interactions": 60,
+          "pre_update_strategy": "strategy-10bdd0e848e9",
+          "pre_update_success": true,
+          "relative_efficiency": 2.9166666666666665,
+          "solutions_retained": 0,
+          "task_id": "00cef969d570cf27",
+          "task_index": 5
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 12,
+          "post_update_champion": "strategy-145dbbae1622",
+          "pre_update_interactions": 119,
+          "pre_update_strategy": "strategy-145dbbae1622",
+          "pre_update_success": true,
+          "relative_efficiency": 10.084033613445378,
+          "solutions_retained": 0,
+          "task_id": "c2ce590a8f54c00b",
+          "task_index": 6
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-c870c5e8d9f5",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-145dbbae1622",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "635490cdb661efaa",
+          "task_index": 7
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-c870c5e8d9f5",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-c870c5e8d9f5",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "01773d0afe125534",
+          "task_index": 8
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 219,
+          "population_successes": 18,
+          "post_update_champion": "strategy-102737c1e889",
+          "pre_update_interactions": 33,
+          "pre_update_strategy": "strategy-c870c5e8d9f5",
+          "pre_update_success": true,
+          "relative_efficiency": 6.636363636363637,
+          "solutions_retained": 0,
+          "task_id": "211e70798ddbd388",
+          "task_index": 9
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1148,
+          "population_successes": 18,
+          "post_update_champion": "strategy-c870c5e8d9f5",
+          "pre_update_interactions": 158,
+          "pre_update_strategy": "strategy-102737c1e889",
+          "pre_update_success": true,
+          "relative_efficiency": 7.265822784810126,
+          "solutions_retained": 0,
+          "task_id": "849c7d940e409c42",
+          "task_index": 10
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-c870c5e8d9f5",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-c870c5e8d9f5",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "eab124e0ebbb0dd4",
+          "task_index": 11
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 270,
+          "population_successes": 18,
+          "post_update_champion": "strategy-eaeec897ca79",
+          "pre_update_interactions": 168,
+          "pre_update_strategy": "strategy-c870c5e8d9f5",
+          "pre_update_success": true,
+          "relative_efficiency": 1.6071428571428572,
+          "solutions_retained": 0,
+          "task_id": "c56ab26958119586",
+          "task_index": 12
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 20,
+          "population_successes": 18,
+          "post_update_champion": "strategy-23284335a1de",
+          "pre_update_interactions": 12,
+          "pre_update_strategy": "strategy-eaeec897ca79",
+          "pre_update_success": true,
+          "relative_efficiency": 1.6666666666666667,
+          "solutions_retained": 0,
+          "task_id": "da37b0c18f96ab6b",
+          "task_index": 13
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 12,
+          "post_update_champion": "strategy-eaeec897ca79",
+          "pre_update_interactions": 234,
+          "pre_update_strategy": "strategy-23284335a1de",
+          "pre_update_success": true,
+          "relative_efficiency": 5.128205128205129,
+          "solutions_retained": 0,
+          "task_id": "98ce841a85f0320e",
+          "task_index": 14
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 2,
+          "population_successes": 18,
+          "post_update_champion": "strategy-eaeec897ca79",
+          "pre_update_interactions": 2,
+          "pre_update_strategy": "strategy-eaeec897ca79",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "757d82e2547a42a3",
+          "task_index": 15
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-82bb65c52154",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-eaeec897ca79",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "5b6a58a770cc9305",
+          "task_index": 16
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-82bb65c52154",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-82bb65c52154",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "a80acb5374cd53b1",
+          "task_index": 17
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0432269da02a",
+          "pre_update_interactions": 108,
+          "pre_update_strategy": "strategy-82bb65c52154",
+          "pre_update_success": true,
+          "relative_efficiency": 11.11111111111111,
+          "solutions_retained": 0,
+          "task_id": "ec635e3580aedd53",
+          "task_index": 18
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0432269da02a",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-0432269da02a",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "969595cb78a61bbc",
+          "task_index": 19
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-f80fe5ef4a12",
+          "pre_update_interactions": 85,
+          "pre_update_strategy": "strategy-0432269da02a",
+          "pre_update_success": true,
+          "relative_efficiency": 14.117647058823529,
+          "solutions_retained": 0,
+          "task_id": "30d07e38903f7119",
+          "task_index": 20
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 45,
+          "population_successes": 18,
+          "post_update_champion": "strategy-1a72034c6f7a",
+          "pre_update_interactions": 14,
+          "pre_update_strategy": "strategy-f80fe5ef4a12",
+          "pre_update_success": true,
+          "relative_efficiency": 3.2142857142857144,
+          "solutions_retained": 0,
+          "task_id": "b434e0896e7ad6f8",
+          "task_index": 21
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 184,
+          "population_successes": 18,
+          "post_update_champion": "strategy-1a72034c6f7a",
+          "pre_update_interactions": 27,
+          "pre_update_strategy": "strategy-1a72034c6f7a",
+          "pre_update_success": true,
+          "relative_efficiency": 6.814814814814815,
+          "solutions_retained": 0,
+          "task_id": "16d7d7b8b8e9d75a",
+          "task_index": 22
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-1a72034c6f7a",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-1a72034c6f7a",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "1e243ab6968d5c06",
+          "task_index": 23
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 343,
+          "population_successes": 18,
+          "post_update_champion": "strategy-07a23b84ae97",
+          "pre_update_interactions": 49,
+          "pre_update_strategy": "strategy-1a72034c6f7a",
+          "pre_update_success": true,
+          "relative_efficiency": 7.0,
+          "solutions_retained": 0,
+          "task_id": "81a17fcc142754f3",
+          "task_index": 24
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 222,
+          "population_successes": 18,
+          "post_update_champion": "strategy-15ecb394eb48",
+          "pre_update_interactions": 55,
+          "pre_update_strategy": "strategy-07a23b84ae97",
+          "pre_update_success": true,
+          "relative_efficiency": 4.036363636363636,
+          "solutions_retained": 0,
+          "task_id": "ece36a37470f6116",
+          "task_index": 25
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 15,
+          "post_update_champion": "strategy-c8cf1b0baf82",
+          "pre_update_interactions": 352,
+          "pre_update_strategy": "strategy-15ecb394eb48",
+          "pre_update_success": true,
+          "relative_efficiency": 3.409090909090909,
+          "solutions_retained": 0,
+          "task_id": "7d712fb9037c70aa",
+          "task_index": 26
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-c8cf1b0baf82",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-c8cf1b0baf82",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "caf41f068d4e08af",
+          "task_index": 27
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 968,
+          "population_successes": 17,
+          "post_update_champion": "strategy-15ecb394eb48",
+          "pre_update_interactions": 222,
+          "pre_update_strategy": "strategy-c8cf1b0baf82",
+          "pre_update_success": true,
+          "relative_efficiency": 4.36036036036036,
+          "solutions_retained": 0,
+          "task_id": "36680fb1abe05872",
+          "task_index": 28
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 18,
+          "population_successes": 18,
+          "post_update_champion": "strategy-15ecb394eb48",
+          "pre_update_interactions": 8,
+          "pre_update_strategy": "strategy-15ecb394eb48",
+          "pre_update_success": true,
+          "relative_efficiency": 2.25,
+          "solutions_retained": 0,
+          "task_id": "9e0516b32ba27419",
+          "task_index": 29
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 17,
+          "post_update_champion": "strategy-15ecb394eb48",
+          "pre_update_interactions": 55,
+          "pre_update_strategy": "strategy-15ecb394eb48",
+          "pre_update_success": true,
+          "relative_efficiency": 21.818181818181817,
+          "solutions_retained": 0,
+          "task_id": "2c66baab43cfc950",
+          "task_index": 30
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-03b89729dedc",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-15ecb394eb48",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "ddc9f1996b9e9168",
+          "task_index": 31
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 33,
+          "population_successes": 18,
+          "post_update_champion": "strategy-b5650403b311",
+          "pre_update_interactions": 11,
+          "pre_update_strategy": "strategy-03b89729dedc",
+          "pre_update_success": true,
+          "relative_efficiency": 3.0,
+          "solutions_retained": 0,
+          "task_id": "c81f9e1f17386483",
+          "task_index": 32
+        }
+      ],
+      "early_relative_efficiency": 2.208333333333333,
+      "evaluation_rows": [
+        {
+          "evolved": {
+            "expansions": 14,
+            "interactions": 33,
+            "solution": [
+              1,
+              3,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 25,
+            "interactions": 61,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "7ca49b944d435095"
+        },
+        {
+          "evolved": {
+            "expansions": 20,
+            "interactions": 72,
+            "solution": [
+              0,
+              0,
+              3,
+              3,
+              2,
+              2
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 224,
+            "interactions": 936,
+            "solution": [
+              0,
+              0,
+              2,
+              2,
+              3,
+              3
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 209,
+            "interactions": 961,
+            "solution": [
+              3,
+              3,
+              2,
+              2,
+              0,
+              0
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "task_id": "854af6fc20b086f4"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 7,
+            "solution": [
+              0,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 7,
+            "interactions": 10,
+            "solution": [
+              0,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 6,
+            "interactions": 12,
+            "solution": [
+              1,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "e8d3f8fc53da734d"
+        },
+        {
+          "evolved": {
+            "expansions": 22,
+            "interactions": 56,
+            "solution": [
+              0,
+              7,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 125,
+            "interactions": 295,
+            "solution": [
+              0,
+              7,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 237,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "d33d868b7836dc0c"
+        },
+        {
+          "evolved": {
+            "expansions": 18,
+            "interactions": 36,
+            "solution": [
+              4,
+              1,
+              5
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 78,
+            "interactions": 186,
+            "solution": [
+              1,
+              4,
+              5
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 110,
+            "interactions": 341,
+            "solution": [
+              5,
+              3,
+              1,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "12ce6ad1bc2e9383"
+        },
+        {
+          "evolved": {
+            "expansions": 16,
+            "interactions": 34,
+            "solution": [
+              4,
+              2,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 115,
+            "interactions": 320,
+            "solution": [
+              0,
+              0,
+              2,
+              4
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 214,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "c4adec4286c39070"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 2,
+            "interactions": 3,
+            "solution": [
+              0,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "4192a47794a08b4f"
+        },
+        {
+          "evolved": {
+            "expansions": 10,
+            "interactions": 29,
+            "solution": [
+              1,
+              0,
+              2,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 406,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 231,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "1b64f80fd18231fe"
+        },
+        {
+          "evolved": {
+            "expansions": 15,
+            "interactions": 50,
+            "solution": [
+              0,
+              1,
+              2,
+              3,
+              1
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 39,
+            "interactions": 82,
+            "solution": [
+              0,
+              2,
+              3
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 38,
+            "interactions": 106,
+            "solution": [
+              3,
+              1,
+              2,
+              1,
+              0
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "task_id": "ab9873015a31debe"
+        },
+        {
+          "evolved": {
+            "expansions": 8,
+            "interactions": 12,
+            "solution": [
+              1,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 12,
+            "interactions": 20,
+            "solution": [
+              1,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 86,
+            "interactions": 336,
+            "solution": [
+              3,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "a36593372dc64d79"
+        },
+        {
+          "evolved": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "0dec81e43334896d"
+        },
+        {
+          "evolved": {
+            "expansions": 69,
+            "interactions": 285,
+            "solution": [
+              0,
+              7,
+              1,
+              3,
+              1,
+              2,
+              1
+            ],
+            "solution_length": 7,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 406,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 261,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "b8ddfed623bdd623"
+        },
+        {
+          "evolved": {
+            "expansions": 5,
+            "interactions": 5,
+            "solution": [
+              4
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 5,
+            "interactions": 5,
+            "solution": [
+              4
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 34,
+            "interactions": 87,
+            "solution": [
+              3,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "804e71515901c918"
+        },
+        {
+          "evolved": {
+            "expansions": 23,
+            "interactions": 78,
+            "solution": [
+              1,
+              3,
+              4,
+              4,
+              0,
+              0
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 319,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 245,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "6eef6e5465c9131b"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "0862fe10f5e462ed"
+        },
+        {
+          "evolved": {
+            "expansions": 15,
+            "interactions": 46,
+            "solution": [
+              0,
+              1,
+              2,
+              4
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 243,
+            "interactions": 671,
+            "solution": [
+              0,
+              1,
+              2,
+              4
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 56,
+            "interactions": 176,
+            "solution": [
+              3,
+              2,
+              0,
+              1
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "81545c0eed86faaf"
+        },
+        {
+          "evolved": {
+            "expansions": 6,
+            "interactions": 14,
+            "solution": [
+              0,
+              1,
+              2
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 33,
+            "interactions": 64,
+            "solution": [
+              0,
+              1,
+              2
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 13,
+            "interactions": 27,
+            "solution": [
+              2,
+              1,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "6e86ad4bc165e349"
+        },
+        {
+          "evolved": {
+            "expansions": 22,
+            "interactions": 89,
+            "solution": [
+              0,
+              1,
+              2,
+              4,
+              3,
+              3
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 319,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 242,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "c6972942e108c7b0"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 9,
+            "interactions": 18,
+            "solution": [
+              2,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "7f4f6e4e3a93b8af"
+        },
+        {
+          "evolved": {
+            "expansions": 15,
+            "interactions": 24,
+            "solution": [
+              0,
+              3,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 71,
+            "interactions": 150,
+            "solution": [
+              0,
+              3,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 116,
+            "interactions": 581,
+            "solution": [
+              0,
+              3,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "9900e525fd60029a"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "99b7cca12c7871a6"
+        },
+        {
+          "evolved": {
+            "expansions": 29,
+            "interactions": 99,
+            "solution": [
+              2,
+              4,
+              1,
+              1,
+              3,
+              3
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 319,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 244,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "719085d47c2ecd10"
+        },
+        {
+          "evolved": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 2,
+            "interactions": 3,
+            "solution": [
+              0,
+              0
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "28fea168f2af728e"
+        },
+        {
+          "evolved": {
+            "expansions": 27,
+            "interactions": 70,
+            "solution": [
+              2,
+              0,
+              4,
+              1,
+              3
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 375,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 193,
+            "interactions": 917,
+            "solution": [
+              2,
+              3,
+              0,
+              1,
+              2
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "task_id": "0a982010017102b8"
+        }
+      ],
+      "held_out": {
+        "evolved_mean_cost": 43.875,
+        "evolved_successes": 24,
+        "families": {
+          "counter": {
+            "evolved_mean": 64.0,
+            "evolved_successes": 6,
+            "initial_mean": 1112.6666666666667,
+            "tasks": 6
+          },
+          "permutation": {
+            "evolved_mean": 85.0,
+            "evolved_successes": 6,
+            "initial_mean": 1086.0,
+            "tasks": 6
+          },
+          "rotate": {
+            "evolved_mean": 3.3333333333333335,
+            "evolved_successes": 6,
+            "initial_mean": 3.8333333333333335,
+            "tasks": 6
+          },
+          "toggle": {
+            "evolved_mean": 23.166666666666668,
+            "evolved_successes": 6,
+            "initial_mean": 57.0,
+            "tasks": 6
+          }
+        },
+        "initial_mean_cost": 564.875,
+        "initial_successes": 18,
+        "shuffled_mean_cost": 676.5416666666666,
+        "speedup_over_initial": 12.874643874643874,
+        "tasks": 24,
+        "wins_over_initial": 16
+      },
+      "late_curve_better": true,
+      "late_relative_efficiency": 3.2045454545454546,
+      "meta_seed": 177,
+      "reload_preserved": true,
+      "solutions_retained": 0,
+      "strategy_changed": true,
+      "tasks_seen": 32
+    },
+    {
+      "brain": {
+        "bytes": 27797,
+        "path": "RELEASE_MACHINE_OUTPUTS\\gum_learning_to_learn_v1\\META_MIND_277.json",
+        "sha256": "b03881d48f6cab7acc698758f6417ceae40fed20ec78cd3f2dc3935435984e56"
+      },
+      "champion": {
+        "evaluations": 5,
+        "genome_id": "strategy-0e91ecd7a650",
+        "mean_cost": 51.965625,
+        "parent": "strategy-0e74bfc84db6",
+        "total_cost": 259.828125,
+        "weights": [
+          1.89449751,
+          -1.11831174,
+          -2.8086872
+        ]
+      },
+      "curve": [
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 93,
+          "population_successes": 18,
+          "post_update_champion": "strategy-686d323cd3b8",
+          "pre_update_interactions": 93,
+          "pre_update_strategy": "strategy-9d908ecfb6b2",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "12b334913b7161d3",
+          "task_index": 1
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 268,
+          "population_successes": 16,
+          "post_update_champion": "strategy-686d323cd3b8",
+          "pre_update_interactions": 36,
+          "pre_update_strategy": "strategy-686d323cd3b8",
+          "pre_update_success": true,
+          "relative_efficiency": 7.444444444444445,
+          "solutions_retained": 0,
+          "task_id": "e76ff89804dbbfce",
+          "task_index": 2
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0beb7cce8adb",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-686d323cd3b8",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "857cfcf5e9beeba6",
+          "task_index": 3
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0beb7cce8adb",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-0beb7cce8adb",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "acb9c1bc57d3e7ee",
+          "task_index": 4
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 127,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0beb7cce8adb",
+          "pre_update_interactions": 27,
+          "pre_update_strategy": "strategy-0beb7cce8adb",
+          "pre_update_success": true,
+          "relative_efficiency": 4.703703703703703,
+          "solutions_retained": 0,
+          "task_id": "35100aa4f47991ce",
+          "task_index": 5
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 5,
+          "post_update_champion": "strategy-686d323cd3b8",
+          "pre_update_interactions": 154,
+          "pre_update_strategy": "strategy-0beb7cce8adb",
+          "pre_update_success": true,
+          "relative_efficiency": 7.792207792207792,
+          "solutions_retained": 0,
+          "task_id": "7bbb337718e4c963",
+          "task_index": 6
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-686d323cd3b8",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "afd5e0487c9a313a",
+          "task_index": 7
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 2,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 2,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "b9cf2b9b6c4386ee",
+          "task_index": 8
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 132,
+          "population_successes": 18,
+          "post_update_champion": "strategy-152449ace573",
+          "pre_update_interactions": 36,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 3.6666666666666665,
+          "solutions_retained": 0,
+          "task_id": "2267506c6e430606",
+          "task_index": 9
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 65,
+          "pre_update_strategy": "strategy-152449ace573",
+          "pre_update_success": true,
+          "relative_efficiency": 18.46153846153846,
+          "solutions_retained": 0,
+          "task_id": "0e29653ffcd67e28",
+          "task_index": 10
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "d4707797767e9062",
+          "task_index": 11
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 52,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 23.076923076923077,
+          "solutions_retained": 0,
+          "task_id": "5e0b6598a75c88f9",
+          "task_index": 12
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 285,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 87,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 3.2758620689655173,
+          "solutions_retained": 0,
+          "task_id": "403a59e41dd9b231",
+          "task_index": 13
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 102,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 11.764705882352942,
+          "solutions_retained": 0,
+          "task_id": "a64cb26f23555353",
+          "task_index": 14
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "564291e7845412ca",
+          "task_index": 15
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 75,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3155f0f9e69a",
+          "pre_update_interactions": 19,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 3.9473684210526314,
+          "solutions_retained": 0,
+          "task_id": "efecb01dbb593fcd",
+          "task_index": 16
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 96,
+          "population_successes": 18,
+          "post_update_champion": "strategy-060b42546b42",
+          "pre_update_interactions": 24,
+          "pre_update_strategy": "strategy-3155f0f9e69a",
+          "pre_update_success": true,
+          "relative_efficiency": 4.0,
+          "solutions_retained": 0,
+          "task_id": "af7162bd1a859754",
+          "task_index": 17
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 372,
+          "population_successes": 18,
+          "post_update_champion": "strategy-060b42546b42",
+          "pre_update_interactions": 38,
+          "pre_update_strategy": "strategy-060b42546b42",
+          "pre_update_success": true,
+          "relative_efficiency": 9.789473684210526,
+          "solutions_retained": 0,
+          "task_id": "f1ff6a994e817a23",
+          "task_index": 18
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-060b42546b42",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "d05dbcb09a76acc0",
+          "task_index": 19
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "0d7ea7b8d5d01326",
+          "task_index": 20
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 67,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0539c34a3086",
+          "pre_update_interactions": 27,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 2.4814814814814814,
+          "solutions_retained": 0,
+          "task_id": "84ac1ad9e1fd00bd",
+          "task_index": 21
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 234,
+          "pre_update_strategy": "strategy-0539c34a3086",
+          "pre_update_success": true,
+          "relative_efficiency": 5.128205128205129,
+          "solutions_retained": 0,
+          "task_id": "728a361582f021b4",
+          "task_index": 22
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "e2c75d08164df910",
+          "task_index": 23
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 69,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 50,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 1.38,
+          "solutions_retained": 0,
+          "task_id": "fee9818a11057bc8",
+          "task_index": 24
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 225,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 38,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 5.921052631578948,
+          "solutions_retained": 0,
+          "task_id": "0e8f3f467b449287",
+          "task_index": 25
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 81,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 14.814814814814815,
+          "solutions_retained": 0,
+          "task_id": "47e96595cd540f78",
+          "task_index": 26
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 2,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 2,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "5554197bb6a80d31",
+          "task_index": 27
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 462,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 2.5974025974025974,
+          "solutions_retained": 0,
+          "task_id": "7b8b2b01039790b5",
+          "task_index": 28
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 66,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 18,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 3.6666666666666665,
+          "solutions_retained": 0,
+          "task_id": "8f57fd1821ccafb7",
+          "task_index": 29
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 396,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0a0ff1107a9e",
+          "pre_update_interactions": 40,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 9.9,
+          "solutions_retained": 0,
+          "task_id": "b9b0a53f75f306fd",
+          "task_index": 30
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0e91ecd7a650",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-0a0ff1107a9e",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "6e87f477c6687293",
+          "task_index": 31
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 30,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0e91ecd7a650",
+          "pre_update_interactions": 6,
+          "pre_update_strategy": "strategy-0e91ecd7a650",
+          "pre_update_success": true,
+          "relative_efficiency": 5.0,
+          "solutions_retained": 0,
+          "task_id": "510ffc7fbf86201e",
+          "task_index": 32
+        }
+      ],
+      "early_relative_efficiency": 1.0,
+      "evaluation_rows": [
+        {
+          "evolved": {
+            "expansions": 10,
+            "interactions": 14,
+            "solution": [
+              2,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 22,
+            "interactions": 38,
+            "solution": [
+              2,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 22,
+            "interactions": 110,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3
+            ],
+            "solution_length": 8,
+            "success": true
+          },
+          "task_id": "f97d01425b75510f"
+        },
+        {
+          "evolved": {
+            "expansions": 16,
+            "interactions": 34,
+            "solution": [
+              1,
+              3,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 109,
+            "interactions": 296,
+            "solution": [
+              0,
+              0,
+              1,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 64,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "31cdfcdda4cf2807"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 10,
+            "solution": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "d4eaf8fad7e6f043"
+        },
+        {
+          "evolved": {
+            "expansions": 10,
+            "interactions": 13,
+            "solution": [
+              1,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 17,
+            "interactions": 27,
+            "solution": [
+              1,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 9,
+            "interactions": 24,
+            "solution": [
+              0,
+              1,
+              0,
+              2
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "ef3435725fd84848"
+        },
+        {
+          "evolved": {
+            "expansions": 22,
+            "interactions": 60,
+            "solution": [
+              3,
+              0,
+              4,
+              3,
+              1
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 35,
+            "interactions": 70,
+            "solution": [
+              0,
+              1,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 83,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "fb1ea1e9cf492f2c"
+        },
+        {
+          "evolved": {
+            "expansions": 43,
+            "interactions": 176,
+            "solution": [
+              2,
+              0,
+              3,
+              3,
+              4,
+              4,
+              0,
+              0
+            ],
+            "solution_length": 8,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 354,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 63,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "734e4c0b6b25aea8"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "849e5e7946f851df"
+        },
+        {
+          "evolved": {
+            "expansions": 18,
+            "interactions": 30,
+            "solution": [
+              0,
+              4,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 78,
+            "interactions": 154,
+            "solution": [
+              0,
+              1,
+              5
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 75,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "5680f65d2918e6af"
+        },
+        {
+          "evolved": {
+            "expansions": 8,
+            "interactions": 12,
+            "solution": [
+              0,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 8,
+            "interactions": 12,
+            "solution": [
+              0,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 34,
+            "interactions": 247,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1
+            ],
+            "solution_length": 14,
+            "success": true
+          },
+          "task_id": "b6e54c6f70591ec0"
+        },
+        {
+          "evolved": {
+            "expansions": 18,
+            "interactions": 50,
+            "solution": [
+              2,
+              0,
+              3,
+              1,
+              1
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 152,
+            "interactions": 552,
+            "solution": [
+              0,
+              1,
+              1,
+              2,
+              3
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 66,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "bc8df2f262c1c801"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 10,
+            "solution": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "d29429f350c78e34"
+        },
+        {
+          "evolved": {
+            "expansions": 14,
+            "interactions": 32,
+            "solution": [
+              1,
+              3,
+              0,
+              1
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 65,
+            "interactions": 176,
+            "solution": [
+              0,
+              1,
+              2,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 31,
+            "interactions": 237,
+            "solution": [
+              0,
+              1,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              1,
+              2,
+              0,
+              1,
+              0
+            ],
+            "solution_length": 14,
+            "success": true
+          },
+          "task_id": "a3a21735a1d8c9c7"
+        },
+        {
+          "evolved": {
+            "expansions": 16,
+            "interactions": 40,
+            "solution": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 48,
+            "interactions": 124,
+            "solution": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 25,
+            "interactions": 139,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1
+            ],
+            "solution_length": 10,
+            "success": true
+          },
+          "task_id": "216d9fcf9c09df96"
+        },
+        {
+          "evolved": {
+            "expansions": 13,
+            "interactions": 28,
+            "solution": [
+              1,
+              3,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 64,
+            "interactions": 172,
+            "solution": [
+              0,
+              0,
+              1,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 66,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "0d1e9458a1f9fd12"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "d1dbc8330f719941"
+        },
+        {
+          "evolved": {
+            "expansions": 10,
+            "interactions": 12,
+            "solution": [
+              2,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 19,
+            "interactions": 30,
+            "solution": [
+              1,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 11,
+            "interactions": 44,
+            "solution": [
+              0,
+              1,
+              0,
+              1,
+              0,
+              2
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "task_id": "7d4fe504dfbe6569"
+        },
+        {
+          "evolved": {
+            "expansions": 15,
+            "interactions": 30,
+            "solution": [
+              2,
+              1,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 55,
+            "interactions": 130,
+            "solution": [
+              1,
+              2,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 78,
+            "interactions": 1062,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              4,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1,
+              0
+            ],
+            "solution_length": 27,
+            "success": true
+          },
+          "task_id": "2bc629240fbaf072"
+        },
+        {
+          "evolved": {
+            "expansions": 19,
+            "interactions": 46,
+            "solution": [
+              1,
+              2,
+              3,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 199,
+            "interactions": 656,
+            "solution": [
+              1,
+              2,
+              3,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 64,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "cd52c1fa9cafa893"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "d41cb21f36633ba7"
+        },
+        {
+          "evolved": {
+            "expansions": 86,
+            "interactions": 506,
+            "solution": [
+              6,
+              1,
+              3,
+              5,
+              4,
+              3,
+              5,
+              7,
+              3,
+              1,
+              5
+            ],
+            "solution_length": 11,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 406,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 79,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "fc821700021f282f"
+        },
+        {
+          "evolved": {
+            "expansions": 13,
+            "interactions": 24,
+            "solution": [
+              3,
+              1,
+              2
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 54,
+            "interactions": 127,
+            "solution": [
+              1,
+              2,
+              3
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 26,
+            "interactions": 150,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1,
+              0
+            ],
+            "solution_length": 11,
+            "success": true
+          },
+          "task_id": "100d45b5643ab217"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 21,
+            "interactions": 150,
+            "solution": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1,
+              0
+            ],
+            "solution_length": 13,
+            "success": true
+          },
+          "task_id": "fc0adc1704b92634"
+        },
+        {
+          "evolved": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 10,
+            "solution": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "e9fb00067b6d946d"
+        },
+        {
+          "evolved": {
+            "expansions": 134,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 213,
+            "interactions": 559,
+            "solution": [
+              2,
+              6,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 78,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "66a206256af63451"
+        }
+      ],
+      "held_out": {
+        "evolved_mean_cost": 122.0,
+        "evolved_successes": 23,
+        "families": {
+          "counter": {
+            "evolved_mean": 56.166666666666664,
+            "evolved_successes": 6,
+            "initial_mean": 579.8333333333334,
+            "tasks": 6
+          },
+          "permutation": {
+            "evolved_mean": 398.8333333333333,
+            "evolved_successes": 5,
+            "initial_mean": 457.6666666666667,
+            "tasks": 6
+          },
+          "rotate": {
+            "evolved_mean": 3.0,
+            "evolved_successes": 6,
+            "initial_mean": 3.0,
+            "tasks": 6
+          },
+          "toggle": {
+            "evolved_mean": 30.0,
+            "evolved_successes": 6,
+            "initial_mean": 83.5,
+            "tasks": 6
+          }
+        },
+        "initial_mean_cost": 281.0,
+        "initial_successes": 22,
+        "shuffled_mean_cost": 766.9166666666666,
+        "speedup_over_initial": 2.30327868852459,
+        "tasks": 24,
+        "wins_over_initial": 15
+      },
+      "late_curve_better": true,
+      "late_relative_efficiency": 4.333333333333333,
+      "meta_seed": 277,
+      "reload_preserved": true,
+      "solutions_retained": 0,
+      "strategy_changed": true,
+      "tasks_seen": 32
+    },
+    {
+      "brain": {
+        "bytes": 27909,
+        "path": "RELEASE_MACHINE_OUTPUTS\\gum_learning_to_learn_v1\\META_MIND_377.json",
+        "sha256": "3b9c846f7a4ddf0c4fbb783bf837481df8c685a3fe5369eab1025cfa84a9f0ea"
+      },
+      "champion": {
+        "evaluations": 3,
+        "genome_id": "strategy-c60fcfbe6d19",
+        "mean_cost": 27.756184895833332,
+        "parent": "strategy-f45cd41044e4",
+        "total_cost": 83.2685546875,
+        "weights": [
+          1.4970461,
+          0.25586515,
+          0.15758807
+        ]
+      },
+      "curve": [
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 64,
+          "population_successes": 18,
+          "post_update_champion": "strategy-05a94c255e5f",
+          "pre_update_interactions": 64,
+          "pre_update_strategy": "strategy-9d908ecfb6b2",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "b69ec8260453eba3",
+          "task_index": 1
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 3,
+          "post_update_champion": "strategy-05a94c255e5f",
+          "pre_update_interactions": 93,
+          "pre_update_strategy": "strategy-05a94c255e5f",
+          "pre_update_success": true,
+          "relative_efficiency": 12.903225806451612,
+          "solutions_retained": 0,
+          "task_id": "af5696da4ab63893",
+          "task_index": 2
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-1650f0c19a70",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-05a94c255e5f",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "a5dd4e3725658cdb",
+          "task_index": 3
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 27,
+          "population_successes": 18,
+          "post_update_champion": "strategy-2a500e94cd73",
+          "pre_update_interactions": 57,
+          "pre_update_strategy": "strategy-1650f0c19a70",
+          "pre_update_success": true,
+          "relative_efficiency": 0.47368421052631576,
+          "solutions_retained": 0,
+          "task_id": "21450321a28c0266",
+          "task_index": 4
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 165,
+          "population_successes": 18,
+          "post_update_champion": "strategy-2a500e94cd73",
+          "pre_update_interactions": 33,
+          "pre_update_strategy": "strategy-2a500e94cd73",
+          "pre_update_success": true,
+          "relative_efficiency": 5.0,
+          "solutions_retained": 0,
+          "task_id": "51c73fa94d55f427",
+          "task_index": 5
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 612,
+          "population_successes": 14,
+          "post_update_champion": "strategy-2a500e94cd73",
+          "pre_update_interactions": 60,
+          "pre_update_strategy": "strategy-2a500e94cd73",
+          "pre_update_success": true,
+          "relative_efficiency": 10.2,
+          "solutions_retained": 0,
+          "task_id": "8dc42934891e82b0",
+          "task_index": 6
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-300e21fa3dd3",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-2a500e94cd73",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "311d476a9e1c0d2f",
+          "task_index": 7
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 27,
+          "population_successes": 18,
+          "post_update_champion": "strategy-300e21fa3dd3",
+          "pre_update_interactions": 11,
+          "pre_update_strategy": "strategy-300e21fa3dd3",
+          "pre_update_success": true,
+          "relative_efficiency": 2.4545454545454546,
+          "solutions_retained": 0,
+          "task_id": "01eeb71062e8138c",
+          "task_index": 8
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 12,
+          "population_successes": 18,
+          "post_update_champion": "strategy-04512194a9c3",
+          "pre_update_interactions": 12,
+          "pre_update_strategy": "strategy-300e21fa3dd3",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "731ef4697736b166",
+          "task_index": 9
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 284,
+          "population_successes": 17,
+          "post_update_champion": "strategy-300e21fa3dd3",
+          "pre_update_interactions": 1200,
+          "pre_update_strategy": "strategy-04512194a9c3",
+          "pre_update_success": false,
+          "relative_efficiency": 0.23666666666666666,
+          "solutions_retained": 0,
+          "task_id": "c09ba8261ea1cc2f",
+          "task_index": 10
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 2,
+          "population_successes": 18,
+          "post_update_champion": "strategy-300e21fa3dd3",
+          "pre_update_interactions": 2,
+          "pre_update_strategy": "strategy-300e21fa3dd3",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "fd63ca84e9045dd7",
+          "task_index": 11
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 703,
+          "population_successes": 17,
+          "post_update_champion": "strategy-300e21fa3dd3",
+          "pre_update_interactions": 54,
+          "pre_update_strategy": "strategy-300e21fa3dd3",
+          "pre_update_success": true,
+          "relative_efficiency": 13.018518518518519,
+          "solutions_retained": 0,
+          "task_id": "7982f8e8831e2cd8",
+          "task_index": 12
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-300e21fa3dd3",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-300e21fa3dd3",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "33299719cf2e6541",
+          "task_index": 13
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 157,
+          "population_successes": 18,
+          "post_update_champion": "strategy-300e21fa3dd3",
+          "pre_update_interactions": 27,
+          "pre_update_strategy": "strategy-300e21fa3dd3",
+          "pre_update_success": true,
+          "relative_efficiency": 5.814814814814815,
+          "solutions_retained": 0,
+          "task_id": "f6a7aba7b0fd22be",
+          "task_index": 14
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-4249fb8a6c45",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-300e21fa3dd3",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "f70de80ee744c4c6",
+          "task_index": 15
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 99,
+          "population_successes": 18,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 49,
+          "pre_update_strategy": "strategy-4249fb8a6c45",
+          "pre_update_success": true,
+          "relative_efficiency": 2.020408163265306,
+          "solutions_retained": 0,
+          "task_id": "6d0c662f165fea91",
+          "task_index": 16
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 14,
+          "population_successes": 18,
+          "post_update_champion": "strategy-f72ca7840ab9",
+          "pre_update_interactions": 14,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "0901e8375c5bb8e9",
+          "task_index": 17
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 700,
+          "population_successes": 16,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 213,
+          "pre_update_strategy": "strategy-f72ca7840ab9",
+          "pre_update_success": true,
+          "relative_efficiency": 3.2863849765258215,
+          "solutions_retained": 0,
+          "task_id": "5c22b6adb173ed80",
+          "task_index": 18
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 2,
+          "population_successes": 18,
+          "post_update_champion": "strategy-03f22826d34d",
+          "pre_update_interactions": 2,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "47b66fdc44379138",
+          "task_index": 19
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 17,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 484,
+          "pre_update_strategy": "strategy-03f22826d34d",
+          "pre_update_success": true,
+          "relative_efficiency": 2.479338842975207,
+          "solutions_retained": 0,
+          "task_id": "109ddef3055c98b1",
+          "task_index": 20
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 60,
+          "population_successes": 18,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 24,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 2.5,
+          "solutions_retained": 0,
+          "task_id": "8afc6c3001492857",
+          "task_index": 21
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 17,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 90,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 13.333333333333334,
+          "solutions_retained": 0,
+          "task_id": "3861a66a2c943fe4",
+          "task_index": 22
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "816aa8065446ed35",
+          "task_index": 23
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 84,
+          "population_successes": 18,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 41,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 2.048780487804878,
+          "solutions_retained": 0,
+          "task_id": "c74bb62c3473ae96",
+          "task_index": 24
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 127,
+          "population_successes": 18,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 87,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 1.4597701149425288,
+          "solutions_retained": 0,
+          "task_id": "6b19b01fbd02abeb",
+          "task_index": 25
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 16,
+          "post_update_champion": "strategy-495081dfef08",
+          "pre_update_interactions": 168,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 7.142857142857143,
+          "solutions_retained": 0,
+          "task_id": "e74c2872d01392a2",
+          "task_index": 26
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-10621e006906",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-495081dfef08",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "96b7c02fbc0096c5",
+          "task_index": 27
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 7,
+          "population_successes": 18,
+          "post_update_champion": "strategy-10621e006906",
+          "pre_update_interactions": 7,
+          "pre_update_strategy": "strategy-10621e006906",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "233882ef2a2e4f0a",
+          "task_index": 28
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 10,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3d2e2c36b7cc",
+          "pre_update_interactions": 6,
+          "pre_update_strategy": "strategy-10621e006906",
+          "pre_update_success": true,
+          "relative_efficiency": 1.6666666666666667,
+          "solutions_retained": 0,
+          "task_id": "0326a7df944b20a8",
+          "task_index": 29
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1056,
+          "population_successes": 18,
+          "post_update_champion": "strategy-21e1f28ed1ab",
+          "pre_update_interactions": 84,
+          "pre_update_strategy": "strategy-3d2e2c36b7cc",
+          "pre_update_success": true,
+          "relative_efficiency": 12.571428571428571,
+          "solutions_retained": 0,
+          "task_id": "37334bc4738bd21d",
+          "task_index": 30
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-21e1f28ed1ab",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-21e1f28ed1ab",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "1e21e5d39e67bfcd",
+          "task_index": 31
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 8,
+          "population_successes": 18,
+          "post_update_champion": "strategy-c60fcfbe6d19",
+          "pre_update_interactions": 8,
+          "pre_update_strategy": "strategy-21e1f28ed1ab",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "4fb93ce71bbcd9f5",
+          "task_index": 32
+        }
+      ],
+      "early_relative_efficiency": 1.7272727272727273,
+      "evaluation_rows": [
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 5,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 9,
+            "interactions": 17,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "ce40e27862b52698"
+        },
+        {
+          "evolved": {
+            "expansions": 286,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 75,
+            "interactions": 190,
+            "solution": [
+              1,
+              4,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 245,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "9eca29ab88a8b2b1"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 4,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 10,
+            "solution": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "a1022c74b3933a66"
+        },
+        {
+          "evolved": {
+            "expansions": 41,
+            "interactions": 122,
+            "solution": [
+              3,
+              0,
+              1,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 16,
+            "interactions": 28,
+            "solution": [
+              2,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 46,
+            "interactions": 152,
+            "solution": [
+              0,
+              1,
+              2,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "b5371e9bd580a8bc"
+        },
+        {
+          "evolved": {
+            "expansions": 34,
+            "interactions": 99,
+            "solution": [
+              2,
+              3,
+              2,
+              1,
+              0
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 34,
+            "interactions": 67,
+            "solution": [
+              0,
+              1,
+              3
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 29,
+            "interactions": 71,
+            "solution": [
+              3,
+              1,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "2f99a4540d30be80"
+        },
+        {
+          "evolved": {
+            "expansions": 112,
+            "interactions": 439,
+            "solution": [
+              3,
+              2,
+              2,
+              1,
+              0,
+              0
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 212,
+            "interactions": 864,
+            "solution": [
+              0,
+              0,
+              1,
+              2,
+              2,
+              3
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 128,
+            "interactions": 528,
+            "solution": [
+              3,
+              2,
+              2,
+              1,
+              0,
+              0
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "task_id": "60688090b188a580"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 8,
+            "interactions": 12,
+            "solution": [
+              0,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "2010e1758b22f1b7"
+        },
+        {
+          "evolved": {
+            "expansions": 36,
+            "interactions": 115,
+            "solution": [
+              2,
+              1,
+              2,
+              0,
+              2
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 28,
+            "interactions": 60,
+            "solution": [
+              0,
+              2,
+              3
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 55,
+            "interactions": 191,
+            "solution": [
+              2,
+              1,
+              0,
+              2,
+              0
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "task_id": "a87beeabd998c04f"
+        },
+        {
+          "evolved": {
+            "expansions": 24,
+            "interactions": 55,
+            "solution": [
+              3,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 12,
+            "interactions": 20,
+            "solution": [
+              1,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 28,
+            "interactions": 68,
+            "solution": [
+              3,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "0bc766ee7da6a27f"
+        },
+        {
+          "evolved": {
+            "expansions": 183,
+            "interactions": 761,
+            "solution": [
+              2,
+              4,
+              3,
+              0,
+              0
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 285,
+            "interactions": 1030,
+            "solution": [
+              0,
+              0,
+              2,
+              3,
+              4
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 243,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "5e2c3794cb1b74cc"
+        },
+        {
+          "evolved": {
+            "expansions": 5,
+            "interactions": 11,
+            "solution": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 10,
+            "solution": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "c0977d04bc72981e"
+        },
+        {
+          "evolved": {
+            "expansions": 15,
+            "interactions": 32,
+            "solution": [
+              2,
+              4
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 26,
+            "interactions": 45,
+            "solution": [
+              2,
+              4
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 123,
+            "interactions": 480,
+            "solution": [
+              0,
+              3,
+              2,
+              0
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "d2fcc1b40d9adde5"
+        },
+        {
+          "evolved": {
+            "expansions": 14,
+            "interactions": 27,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 4,
+            "interactions": 4,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 25,
+            "interactions": 61,
+            "solution": [
+              3
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "6e471565c7f63327"
+        },
+        {
+          "evolved": {
+            "expansions": 145,
+            "interactions": 585,
+            "solution": [
+              3,
+              3,
+              2,
+              2,
+              1
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 192,
+            "interactions": 752,
+            "solution": [
+              1,
+              2,
+              2,
+              3,
+              3
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 209,
+            "interactions": 968,
+            "solution": [
+              3,
+              3,
+              2,
+              2,
+              1
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "task_id": "4f285a24774c8a8e"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 4,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 2,
+            "interactions": 2,
+            "solution": [
+              1
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "05de5bd9e887953a"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 5,
+            "solution": [
+              0,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 6,
+            "interactions": 8,
+            "solution": [
+              0,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 6,
+            "interactions": 11,
+            "solution": [
+              0,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "6ed4a6958d0df03d"
+        },
+        {
+          "evolved": {
+            "expansions": 52,
+            "interactions": 137,
+            "solution": [
+              4,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 29,
+            "interactions": 52,
+            "solution": [
+              3,
+              4
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 90,
+            "interactions": 279,
+            "solution": [
+              4,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "task_id": "24e17cd1504fc1cf"
+        },
+        {
+          "evolved": {
+            "expansions": 92,
+            "interactions": 342,
+            "solution": [
+              3,
+              2,
+              2,
+              1,
+              0,
+              0
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 212,
+            "interactions": 864,
+            "solution": [
+              0,
+              0,
+              1,
+              2,
+              2,
+              3
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 128,
+            "interactions": 528,
+            "solution": [
+              3,
+              2,
+              2,
+              1,
+              0,
+              0
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "task_id": "0003770d0a919a1d"
+        },
+        {
+          "evolved": {
+            "expansions": 5,
+            "interactions": 9,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 7,
+            "interactions": 10,
+            "solution": [
+              0,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "d47c0a4b286281c3"
+        },
+        {
+          "evolved": {
+            "expansions": 58,
+            "interactions": 173,
+            "solution": [
+              2,
+              5
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 27,
+            "interactions": 47,
+            "solution": [
+              2,
+              5
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 216,
+            "interactions": 956,
+            "solution": [
+              1,
+              4,
+              1,
+              2
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "fda7f0487d17ee7a"
+        },
+        {
+          "evolved": {
+            "expansions": 60,
+            "interactions": 168,
+            "solution": [
+              4,
+              3,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 60,
+            "interactions": 145,
+            "solution": [
+              1,
+              3,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 93,
+            "interactions": 289,
+            "solution": [
+              4,
+              3,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "522eb0646eed412e"
+        },
+        {
+          "evolved": {
+            "expansions": 76,
+            "interactions": 285,
+            "solution": [
+              2,
+              3,
+              1,
+              0,
+              0
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 132,
+            "interactions": 452,
+            "solution": [
+              0,
+              0,
+              1,
+              2,
+              3
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 107,
+            "interactions": 423,
+            "solution": [
+              3,
+              2,
+              1,
+              0,
+              0
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "task_id": "5953fa68223608ae"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "1e39f9a749e1167e"
+        },
+        {
+          "evolved": {
+            "expansions": 26,
+            "interactions": 70,
+            "solution": [
+              0,
+              2,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 26,
+            "interactions": 54,
+            "solution": [
+              0,
+              2,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 30,
+            "interactions": 87,
+            "solution": [
+              0,
+              2,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "3e1a6d05d458b7d7"
+        }
+      ],
+      "held_out": {
+        "evolved_mean_cost": 218.95833333333334,
+        "evolved_successes": 23,
+        "families": {
+          "counter": {
+            "evolved_mean": 702.0,
+            "evolved_successes": 5,
+            "initial_mean": 692.0,
+            "tasks": 6
+          },
+          "permutation": {
+            "evolved_mean": 86.16666666666667,
+            "evolved_successes": 6,
+            "initial_mean": 40.333333333333336,
+            "tasks": 6
+          },
+          "rotate": {
+            "evolved_mean": 5.833333333333333,
+            "evolved_successes": 6,
+            "initial_mean": 5.0,
+            "tasks": 6
+          },
+          "toggle": {
+            "evolved_mean": 81.83333333333333,
+            "evolved_successes": 6,
+            "initial_mean": 48.5,
+            "tasks": 6
+          }
+        },
+        "initial_mean_cost": 196.45833333333334,
+        "initial_successes": 24,
+        "shuffled_mean_cost": 364.5,
+        "speedup_over_initial": 0.8972407231208372,
+        "tasks": 24,
+        "wins_over_initial": 9
+      },
+      "late_curve_better": false,
+      "late_relative_efficiency": 1.2298850574712645,
+      "meta_seed": 377,
+      "reload_preserved": true,
+      "solutions_retained": 0,
+      "strategy_changed": true,
+      "tasks_seen": 32
+    },
+    {
+      "brain": {
+        "bytes": 28020,
+        "path": "RELEASE_MACHINE_OUTPUTS\\gum_learning_to_learn_v1\\META_MIND_477.json",
+        "sha256": "eb5ff5e0069a936991a572d709ebb8b6051075343e2f14b4d7a07bca8ca6a668"
+      },
+      "champion": {
+        "evaluations": 3,
+        "genome_id": "strategy-85faac43a22a",
+        "mean_cost": 26.555674235026043,
+        "parent": "strategy-a56a59a873a6",
+        "total_cost": 79.66702270507812,
+        "weights": [
+          1.85352671,
+          -0.56292779,
+          -0.22790685
+        ]
+      },
+      "curve": [
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 66,
+          "population_successes": 18,
+          "post_update_champion": "strategy-1fedde7b4179",
+          "pre_update_interactions": 66,
+          "pre_update_strategy": "strategy-9d908ecfb6b2",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "fda2a0358ff183c3",
+          "task_index": 1
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 1,
+          "post_update_champion": "strategy-efe6c5d8b6cb",
+          "pre_update_interactions": 1200,
+          "pre_update_strategy": "strategy-1fedde7b4179",
+          "pre_update_success": false,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "5e0b363fc559e877",
+          "task_index": 2
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 2,
+          "population_successes": 18,
+          "post_update_champion": "strategy-158624a53339",
+          "pre_update_interactions": 2,
+          "pre_update_strategy": "strategy-efe6c5d8b6cb",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "25bee19952971a9e",
+          "task_index": 3
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1044,
+          "population_successes": 17,
+          "post_update_champion": "strategy-a00ce26b7c9d",
+          "pre_update_interactions": 868,
+          "pre_update_strategy": "strategy-158624a53339",
+          "pre_update_success": true,
+          "relative_efficiency": 1.2027649769585254,
+          "solutions_retained": 0,
+          "task_id": "82a64ce96e680928",
+          "task_index": 4
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 175,
+          "population_successes": 18,
+          "post_update_champion": "strategy-a00ce26b7c9d",
+          "pre_update_interactions": 60,
+          "pre_update_strategy": "strategy-a00ce26b7c9d",
+          "pre_update_success": true,
+          "relative_efficiency": 2.9166666666666665,
+          "solutions_retained": 0,
+          "task_id": "c99118002b2f3401",
+          "task_index": 5
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 810,
+          "population_successes": 18,
+          "post_update_champion": "strategy-21d2fa0b42a7",
+          "pre_update_interactions": 724,
+          "pre_update_strategy": "strategy-a00ce26b7c9d",
+          "pre_update_success": true,
+          "relative_efficiency": 1.1187845303867403,
+          "solutions_retained": 0,
+          "task_id": "99a172fb3677e5ec",
+          "task_index": 6
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-21d2fa0b42a7",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-21d2fa0b42a7",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "8c59e9881555f28b",
+          "task_index": 7
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 176,
+          "population_successes": 18,
+          "post_update_champion": "strategy-6c143c5b542e",
+          "pre_update_interactions": 148,
+          "pre_update_strategy": "strategy-21d2fa0b42a7",
+          "pre_update_success": true,
+          "relative_efficiency": 1.1891891891891893,
+          "solutions_retained": 0,
+          "task_id": "5f400362b22fde6c",
+          "task_index": 8
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 18,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0cd3ac143468",
+          "pre_update_interactions": 18,
+          "pre_update_strategy": "strategy-6c143c5b542e",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "a2b84ca3482c8168",
+          "task_index": 9
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 696,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0cd3ac143468",
+          "pre_update_interactions": 60,
+          "pre_update_strategy": "strategy-0cd3ac143468",
+          "pre_update_success": true,
+          "relative_efficiency": 11.6,
+          "solutions_retained": 0,
+          "task_id": "920195f7c82d9077",
+          "task_index": 10
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-0cd3ac143468",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-0cd3ac143468",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "faae2d8e2c794e9e",
+          "task_index": 11
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 270,
+          "population_successes": 18,
+          "post_update_champion": "strategy-6a2651f20c01",
+          "pre_update_interactions": 90,
+          "pre_update_strategy": "strategy-0cd3ac143468",
+          "pre_update_success": true,
+          "relative_efficiency": 3.0,
+          "solutions_retained": 0,
+          "task_id": "f20874d1f8618d75",
+          "task_index": 12
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 67,
+          "population_successes": 18,
+          "post_update_champion": "strategy-428986faf5bc",
+          "pre_update_interactions": 65,
+          "pre_update_strategy": "strategy-6a2651f20c01",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0307692307692307,
+          "solutions_retained": 0,
+          "task_id": "ab58f81b368936fc",
+          "task_index": 13
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 816,
+          "population_successes": 17,
+          "post_update_champion": "strategy-6a2651f20c01",
+          "pre_update_interactions": 64,
+          "pre_update_strategy": "strategy-428986faf5bc",
+          "pre_update_success": true,
+          "relative_efficiency": 12.75,
+          "solutions_retained": 0,
+          "task_id": "68379ee4f74fbf1f",
+          "task_index": 14
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-093b132b348b",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-6a2651f20c01",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "1af0c8cf1bb12586",
+          "task_index": 15
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 32,
+          "population_successes": 18,
+          "post_update_champion": "strategy-093b132b348b",
+          "pre_update_interactions": 8,
+          "pre_update_strategy": "strategy-093b132b348b",
+          "pre_update_success": true,
+          "relative_efficiency": 4.0,
+          "solutions_retained": 0,
+          "task_id": "7707c44a2b185dd8",
+          "task_index": 16
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-093b132b348b",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-093b132b348b",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "f5ead68f0fb515ae",
+          "task_index": 17
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 268,
+          "population_successes": 18,
+          "post_update_champion": "strategy-23bd58abb88f",
+          "pre_update_interactions": 44,
+          "pre_update_strategy": "strategy-093b132b348b",
+          "pre_update_success": true,
+          "relative_efficiency": 6.090909090909091,
+          "solutions_retained": 0,
+          "task_id": "22fd77d36835d4aa",
+          "task_index": 18
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 10,
+          "population_successes": 18,
+          "post_update_champion": "strategy-23bd58abb88f",
+          "pre_update_interactions": 12,
+          "pre_update_strategy": "strategy-23bd58abb88f",
+          "pre_update_success": true,
+          "relative_efficiency": 0.8333333333333334,
+          "solutions_retained": 0,
+          "task_id": "bf4db10efa3aa367",
+          "task_index": 19
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 247,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3eef68d0054d",
+          "pre_update_interactions": 95,
+          "pre_update_strategy": "strategy-23bd58abb88f",
+          "pre_update_success": true,
+          "relative_efficiency": 2.6,
+          "solutions_retained": 0,
+          "task_id": "234bbe8a5b8e9973",
+          "task_index": 20
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 5,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3eef68d0054d",
+          "pre_update_interactions": 5,
+          "pre_update_strategy": "strategy-3eef68d0054d",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "ad56795096e5f0c3",
+          "task_index": 21
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 216,
+          "population_successes": 18,
+          "post_update_champion": "strategy-3eef68d0054d",
+          "pre_update_interactions": 32,
+          "pre_update_strategy": "strategy-3eef68d0054d",
+          "pre_update_success": true,
+          "relative_efficiency": 6.75,
+          "solutions_retained": 0,
+          "task_id": "3ee671eeaa15719f",
+          "task_index": 22
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 3,
+          "population_successes": 18,
+          "post_update_champion": "strategy-1f16562082a0",
+          "pre_update_interactions": 3,
+          "pre_update_strategy": "strategy-3eef68d0054d",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "2df6a927f0f5efc8",
+          "task_index": 23
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 51,
+          "population_successes": 18,
+          "post_update_champion": "strategy-003c5327fdf9",
+          "pre_update_interactions": 18,
+          "pre_update_strategy": "strategy-1f16562082a0",
+          "pre_update_success": true,
+          "relative_efficiency": 2.8333333333333335,
+          "solutions_retained": 0,
+          "task_id": "76a799c77a3d0c17",
+          "task_index": 24
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 21,
+          "population_successes": 18,
+          "post_update_champion": "strategy-003c5327fdf9",
+          "pre_update_interactions": 8,
+          "pre_update_strategy": "strategy-003c5327fdf9",
+          "pre_update_success": true,
+          "relative_efficiency": 2.625,
+          "solutions_retained": 0,
+          "task_id": "cfd093eb1bf15d0c",
+          "task_index": 25
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 312,
+          "population_successes": 18,
+          "post_update_champion": "strategy-003c5327fdf9",
+          "pre_update_interactions": 32,
+          "pre_update_strategy": "strategy-003c5327fdf9",
+          "pre_update_success": true,
+          "relative_efficiency": 9.75,
+          "solutions_retained": 0,
+          "task_id": "989ec52231e28f4e",
+          "task_index": 26
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 1,
+          "population_successes": 18,
+          "post_update_champion": "strategy-003c5327fdf9",
+          "pre_update_interactions": 1,
+          "pre_update_strategy": "strategy-003c5327fdf9",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "15e8cdc646fe2b06",
+          "task_index": 27
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 16,
+          "post_update_champion": "strategy-06b227a3e797",
+          "pre_update_interactions": 605,
+          "pre_update_strategy": "strategy-003c5327fdf9",
+          "pre_update_success": true,
+          "relative_efficiency": 1.9834710743801653,
+          "solutions_retained": 0,
+          "task_id": "bf527987ce6139ea",
+          "task_index": 28
+        },
+        {
+          "family_audit_only": "toggle",
+          "initial_strategy_interactions": 108,
+          "population_successes": 18,
+          "post_update_champion": "strategy-06b227a3e797",
+          "pre_update_interactions": 22,
+          "pre_update_strategy": "strategy-06b227a3e797",
+          "pre_update_success": true,
+          "relative_efficiency": 4.909090909090909,
+          "solutions_retained": 0,
+          "task_id": "567638320528957b",
+          "task_index": 29
+        },
+        {
+          "family_audit_only": "counter",
+          "initial_strategy_interactions": 1200,
+          "population_successes": 15,
+          "post_update_champion": "strategy-06b227a3e797",
+          "pre_update_interactions": 56,
+          "pre_update_strategy": "strategy-06b227a3e797",
+          "pre_update_success": true,
+          "relative_efficiency": 21.428571428571427,
+          "solutions_retained": 0,
+          "task_id": "e52ce11a36fc4872",
+          "task_index": 30
+        },
+        {
+          "family_audit_only": "rotate",
+          "initial_strategy_interactions": 4,
+          "population_successes": 18,
+          "post_update_champion": "strategy-85faac43a22a",
+          "pre_update_interactions": 4,
+          "pre_update_strategy": "strategy-06b227a3e797",
+          "pre_update_success": true,
+          "relative_efficiency": 1.0,
+          "solutions_retained": 0,
+          "task_id": "018e9acbf86a3f2b",
+          "task_index": 31
+        },
+        {
+          "family_audit_only": "permutation",
+          "initial_strategy_interactions": 8,
+          "population_successes": 18,
+          "post_update_champion": "strategy-85faac43a22a",
+          "pre_update_interactions": 5,
+          "pre_update_strategy": "strategy-85faac43a22a",
+          "pre_update_success": true,
+          "relative_efficiency": 1.6,
+          "solutions_retained": 0,
+          "task_id": "c1a43a4968603234",
+          "task_index": 32
+        }
+      ],
+      "early_relative_efficiency": 1.0593922651933703,
+      "evaluation_rows": [
+        {
+          "evolved": {
+            "expansions": 14,
+            "interactions": 32,
+            "solution": [
+              1,
+              3,
+              5
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 72,
+            "interactions": 168,
+            "solution": [
+              1,
+              3,
+              5
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 74,
+            "interactions": 720,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              5,
+              0,
+              1,
+              0
+            ],
+            "solution_length": 19,
+            "success": true
+          },
+          "task_id": "6c912ad2419a11ef"
+        },
+        {
+          "evolved": {
+            "expansions": 9,
+            "interactions": 15,
+            "solution": [
+              2,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 23,
+            "interactions": 45,
+            "solution": [
+              0,
+              0,
+              2
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 23,
+            "interactions": 144,
+            "solution": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1
+            ],
+            "solution_length": 12,
+            "success": true
+          },
+          "task_id": "8f8fe4dcf7536ec5"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "69e79f9d349b12e9"
+        },
+        {
+          "evolved": {
+            "expansions": 11,
+            "interactions": 21,
+            "solution": [
+              2,
+              3,
+              2
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 21,
+            "interactions": 39,
+            "solution": [
+              0,
+              1,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 4,
+            "interactions": 8,
+            "solution": [
+              0,
+              1,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "4046c38390f49ee2"
+        },
+        {
+          "evolved": {
+            "expansions": 10,
+            "interactions": 26,
+            "solution": [
+              0,
+              1,
+              0,
+              2
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 13,
+            "interactions": 21,
+            "solution": [
+              1,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 9,
+            "interactions": 24,
+            "solution": [
+              0,
+              1,
+              0,
+              2
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "task_id": "9bec82c9da40ddf4"
+        },
+        {
+          "evolved": {
+            "expansions": 16,
+            "interactions": 58,
+            "solution": [
+              0,
+              0,
+              1,
+              3,
+              3
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 269,
+            "interactions": 950,
+            "solution": [
+              0,
+              0,
+              1,
+              3,
+              3
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 70,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "63704e32d2240a74"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "d73be7ebfe72580c"
+        },
+        {
+          "evolved": {
+            "expansions": 121,
+            "interactions": 1173,
+            "solution": [
+              0,
+              3,
+              4,
+              5,
+              3,
+              4,
+              1,
+              0,
+              4,
+              5,
+              7,
+              2,
+              1,
+              2,
+              7,
+              4,
+              7,
+              4
+            ],
+            "solution_length": 18,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 406,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 74,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "25376142276f4e7c"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "33edd297baa829c4"
+        },
+        {
+          "evolved": {
+            "expansions": 23,
+            "interactions": 95,
+            "solution": [
+              0,
+              2,
+              1,
+              3,
+              3,
+              1,
+              1
+            ],
+            "solution_length": 7,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 92,
+            "interactions": 284,
+            "solution": [
+              0,
+              2,
+              3,
+              3
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 72,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "438a3d050660e0a0"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "17fccde3d18091be"
+        },
+        {
+          "evolved": {
+            "expansions": 38,
+            "interactions": 214,
+            "solution": [
+              0,
+              1,
+              0,
+              6,
+              5,
+              1,
+              3,
+              1,
+              3
+            ],
+            "solution_length": 9,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 375,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 80,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "9856d4d3df8e25fd"
+        },
+        {
+          "evolved": {
+            "expansions": 7,
+            "interactions": 9,
+            "solution": [
+              3,
+              1
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 14,
+            "interactions": 23,
+            "solution": [
+              1,
+              3
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 34,
+            "interactions": 212,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1,
+              0,
+              2
+            ],
+            "solution_length": 12,
+            "success": true
+          },
+          "task_id": "22c6897f6453ef57"
+        },
+        {
+          "evolved": {
+            "expansions": 24,
+            "interactions": 89,
+            "solution": [
+              0,
+              1,
+              3,
+              4,
+              2,
+              2
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 319,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 70,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "fd8b656bce80f94e"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "ff0e621f9a0b543d"
+        },
+        {
+          "evolved": {
+            "expansions": 20,
+            "interactions": 56,
+            "solution": [
+              0,
+              4,
+              6,
+              4
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 247,
+            "interactions": 687,
+            "solution": [
+              0,
+              1,
+              3,
+              1
+            ],
+            "solution_length": 4,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 76,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "65064d197e7d3124"
+        },
+        {
+          "evolved": {
+            "expansions": 12,
+            "interactions": 28,
+            "solution": [
+              0,
+              5,
+              4
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 29,
+            "interactions": 52,
+            "solution": [
+              3,
+              4
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 56,
+            "interactions": 522,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              3,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0,
+              4
+            ],
+            "solution_length": 16,
+            "success": true
+          },
+          "task_id": "f0010563e6c17bd7"
+        },
+        {
+          "evolved": {
+            "expansions": 24,
+            "interactions": 70,
+            "solution": [
+              1,
+              4,
+              4,
+              3,
+              3
+            ],
+            "solution_length": 5,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 319,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "shuffled": {
+            "expansions": 70,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "23af57a03b5908e3"
+        },
+        {
+          "evolved": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 3,
+            "interactions": 3,
+            "solution": [
+              2
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 3,
+            "interactions": 6,
+            "solution": [
+              0,
+              0,
+              0
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "task_id": "299109b6d0ea32ca"
+        },
+        {
+          "evolved": {
+            "expansions": 10,
+            "interactions": 13,
+            "solution": [
+              6,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 28,
+            "interactions": 49,
+            "solution": [
+              2,
+              6
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 78,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "caea2e63a148bbfc"
+        },
+        {
+          "evolved": {
+            "expansions": 4,
+            "interactions": 7,
+            "solution": [
+              0,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "family_audit_only": "toggle",
+          "initial": {
+            "expansions": 9,
+            "interactions": 12,
+            "solution": [
+              0,
+              2
+            ],
+            "solution_length": 2,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 12,
+            "interactions": 41,
+            "solution": [
+              0,
+              1,
+              0,
+              2,
+              0,
+              1
+            ],
+            "solution_length": 6,
+            "success": true
+          },
+          "task_id": "c1525ae4038cd5e3"
+        },
+        {
+          "evolved": {
+            "expansions": 14,
+            "interactions": 24,
+            "solution": [
+              5,
+              1,
+              1
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "counter",
+          "initial": {
+            "expansions": 84,
+            "interactions": 204,
+            "solution": [
+              1,
+              1,
+              5
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 68,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "ce9b4bfc017e7d03"
+        },
+        {
+          "evolved": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "family_audit_only": "rotate",
+          "initial": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 1,
+            "interactions": 1,
+            "solution": [
+              0
+            ],
+            "solution_length": 1,
+            "success": true
+          },
+          "task_id": "10adebf525ad0de4"
+        },
+        {
+          "evolved": {
+            "expansions": 17,
+            "interactions": 39,
+            "solution": [
+              1,
+              4,
+              6
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "family_audit_only": "permutation",
+          "initial": {
+            "expansions": 151,
+            "interactions": 373,
+            "solution": [
+              1,
+              4,
+              6
+            ],
+            "solution_length": 3,
+            "success": true
+          },
+          "shuffled": {
+            "expansions": 78,
+            "interactions": 1200,
+            "solution": null,
+            "solution_length": null,
+            "success": false
+          },
+          "task_id": "0850cfca9ffb88c0"
+        }
+      ],
+      "held_out": {
+        "evolved_mean_cost": 82.41666666666667,
+        "evolved_successes": 24,
+        "families": {
+          "counter": {
+            "evolved_mean": 58.5,
+            "evolved_successes": 6,
+            "initial_mean": 847.1666666666666,
+            "tasks": 6
+          },
+          "permutation": {
+            "evolved_mean": 252.66666666666666,
+            "evolved_successes": 6,
+            "initial_mean": 791.3333333333334,
+            "tasks": 6
+          },
+          "rotate": {
+            "evolved_mean": 1.3333333333333333,
+            "evolved_successes": 6,
+            "initial_mean": 1.3333333333333333,
+            "tasks": 6
+          },
+          "toggle": {
+            "evolved_mean": 17.166666666666668,
+            "evolved_successes": 6,
+            "initial_mean": 46.166666666666664,
+            "tasks": 6
+          }
+        },
+        "initial_mean_cost": 421.5,
+        "initial_successes": 20,
+        "shuffled_mean_cost": 820.125,
+        "speedup_over_initial": 5.114256825075834,
+        "tasks": 24,
+        "wins_over_initial": 16
+      },
+      "late_curve_better": true,
+      "late_relative_efficiency": 2.304235537190083,
+      "meta_seed": 477,
+      "reload_preserved": true,
+      "solutions_retained": 0,
+      "strategy_changed": true,
+      "tasks_seen": 32
+    }
+  ],
+  "source_freeze": {
+    "after": {
+      "gum/meta_learning.py": "a59bca3ee2980a44610b44bd4512a8e25f986cce300c4d62780c396ca2fa91c6",
+      "gum/meta_learning_challenge.py": "8c001b33c7f77653b2818a86d74e00b9c410b124a793f20ba9971db25a189994"
+    },
+    "before": {
+      "gum/meta_learning.py": "a59bca3ee2980a44610b44bd4512a8e25f986cce300c4d62780c396ca2fa91c6",
+      "gum/meta_learning_challenge.py": "8c001b33c7f77653b2818a86d74e00b9c410b124a793f20ba9971db25a189994"
+    },
+    "expected": {
+      "gum/meta_learning.py": "a59bca3ee2980a44610b44bd4512a8e25f986cce300c4d62780c396ca2fa91c6",
+      "gum/meta_learning_challenge.py": "8c001b33c7f77653b2818a86d74e00b9c410b124a793f20ba9971db25a189994"
+    },
+    "unchanged": true
+  }
+}

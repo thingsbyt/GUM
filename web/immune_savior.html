@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Immune Savior</title>
+<style>
+:root{color-scheme:dark;--bg:#07100f;--panel:#0d1b19;--line:#244039;--ink:#effff8;--muted:#9bbab0;--mint:#5cf2b6;--red:#ff6b73;--amber:#ffc765}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 40% 0,#132722,#07100f 58%);color:var(--ink);font:15px/1.45 Inter,system-ui,Segoe UI,sans-serif;min-height:100vh}
+main{width:min(1180px,96vw);margin:auto;padding:24px 0 40px}.top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:16px}.eyebrow{font-size:11px;letter-spacing:2.4px;color:var(--mint);font-weight:800}h1{font-size:34px;margin:3px 0 0;letter-spacing:-1.2px}.subtitle{color:var(--muted);max-width:620px}.status{border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:var(--mint);font-size:12px;background:#0d1b19}
+.layout{display:grid;grid-template-columns:minmax(520px,1fr) 320px;gap:16px}.gamebox,.card{border:1px solid var(--line);background:rgba(13,27,25,.92);border-radius:16px;box-shadow:0 18px 70px #0007;overflow:hidden}.gamebar{display:flex;justify-content:space-between;align-items:center;padding:11px 15px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}canvas{display:block;width:100%;aspect-ratio:1;background:#050908}.side{display:flex;flex-direction:column;gap:12px}.card{padding:16px;box-shadow:none}h2{font-size:13px;letter-spacing:.5px;margin:0 0 12px}.mission{font-size:16px;color:var(--ink);margin:0}.small{font-size:12px;color:var(--muted)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}.metric{padding:10px;border:1px solid var(--line);border-radius:10px}.metric span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.7px}.metric b{font-size:19px}.inventory{display:flex;gap:8px;min-height:46px}.slot{width:46px;height:46px;border:1px dashed #45655b;border-radius:11px;display:grid;place-items:center;color:#6f8e84}.orb{width:26px;height:26px;border-radius:50%;box-shadow:0 0 18px currentColor inset,0 0 12px currentColor}.controls{display:grid;grid-template-columns:repeat(3,44px);justify-content:center;gap:6px}.controls button:nth-child(1){grid-column:2}.controls button:nth-child(2){grid-column:1}.controls button:nth-child(5){grid-column:2}.controls button{height:40px}.actions{display:flex;gap:8px;margin-top:10px}button{border:1px solid #35564c;background:#142a25;color:var(--ink);border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:700}button:hover{background:#1b3931;border-color:#4d7b6d}.primary{background:var(--mint);color:#062018;border-color:var(--mint);flex:1}.danger{color:#ffb7bb}.log{height:105px;overflow:auto;font:11px/1.5 ui-monospace,Consolas,monospace;color:#b9d5cc;background:#07110f;border-radius:9px;padding:9px}.legend{display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:11px;color:var(--muted)}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.win{position:fixed;inset:0;background:#03100dd9;display:grid;place-items:center;z-index:5}.win[hidden]{display:none}.dialog{width:min(450px,90vw);padding:28px;border:1px solid #417565;border-radius:18px;background:#10231e;text-align:center}.dialog h2{font-size:28px;margin:0 0 8px}.dialog p{color:var(--muted)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.top{align-items:start}.status{display:none}}@media(max-width:600px){.side{display:flex}.top{display:block}h1{font-size:28px}}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><div><div class="eyebrow">WAILAH LABS / PROTOTYPE 01</div><h1>Immune Savior</h1><div class="subtitle">You are a tiny guardian inside a living body. Explore the tissue, discover which two elements create a treatment, and eliminate the infection without harming a single healthy cell.</div></div><div class="status" id="status">BODY STATUS: UNSTABLE</div></div>
+<div class="layout">
+  <section class="gamebox"><div class="gamebar"><span id="seedLabel">BODY 260031</span><span>WASD / ARROWS · E TO INTERACT</span></div><canvas id="game" width="720" height="720" aria-label="Immune Savior game"></canvas></section>
+  <aside class="side">
+    <section class="card"><h2>MISSION</h2><p class="mission">Synthesize a cure. Remove every diseased cell. Preserve every healthy cell.</p><p class="small">Disease pulses and spreads. The four elements are unlabeled; only one pair forms the treatment.</p></section>
+    <section class="card"><h2>BODY</h2><div class="metrics"><div class="metric"><span>Healthy</span><b id="healthy">10</b></div><div class="metric"><span>Disease</span><b id="disease">2</b></div><div class="metric"><span>Damage</span><b id="damage">0</b></div><div class="metric"><span>Time</span><b id="steps">0</b></div></div></section>
+    <section class="card"><h2>INVENTORY</h2><div class="inventory" id="inventory"><div class="slot">+</div><div class="slot">+</div></div><div class="small" id="treatment">Find two elements, then visit the synthesis organ.</div></section>
+    <section class="card"><h2>CONTROLS</h2><div class="controls"><button data-move="0">↑</button><button data-move="3">←</button><button data-move="1">→</button><button data-action="interact">E</button><button data-move="2">↓</button></div><div class="actions"><button class="primary" data-action="interact">Interact</button><button class="danger" id="restart">Restart</button></div></section>
+    <section class="card"><h2>FIELD NOTES</h2><div class="log" id="log"></div></section>
+    <section class="card"><div class="legend"><span><i style="background:#6fffc1"></i>You</span><span><i style="background:#82c7ff"></i>Healthy</span><span><i style="background:#ff5964"></i>Disease</span><span><i style="background:#c58cff"></i>Synthesis</span></div></section>
+  </aside>
+</div>
+</main>
+<div class="win" id="overlay" hidden><div class="dialog"><div class="eyebrow" id="outcomeEyebrow">BODY SAVED</div><h2 id="outcomeTitle">Cure complete.</h2><p id="outcomeText"></p><button class="primary" id="again">Generate another body</button></div></div>
+<script>
+'use strict';
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),N=13,S=canvas.width/N;
+const colors=['#ffd166','#66d9ef','#ef88ff','#8bea98'],dirs=[[-1,0],[0,1],[1,0],[0,-1]];
+let state,seed=260031;
+function rngFactory(s){return()=>((s=Math.imul(1664525,s)+1013904223|0)>>>0)/4294967296}
+function key(p){return p[0]+','+p[1]} function same(a,b){return a[0]===b[0]&&a[1]===b[1]}
+function shuffle(a,r){for(let i=a.length-1;i;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function init(next=false){if(next)seed+=7919;const r=rngFactory(seed),cells=[];for(let y=0;y<N;y++)for(let x=0;x<N;x++)if(!(x===6&&y===6))cells.push([y,x]);shuffle(cells,r);
+ const walls=new Set();for(const p of cells.slice(0,22))if(Math.abs(p[0]-6)>2||Math.abs(p[1]-6)>2)walls.add(key(p));
+ const free=cells.filter(p=>!walls.has(key(p)));shuffle(free,r);const elements=free.slice(0,4).map((p,i)=>({p,id:i})),synth=free[4],healthy=free.slice(5,17),disease=free.slice(17,19);
+ const pair=shuffle([0,1,2,3],r).slice(0,2).sort().join(',');state={r,player:[6,6],walls,elements,synth,healthy,disease,pair,inv:[],medicine:false,damage:0,steps:0,done:false,notes:[]};
+ note('Awake inside an unfamiliar body.');note('Locate two elements and test them at the synthesis organ.');document.getElementById('overlay').hidden=true;document.getElementById('seedLabel').textContent='BODY '+seed;render();}
+function at(list,p){return list.findIndex(x=>same(x.p||x,p))}
+function note(t){state.notes.unshift(('000'+state.steps).slice(-3)+' · '+t);state.notes=state.notes.slice(0,12)}
+function move(d){if(state.done)return;const q=[state.player[0]+dirs[d][0],state.player[1]+dirs[d][1]];if(q[0]>=0&&q[0]<N&&q[1]>=0&&q[1]<N&&!state.walls.has(key(q)))state.player=q;tick()}
+function interact(){if(state.done)return;const ei=at(state.elements,state.player),di=at(state.disease,state.player),hi=at(state.healthy,state.player);
+ if(ei>=0&&!state.medicine&&state.inv.length<2&&!state.inv.includes(state.elements[ei].id)){const e=state.elements.splice(ei,1)[0];state.inv.push(e.id);note('Collected an unknown element.');}
+ else if(same(state.player,state.synth)&&state.inv.length===2&&!state.medicine){if([...state.inv].sort().join(',')===state.pair){state.medicine=true;state.inv=[];note('The two elements formed an active treatment.');}else{note('The mixture was inert. Elements returned to the tissue.');const occupied=new Set([...state.elements.map(e=>key(e.p)),key(state.synth),...state.healthy.map(key),...state.disease.map(key),...state.walls]);for(const id of state.inv){let p;do{p=[Math.floor(state.r()*N),Math.floor(state.r()*N)]}while(occupied.has(key(p)));occupied.add(key(p));state.elements.push({p,id})}state.inv=[]}}
+ else if(di>=0&&state.medicine){state.disease.splice(di,1);note('Diseased cell neutralized.');}
+ else if(hi>=0&&state.medicine){state.healthy.splice(hi,1);state.damage++;note('Healthy cell damaged. Mission compromised.');}
+ else note('No useful reaction.');tick();}
+function spread(){if(!state.disease.length)return;const blocked=new Set([...state.walls,...state.elements.map(e=>key(e.p)),key(state.synth),...state.healthy.map(key),...state.disease.map(key),key(state.player)]),possible=[];for(const p of state.disease)for(const d of dirs){const q=[p[0]+d[0],p[1]+d[1]];if(q[0]>=0&&q[0]<N&&q[1]>=0&&q[1]<N&&!blocked.has(key(q)))possible.push(q)}if(possible.length){state.disease.push(possible[Math.floor(state.r()*possible.length)]);note('The infection spread.')}}
+function tick(){state.steps++;if(state.steps%28===0)spread();if(state.damage>0)finish(false);else if(!state.disease.length)finish(true);render()}
+function finish(win){state.done=true;document.getElementById('overlay').hidden=false;document.getElementById('outcomeEyebrow').textContent=win?'BODY SAVED':'BODY COMPROMISED';document.getElementById('outcomeTitle').textContent=win?'Cure complete.':'Healthy tissue was harmed.';document.getElementById('outcomeText').textContent=win?`All disease removed in ${state.steps} actions with every healthy cell preserved.`:'A cure is only successful when it destroys the disease selectively.';}
+function circle(p,color,rad=.28){const x=(p[1]+.5)*S,y=(p[0]+.5)*S;ctx.beginPath();ctx.arc(x,y,S*rad,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()}
+function render(){ctx.fillStyle='#050908';ctx.fillRect(0,0,720,720);for(let y=0;y<N;y++)for(let x=0;x<N;x++){ctx.fillStyle=state.walls.has(y+','+x)?'#25302d':'#0b1714';ctx.fillRect(x*S+1,y*S+1,S-2,S-2)}
+ for(const p of state.healthy){circle(p,'#82c7ff');circle(p,'#c9edff',.11)}for(const p of state.disease){const pulse=.25+.035*Math.sin(performance.now()/180);circle(p,'#ff5964',pulse);ctx.strokeStyle='#ff9da3';ctx.lineWidth=3;ctx.beginPath();ctx.arc((p[1]+.5)*S,(p[0]+.5)*S,S*.36,0,Math.PI*2);ctx.stroke()}
+ for(const e of state.elements){circle(e.p,colors[e.id],.25);ctx.fillStyle='#07100f';ctx.font=`bold ${S*.23}px system-ui`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('?',(e.p[1]+.5)*S,(e.p[0]+.5)*S)}
+ circle(state.synth,'#c58cff',.34);ctx.strokeStyle='#f1d8ff';ctx.lineWidth=3;ctx.beginPath();ctx.arc((state.synth[1]+.5)*S,(state.synth[0]+.5)*S,S*.18,0,Math.PI*2);ctx.stroke();
+ circle(state.player,'#6fffc1',.24);ctx.strokeStyle='#d9fff0';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo((state.player[1]+.32)*S,(state.player[0]+.5)*S);ctx.lineTo((state.player[1]+.68)*S,(state.player[0]+.5)*S);ctx.moveTo((state.player[1]+.5)*S,(state.player[0]+.32)*S);ctx.lineTo((state.player[1]+.5)*S,(state.player[0]+.68)*S);ctx.stroke();
+ document.getElementById('healthy').textContent=state.healthy.length;document.getElementById('disease').textContent=state.disease.length;document.getElementById('damage').textContent=state.damage;document.getElementById('steps').textContent=state.steps;document.getElementById('status').textContent=state.disease.length?'BODY STATUS: UNSTABLE':'BODY STATUS: CLEAR';document.getElementById('log').textContent=state.notes.join('\n');const inv=document.getElementById('inventory');inv.innerHTML='';for(let i=0;i<2;i++){const box=document.createElement('div');box.className='slot';if(i<state.inv.length){const orb=document.createElement('div');orb.className='orb';orb.style.color=colors[state.inv[i]];orb.style.background=colors[state.inv[i]];box.append(orb)}else box.textContent='+';inv.append(box)}document.getElementById('treatment').textContent=state.medicine?'Active treatment synthesized. Find the pulsing infection.':'Find two elements, then visit the synthesis organ.';if(!state.done)requestAnimationFrame(()=>{if(!state.done)render()});}
+document.addEventListener('keydown',e=>{const m={ArrowUp:0,w:0,W:0,ArrowRight:1,d:1,D:1,ArrowDown:2,s:2,S:2,ArrowLeft:3,a:3,A:3};if(e.key in m){e.preventDefault();move(m[e.key])}else if(e.key==='e'||e.key==='E'||e.key===' '){e.preventDefault();interact()}});
+document.querySelectorAll('[data-move]').forEach(b=>b.onclick=()=>move(+b.dataset.move));document.querySelectorAll('[data-action="interact"]').forEach(b=>b.onclick=interact);document.getElementById('restart').onclick=()=>init(false);document.getElementById('again').onclick=()=>init(true);init();
+</script>
+</body>
+</html>

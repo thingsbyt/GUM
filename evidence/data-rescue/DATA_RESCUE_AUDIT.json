@@ -1,0 +1,524 @@
+{
+  "checks": {
+    "code_frozen": true,
+    "concept_count": true,
+    "fresh_baseline": true,
+    "held_out": true,
+    "hidden_state_absent_from_learner_traces": true,
+    "retention": true,
+    "same_genesis_implementation_as_visual_challenge": true,
+    "sources_unchanged": true,
+    "traces_valid": true,
+    "training": true,
+    "transfer_speedup": true
+  },
+  "cross_domain_continuity": {
+    "portfolio": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\GROWING_MIND_PORTFOLIO.json",
+    "same_implementation": true,
+    "visual_challenge": {
+      "audit": "RELEASE_MACHINE_OUTPUTS\\gum_concept_genesis_v1\\CONCEPT_GENESIS_AUDIT.json",
+      "concept_genesis_source_sha256": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+      "passed": true
+    }
+  },
+  "discovery": {
+    "concept_support": {
+      "genesis-0f65bddb6d69": 8,
+      "genesis-588c6f4b143a": 8,
+      "genesis-70eed19733d1": 8,
+      "genesis-c0fc56cac8c1": 8,
+      "genesis-dacfacab49ba": 8
+    },
+    "event_candidates": [
+      {
+        "clusters": 2,
+        "silhouette": 0.5177177463175493
+      },
+      {
+        "clusters": 3,
+        "silhouette": 0.5420251643000995
+      },
+      {
+        "clusters": 4,
+        "silhouette": 0.7076449960585184
+      },
+      {
+        "clusters": 5,
+        "silhouette": 0.8773589912957906
+      },
+      {
+        "clusters": 6,
+        "silhouette": 0.8507647941088653
+      },
+      {
+        "clusters": 7,
+        "silhouette": 0.8645163309324534
+      },
+      {
+        "clusters": 8,
+        "silhouette": 0.8023426768584695
+      },
+      {
+        "clusters": 9,
+        "silhouette": 0.7355302433391407
+      }
+    ],
+    "pixel_candidates": [
+      {
+        "clusters": 2,
+        "silhouette": 0.7307815551757812
+      },
+      {
+        "clusters": 3,
+        "silhouette": 0.7184458374977112
+      },
+      {
+        "clusters": 4,
+        "silhouette": 0.7862757444381714
+      },
+      {
+        "clusters": 5,
+        "silhouette": 0.8386209011077881
+      },
+      {
+        "clusters": 6,
+        "silhouette": 0.8724319934844971
+      },
+      {
+        "clusters": 7,
+        "silhouette": 0.748237133026123
+      },
+      {
+        "clusters": 8,
+        "silhouette": 0.6381638646125793
+      }
+    ],
+    "selected_event_concepts": 5,
+    "selected_pixel_tokens": 6,
+    "transitions": 40
+  },
+  "format": "gum-data-rescue-genesis-v1",
+  "held_out": {
+    "mean_interactions": 10.0,
+    "rows": [
+      {
+        "cleaned_csv": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\CLEANED_OUTPUTS\\sealed-0.csv",
+        "cleaned_jsonl": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-0\\active.jsonl",
+        "context": "d0cd361a5d35cb585b85",
+        "index": 0,
+        "interactions": 10,
+        "skill_id": "genesis-skill-636fa1192401",
+        "skills_tried": 1,
+        "success": true,
+        "verified": true,
+        "world_audit": {
+          "active_file": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-0\\active.jsonl",
+          "control_to_operation": [
+            3,
+            0,
+            2,
+            4,
+            1
+          ],
+          "issues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "operation_history": [
+            0,
+            2,
+            1,
+            3,
+            4
+          ],
+          "source": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-0.jsonl",
+          "verified": true,
+          "work": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-0",
+          "world_id": "c4a564809f3cfa46"
+        }
+      },
+      {
+        "cleaned_csv": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\CLEANED_OUTPUTS\\sealed-1.csv",
+        "cleaned_jsonl": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-1\\active.jsonl",
+        "context": "86758968f0fb70586177",
+        "index": 1,
+        "interactions": 10,
+        "skill_id": "genesis-skill-636fa1192401",
+        "skills_tried": 1,
+        "success": true,
+        "verified": true,
+        "world_audit": {
+          "active_file": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-1\\active.jsonl",
+          "control_to_operation": [
+            1,
+            3,
+            0,
+            2,
+            4
+          ],
+          "issues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "operation_history": [
+            0,
+            2,
+            1,
+            3,
+            4
+          ],
+          "source": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-1.jsonl",
+          "verified": true,
+          "work": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-1",
+          "world_id": "dd7ed6ffe989580e"
+        }
+      },
+      {
+        "cleaned_csv": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\CLEANED_OUTPUTS\\sealed-2.csv",
+        "cleaned_jsonl": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-2\\active.jsonl",
+        "context": "bf8f836fba62a3e41ed5",
+        "index": 2,
+        "interactions": 10,
+        "skill_id": "genesis-skill-636fa1192401",
+        "skills_tried": 1,
+        "success": true,
+        "verified": true,
+        "world_audit": {
+          "active_file": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-2\\active.jsonl",
+          "control_to_operation": [
+            0,
+            3,
+            4,
+            2,
+            1
+          ],
+          "issues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "operation_history": [
+            0,
+            2,
+            1,
+            3,
+            4
+          ],
+          "source": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-2.jsonl",
+          "verified": true,
+          "work": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-2",
+          "world_id": "e03d6f351591ff10"
+        }
+      },
+      {
+        "cleaned_csv": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\CLEANED_OUTPUTS\\sealed-3.csv",
+        "cleaned_jsonl": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-3\\active.jsonl",
+        "context": "30aaf79938007bc5acc1",
+        "index": 3,
+        "interactions": 10,
+        "skill_id": "genesis-skill-636fa1192401",
+        "skills_tried": 1,
+        "success": true,
+        "verified": true,
+        "world_audit": {
+          "active_file": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-3\\active.jsonl",
+          "control_to_operation": [
+            4,
+            1,
+            3,
+            2,
+            0
+          ],
+          "issues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "operation_history": [
+            0,
+            2,
+            1,
+            3,
+            4
+          ],
+          "source": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-3.jsonl",
+          "verified": true,
+          "work": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-3",
+          "world_id": "0fe29a04ac923e5e"
+        }
+      },
+      {
+        "cleaned_csv": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\CLEANED_OUTPUTS\\sealed-4.csv",
+        "cleaned_jsonl": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-4\\active.jsonl",
+        "context": "4504776736e62d221a01",
+        "index": 4,
+        "interactions": 10,
+        "skill_id": "genesis-skill-636fa1192401",
+        "skills_tried": 1,
+        "success": true,
+        "verified": true,
+        "world_audit": {
+          "active_file": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-4\\active.jsonl",
+          "control_to_operation": [
+            4,
+            1,
+            0,
+            2,
+            3
+          ],
+          "issues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "operation_history": [
+            0,
+            2,
+            1,
+            3,
+            4
+          ],
+          "source": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-4.jsonl",
+          "verified": true,
+          "work": "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\WORKING_FILES\\sealed-4",
+          "world_id": "49d57f24d28a6081"
+        }
+      }
+    ],
+    "successes": 5
+  },
+  "hidden_state_scan": {
+    "clean": true,
+    "matches": []
+  },
+  "interpretation": "The unchanged concept-learning algorithm learned a real JSONL repair workflow through anonymous file operations and verified terminal feedback. The environment supplies a visual quality view and five safe repair tools; it does not synthesize arbitrary file-editing code.",
+  "learner_inputs": [
+    "RGB views derived from current working-file quality",
+    "five anonymous actions",
+    "terminal verified reward",
+    "termination"
+  ],
+  "learner_not_given": [
+    "operation names",
+    "field names",
+    "control mappings",
+    "correct operation order",
+    "validation rules",
+    "number of concepts",
+    "solution sequence"
+  ],
+  "mind": {
+    "concept_evidence": {
+      "genesis-0f65bddb6d69": 14,
+      "genesis-588c6f4b143a": 14,
+      "genesis-70eed19733d1": 14,
+      "genesis-c0fc56cac8c1": 14,
+      "genesis-dacfacab49ba": 14
+    },
+    "concept_merges": 0,
+    "concept_splits": 0,
+    "concepts_created": 5,
+    "encoder_selection": {
+      "event_candidates": [
+        {
+          "clusters": 2,
+          "silhouette": 0.5177177463175493
+        },
+        {
+          "clusters": 3,
+          "silhouette": 0.5420251643000995
+        },
+        {
+          "clusters": 4,
+          "silhouette": 0.7076449960585184
+        },
+        {
+          "clusters": 5,
+          "silhouette": 0.8773589912957906
+        },
+        {
+          "clusters": 6,
+          "silhouette": 0.8507647941088653
+        },
+        {
+          "clusters": 7,
+          "silhouette": 0.8645163309324534
+        },
+        {
+          "clusters": 8,
+          "silhouette": 0.8023426768584695
+        },
+        {
+          "clusters": 9,
+          "silhouette": 0.7355302433391407
+        }
+      ],
+      "pixel_candidates": [
+        {
+          "clusters": 2,
+          "silhouette": 0.7307815551757812
+        },
+        {
+          "clusters": 3,
+          "silhouette": 0.7184458374977112
+        },
+        {
+          "clusters": 4,
+          "silhouette": 0.7862757444381714
+        },
+        {
+          "clusters": 5,
+          "silhouette": 0.8386209011077881
+        },
+        {
+          "clusters": 6,
+          "silhouette": 0.8724319934844971
+        },
+        {
+          "clusters": 7,
+          "silhouette": 0.748237133026123
+        },
+        {
+          "clusters": 8,
+          "silhouette": 0.6381638646125793
+        }
+      ],
+      "selected_event_concepts": 5,
+      "selected_pixel_tokens": 6
+    },
+    "format": "gum-concept-genesis-mind-v1",
+    "interactions": 6830,
+    "known_contexts": 6,
+    "skills": [
+      {
+        "confidence": 1.0,
+        "contexts": [
+          "111d0a07485216443987"
+        ],
+        "failures": 0,
+        "sequence": [
+          "genesis-588c6f4b143a",
+          "genesis-c0fc56cac8c1",
+          "genesis-0f65bddb6d69",
+          "genesis-dacfacab49ba",
+          "genesis-70eed19733d1"
+        ],
+        "skill_id": "genesis-skill-636fa1192401",
+        "successes": 6,
+        "support": 1
+      }
+    ],
+    "skills_created": 1
+  },
+  "passed": true,
+  "perception_matched_fresh": {
+    "candidates": 695,
+    "context": "d0cd361a5d35cb585b85",
+    "interactions": 3480,
+    "skill_id": "genesis-skill-a88405962ff1",
+    "success": true
+  },
+  "retention": {
+    "context": "111d0a07485216443987",
+    "interactions": 5,
+    "skill_id": "genesis-skill-636fa1192401",
+    "success": true
+  },
+  "run_id": "data-rescue-20261008T150140Z",
+  "source_freeze": {
+    "after": {
+      "gum/concept_genesis.py": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+      "gum/data_rescue_challenge.py": "dd45b551fba264d3ced6bf0196d22d8705600d9cf430251a18d6947ed8b2a7ef",
+      "gum/data_rescue_world.py": "0c4fdc71975c12555e98eed003bf1a4c84a6d927d77cb6c1a9e6bb768441c647"
+    },
+    "before": {
+      "gum/concept_genesis.py": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+      "gum/data_rescue_challenge.py": "dd45b551fba264d3ced6bf0196d22d8705600d9cf430251a18d6947ed8b2a7ef",
+      "gum/data_rescue_world.py": "0c4fdc71975c12555e98eed003bf1a4c84a6d927d77cb6c1a9e6bb768441c647"
+    },
+    "expected": {
+      "gum/concept_genesis.py": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+      "gum/data_rescue_challenge.py": "dd45b551fba264d3ced6bf0196d22d8705600d9cf430251a18d6947ed8b2a7ef",
+      "gum/data_rescue_world.py": "0c4fdc71975c12555e98eed003bf1a4c84a6d927d77cb6c1a9e6bb768441c647"
+    },
+    "unchanged": true
+  },
+  "source_integrity": {
+    "after": {
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-0.jsonl": "3876e72cba8d181cfeaef037b2962acb4bb0a79535841bca90848fab2abb836f",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-1.jsonl": "d4a270dee2933912ea1821f02e37f3cdb905ab0614e4ba38b0217a22d8e02c1a",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-2.jsonl": "f9032f9f4c35b0e42266830e38f62c8ab98dfa6b51b335b987c1e1d47ec07d17",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-3.jsonl": "a5028dff165aef3d30a73650324121a88922dda053edf8e766fa6a731326bdfc",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-4.jsonl": "57f12f7df16735fe7468d2dc7c52a8b31c64374267a7ed23d5b5a9d081a8c82c",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-5.jsonl": "ee8c38fa80df109c5b58f19d7316d213b07fcecf149471825d290e33d702067d",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-6.jsonl": "854801bcce415ba642224270ba197f72b29ba3414818d01c9ca9e6432ac6a493",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-7.jsonl": "faf7a358af6a7634b1cd845c7ef30e9de8c184e7e2ad27583aa7fbd5021c1a07",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-0.jsonl": "04bd23c62cb1b263fac1f2516f205ac4d2970eeb5c13e088581ecf08732f36f2",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-1.jsonl": "096ea6a814008484af5e6ae8f51ff4b9c7905ca38eadf5d9d14d3f4643f06df3",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-2.jsonl": "1cb08ca7804ac8e257fec537b4de5b59093f73fbde86a9edc2bf31cdb43c3f7c",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-3.jsonl": "7a292bff3417142c3317da7e433760e326be84b2c9fe367a70be818984b1ec42",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-4.jsonl": "301b8605a102052daeefaff3d33eae70b7ab5589eb2cf441adad2e2073ee95a2",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\training.jsonl": "f1dbe50de57984a4ee9b3e1798c26284794377fd9143abd76fdeedad903e9cca"
+    },
+    "before": {
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-0.jsonl": "3876e72cba8d181cfeaef037b2962acb4bb0a79535841bca90848fab2abb836f",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-1.jsonl": "d4a270dee2933912ea1821f02e37f3cdb905ab0614e4ba38b0217a22d8e02c1a",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-2.jsonl": "f9032f9f4c35b0e42266830e38f62c8ab98dfa6b51b335b987c1e1d47ec07d17",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-3.jsonl": "a5028dff165aef3d30a73650324121a88922dda053edf8e766fa6a731326bdfc",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-4.jsonl": "57f12f7df16735fe7468d2dc7c52a8b31c64374267a7ed23d5b5a9d081a8c82c",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-5.jsonl": "ee8c38fa80df109c5b58f19d7316d213b07fcecf149471825d290e33d702067d",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-6.jsonl": "854801bcce415ba642224270ba197f72b29ba3414818d01c9ca9e6432ac6a493",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\discovery-7.jsonl": "faf7a358af6a7634b1cd845c7ef30e9de8c184e7e2ad27583aa7fbd5021c1a07",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-0.jsonl": "04bd23c62cb1b263fac1f2516f205ac4d2970eeb5c13e088581ecf08732f36f2",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-1.jsonl": "096ea6a814008484af5e6ae8f51ff4b9c7905ca38eadf5d9d14d3f4643f06df3",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-2.jsonl": "1cb08ca7804ac8e257fec537b4de5b59093f73fbde86a9edc2bf31cdb43c3f7c",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-3.jsonl": "7a292bff3417142c3317da7e433760e326be84b2c9fe367a70be818984b1ec42",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\sealed-4.jsonl": "301b8605a102052daeefaff3d33eae70b7ab5589eb2cf441adad2e2073ee95a2",
+      "RELEASE_MACHINE_OUTPUTS\\gum_data_rescue_genesis_v1\\READ_ONLY_INPUTS\\training.jsonl": "f1dbe50de57984a4ee9b3e1798c26284794377fd9143abd76fdeedad903e9cca"
+    },
+    "unchanged": true
+  },
+  "traces": {
+    "fresh_baseline": {
+      "errors": [],
+      "head": "4e1538a879078e955664c5c5f95946550a339003ac0a2a9ebfde45b5b1e8c09b",
+      "records": 3480,
+      "valid": true
+    },
+    "training": {
+      "errors": [],
+      "head": "337363131f578d11a493fd86b0a1ca32e7ff4378b77aae4cc5b2abb7d59fa6c6",
+      "records": 6740,
+      "valid": true
+    }
+  },
+  "training": {
+    "candidates": 1347,
+    "context": "111d0a07485216443987",
+    "interactions": 6740,
+    "skill_id": "genesis-skill-636fa1192401",
+    "success": true
+  },
+  "transfer": {
+    "experienced_interactions": 10,
+    "fresh_interactions": 3480,
+    "speedup": 348.0
+  }
+}

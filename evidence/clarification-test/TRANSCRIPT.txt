@@ -1,0 +1,40 @@
+GUM GROUNDED CLARIFICATION TEST
+
+HUMAN: approach the red object
+GUM: Which one do you mean: the triangle or the circle?
+HUMAN: the triangle
+GUM: Understood. I will approach object-1.
+RESULT: success
+
+HUMAN: approach the triangle
+GUM: Which one do you mean: the green or the blue?
+HUMAN: the green
+GUM: Understood. I will approach object-1.
+RESULT: success
+
+HUMAN: approach the red object
+GUM: Which one do you mean: the triangle or the circle?
+HUMAN: the circle
+GUM: Understood. I will approach object-0.
+RESULT: success
+
+HUMAN: approach the triangle
+GUM: Which one do you mean: the red or the blue?
+HUMAN: the blue
+GUM: Understood. I will approach object-1.
+RESULT: success
+
+HUMAN: approach the green object
+GUM: Which one do you mean: the square or the triangle?
+HUMAN: the triangle
+GUM: Understood. I will approach object-1.
+RESULT: success
+
+HUMAN: approach the triangle
+GUM: Which one do you mean: the green or the blue?
+HUMAN: the blue
+GUM: Understood. I will approach object-1.
+RESULT: success
+
+HUMAN: approach the crimson object
+GUM: I have not grounded 'crimson'. Please show me what it means.

@@ -1,0 +1,877 @@
+{
+  "format": "wailah-concept-bridge-v22-audit-v2",
+  "classification": "confirmatory reuse of CIFAR-100 test split after preserved v21 failure",
+  "concepts": [
+    "apple",
+    "bicycle",
+    "butterfly",
+    "clock",
+    "dolphin",
+    "lamp",
+    "pickup_truck",
+    "pine_tree",
+    "telephone",
+    "wardrobe"
+  ],
+  "protocol": {
+    "training_split": "CIFAR-100 train only",
+    "sealed_split": "CIFAR-100 test only; 100 unseen photographs per concept",
+    "representation_variants_per_photo": 10,
+    "sealed_trials": 10000,
+    "candidate_positions": "independently shuffled for every representation variant",
+    "training_bridges": [
+      "photo -> anonymous glyph",
+      "anonymous glyph -> rendered word"
+    ],
+    "never_trained_directly": "photo -> rendered word",
+    "decision_rule": "compose learned photo->glyph and glyph->word probability bridges",
+    "feedback": "scalar success/failure after candidate actions; successful choices retained",
+    "pretrained_models": "none",
+    "task_labels_given_to_model": false,
+    "environment_only_labels": "used only to calculate reward and sealed correctness"
+  },
+  "precommitted_thresholds": {
+    "photo_to_word": 0.8,
+    "photo_to_glyph": 0.88,
+    "apple": 0.9,
+    "untrained_max": 0.2
+  },
+  "training": {
+    "epochs": 60,
+    "final": {
+      "epoch": 60,
+      "loss": 0.013786008805394746,
+      "learning_rate": 5e-05,
+      "photo_to_glyph_accuracy": 0.9975961538461539,
+      "glyph_to_word_accuracy": 1.0,
+      "reward_interactions": 54904
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 6.9111558474027195,
+        "learning_rate": 0.0006995545987952365,
+        "photo_to_glyph_accuracy": 0.13020833333333334,
+        "glyph_to_word_accuracy": 0.10096153846153846,
+        "reward_interactions": 55175
+      },
+      {
+        "epoch": 2,
+        "loss": 6.790713906288147,
+        "learning_rate": 0.0006982196159946889,
+        "photo_to_glyph_accuracy": 0.19651442307692307,
+        "glyph_to_word_accuracy": 0.10496794871794872,
+        "reward_interactions": 54893
+      },
+      {
+        "epoch": 3,
+        "loss": 6.527598335192754,
+        "learning_rate": 0.0006959987106934199,
+        "photo_to_glyph_accuracy": 0.29467147435897434,
+        "glyph_to_word_accuracy": 0.14423076923076922,
+        "reward_interactions": 55047
+      },
+      {
+        "epoch": 4,
+        "loss": 6.33107825425955,
+        "learning_rate": 0.0006928979702384869,
+        "photo_to_glyph_accuracy": 0.3541666666666667,
+        "glyph_to_word_accuracy": 0.1578525641025641,
+        "reward_interactions": 54884
+      },
+      {
+        "epoch": 5,
+        "loss": 4.649550722195552,
+        "learning_rate": 0.0006889258935439472,
+        "photo_to_glyph_accuracy": 0.3886217948717949,
+        "glyph_to_word_accuracy": 0.41846955128205127,
+        "reward_interactions": 54363
+      },
+      {
+        "epoch": 6,
+        "loss": 3.0098325541386237,
+        "learning_rate": 0.000684093367795925,
+        "photo_to_glyph_accuracy": 0.44090544871794873,
+        "glyph_to_word_accuracy": 0.7552083333333334,
+        "reward_interactions": 54862
+      },
+      {
+        "epoch": 7,
+        "loss": 1.9411559402942657,
+        "learning_rate": 0.0006784136386115906,
+        "photo_to_glyph_accuracy": 0.4433092948717949,
+        "glyph_to_word_accuracy": 0.9751602564102564,
+        "reward_interactions": 55023
+      },
+      {
+        "epoch": 8,
+        "loss": 1.5639531291448152,
+        "learning_rate": 0.0006719022737338453,
+        "photo_to_glyph_accuracy": 0.5058092948717948,
+        "glyph_to_word_accuracy": 0.9985977564102564,
+        "reward_interactions": 54701
+      },
+      {
+        "epoch": 9,
+        "loss": 1.2978697602565472,
+        "learning_rate": 0.0006645771203612195,
+        "photo_to_glyph_accuracy": 0.5721153846153846,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54848
+      },
+      {
+        "epoch": 10,
+        "loss": 1.231410270700088,
+        "learning_rate": 0.0006564582562299426,
+        "photo_to_glyph_accuracy": 0.5845352564102564,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55212
+      },
+      {
+        "epoch": 11,
+        "loss": 1.0810450888597047,
+        "learning_rate": 0.0006475679345822628,
+        "photo_to_glyph_accuracy": 0.6340144230769231,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55189
+      },
+      {
+        "epoch": 12,
+        "loss": 0.9606420157047418,
+        "learning_rate": 0.0006379305231718578,
+        "photo_to_glyph_accuracy": 0.6784855769230769,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54425
+      },
+      {
+        "epoch": 13,
+        "loss": 0.8238270557843722,
+        "learning_rate": 0.0006275724374735155,
+        "photo_to_glyph_accuracy": 0.7243589743589743,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54708
+      },
+      {
+        "epoch": 14,
+        "loss": 0.7557753232809213,
+        "learning_rate": 0.000616522068280153,
+        "photo_to_glyph_accuracy": 0.7465945512820513,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54532
+      },
+      {
+        "epoch": 15,
+        "loss": 0.6827077068961583,
+        "learning_rate": 0.0006048097038856279,
+        "photo_to_glyph_accuracy": 0.764823717948718,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54646
+      },
+      {
+        "epoch": 16,
+        "loss": 0.6208023451841794,
+        "learning_rate": 0.0005924674470666289,
+        "photo_to_glyph_accuracy": 0.7942708333333334,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55201
+      },
+      {
+        "epoch": 17,
+        "loss": 0.5600388777943758,
+        "learning_rate": 0.0005795291270911972,
+        "photo_to_glyph_accuracy": 0.8143028846153846,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55144
+      },
+      {
+        "epoch": 18,
+        "loss": 0.48320485995366025,
+        "learning_rate": 0.0005660302069950538,
+        "photo_to_glyph_accuracy": 0.8459535256410257,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55010
+      },
+      {
+        "epoch": 19,
+        "loss": 0.482386558674849,
+        "learning_rate": 0.0005520076863798839,
+        "photo_to_glyph_accuracy": 0.8451522435897436,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54609
+      },
+      {
+        "epoch": 20,
+        "loss": 0.39456422798908675,
+        "learning_rate": 0.0005375,
+        "photo_to_glyph_accuracy": 0.8739983974358975,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54974
+      },
+      {
+        "epoch": 21,
+        "loss": 0.3955333622602316,
+        "learning_rate": 0.0005225469124153526,
+        "photo_to_glyph_accuracy": 0.8723958333333334,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54868
+      },
+      {
+        "epoch": 22,
+        "loss": 0.3407549009873317,
+        "learning_rate": 0.0005071894089996351,
+        "photo_to_glyph_accuracy": 0.8852163461538461,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54723
+      },
+      {
+        "epoch": 23,
+        "loss": 0.32685663350499594,
+        "learning_rate": 0.0004914695836022226,
+        "photo_to_glyph_accuracy": 0.8928285256410257,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54593
+      },
+      {
+        "epoch": 24,
+        "loss": 0.31519197357388645,
+        "learning_rate": 0.0004754305231718578,
+        "photo_to_glyph_accuracy": 0.8952323717948718,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54892
+      },
+      {
+        "epoch": 25,
+        "loss": 0.2823513276301898,
+        "learning_rate": 0.00045911618965831913,
+        "photo_to_glyph_accuracy": 0.9064503205128205,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54886
+      },
+      {
+        "epoch": 26,
+        "loss": 0.24404624104499817,
+        "learning_rate": 0.0004425712995157716,
+        "photo_to_glyph_accuracy": 0.9158653846153846,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54822
+      },
+      {
+        "epoch": 27,
+        "loss": 0.22149785737005565,
+        "learning_rate": 0.00042584120113807494,
+        "photo_to_glyph_accuracy": 0.9244791666666666,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55012
+      },
+      {
+        "epoch": 28,
+        "loss": 0.21604153986733693,
+        "learning_rate": 0.0004089717505619873,
+        "photo_to_glyph_accuracy": 0.9254807692307693,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55377
+      },
+      {
+        "epoch": 29,
+        "loss": 0.20673162246552798,
+        "learning_rate": 0.00039200918577895664,
+        "photo_to_glyph_accuracy": 0.9292868589743589,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54373
+      },
+      {
+        "epoch": 30,
+        "loss": 0.21465435867699292,
+        "learning_rate": 0.000375,
+        "photo_to_glyph_accuracy": 0.9244791666666666,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55097
+      },
+      {
+        "epoch": 31,
+        "loss": 0.16794012272014067,
+        "learning_rate": 0.00035799081422104327,
+        "photo_to_glyph_accuracy": 0.9447115384615384,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54717
+      },
+      {
+        "epoch": 32,
+        "loss": 0.15386629778032118,
+        "learning_rate": 0.0003410282494380126,
+        "photo_to_glyph_accuracy": 0.9459134615384616,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55720
+      },
+      {
+        "epoch": 33,
+        "loss": 0.15422015357762575,
+        "learning_rate": 0.0003241587988619249,
+        "photo_to_glyph_accuracy": 0.9483173076923077,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54904
+      },
+      {
+        "epoch": 34,
+        "loss": 0.14053102303296328,
+        "learning_rate": 0.00030742870048422813,
+        "photo_to_glyph_accuracy": 0.9479166666666666,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54550
+      },
+      {
+        "epoch": 35,
+        "loss": 0.12318178939704712,
+        "learning_rate": 0.0002908838103416807,
+        "photo_to_glyph_accuracy": 0.9567307692307693,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54888
+      },
+      {
+        "epoch": 36,
+        "loss": 0.11154111926085673,
+        "learning_rate": 0.00027456947682814203,
+        "photo_to_glyph_accuracy": 0.9615384615384616,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54892
+      },
+      {
+        "epoch": 37,
+        "loss": 0.08971110853151633,
+        "learning_rate": 0.00025853041639777735,
+        "photo_to_glyph_accuracy": 0.9701522435897436,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55229
+      },
+      {
+        "epoch": 38,
+        "loss": 0.0862340793156853,
+        "learning_rate": 0.00024281059100036487,
+        "photo_to_glyph_accuracy": 0.9699519230769231,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55319
+      },
+      {
+        "epoch": 39,
+        "loss": 0.09164282256880632,
+        "learning_rate": 0.00022745308758464724,
+        "photo_to_glyph_accuracy": 0.9691506410256411,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55091
+      },
+      {
+        "epoch": 40,
+        "loss": 0.06527711580005977,
+        "learning_rate": 0.00021250000000000002,
+        "photo_to_glyph_accuracy": 0.9801682692307693,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54893
+      },
+      {
+        "epoch": 41,
+        "loss": 0.06823338310305889,
+        "learning_rate": 0.00019799231362011626,
+        "photo_to_glyph_accuracy": 0.9795673076923077,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55151
+      },
+      {
+        "epoch": 42,
+        "loss": 0.05698155713840746,
+        "learning_rate": 0.00018396979300494624,
+        "photo_to_glyph_accuracy": 0.9831730769230769,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54179
+      },
+      {
+        "epoch": 43,
+        "loss": 0.04448986880911084,
+        "learning_rate": 0.00017047087290880287,
+        "photo_to_glyph_accuracy": 0.9875801282051282,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55754
+      },
+      {
+        "epoch": 44,
+        "loss": 0.04443416979092245,
+        "learning_rate": 0.00015753255293337118,
+        "photo_to_glyph_accuracy": 0.9859775641025641,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54678
+      },
+      {
+        "epoch": 45,
+        "loss": 0.04945923461435506,
+        "learning_rate": 0.00014519029611437207,
+        "photo_to_glyph_accuracy": 0.9831730769230769,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55124
+      },
+      {
+        "epoch": 46,
+        "loss": 0.03804961011673395,
+        "learning_rate": 0.00013347793171984693,
+        "photo_to_glyph_accuracy": 0.9881810897435898,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54644
+      },
+      {
+        "epoch": 47,
+        "loss": 0.03359300133664734,
+        "learning_rate": 0.00012242756252648447,
+        "photo_to_glyph_accuracy": 0.9899839743589743,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54940
+      },
+      {
+        "epoch": 48,
+        "loss": 0.02965102713698378,
+        "learning_rate": 0.00011206947682814212,
+        "photo_to_glyph_accuracy": 0.9917868589743589,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54912
+      },
+      {
+        "epoch": 49,
+        "loss": 0.03242985382138823,
+        "learning_rate": 0.00010243206541773722,
+        "photo_to_glyph_accuracy": 0.9895833333333334,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54793
+      },
+      {
+        "epoch": 50,
+        "loss": 0.02303529020327215,
+        "learning_rate": 9.354174377005742e-05,
+        "photo_to_glyph_accuracy": 0.9951923076923077,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54897
+      },
+      {
+        "epoch": 51,
+        "loss": 0.02276269913328668,
+        "learning_rate": 8.542287963878047e-05,
+        "photo_to_glyph_accuracy": 0.992988782051282,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54679
+      },
+      {
+        "epoch": 52,
+        "loss": 0.027002704616349477,
+        "learning_rate": 7.809772626615469e-05,
+        "photo_to_glyph_accuracy": 0.9911858974358975,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54621
+      },
+      {
+        "epoch": 53,
+        "loss": 0.02194749645423144,
+        "learning_rate": 7.158636138840943e-05,
+        "photo_to_glyph_accuracy": 0.9939903846153846,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54721
+      },
+      {
+        "epoch": 54,
+        "loss": 0.02181728821820938,
+        "learning_rate": 6.59066322040751e-05,
+        "photo_to_glyph_accuracy": 0.9939903846153846,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55123
+      },
+      {
+        "epoch": 55,
+        "loss": 0.02113551119915568,
+        "learning_rate": 6.10741064560528e-05,
+        "photo_to_glyph_accuracy": 0.9939903846153846,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55088
+      },
+      {
+        "epoch": 56,
+        "loss": 0.02513445071571578,
+        "learning_rate": 5.7102029761513156e-05,
+        "photo_to_glyph_accuracy": 0.9937900641025641,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55043
+      },
+      {
+        "epoch": 57,
+        "loss": 0.024388960858162206,
+        "learning_rate": 5.4001289306580266e-05,
+        "photo_to_glyph_accuracy": 0.9931891025641025,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54770
+      },
+      {
+        "epoch": 58,
+        "loss": 0.01625272427022887,
+        "learning_rate": 5.178038400531115e-05,
+        "photo_to_glyph_accuracy": 0.9967948717948718,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55519
+      },
+      {
+        "epoch": 59,
+        "loss": 0.020433435037445564,
+        "learning_rate": 5.0445401204763506e-05,
+        "photo_to_glyph_accuracy": 0.9941907051282052,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 55210
+      },
+      {
+        "epoch": 60,
+        "loss": 0.013786008805394746,
+        "learning_rate": 5e-05,
+        "photo_to_glyph_accuracy": 0.9975961538461539,
+        "glyph_to_word_accuracy": 1.0,
+        "reward_interactions": 54904
+      }
+    ]
+  },
+  "sealed": {
+    "trials": 10000,
+    "photo_to_word_accuracy": 0.5322,
+    "direct_photo_to_word_cosine_accuracy": 0.4402,
+    "photo_to_glyph_accuracy": 0.8871,
+    "apple": {
+      "correct": 960,
+      "trials": 1000,
+      "accuracy": 0.96
+    },
+    "per_concept": {
+      "apple": {
+        "correct": 960,
+        "trials": 1000,
+        "accuracy": 0.96
+      },
+      "bicycle": {
+        "correct": 0,
+        "trials": 1000,
+        "accuracy": 0.0
+      },
+      "butterfly": {
+        "correct": 728,
+        "trials": 1000,
+        "accuracy": 0.728
+      },
+      "clock": {
+        "correct": 834,
+        "trials": 1000,
+        "accuracy": 0.834
+      },
+      "dolphin": {
+        "correct": 639,
+        "trials": 1000,
+        "accuracy": 0.639
+      },
+      "lamp": {
+        "correct": 775,
+        "trials": 1000,
+        "accuracy": 0.775
+      },
+      "pickup_truck": {
+        "correct": 980,
+        "trials": 1000,
+        "accuracy": 0.98
+      },
+      "pine_tree": {
+        "correct": 0,
+        "trials": 1000,
+        "accuracy": 0.0
+      },
+      "telephone": {
+        "correct": 402,
+        "trials": 1000,
+        "accuracy": 0.402
+      },
+      "wardrobe": {
+        "correct": 4,
+        "trials": 1000,
+        "accuracy": 0.004
+      }
+    },
+    "confusion": [
+      [
+        960,
+        0,
+        13,
+        12,
+        0,
+        1,
+        0,
+        3,
+        6,
+        5
+      ],
+      [
+        0,
+        0,
+        9,
+        218,
+        17,
+        10,
+        739,
+        1,
+        1,
+        5
+      ],
+      [
+        10,
+        2,
+        728,
+        14,
+        23,
+        11,
+        11,
+        94,
+        100,
+        7
+      ],
+      [
+        0,
+        0,
+        7,
+        834,
+        10,
+        58,
+        33,
+        2,
+        34,
+        22
+      ],
+      [
+        0,
+        179,
+        16,
+        111,
+        639,
+        32,
+        10,
+        2,
+        5,
+        6
+      ],
+      [
+        8,
+        4,
+        15,
+        54,
+        18,
+        775,
+        41,
+        29,
+        34,
+        22
+      ],
+      [
+        0,
+        0,
+        0,
+        7,
+        5,
+        0,
+        980,
+        0,
+        2,
+        6
+      ],
+      [
+        0,
+        1,
+        0,
+        5,
+        561,
+        17,
+        314,
+        0,
+        5,
+        97
+      ],
+      [
+        0,
+        0,
+        8,
+        89,
+        0,
+        159,
+        2,
+        35,
+        402,
+        305
+      ],
+      [
+        0,
+        0,
+        0,
+        20,
+        0,
+        11,
+        0,
+        859,
+        106,
+        4
+      ]
+    ]
+  },
+  "controls": {
+    "untrained_accuracy": 0.1,
+    "random_expected_accuracy": 0.1,
+    "intentionally_wrong_mapping_accuracy": 0.0598
+  },
+  "apple_replay": {
+    "trials": 24,
+    "correct": 22,
+    "rows": [
+      {
+        "trial": 1,
+        "dataset_index": 1,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 2,
+        "dataset_index": 11,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 3,
+        "dataset_index": 26,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 4,
+        "dataset_index": 27,
+        "prediction": "butterfly",
+        "correct": false
+      },
+      {
+        "trial": 5,
+        "dataset_index": 42,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 6,
+        "dataset_index": 53,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 7,
+        "dataset_index": 57,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 8,
+        "dataset_index": 66,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 9,
+        "dataset_index": 68,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 10,
+        "dataset_index": 72,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 11,
+        "dataset_index": 81,
+        "prediction": "clock",
+        "correct": false
+      },
+      {
+        "trial": 12,
+        "dataset_index": 84,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 13,
+        "dataset_index": 106,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 14,
+        "dataset_index": 107,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 15,
+        "dataset_index": 113,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 16,
+        "dataset_index": 122,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 17,
+        "dataset_index": 123,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 18,
+        "dataset_index": 128,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 19,
+        "dataset_index": 161,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 20,
+        "dataset_index": 180,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 21,
+        "dataset_index": 192,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 22,
+        "dataset_index": 211,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 23,
+        "dataset_index": 213,
+        "prediction": "apple",
+        "correct": true
+      },
+      {
+        "trial": 24,
+        "dataset_index": 222,
+        "prediction": "apple",
+        "correct": true
+      }
+    ]
+  },
+  "integrity": {
+    "implementation_sha256": "DFCBCB63E42F4DD3B0E58371E480D337D5F86741D9101D30B294536E0ED1DE08",
+    "checkpoint_sha256": "2C731C9749E4B899A65ACEDD4AD4241FC7F1071A975CA70AEB78426F6A1F2870"
+  },
+  "precommitted_pass": false
+}

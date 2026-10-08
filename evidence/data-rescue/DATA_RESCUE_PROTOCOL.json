@@ -1,0 +1,51 @@
+{
+  "classification": "precommitted real-file audit using the unchanged Concept Genesis learner",
+  "created_at_utc": "2026-10-08T15:01:27.003138+00:00",
+  "format": "gum-data-rescue-genesis-v1",
+  "learner_inputs": [
+    "RGB views derived from current working-file quality",
+    "five anonymous actions",
+    "terminal verified reward",
+    "termination"
+  ],
+  "learner_not_given": [
+    "operation names",
+    "field names",
+    "control mappings",
+    "correct operation order",
+    "validation rules",
+    "number of concepts",
+    "solution sequence"
+  ],
+  "protocol": {
+    "all_source_files_read_only": true,
+    "discovery_files": 8,
+    "held_out_files": 5,
+    "independent_output_verification": true,
+    "training_files": 1
+  },
+  "seeds": {
+    "discovery_control": 241000000,
+    "discovery_source": 231000000,
+    "sealed_control": 281000000,
+    "sealed_source": 271000000,
+    "training_control": 261000000,
+    "training_source": 251000000
+  },
+  "source_hashes": {
+    "gum/concept_genesis.py": "d5288fcdd8f18f9b6c117bd45194ab00889eead53c574f4354e1b9266142d5a6",
+    "gum/data_rescue_challenge.py": "dd45b551fba264d3ced6bf0196d22d8705600d9cf430251a18d6947ed8b2a7ef",
+    "gum/data_rescue_world.py": "0c4fdc71975c12555e98eed003bf1a4c84a6d927d77cb6c1a9e6bb768441c647"
+  },
+  "thresholds": {
+    "all_cleaned_outputs_verified": true,
+    "all_sources_unchanged": true,
+    "held_out_successes": 5,
+    "minimum_transfer_speedup": 20.0,
+    "retention_success": true,
+    "same_frozen_genesis_implementation": true,
+    "selected_concepts": 5,
+    "traces_valid": true,
+    "training_success": true
+  }
+}

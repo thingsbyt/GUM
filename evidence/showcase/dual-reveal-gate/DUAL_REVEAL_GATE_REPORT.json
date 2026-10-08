@@ -1,0 +1,2373 @@
+{
+  "format": "gum-dual-reveal-gate-v1",
+  "run_id": "dual-gate-20261008T033318Z",
+  "classification": "untouched second gate for a repaired single mind and two-mind experience collective",
+  "frozen_implementation": {
+    "expected": {
+      "gum/resilient_generalist.py": "2DC018E81F21D9BB79CF6C1F7C43412B2CE5F6156D4888F8BA46EA1CF07DD562",
+      "gum/experience_collective.py": "9050CA3E25AC5CEF40376954C9541EC56238C26584B90559D002CC5CE4F888AE",
+      "jepa_asteroids/adaptive_visual_agent.py": "EB97E5927255A249899C95422C898A015E7CE5938C070C82D42956DCC55DE31A",
+      "jepa_asteroids/universal_goal_state.py": "F20B968908C1CB3AB40CECE3B9157F5E4A838538A37350CA07C5E8A1E8118586"
+    },
+    "before": {
+      "gum/resilient_generalist.py": "2DC018E81F21D9BB79CF6C1F7C43412B2CE5F6156D4888F8BA46EA1CF07DD562",
+      "gum/experience_collective.py": "9050CA3E25AC5CEF40376954C9541EC56238C26584B90559D002CC5CE4F888AE",
+      "jepa_asteroids/adaptive_visual_agent.py": "EB97E5927255A249899C95422C898A015E7CE5938C070C82D42956DCC55DE31A",
+      "jepa_asteroids/universal_goal_state.py": "F20B968908C1CB3AB40CECE3B9157F5E4A838538A37350CA07C5E8A1E8118586"
+    },
+    "after": {
+      "gum/resilient_generalist.py": "2DC018E81F21D9BB79CF6C1F7C43412B2CE5F6156D4888F8BA46EA1CF07DD562",
+      "gum/experience_collective.py": "9050CA3E25AC5CEF40376954C9541EC56238C26584B90559D002CC5CE4F888AE",
+      "jepa_asteroids/adaptive_visual_agent.py": "EB97E5927255A249899C95422C898A015E7CE5938C070C82D42956DCC55DE31A",
+      "jepa_asteroids/universal_goal_state.py": "F20B968908C1CB3AB40CECE3B9157F5E4A838538A37350CA07C5E8A1E8118586"
+    },
+    "unchanged": true
+  },
+  "evaluator_sha256": "1e64080f912168cce482db67fccd069086d18fe6c924b5c5ccf0f28b4f541354",
+  "protocol": {
+    "worlds": 20,
+    "families": [
+      "crystal-garden",
+      "data-recovery-console"
+    ],
+    "seeds": {
+      "crystal-garden": [
+        9101009,
+        9106012,
+        9111015,
+        9116018,
+        9121021,
+        9126024,
+        9131027,
+        9136030,
+        9141033,
+        9146036
+      ],
+      "data-recovery-console": [
+        9201011,
+        9206020,
+        9211029,
+        9216038,
+        9221047,
+        9226056,
+        9231065,
+        9236074,
+        9241083,
+        9246092
+      ]
+    },
+    "learner_inputs": [
+      "RGB pixels",
+      "five anonymous actions",
+      "scalar reward",
+      "termination"
+    ],
+    "learner_not_given": [
+      "game name",
+      "rules",
+      "semantic labels",
+      "control meanings",
+      "object coordinates",
+      "recipe",
+      "private simulator state"
+    ],
+    "collective_exchange": [
+      "learned per-context memory",
+      "learned visual-form role counts"
+    ],
+    "collective_not_exchanged": [
+      "simulator objects",
+      "hidden controls",
+      "hidden recipe",
+      "audit state"
+    ]
+  },
+  "thresholds": {
+    "minimum_first_successes": 19,
+    "required_zero_damage": 20,
+    "minimum_revisit_successes": 19,
+    "minimum_revisit_speedup": 2.0,
+    "required_reload_successes_of_8": 8,
+    "single_maximum_overhead_versus_fresh": 1.5,
+    "maximum_random_successes": 2,
+    "collective_minimum_cross_owner_speedup": 2.0,
+    "collective_minimum_parallel_speedup": 1.5
+  },
+  "aggregate": {
+    "single_first": {
+      "worlds": 20,
+      "successes": 20,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 20,
+      "mean_interactions": 293.4,
+      "median_interactions": 237.5
+    },
+    "single_revisit": {
+      "worlds": 20,
+      "successes": 20,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 20,
+      "mean_interactions": 38.15,
+      "median_interactions": 37.0
+    },
+    "single_reloaded": {
+      "worlds": 8,
+      "successes": 8,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 8,
+      "mean_interactions": 35.5,
+      "median_interactions": 36.5
+    },
+    "single_revisit_speedup": 7.690694626474443,
+    "collective_first": {
+      "worlds": 20,
+      "successes": 20,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 20,
+      "mean_interactions": 261.3,
+      "median_interactions": 229.5
+    },
+    "collective_cross_owner_revisit": {
+      "worlds": 20,
+      "successes": 20,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 20,
+      "mean_interactions": 38.4,
+      "median_interactions": 37.0
+    },
+    "collective_reloaded": {
+      "worlds": 8,
+      "successes": 8,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 8,
+      "mean_interactions": 36.125,
+      "median_interactions": 36.5
+    },
+    "collective_cross_owner_speedup_over_fresh": 12.67578125,
+    "collective_parallel_acquisition_speedup_over_single": 1.78521448128993,
+    "fresh_per_world": {
+      "worlds": 20,
+      "successes": 20,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 20,
+      "mean_interactions": 486.75,
+      "median_interactions": 292.0
+    },
+    "random": {
+      "worlds": 20,
+      "successes": 0,
+      "success_rate": 0.0,
+      "zero_damage_worlds": 19,
+      "mean_interactions": 4000.0,
+      "median_interactions": 4000.0
+    }
+  },
+  "verdict": {
+    "single_repair_pass": true,
+    "two_mind_collective_pass": true,
+    "both_pass": true
+  },
+  "single_status": {
+    "format": "gum-resilient-generalist-v1",
+    "episodes": 45,
+    "contexts_with_failures": 4,
+    "isolated_branches": 4,
+    "branch_events": [
+      {
+        "context": "273a2a2e3b01e301db3c",
+        "episode": 3,
+        "reason": "shared strategy made no rewarded progress for a full horizon"
+      },
+      {
+        "context": "4056e40fd18ccd51fa3d",
+        "episode": 7,
+        "reason": "shared strategy made no rewarded progress for a full horizon"
+      },
+      {
+        "context": "12777496838dd44add00",
+        "episode": 14,
+        "reason": "shared strategy made no rewarded progress for a full horizon"
+      },
+      {
+        "context": "ed466075320be8735033",
+        "episode": 18,
+        "reason": "shared strategy made no rewarded progress for a full horizon"
+      }
+    ],
+    "shared": {
+      "format": "wailah-adaptive-universal-agent-v1",
+      "adapter": {
+        "format": "wailah-learned-layout-adapter-v1",
+        "geometry": [
+          3,
+          39,
+          200
+        ],
+        "hypotheses_tested": 5043,
+        "frames_adapted": 16035,
+        "refits": 33,
+        "confidence": 1.0,
+        "discoveries": [
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1614.0
+          },
+          {
+            "scale": 3,
+            "top": 45,
+            "left": 224,
+            "score": 1621.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1621.0
+          },
+          {
+            "scale": 2,
+            "top": 38,
+            "left": 189,
+            "score": 1635.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1628.0
+          },
+          {
+            "scale": 2,
+            "top": 31,
+            "left": 154,
+            "score": 1628.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1628.0
+          },
+          {
+            "scale": 3,
+            "top": 43,
+            "left": 216,
+            "score": 1628.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1635.0
+          },
+          {
+            "scale": 3,
+            "top": 36,
+            "left": 181,
+            "score": 1621.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1642.0
+          },
+          {
+            "scale": 2,
+            "top": 48,
+            "left": 243,
+            "score": 1621.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1642.0
+          },
+          {
+            "scale": 3,
+            "top": 41,
+            "left": 208,
+            "score": 1628.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1628.0
+          },
+          {
+            "scale": 3,
+            "top": 34,
+            "left": 173,
+            "score": 1628.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1628.0
+          },
+          {
+            "scale": 2,
+            "top": 46,
+            "left": 235,
+            "score": 1635.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1635.0
+          },
+          {
+            "scale": 3,
+            "top": 39,
+            "left": 200,
+            "score": 1635.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1614.0
+          },
+          {
+            "scale": 3,
+            "top": 45,
+            "left": 224,
+            "score": 1621.0
+          },
+          {
+            "scale": 2,
+            "top": 38,
+            "left": 189,
+            "score": 1635.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1628.0
+          },
+          {
+            "scale": 3,
+            "top": 43,
+            "left": 216,
+            "score": 1628.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1635.0
+          },
+          {
+            "scale": 3,
+            "top": 36,
+            "left": 181,
+            "score": 1621.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1642.0
+          },
+          {
+            "scale": 3,
+            "top": 41,
+            "left": 208,
+            "score": 1628.0
+          },
+          {
+            "scale": 3,
+            "top": 34,
+            "left": 173,
+            "score": 1628.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1628.0
+          },
+          {
+            "scale": 2,
+            "top": 46,
+            "left": 235,
+            "score": 1635.0
+          },
+          {
+            "scale": 1,
+            "top": 0,
+            "left": 0,
+            "score": 1635.0
+          },
+          {
+            "scale": 3,
+            "top": 39,
+            "left": 200,
+            "score": 1635.0
+          }
+        ]
+      },
+      "core": {
+        "format": "wailah-universal-goal-state-v1",
+        "remembered_worlds": 20,
+        "goal_program": [
+          {
+            "operator": "eliminate",
+            "concept": "autonomous-growing",
+            "threshold": 0
+          },
+          {
+            "operator": "preserve",
+            "concept": "largest-stable-population",
+            "threshold": 0
+          },
+          {
+            "operator": "avoid",
+            "concept": "irreversible-loss",
+            "threshold": 0
+          },
+          {
+            "operator": "budget",
+            "concept": "primitive-actions",
+            "threshold": 900
+          }
+        ],
+        "self_generated_subgoals": 1015,
+        "experiments": 630,
+        "prevented_risky_actions": 0,
+        "worlds_with_learned_recipes": 17,
+        "prediction_accuracy": 1.0
+      }
+    },
+    "branches": {
+      "273a2a2e3b01e301db3c": {
+        "format": "wailah-adaptive-universal-agent-v1",
+        "adapter": {
+          "format": "wailah-learned-layout-adapter-v1",
+          "geometry": [
+            1,
+            0,
+            0
+          ],
+          "hypotheses_tested": 1,
+          "frames_adapted": 1007,
+          "refits": 0,
+          "confidence": 1.0,
+          "discoveries": [
+            {
+              "scale": 1,
+              "top": 0,
+              "left": 0,
+              "score": 1621.0
+            }
+          ]
+        },
+        "core": {
+          "format": "wailah-universal-goal-state-v1",
+          "remembered_worlds": 1,
+          "goal_program": [
+            {
+              "operator": "eliminate",
+              "concept": "autonomous-growing",
+              "threshold": 0
+            },
+            {
+              "operator": "preserve",
+              "concept": "largest-stable-population",
+              "threshold": 0
+            },
+            {
+              "operator": "avoid",
+              "concept": "irreversible-loss",
+              "threshold": 0
+            },
+            {
+              "operator": "budget",
+              "concept": "primitive-actions",
+              "threshold": 900
+            }
+          ],
+          "self_generated_subgoals": 69,
+          "experiments": 39,
+          "prevented_risky_actions": 0,
+          "worlds_with_learned_recipes": 1,
+          "prediction_accuracy": 1.0
+        }
+      },
+      "4056e40fd18ccd51fa3d": {
+        "format": "wailah-adaptive-universal-agent-v1",
+        "adapter": {
+          "format": "wailah-learned-layout-adapter-v1",
+          "geometry": [
+            2,
+            31,
+            154
+          ],
+          "hypotheses_tested": 326,
+          "frames_adapted": 851,
+          "refits": 0,
+          "confidence": 1.0,
+          "discoveries": [
+            {
+              "scale": 2,
+              "top": 31,
+              "left": 154,
+              "score": 1628.0
+            }
+          ]
+        },
+        "core": {
+          "format": "wailah-universal-goal-state-v1",
+          "remembered_worlds": 1,
+          "goal_program": [
+            {
+              "operator": "eliminate",
+              "concept": "autonomous-growing",
+              "threshold": 0
+            },
+            {
+              "operator": "preserve",
+              "concept": "largest-stable-population",
+              "threshold": 0
+            },
+            {
+              "operator": "avoid",
+              "concept": "irreversible-loss",
+              "threshold": 0
+            },
+            {
+              "operator": "budget",
+              "concept": "primitive-actions",
+              "threshold": 900
+            }
+          ],
+          "self_generated_subgoals": 36,
+          "experiments": 33,
+          "prevented_risky_actions": 0,
+          "worlds_with_learned_recipes": 1,
+          "prediction_accuracy": 1.0
+        }
+      },
+      "12777496838dd44add00": {
+        "format": "wailah-adaptive-universal-agent-v1",
+        "adapter": {
+          "format": "wailah-learned-layout-adapter-v1",
+          "geometry": [
+            2,
+            48,
+            243
+          ],
+          "hypotheses_tested": 435,
+          "frames_adapted": 539,
+          "refits": 0,
+          "confidence": 1.0,
+          "discoveries": [
+            {
+              "scale": 2,
+              "top": 48,
+              "left": 243,
+              "score": 1621.0
+            }
+          ]
+        },
+        "core": {
+          "format": "wailah-universal-goal-state-v1",
+          "remembered_worlds": 1,
+          "goal_program": [
+            {
+              "operator": "eliminate",
+              "concept": "autonomous-growing",
+              "threshold": 0
+            },
+            {
+              "operator": "preserve",
+              "concept": "largest-stable-population",
+              "threshold": 0
+            },
+            {
+              "operator": "avoid",
+              "concept": "irreversible-loss",
+              "threshold": 0
+            },
+            {
+              "operator": "budget",
+              "concept": "primitive-actions",
+              "threshold": 900
+            }
+          ],
+          "self_generated_subgoals": 36,
+          "experiments": 17,
+          "prevented_risky_actions": 0,
+          "worlds_with_learned_recipes": 1,
+          "prediction_accuracy": 1.0
+        }
+      },
+      "ed466075320be8735033": {
+        "format": "wailah-adaptive-universal-agent-v1",
+        "adapter": {
+          "format": "wailah-learned-layout-adapter-v1",
+          "geometry": [
+            1,
+            0,
+            0
+          ],
+          "hypotheses_tested": 1,
+          "frames_adapted": 1506,
+          "refits": 0,
+          "confidence": 1.0,
+          "discoveries": [
+            {
+              "scale": 1,
+              "top": 0,
+              "left": 0,
+              "score": 1628.0
+            }
+          ]
+        },
+        "core": {
+          "format": "wailah-universal-goal-state-v1",
+          "remembered_worlds": 1,
+          "goal_program": [
+            {
+              "operator": "eliminate",
+              "concept": "autonomous-growing",
+              "threshold": 0
+            },
+            {
+              "operator": "preserve",
+              "concept": "largest-stable-population",
+              "threshold": 0
+            },
+            {
+              "operator": "avoid",
+              "concept": "irreversible-loss",
+              "threshold": 0
+            },
+            {
+              "operator": "budget",
+              "concept": "primitive-actions",
+              "threshold": 900
+            }
+          ],
+          "self_generated_subgoals": 32,
+          "experiments": 50,
+          "prevented_risky_actions": 0,
+          "worlds_with_learned_recipes": 1,
+          "prediction_accuracy": 1.0
+        }
+      }
+    }
+  },
+  "collective_status": {
+    "format": "gum-experience-collective-v1",
+    "members": 2,
+    "exchanges": 20,
+    "library_worlds": 20,
+    "library_visual_forms": 17,
+    "published_worlds_by_member": [
+      19,
+      20
+    ],
+    "worlds_experienced_by_both": 19,
+    "member_status": [
+      {
+        "format": "gum-resilient-generalist-v1",
+        "episodes": 23,
+        "contexts_with_failures": 2,
+        "isolated_branches": 2,
+        "branch_events": [
+          {
+            "context": "273a2a2e3b01e301db3c",
+            "episode": 2,
+            "reason": "shared strategy made no rewarded progress for a full horizon"
+          },
+          {
+            "context": "ed466075320be8735033",
+            "episode": 9,
+            "reason": "shared strategy made no rewarded progress for a full horizon"
+          }
+        ],
+        "shared": {
+          "format": "wailah-adaptive-universal-agent-v1",
+          "adapter": {
+            "format": "wailah-learned-layout-adapter-v1",
+            "geometry": [
+              3,
+              39,
+              200
+            ],
+            "hypotheses_tested": 2895,
+            "frames_adapted": 7922,
+            "refits": 10,
+            "confidence": 1.0,
+            "discoveries": [
+              {
+                "scale": 1,
+                "top": 0,
+                "left": 0,
+                "score": 1614.0
+              },
+              {
+                "scale": 3,
+                "top": 45,
+                "left": 224,
+                "score": 1621.0
+              },
+              {
+                "scale": 2,
+                "top": 38,
+                "left": 189,
+                "score": 1635.0
+              },
+              {
+                "scale": 2,
+                "top": 31,
+                "left": 154,
+                "score": 1628.0
+              },
+              {
+                "scale": 3,
+                "top": 43,
+                "left": 216,
+                "score": 1628.0
+              },
+              {
+                "scale": 3,
+                "top": 36,
+                "left": 181,
+                "score": 1621.0
+              },
+              {
+                "scale": 2,
+                "top": 48,
+                "left": 243,
+                "score": 1621.0
+              },
+              {
+                "scale": 3,
+                "top": 41,
+                "left": 208,
+                "score": 1628.0
+              },
+              {
+                "scale": 3,
+                "top": 34,
+                "left": 173,
+                "score": 1628.0
+              },
+              {
+                "scale": 2,
+                "top": 46,
+                "left": 235,
+                "score": 1635.0
+              },
+              {
+                "scale": 3,
+                "top": 39,
+                "left": 200,
+                "score": 1635.0
+              }
+            ]
+          },
+          "core": {
+            "format": "wailah-universal-goal-state-v1",
+            "remembered_worlds": 20,
+            "goal_program": [
+              {
+                "operator": "eliminate",
+                "concept": "autonomous-growing",
+                "threshold": 0
+              },
+              {
+                "operator": "preserve",
+                "concept": "largest-stable-population",
+                "threshold": 0
+              },
+              {
+                "operator": "avoid",
+                "concept": "irreversible-loss",
+                "threshold": 0
+              },
+              {
+                "operator": "budget",
+                "concept": "primitive-actions",
+                "threshold": 900
+              }
+            ],
+            "self_generated_subgoals": 508,
+            "experiments": 331,
+            "prevented_risky_actions": 0,
+            "worlds_with_learned_recipes": 20,
+            "prediction_accuracy": 1.0
+          }
+        },
+        "branches": {
+          "273a2a2e3b01e301db3c": {
+            "format": "wailah-adaptive-universal-agent-v1",
+            "adapter": {
+              "format": "wailah-learned-layout-adapter-v1",
+              "geometry": [
+                1,
+                0,
+                0
+              ],
+              "hypotheses_tested": 1,
+              "frames_adapted": 871,
+              "refits": 0,
+              "confidence": 1.0,
+              "discoveries": [
+                {
+                  "scale": 1,
+                  "top": 0,
+                  "left": 0,
+                  "score": 1621.0
+                }
+              ]
+            },
+            "core": {
+              "format": "wailah-universal-goal-state-v1",
+              "remembered_worlds": 1,
+              "goal_program": [
+                {
+                  "operator": "eliminate",
+                  "concept": "autonomous-growing",
+                  "threshold": 0
+                },
+                {
+                  "operator": "preserve",
+                  "concept": "largest-stable-population",
+                  "threshold": 0
+                },
+                {
+                  "operator": "avoid",
+                  "concept": "irreversible-loss",
+                  "threshold": 0
+                },
+                {
+                  "operator": "budget",
+                  "concept": "primitive-actions",
+                  "threshold": 900
+                }
+              ],
+              "self_generated_subgoals": 69,
+              "experiments": 31,
+              "prevented_risky_actions": 0,
+              "worlds_with_learned_recipes": 1,
+              "prediction_accuracy": 1.0
+            }
+          },
+          "ed466075320be8735033": {
+            "format": "wailah-adaptive-universal-agent-v1",
+            "adapter": {
+              "format": "wailah-learned-layout-adapter-v1",
+              "geometry": [
+                1,
+                0,
+                0
+              ],
+              "hypotheses_tested": 1,
+              "frames_adapted": 1319,
+              "refits": 0,
+              "confidence": 1.0,
+              "discoveries": [
+                {
+                  "scale": 1,
+                  "top": 0,
+                  "left": 0,
+                  "score": 1628.0
+                }
+              ]
+            },
+            "core": {
+              "format": "wailah-universal-goal-state-v1",
+              "remembered_worlds": 1,
+              "goal_program": [
+                {
+                  "operator": "eliminate",
+                  "concept": "autonomous-growing",
+                  "threshold": 0
+                },
+                {
+                  "operator": "preserve",
+                  "concept": "largest-stable-population",
+                  "threshold": 0
+                },
+                {
+                  "operator": "avoid",
+                  "concept": "irreversible-loss",
+                  "threshold": 0
+                },
+                {
+                  "operator": "budget",
+                  "concept": "primitive-actions",
+                  "threshold": 900
+                }
+              ],
+              "self_generated_subgoals": 32,
+              "experiments": 38,
+              "prevented_risky_actions": 0,
+              "worlds_with_learned_recipes": 1,
+              "prediction_accuracy": 1.0
+            }
+          }
+        }
+      },
+      {
+        "format": "gum-resilient-generalist-v1",
+        "episodes": 20,
+        "contexts_with_failures": 0,
+        "isolated_branches": 0,
+        "branch_events": [],
+        "shared": {
+          "format": "wailah-adaptive-universal-agent-v1",
+          "adapter": {
+            "format": "wailah-learned-layout-adapter-v1",
+            "geometry": [
+              1,
+              0,
+              0
+            ],
+            "hypotheses_tested": 2895,
+            "frames_adapted": 7913,
+            "refits": 10,
+            "confidence": 1.0,
+            "discoveries": [
+              {
+                "scale": 3,
+                "top": 45,
+                "left": 224,
+                "score": 1621.0
+              },
+              {
+                "scale": 2,
+                "top": 38,
+                "left": 189,
+                "score": 1635.0
+              },
+              {
+                "scale": 2,
+                "top": 31,
+                "left": 154,
+                "score": 1628.0
+              },
+              {
+                "scale": 3,
+                "top": 43,
+                "left": 216,
+                "score": 1628.0
+              },
+              {
+                "scale": 3,
+                "top": 36,
+                "left": 181,
+                "score": 1621.0
+              },
+              {
+                "scale": 2,
+                "top": 48,
+                "left": 243,
+                "score": 1621.0
+              },
+              {
+                "scale": 3,
+                "top": 41,
+                "left": 208,
+                "score": 1628.0
+              },
+              {
+                "scale": 3,
+                "top": 34,
+                "left": 173,
+                "score": 1628.0
+              },
+              {
+                "scale": 2,
+                "top": 46,
+                "left": 235,
+                "score": 1635.0
+              },
+              {
+                "scale": 3,
+                "top": 39,
+                "left": 200,
+                "score": 1635.0
+              },
+              {
+                "scale": 1,
+                "top": 0,
+                "left": 0,
+                "score": 1614.0
+              }
+            ]
+          },
+          "core": {
+            "format": "wailah-universal-goal-state-v1",
+            "remembered_worlds": 20,
+            "goal_program": [
+              {
+                "operator": "eliminate",
+                "concept": "autonomous-growing",
+                "threshold": 0
+              },
+              {
+                "operator": "preserve",
+                "concept": "largest-stable-population",
+                "threshold": 0
+              },
+              {
+                "operator": "avoid",
+                "concept": "irreversible-loss",
+                "threshold": 0
+              },
+              {
+                "operator": "budget",
+                "concept": "primitive-actions",
+                "threshold": 900
+              }
+            ],
+            "self_generated_subgoals": 507,
+            "experiments": 309,
+            "prevented_risky_actions": 0,
+            "worlds_with_learned_recipes": 20,
+            "prediction_accuracy": 1.0
+          }
+        },
+        "branches": {}
+      }
+    ]
+  },
+  "single_worlds": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "success": true,
+      "interactions": 294,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9201011,
+      "success": true,
+      "interactions": 266,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9106012,
+      "success": true,
+      "interactions": 590,
+      "episodes": 2,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "success": true,
+      "interactions": 160,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9111015,
+      "success": true,
+      "interactions": 177,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9211029,
+      "success": true,
+      "interactions": 596,
+      "episodes": 2,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "success": true,
+      "interactions": 249,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9216038,
+      "success": true,
+      "interactions": 233,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9121021,
+      "success": true,
+      "interactions": 165,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "success": true,
+      "interactions": 123,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "success": true,
+      "interactions": 253,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9226056,
+      "success": true,
+      "interactions": 477,
+      "episodes": 2,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9131027,
+      "success": true,
+      "interactions": 241,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "success": true,
+      "interactions": 184,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9136030,
+      "success": true,
+      "interactions": 739,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9236074,
+      "success": true,
+      "interactions": 224,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "success": true,
+      "interactions": 278,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9241083,
+      "success": true,
+      "interactions": 234,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9146036,
+      "success": true,
+      "interactions": 208,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "success": true,
+      "interactions": 177,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    }
+  ],
+  "single_revisits": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "success": true,
+      "interactions": 40,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9201011,
+      "success": true,
+      "interactions": 35,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9106012,
+      "success": true,
+      "interactions": 45,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "success": true,
+      "interactions": 45,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9111015,
+      "success": true,
+      "interactions": 38,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9211029,
+      "success": true,
+      "interactions": 37,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "success": true,
+      "interactions": 36,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9216038,
+      "success": true,
+      "interactions": 33,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9121021,
+      "success": true,
+      "interactions": 28,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "success": true,
+      "interactions": 38,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "success": true,
+      "interactions": 31,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9226056,
+      "success": true,
+      "interactions": 52,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9131027,
+      "success": true,
+      "interactions": 33,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "success": true,
+      "interactions": 35,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9136030,
+      "success": true,
+      "interactions": 62,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9236074,
+      "success": true,
+      "interactions": 44,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "success": true,
+      "interactions": 37,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9241083,
+      "success": true,
+      "interactions": 31,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9146036,
+      "success": true,
+      "interactions": 41,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "success": true,
+      "interactions": 22,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    }
+  ],
+  "single_reloads": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "success": true,
+      "interactions": 40,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "success": true,
+      "interactions": 45,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "success": true,
+      "interactions": 36,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "success": true,
+      "interactions": 38,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "success": true,
+      "interactions": 31,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "success": true,
+      "interactions": 35,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "success": true,
+      "interactions": 37,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "success": true,
+      "interactions": 22,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    }
+  ],
+  "collective_worlds": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "member": 0,
+      "success": true,
+      "interactions": 294,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9201011,
+      "member": 1,
+      "success": true,
+      "interactions": 266,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9106012,
+      "member": 0,
+      "success": true,
+      "interactions": 590,
+      "episodes": 2,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "member": 1,
+      "success": true,
+      "interactions": 281,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9111015,
+      "member": 0,
+      "success": true,
+      "interactions": 177,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9211029,
+      "member": 1,
+      "success": true,
+      "interactions": 181,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "member": 0,
+      "success": true,
+      "interactions": 133,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9216038,
+      "member": 1,
+      "success": true,
+      "interactions": 271,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9121021,
+      "member": 0,
+      "success": true,
+      "interactions": 165,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "member": 1,
+      "success": true,
+      "interactions": 260,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "member": 0,
+      "success": true,
+      "interactions": 161,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9226056,
+      "member": 1,
+      "success": true,
+      "interactions": 225,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9131027,
+      "member": 0,
+      "success": true,
+      "interactions": 241,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "member": 1,
+      "success": true,
+      "interactions": 184,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9136030,
+      "member": 0,
+      "success": true,
+      "interactions": 739,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9236074,
+      "member": 1,
+      "success": true,
+      "interactions": 224,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "member": 0,
+      "success": true,
+      "interactions": 278,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9241083,
+      "member": 1,
+      "success": true,
+      "interactions": 234,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9146036,
+      "member": 0,
+      "success": true,
+      "interactions": 208,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "member": 1,
+      "success": true,
+      "interactions": 114,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    }
+  ],
+  "cross_owner_revisits": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 40,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9201011,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 35,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9106012,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 45,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 50,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9111015,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 38,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9211029,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 37,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 36,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9216038,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 33,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9121021,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 28,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 38,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 31,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9226056,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 52,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9131027,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 33,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 35,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9136030,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 62,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9236074,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 44,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 37,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9241083,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 31,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9146036,
+      "original_member": 0,
+      "evaluating_member": 1,
+      "success": true,
+      "interactions": 41,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "original_member": 1,
+      "evaluating_member": 0,
+      "success": true,
+      "interactions": 22,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    }
+  ],
+  "collective_reloads": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "member": 1,
+      "success": true,
+      "interactions": 40,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "member": 0,
+      "success": true,
+      "interactions": 50,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "member": 1,
+      "success": true,
+      "interactions": 36,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "member": 0,
+      "success": true,
+      "interactions": 38,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "member": 1,
+      "success": true,
+      "interactions": 31,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "member": 0,
+      "success": true,
+      "interactions": 35,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "member": 1,
+      "success": true,
+      "interactions": 37,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "member": 0,
+      "success": true,
+      "interactions": 22,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    }
+  ],
+  "fresh_worlds": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "success": true,
+      "interactions": 294,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9201011,
+      "success": true,
+      "interactions": 1085,
+      "episodes": 4,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9106012,
+      "success": true,
+      "interactions": 290,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "success": true,
+      "interactions": 752,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9111015,
+      "success": true,
+      "interactions": 216,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9211029,
+      "success": true,
+      "interactions": 246,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "success": true,
+      "interactions": 254,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9216038,
+      "success": true,
+      "interactions": 733,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9121021,
+      "success": true,
+      "interactions": 215,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "success": true,
+      "interactions": 738,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "success": true,
+      "interactions": 265,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9226056,
+      "success": true,
+      "interactions": 127,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9131027,
+      "success": true,
+      "interactions": 199,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "success": true,
+      "interactions": 739,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9136030,
+      "success": true,
+      "interactions": 739,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9236074,
+      "success": true,
+      "interactions": 1094,
+      "episodes": 4,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "success": true,
+      "interactions": 255,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9241083,
+      "success": true,
+      "interactions": 755,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9146036,
+      "success": true,
+      "interactions": 641,
+      "episodes": 3,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "success": true,
+      "interactions": 98,
+      "episodes": 1,
+      "protected_damaged": 0,
+      "threat_remaining": 0
+    }
+  ],
+  "random_worlds": [
+    {
+      "family": "crystal-garden",
+      "seed": 9101009,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9201011,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9106012,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9206020,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9111015,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9211029,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9116018,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9216038,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9121021,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9221047,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9126024,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9226056,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9131027,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9231065,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9136030,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9236074,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9141033,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9241083,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 0,
+      "threat_remaining": 5
+    },
+    {
+      "family": "crystal-garden",
+      "seed": 9146036,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 14,
+      "protected_damaged": 0,
+      "threat_remaining": 4
+    },
+    {
+      "family": "data-recovery-console",
+      "seed": 9246092,
+      "success": false,
+      "interactions": 4000,
+      "episodes": 12,
+      "protected_damaged": 1,
+      "threat_remaining": 6
+    }
+  ],
+  "artifacts": {
+    "single_mind": "RELEASE_MACHINE_OUTPUTS\\gum_reveal_gate_v3\\SINGLE_MIND.json",
+    "single_mind_sha256": "d563d919265de5594bdc0707550c9c1fb9eb07140da8f876c499f96aa3187e91",
+    "collective_mind": "RELEASE_MACHINE_OUTPUTS\\gum_reveal_gate_v3\\COLLECTIVE_MIND",
+    "single_trace": {
+      "path": "RELEASE_MACHINE_OUTPUTS\\gum_reveal_gate_v3\\SINGLE_TRANSITIONS.jsonL",
+      "valid": true,
+      "records": 6631,
+      "head": "4cd87a673ba2547e46f1f1e2198738a4eb3f139d16e9cf44becbd2da212aeb65",
+      "errors": []
+    },
+    "collective_trace": {
+      "path": "RELEASE_MACHINE_OUTPUTS\\gum_reveal_gate_v3\\COLLECTIVE_TRANSITIONS.jsonL",
+      "valid": true,
+      "records": 5994,
+      "head": "2b4b04d90617dcf7288604fe292cb078e92231c1a2d9555bed05cbe0c890bb3b",
+      "errors": []
+    }
+  }
+}

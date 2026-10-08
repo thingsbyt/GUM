@@ -1,0 +1,59 @@
+{
+  "classification": "precommitted multi-seed learning-to-learn audit",
+  "created_at_utc": "2026-10-08T15:19:38.593766+00:00",
+  "format": "gum-learning-to-learn-challenge-v1",
+  "held_out": {
+    "all_families": true,
+    "new_seeds": true,
+    "tasks_per_run": 24
+  },
+  "learner_inputs": [
+    "current RGB state",
+    "RGB goal",
+    "anonymous action count",
+    "sparse success reward"
+  ],
+  "learner_not_given": [
+    "task family",
+    "state variables",
+    "transition rules",
+    "action meanings",
+    "goal state values",
+    "solution path",
+    "best acquisition strategy"
+  ],
+  "meta_seeds": [
+    77,
+    177,
+    277,
+    377,
+    477
+  ],
+  "source_hashes": {
+    "gum/meta_learning.py": "a59bca3ee2980a44610b44bd4512a8e25f986cce300c4d62780c396ca2fa91c6",
+    "gum/meta_learning_challenge.py": "8c001b33c7f77653b2818a86d74e00b9c410b124a793f20ba9971db25a189994"
+  },
+  "thresholds": {
+    "all_runs_zero_solutions_retained": true,
+    "ledger_valid": true,
+    "minimum_held_out_family_coverage": 4,
+    "minimum_median_held_out_speedup": 2.0,
+    "minimum_runs_beating_initial_strategy": 4,
+    "minimum_runs_with_late_curve_better_than_early": 3,
+    "reload_must_preserve_strategy": true,
+    "runs": 5,
+    "source_frozen": true
+  },
+  "training": {
+    "budget_per_solver": 1200,
+    "families": [
+      "toggle",
+      "counter",
+      "rotate",
+      "permutation"
+    ],
+    "population": 18,
+    "solutions_must_not_be_retained": true,
+    "tasks_per_run": 32
+  }
+}

@@ -1,0 +1,2096 @@
+{
+  "format": "wailah-cooperative-immune-v19-frozen-audit-v1",
+  "classification": "precommitted frozen two-agent cooperation decision and execution",
+  "protocol": {
+    "worlds": 12,
+    "seed": 1310003,
+    "budget_joint_rounds": 1500,
+    "agents": 2,
+    "observations": "two private partial RGB views",
+    "controls": "independently remapped five-action vocabularies",
+    "cooperation_required_by_world_but_not_disclosed_to_agents": [
+      "one-item capacity",
+      "complementary element access",
+      "simultaneous joint synthesis"
+    ],
+    "agent_not_given": [
+      "object labels",
+      "controls",
+      "element accessibility",
+      "recipe",
+      "synthesis location",
+      "disease identity",
+      "healthy identity",
+      "coordinates",
+      "whether cooperation is necessary"
+    ]
+  },
+  "aggregate": {
+    "communicating_pair": {
+      "worlds": 12,
+      "successes": 12,
+      "success_rate": 1.0,
+      "zero_damage_worlds": 12,
+      "mean_joint_rounds": 147.5
+    },
+    "same_agents_cooperation_disabled": {
+      "worlds": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "zero_damage_worlds": 12,
+      "mean_joint_rounds": 1500.0
+    },
+    "random_pair": {
+      "worlds": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "zero_damage_worlds": 12,
+      "mean_joint_rounds": 1500.0
+    }
+  },
+  "per_world": [
+    {
+      "success": true,
+      "joint_rounds": 115,
+      "primitive_actions": 230,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 3,
+        "shared_messages": 8,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 56,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          2
+        ],
+        "dynamics_probe_steps": [
+          0,
+          0
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 0
+      },
+      "trace": [
+        {
+          "round": 31,
+          "actions": [
+            4,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 47,
+          "actions": [
+            3,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 2
+        },
+        {
+          "round": 56,
+          "actions": [
+            3,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 3
+        },
+        {
+          "round": 66,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 4
+        },
+        {
+          "round": 74,
+          "actions": [
+            3,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 5
+        },
+        {
+          "round": 86,
+          "actions": [
+            0,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 6
+        },
+        {
+          "round": 88,
+          "actions": [
+            3,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 7
+        },
+        {
+          "round": 97,
+          "actions": [
+            3,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 8
+        },
+        {
+          "round": 115,
+          "actions": [
+            3,
+            4
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "e29ee9bbee817b80",
+          "messages": 8
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 149,
+      "primitive_actions": 298,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 4,
+        "shared_messages": 10,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 39,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          1,
+          1
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 1
+      },
+      "trace": [
+        {
+          "round": 25,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 28,
+          "actions": [
+            4,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 39,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 3
+        },
+        {
+          "round": 57,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 4
+        },
+        {
+          "round": 69,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 5
+        },
+        {
+          "round": 87,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 6
+        },
+        {
+          "round": 98,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 7
+        },
+        {
+          "round": 116,
+          "actions": [
+            4,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 8
+        },
+        {
+          "round": 118,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 9
+        },
+        {
+          "round": 128,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 10
+        },
+        {
+          "round": 149,
+          "actions": [
+            4,
+            0
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "e17850fd61babc67",
+          "messages": 10
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 137,
+      "primitive_actions": 274,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 4,
+        "shared_messages": 10,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 38,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          0,
+          0
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 2
+      },
+      "trace": [
+        {
+          "round": 29,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 32,
+          "actions": [
+            0,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 38,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 3
+        },
+        {
+          "round": 54,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 4
+        },
+        {
+          "round": 58,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 5
+        },
+        {
+          "round": 74,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 6
+        },
+        {
+          "round": 83,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 7
+        },
+        {
+          "round": 99,
+          "actions": [
+            1,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 8
+        },
+        {
+          "round": 105,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 9
+        },
+        {
+          "round": 116,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 10
+        },
+        {
+          "round": 137,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "3e2214bc920e9e25",
+          "messages": 10
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 98,
+      "primitive_actions": 196,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          1
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 2,
+        "shared_messages": 6,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 54,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          0,
+          0
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 0
+      },
+      "trace": [
+        {
+          "round": 36,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 52,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "a459b35565f776ad",
+          "messages": 2
+        },
+        {
+          "round": 54,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "a459b35565f776ad",
+          "messages": 3
+        },
+        {
+          "round": 69,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "a459b35565f776ad",
+          "messages": 4
+        },
+        {
+          "round": 77,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "a459b35565f776ad",
+          "messages": 5
+        },
+        {
+          "round": 86,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "a459b35565f776ad",
+          "messages": 6
+        },
+        {
+          "round": 98,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "a459b35565f776ad",
+          "messages": 6
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 153,
+      "primitive_actions": 306,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 4,
+        "shared_messages": 10,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 50,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          0,
+          0
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 2
+      },
+      "trace": [
+        {
+          "round": 35,
+          "actions": [
+            0,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 38,
+          "actions": [
+            4,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 50,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 3
+        },
+        {
+          "round": 70,
+          "actions": [
+            4,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 4
+        },
+        {
+          "round": 80,
+          "actions": [
+            4,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 5
+        },
+        {
+          "round": 95,
+          "actions": [
+            4,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 6
+        },
+        {
+          "round": 104,
+          "actions": [
+            4,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 7
+        },
+        {
+          "round": 118,
+          "actions": [
+            4,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 8
+        },
+        {
+          "round": 126,
+          "actions": [
+            4,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 9
+        },
+        {
+          "round": 137,
+          "actions": [
+            4,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 10
+        },
+        {
+          "round": 153,
+          "actions": [
+            4,
+            0
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "fd604c34bcdcfb16",
+          "messages": 10
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 139,
+      "primitive_actions": 278,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 4,
+        "shared_messages": 8,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 31,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          33,
+          33
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 2
+      },
+      "trace": [
+        {
+          "round": 21,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 27,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 31,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 3
+        },
+        {
+          "round": 83,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "5fb7e2475b823213",
+          "messages": 4
+        },
+        {
+          "round": 87,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "5fb7e2475b823213",
+          "messages": 5
+        },
+        {
+          "round": 103,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "5fb7e2475b823213",
+          "messages": 6
+        },
+        {
+          "round": 107,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "5fb7e2475b823213",
+          "messages": 7
+        },
+        {
+          "round": 115,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "5fb7e2475b823213",
+          "messages": 8
+        },
+        {
+          "round": 139,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "5fb7e2475b823213",
+          "messages": 8
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 123,
+      "primitive_actions": 246,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 5,
+        "shared_messages": 8,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 34,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          2
+        ],
+        "dynamics_probe_steps": [
+          6,
+          6
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 3
+      },
+      "trace": [
+        {
+          "round": 25,
+          "actions": [
+            2,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 26,
+          "actions": [
+            0,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 34,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 3
+        },
+        {
+          "round": 75,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "30c3372c7fa32c8a",
+          "messages": 4
+        },
+        {
+          "round": 84,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "30c3372c7fa32c8a",
+          "messages": 5
+        },
+        {
+          "round": 98,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "30c3372c7fa32c8a",
+          "messages": 6
+        },
+        {
+          "round": 102,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "30c3372c7fa32c8a",
+          "messages": 7
+        },
+        {
+          "round": 107,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "30c3372c7fa32c8a",
+          "messages": 8
+        },
+        {
+          "round": 123,
+          "actions": [
+            0,
+            1
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "30c3372c7fa32c8a",
+          "messages": 8
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 217,
+      "primitive_actions": 434,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 3,
+        "shared_messages": 8,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 35,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          109,
+          109
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 2
+      },
+      "trace": [
+        {
+          "round": 27,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 35,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 3
+        },
+        {
+          "round": 155,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "2d6665350d99b056",
+          "messages": 4
+        },
+        {
+          "round": 163,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "2d6665350d99b056",
+          "messages": 5
+        },
+        {
+          "round": 176,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "2d6665350d99b056",
+          "messages": 6
+        },
+        {
+          "round": 184,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "2d6665350d99b056",
+          "messages": 7
+        },
+        {
+          "round": 192,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "2d6665350d99b056",
+          "messages": 8
+        },
+        {
+          "round": 217,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "2d6665350d99b056",
+          "messages": 8
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 152,
+      "primitive_actions": 304,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 3,
+        "shared_messages": 8,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 70,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          2
+        ],
+        "dynamics_probe_steps": [
+          0,
+          0
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 5
+      },
+      "trace": [
+        {
+          "round": 38,
+          "actions": [
+            1,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 56,
+          "actions": [
+            0,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 2
+        },
+        {
+          "round": 70,
+          "actions": [
+            0,
+            4
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 3
+        },
+        {
+          "round": 81,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 4
+        },
+        {
+          "round": 92,
+          "actions": [
+            0,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 5
+        },
+        {
+          "round": 117,
+          "actions": [
+            3,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 6
+        },
+        {
+          "round": 118,
+          "actions": [
+            0,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 7
+        },
+        {
+          "round": 132,
+          "actions": [
+            0,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 8
+        },
+        {
+          "round": 152,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "6d88a3a8a77c911d",
+          "messages": 8
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 159,
+      "primitive_actions": 318,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          1,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 4,
+        "shared_messages": 6,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 55,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          40,
+          40
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 3
+      },
+      "trace": [
+        {
+          "round": 32,
+          "actions": [
+            1,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 49,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 55,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 3
+        },
+        {
+          "round": 120,
+          "actions": [
+            3,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "deafc6fd651cb68f",
+          "messages": 4
+        },
+        {
+          "round": 130,
+          "actions": [
+            1,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "deafc6fd651cb68f",
+          "messages": 5
+        },
+        {
+          "round": 137,
+          "actions": [
+            1,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "deafc6fd651cb68f",
+          "messages": 6
+        },
+        {
+          "round": 159,
+          "actions": [
+            1,
+            0
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "deafc6fd651cb68f",
+          "messages": 6
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 108,
+      "primitive_actions": 216,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 3,
+        "shared_messages": 8,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 38,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          1,
+          1
+        ],
+        "dynamics_probe_steps": [
+          0,
+          0
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 1
+      },
+      "trace": [
+        {
+          "round": 24,
+          "actions": [
+            1,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 29,
+          "actions": [
+            0,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 38,
+          "actions": [
+            0,
+            2
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "aea3352964b7f0ec",
+          "messages": 3
+        },
+        {
+          "round": 46,
+          "actions": [
+            0,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "aea3352964b7f0ec",
+          "messages": 4
+        },
+        {
+          "round": 53,
+          "actions": [
+            0,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "aea3352964b7f0ec",
+          "messages": 5
+        },
+        {
+          "round": 71,
+          "actions": [
+            0,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "aea3352964b7f0ec",
+          "messages": 6
+        },
+        {
+          "round": 81,
+          "actions": [
+            0,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "aea3352964b7f0ec",
+          "messages": 7
+        },
+        {
+          "round": 90,
+          "actions": [
+            0,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "aea3352964b7f0ec",
+          "messages": 8
+        },
+        {
+          "round": 108,
+          "actions": [
+            0,
+            0
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "aea3352964b7f0ec",
+          "messages": 8
+        }
+      ]
+    },
+    {
+      "success": true,
+      "joint_rounds": 220,
+      "primitive_actions": 440,
+      "episodes": 1,
+      "healthy_damaged": 0,
+      "disease_remaining": 0,
+      "team": {
+        "controls_grounded": [
+          true,
+          true
+        ],
+        "map_complete": true,
+        "learned_private_affordances": [
+          2,
+          2
+        ],
+        "joint_recipe_learned": true,
+        "joint_experiments": 6,
+        "shared_messages": 12,
+        "cooperation_mode": "coordinated",
+        "cooperation_allowed": true,
+        "cooperation_decision": {
+          "necessary": true,
+          "decision_round": 82,
+          "evidence": [
+            "both local inventories saturated",
+            "distinct collectible affordances",
+            "independent completion probes had no effect",
+            "two different held elements visible"
+          ]
+        },
+        "independent_probe_counts": [
+          3,
+          1
+        ],
+        "dynamics_probe_steps": [
+          0,
+          0
+        ],
+        "growing_concept_learned": true,
+        "prevented_risky_actions": 0
+      },
+      "trace": [
+        {
+          "round": 22,
+          "actions": [
+            2,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 1
+        },
+        {
+          "round": 37,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": null,
+          "messages": 2
+        },
+        {
+          "round": 63,
+          "actions": [
+            2,
+            1
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 3
+        },
+        {
+          "round": 67,
+          "actions": [
+            4,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 4
+        },
+        {
+          "round": 82,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 5
+        },
+        {
+          "round": 120,
+          "actions": [
+            2,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 6
+        },
+        {
+          "round": 130,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 7
+        },
+        {
+          "round": 158,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 8
+        },
+        {
+          "round": 161,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 9
+        },
+        {
+          "round": 179,
+          "actions": [
+            2,
+            0
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 10
+        },
+        {
+          "round": 187,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 11
+        },
+        {
+          "round": 200,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 0.0,
+          "done": false,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 12
+        },
+        {
+          "round": 220,
+          "actions": [
+            2,
+            3
+          ],
+          "reward": 1.0,
+          "done": true,
+          "map_complete": true,
+          "growing_concept": "b4324acb0a8fdaee",
+          "messages": 12
+        }
+      ]
+    }
+  ],
+  "implementation_sha256": "e78ea65a95303cda93107444adc1e1f3e50b4c57f5a3323ce5cc142aeeaad35e",
+  "cooperation_decisions": {
+    "necessary_decisions": 12,
+    "worlds": 12,
+    "all_evidence_based": true,
+    "rows": [
+      {
+        "necessary": true,
+        "decision_round": 56,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 39,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 38,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 54,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 50,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 31,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 34,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 35,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 70,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 55,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 38,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      },
+      {
+        "necessary": true,
+        "decision_round": 82,
+        "evidence": [
+          "both local inventories saturated",
+          "distinct collectible affordances",
+          "independent completion probes had no effect",
+          "two different held elements visible"
+        ]
+      }
+    ]
+  },
+  "frozen_implementation": {
+    "expected": "E78EA65A95303CDA93107444ADC1E1F3E50B4C57F5A3323CE5CC142AEEAAD35E",
+    "before": "E78EA65A95303CDA93107444ADC1E1F3E50B4C57F5A3323CE5CC142AEEAAD35E",
+    "after": "E78EA65A95303CDA93107444ADC1E1F3E50B4C57F5A3323CE5CC142AEEAAD35E",
+    "unchanged": true
+  },
+  "precommitted_pass": true
+}
