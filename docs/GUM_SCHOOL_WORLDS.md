@@ -97,10 +97,13 @@ adapters, and source hashes are frozen for an evaluated run.
 
 ## What remains before official training
 
-The worlds are ready, but the current tabular pixel learner keys memory by exact
-world identity and is not an adequate cross-seed learner for this curriculum.
-The next implementation step is therefore a bounded school trainer and learner
-state format that can use these adapters across seeds, produce the Phase 1
-engine's strict evidence records, and pass a non-promoting rehearsal. Official
-curriculum training must not begin by pretending the scripted admission
-controllers are the learner.
+The bounded cross-seed learner and trainer now run these adapters through the
+Phase 1 engine. Their first development-only rehearsal was safely quarantined:
+the trained candidate and a matched fresh learner both scored 0/8. See
+[`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md).
+
+The remaining work is learner research, not world admission. In particular,
+the first lesson needs a temporal representation capable of carrying identity
+through occlusion. Official curriculum training must not begin by substituting
+the scripted admission controllers or relabeling public development trials as
+sealed evidence.

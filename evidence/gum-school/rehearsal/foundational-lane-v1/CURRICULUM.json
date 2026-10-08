@@ -1,0 +1,1196 @@
+{
+  "adapter_catalog": [
+    "gum-grid-v1",
+    "gum-two-rocket-asteroids-v1",
+    "gum-cooperative-immune-v1",
+    "gum-object-laboratory-v1",
+    "gum-causal-workshop-v1",
+    "gum-changing-maze-v1",
+    "gum-physics-playground-v1",
+    "gum-logic-chamber-v1",
+    "gum-language-classroom-v1",
+    "gum-cooperation-world-v1",
+    "gum-artifact-workshop-v1",
+    "gum-sealed-finals-v1"
+  ],
+  "capability_catalog": [
+    "entity-attention",
+    "object-persistence",
+    "occlusion-tracking",
+    "comparison",
+    "categorization",
+    "control-grounding",
+    "causal-intervention",
+    "affordance-discovery",
+    "immediate-prediction",
+    "event-concept-formation",
+    "skill-retention",
+    "spatial-memory",
+    "replanning",
+    "strategy-revision",
+    "prerequisite-planning",
+    "counterfactual-reasoning",
+    "momentum-prediction",
+    "collision-timing",
+    "grounded-language",
+    "clarification",
+    "evidence-linked-explanation",
+    "selective-communication",
+    "role-selection",
+    "cooperation-necessity",
+    "rapid-visual-control",
+    "safe-artifact-work",
+    "source-preservation",
+    "independent-validation",
+    "cross-family-transfer",
+    "skill-composition"
+  ],
+  "curriculum_id": "gum-school-v1",
+  "examinations": [
+    {
+      "adapter": "gum-object-laboratory-v1",
+      "capabilities": [
+        "object-persistence",
+        "occlusion-tracking",
+        "categorization"
+      ],
+      "control_baselines": [
+        "matched-fresh",
+        "random"
+      ],
+      "examination_id": "exam.object-laboratory.transfer.v1",
+      "freeze_requirements": [
+        "learner",
+        "school-engine",
+        "curriculum",
+        "adapters",
+        "source-hashes"
+      ],
+      "interaction_budget": 5120,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "metrics": [
+        "success",
+        "efficiency",
+        "uncertainty",
+        "unnecessary-actions"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "action-meanings",
+        "goal-coordinates",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "schema": "gum-school-examination-v1",
+      "school": "object-laboratory",
+      "selection": {
+        "authority": "independent-evaluator",
+        "commitment_scope": "selection-protocol",
+        "protocol": "post-freeze-independent-v1",
+        "revealed_after_freeze": true,
+        "sealed_seed_commitment": "sha256:378ce197b4d8f98b81c97fc2d4501a83205e7a7d44d984e1ef2ea7aa8e4c0451",
+        "selected_before_evaluated_run": true,
+        "status": "selection-protocol-committed"
+      },
+      "title": "Object identity under withheld appearance and occlusion shifts",
+      "trials": 32
+    },
+    {
+      "adapter": "gum-causal-workshop-v1",
+      "capabilities": [
+        "control-grounding",
+        "causal-intervention",
+        "skill-composition"
+      ],
+      "control_baselines": [
+        "matched-fresh",
+        "random"
+      ],
+      "examination_id": "exam.causal-workshop.transfer.v1",
+      "freeze_requirements": [
+        "learner",
+        "school-engine",
+        "curriculum",
+        "adapters",
+        "source-hashes"
+      ],
+      "interaction_budget": 6400,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "metrics": [
+        "success",
+        "efficiency",
+        "uncertainty",
+        "unnecessary-actions"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "control-map",
+        "mechanism-description",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "schema": "gum-school-examination-v1",
+      "school": "causal-workshop",
+      "selection": {
+        "authority": "independent-evaluator",
+        "commitment_scope": "selection-protocol",
+        "protocol": "post-freeze-independent-v1",
+        "revealed_after_freeze": true,
+        "sealed_seed_commitment": "sha256:7c643e564c1d86d0402919635c2ac7f1bddb7b94ac8ebc04bf7cd2b14ac17d36",
+        "selected_before_evaluated_run": true,
+        "status": "selection-protocol-committed"
+      },
+      "title": "Causal tool use under withheld control and dependency shifts",
+      "trials": 32
+    },
+    {
+      "adapter": "gum-changing-maze-v1",
+      "capabilities": [
+        "spatial-memory",
+        "replanning",
+        "strategy-revision"
+      ],
+      "control_baselines": [
+        "matched-fresh",
+        "random"
+      ],
+      "examination_id": "exam.changing-maze.transfer.v1",
+      "freeze_requirements": [
+        "learner",
+        "school-engine",
+        "curriculum",
+        "adapters",
+        "source-hashes"
+      ],
+      "interaction_budget": 7680,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "metrics": [
+        "success",
+        "efficiency",
+        "uncertainty",
+        "unnecessary-actions"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "control-map",
+        "goal-coordinates",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "schema": "gum-school-examination-v1",
+      "school": "changing-maze",
+      "selection": {
+        "authority": "independent-evaluator",
+        "commitment_scope": "selection-protocol",
+        "protocol": "post-freeze-independent-v1",
+        "revealed_after_freeze": true,
+        "sealed_seed_commitment": "sha256:5f72e2e26f3a1e1de722ea0d231cdbb89b2f967c30b3d25b25b548cd4f8c35a0",
+        "selected_before_evaluated_run": true,
+        "status": "selection-protocol-committed"
+      },
+      "title": "Navigation after withheld topology and control shifts",
+      "trials": 32
+    }
+  ],
+  "lessons": [
+    {
+      "adapter": "gum-object-laboratory-v1",
+      "authored_family": "object-identity-through-occlusion",
+      "baseline": {
+        "controls": [
+          "candidate-before-training",
+          "matched-fresh",
+          "random"
+        ],
+        "same_perception": true,
+        "same_resource_limits": true,
+        "trials": 24
+      },
+      "capabilities": [
+        "entity-attention",
+        "object-persistence",
+        "occlusion-tracking"
+      ],
+      "evaluation": {
+        "development_seeds": [
+          11101,
+          11102,
+          11103,
+          11104
+        ],
+        "examination_ids": [
+          "exam.object-laboratory.transfer.v1"
+        ],
+        "metrics": [
+          "success",
+          "efficiency",
+          "uncertainty",
+          "unnecessary-actions"
+        ],
+        "new_seed_trials": 16,
+        "structurally_shifted": true,
+        "trials": 32
+      },
+      "evidence": {
+        "hash_algorithm": "sha256",
+        "preserve_failures": true,
+        "protocol_hashes": true,
+        "replay_metadata": true,
+        "source_hashes": true,
+        "trajectories": true
+      },
+      "failure_policy": {
+        "abort_on_limit_breach": true,
+        "quarantine_candidate": true,
+        "record_diagnosis": true,
+        "rollback_to_promoted": true
+      },
+      "grade": 1,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "lesson_id": "object-laboratory.occlusion.001",
+      "prerequisites": [],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "action-meanings",
+        "goal-coordinates",
+        "hazard-coordinates",
+        "concept-assignment",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "promotion": {
+        "confidence_level": 0.95,
+        "maximum_uncertainty_rate": 0.2,
+        "maximum_unnecessary_action_rate": 0.25,
+        "minimum_fresh_advantage": 1.1,
+        "minimum_fresh_advantage_lower_bound": 1.0,
+        "minimum_success": 0.8,
+        "minimum_success_lower_bound": 0.65,
+        "required_gates": [
+          "sealed-performance",
+          "retention",
+          "evidence-integrity",
+          "resource-limits",
+          "control-advantage",
+          "input-boundary",
+          "replay"
+        ]
+      },
+      "rationale": "The learner must preserve an object's identity when it disappears briefly and returns with a changed surface cue, rather than matching a fixed color.",
+      "resource_limits": {
+        "artifact_storage_mb": 512,
+        "max_interactions": 12000,
+        "peak_memory_mb": 2048,
+        "wall_clock_seconds": 1800
+      },
+      "retention": {
+        "evaluation_seeds": [
+          11201,
+          11202,
+          11203,
+          11204
+        ],
+        "maximum_regression": 0.05,
+        "protected_skills": [],
+        "scope": "all-promoted-skills",
+        "trials": 24
+      },
+      "schema": "gum-school-lesson-v1",
+      "school": "object-laboratory",
+      "sequence": 1,
+      "title": "Track one object through occlusion and appearance change",
+      "training": {
+        "generator": "authored-object-occlusion-v1",
+        "interaction_budget": 12000,
+        "seeds": [
+          11001,
+          11002,
+          11003,
+          11004
+        ],
+        "worlds_per_seed": 3
+      },
+      "world_admission_id": "admission.object-laboratory.v1"
+    },
+    {
+      "adapter": "gum-object-laboratory-v1",
+      "authored_family": "object-function-across-appearance",
+      "baseline": {
+        "controls": [
+          "candidate-before-training",
+          "matched-fresh",
+          "random"
+        ],
+        "same_perception": true,
+        "same_resource_limits": true,
+        "trials": 24
+      },
+      "capabilities": [
+        "comparison",
+        "categorization",
+        "event-concept-formation"
+      ],
+      "evaluation": {
+        "development_seeds": [
+          11111,
+          11112,
+          11113,
+          11114
+        ],
+        "examination_ids": [
+          "exam.object-laboratory.transfer.v1"
+        ],
+        "metrics": [
+          "success",
+          "efficiency",
+          "uncertainty",
+          "unnecessary-actions"
+        ],
+        "new_seed_trials": 16,
+        "structurally_shifted": true,
+        "trials": 32
+      },
+      "evidence": {
+        "hash_algorithm": "sha256",
+        "preserve_failures": true,
+        "protocol_hashes": true,
+        "replay_metadata": true,
+        "source_hashes": true,
+        "trajectories": true
+      },
+      "failure_policy": {
+        "abort_on_limit_breach": true,
+        "quarantine_candidate": true,
+        "record_diagnosis": true,
+        "rollback_to_promoted": true
+      },
+      "grade": 4,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "lesson_id": "object-laboratory.functional-category.002",
+      "prerequisites": [
+        "object-laboratory.occlusion.001"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "action-meanings",
+        "goal-coordinates",
+        "hazard-coordinates",
+        "concept-assignment",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "promotion": {
+        "confidence_level": 0.95,
+        "maximum_uncertainty_rate": 0.2,
+        "maximum_unnecessary_action_rate": 0.25,
+        "minimum_fresh_advantage": 1.1,
+        "minimum_fresh_advantage_lower_bound": 1.0,
+        "minimum_success": 0.8,
+        "minimum_success_lower_bound": 0.65,
+        "required_gates": [
+          "sealed-performance",
+          "retention",
+          "evidence-integrity",
+          "resource-limits",
+          "control-advantage",
+          "input-boundary",
+          "replay"
+        ]
+      },
+      "rationale": "The lesson separates visible appearance from useful function by changing shape and texture while preserving interaction consequences across worlds.",
+      "resource_limits": {
+        "artifact_storage_mb": 512,
+        "max_interactions": 16000,
+        "peak_memory_mb": 2048,
+        "wall_clock_seconds": 2400
+      },
+      "retention": {
+        "evaluation_seeds": [
+          11211,
+          11212,
+          11213,
+          11214
+        ],
+        "maximum_regression": 0.05,
+        "protected_skills": [
+          "object-persistence",
+          "occlusion-tracking"
+        ],
+        "scope": "all-promoted-skills",
+        "trials": 24
+      },
+      "schema": "gum-school-lesson-v1",
+      "school": "object-laboratory",
+      "sequence": 2,
+      "title": "Group changed-looking objects by stable interactive function",
+      "training": {
+        "generator": "authored-object-function-v1",
+        "interaction_budget": 16000,
+        "seeds": [
+          11011,
+          11012,
+          11013,
+          11014
+        ],
+        "worlds_per_seed": 3
+      },
+      "world_admission_id": "admission.object-laboratory.v1"
+    },
+    {
+      "adapter": "gum-causal-workshop-v1",
+      "authored_family": "anonymous-controls-and-effects",
+      "baseline": {
+        "controls": [
+          "candidate-before-training",
+          "matched-fresh",
+          "random"
+        ],
+        "same_perception": true,
+        "same_resource_limits": true,
+        "trials": 24
+      },
+      "capabilities": [
+        "control-grounding",
+        "causal-intervention",
+        "immediate-prediction"
+      ],
+      "evaluation": {
+        "development_seeds": [
+          21101,
+          21102,
+          21103,
+          21104
+        ],
+        "examination_ids": [
+          "exam.causal-workshop.transfer.v1"
+        ],
+        "metrics": [
+          "success",
+          "efficiency",
+          "uncertainty",
+          "unnecessary-actions"
+        ],
+        "new_seed_trials": 16,
+        "structurally_shifted": true,
+        "trials": 32
+      },
+      "evidence": {
+        "hash_algorithm": "sha256",
+        "preserve_failures": true,
+        "protocol_hashes": true,
+        "replay_metadata": true,
+        "source_hashes": true,
+        "trajectories": true
+      },
+      "failure_policy": {
+        "abort_on_limit_breach": true,
+        "quarantine_candidate": true,
+        "record_diagnosis": true,
+        "rollback_to_promoted": true
+      },
+      "grade": 2,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "lesson_id": "causal-workshop.controls.001",
+      "prerequisites": [
+        "object-laboratory.occlusion.001"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "action-meanings",
+        "control-map",
+        "mechanism-description",
+        "successful-sequence",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "promotion": {
+        "confidence_level": 0.95,
+        "maximum_uncertainty_rate": 0.2,
+        "maximum_unnecessary_action_rate": 0.25,
+        "minimum_fresh_advantage": 1.1,
+        "minimum_fresh_advantage_lower_bound": 1.0,
+        "minimum_success": 0.8,
+        "minimum_success_lower_bound": 0.65,
+        "required_gates": [
+          "sealed-performance",
+          "retention",
+          "evidence-integrity",
+          "resource-limits",
+          "control-advantage",
+          "input-boundary",
+          "replay"
+        ]
+      },
+      "rationale": "Anonymous controls change position, state, or connectivity in authored patterns, requiring interventions that distinguish correlation from repeatable effect.",
+      "resource_limits": {
+        "artifact_storage_mb": 512,
+        "max_interactions": 12000,
+        "peak_memory_mb": 2048,
+        "wall_clock_seconds": 1800
+      },
+      "retention": {
+        "evaluation_seeds": [
+          21201,
+          21202,
+          21203,
+          21204
+        ],
+        "maximum_regression": 0.05,
+        "protected_skills": [
+          "object-persistence"
+        ],
+        "scope": "all-promoted-skills",
+        "trials": 24
+      },
+      "schema": "gum-school-lesson-v1",
+      "school": "causal-workshop",
+      "sequence": 3,
+      "title": "Ground unfamiliar controls through visible consequences",
+      "training": {
+        "generator": "authored-causal-controls-v1",
+        "interaction_budget": 12000,
+        "seeds": [
+          21001,
+          21002,
+          21003,
+          21004
+        ],
+        "worlds_per_seed": 3
+      },
+      "world_admission_id": "admission.causal-workshop.v1"
+    },
+    {
+      "adapter": "gum-causal-workshop-v1",
+      "authored_family": "causal-tools-with-prerequisites",
+      "baseline": {
+        "controls": [
+          "candidate-before-training",
+          "matched-fresh",
+          "random"
+        ],
+        "same_perception": true,
+        "same_resource_limits": true,
+        "trials": 24
+      },
+      "capabilities": [
+        "affordance-discovery",
+        "prerequisite-planning",
+        "skill-composition"
+      ],
+      "evaluation": {
+        "development_seeds": [
+          21111,
+          21112,
+          21113,
+          21114
+        ],
+        "examination_ids": [
+          "exam.causal-workshop.transfer.v1"
+        ],
+        "metrics": [
+          "success",
+          "efficiency",
+          "uncertainty",
+          "unnecessary-actions"
+        ],
+        "new_seed_trials": 16,
+        "structurally_shifted": true,
+        "trials": 32
+      },
+      "evidence": {
+        "hash_algorithm": "sha256",
+        "preserve_failures": true,
+        "protocol_hashes": true,
+        "replay_metadata": true,
+        "source_hashes": true,
+        "trajectories": true
+      },
+      "failure_policy": {
+        "abort_on_limit_breach": true,
+        "quarantine_candidate": true,
+        "record_diagnosis": true,
+        "rollback_to_promoted": true
+      },
+      "grade": 6,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "lesson_id": "causal-workshop.composition.002",
+      "prerequisites": [
+        "causal-workshop.controls.001",
+        "object-laboratory.functional-category.002"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "action-meanings",
+        "control-map",
+        "mechanism-description",
+        "successful-sequence",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "promotion": {
+        "confidence_level": 0.95,
+        "maximum_uncertainty_rate": 0.2,
+        "maximum_unnecessary_action_rate": 0.25,
+        "minimum_fresh_advantage": 1.15,
+        "minimum_fresh_advantage_lower_bound": 1.0,
+        "minimum_success": 0.8,
+        "minimum_success_lower_bound": 0.65,
+        "required_gates": [
+          "sealed-performance",
+          "retention",
+          "evidence-integrity",
+          "resource-limits",
+          "control-advantage",
+          "input-boundary",
+          "replay"
+        ]
+      },
+      "rationale": "Success requires discovering tool roles and ordering them through delayed prerequisites, including decoy tools whose local effects do not advance the goal.",
+      "resource_limits": {
+        "artifact_storage_mb": 768,
+        "max_interactions": 18000,
+        "peak_memory_mb": 3072,
+        "wall_clock_seconds": 3000
+      },
+      "retention": {
+        "evaluation_seeds": [
+          21211,
+          21212,
+          21213,
+          21214
+        ],
+        "maximum_regression": 0.05,
+        "protected_skills": [
+          "control-grounding",
+          "causal-intervention",
+          "object-persistence",
+          "categorization"
+        ],
+        "scope": "all-promoted-skills",
+        "trials": 24
+      },
+      "schema": "gum-school-lesson-v1",
+      "school": "causal-workshop",
+      "sequence": 4,
+      "title": "Compose activators, transformers, and blockers in new orders",
+      "training": {
+        "generator": "authored-causal-composition-v1",
+        "interaction_budget": 18000,
+        "seeds": [
+          21011,
+          21012,
+          21013,
+          21014
+        ],
+        "worlds_per_seed": 3
+      },
+      "world_admission_id": "admission.causal-workshop.v1"
+    },
+    {
+      "adapter": "gum-changing-maze-v1",
+      "authored_family": "partial-view-spatial-memory",
+      "baseline": {
+        "controls": [
+          "candidate-before-training",
+          "matched-fresh",
+          "random"
+        ],
+        "same_perception": true,
+        "same_resource_limits": true,
+        "trials": 24
+      },
+      "capabilities": [
+        "spatial-memory",
+        "skill-retention",
+        "replanning"
+      ],
+      "evaluation": {
+        "development_seeds": [
+          31101,
+          31102,
+          31103,
+          31104
+        ],
+        "examination_ids": [
+          "exam.changing-maze.transfer.v1"
+        ],
+        "metrics": [
+          "success",
+          "efficiency",
+          "uncertainty",
+          "unnecessary-actions"
+        ],
+        "new_seed_trials": 16,
+        "structurally_shifted": true,
+        "trials": 32
+      },
+      "evidence": {
+        "hash_algorithm": "sha256",
+        "preserve_failures": true,
+        "protocol_hashes": true,
+        "replay_metadata": true,
+        "source_hashes": true,
+        "trajectories": true
+      },
+      "failure_policy": {
+        "abort_on_limit_breach": true,
+        "quarantine_candidate": true,
+        "record_diagnosis": true,
+        "rollback_to_promoted": true
+      },
+      "grade": 5,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "lesson_id": "changing-maze.memory.001",
+      "prerequisites": [
+        "causal-workshop.controls.001"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "action-meanings",
+        "control-map",
+        "goal-coordinates",
+        "hazard-coordinates",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "promotion": {
+        "confidence_level": 0.95,
+        "maximum_uncertainty_rate": 0.2,
+        "maximum_unnecessary_action_rate": 0.25,
+        "minimum_fresh_advantage": 1.1,
+        "minimum_fresh_advantage_lower_bound": 1.0,
+        "minimum_success": 0.8,
+        "minimum_success_lower_bound": 0.65,
+        "required_gates": [
+          "sealed-performance",
+          "retention",
+          "evidence-integrity",
+          "resource-limits",
+          "control-advantage",
+          "input-boundary",
+          "replay"
+        ]
+      },
+      "rationale": "The learner receives only local pixels and must retain landmarks and revisitable routes instead of reading a global coordinate or complete maze layout.",
+      "resource_limits": {
+        "artifact_storage_mb": 768,
+        "max_interactions": 15000,
+        "peak_memory_mb": 3072,
+        "wall_clock_seconds": 2400
+      },
+      "retention": {
+        "evaluation_seeds": [
+          31201,
+          31202,
+          31203,
+          31204
+        ],
+        "maximum_regression": 0.05,
+        "protected_skills": [
+          "control-grounding",
+          "causal-intervention",
+          "categorization",
+          "skill-composition"
+        ],
+        "scope": "all-promoted-skills",
+        "trials": 24
+      },
+      "schema": "gum-school-lesson-v1",
+      "school": "changing-maze",
+      "sequence": 5,
+      "title": "Remember stable places while local views conceal the map",
+      "training": {
+        "generator": "authored-maze-memory-v1",
+        "interaction_budget": 15000,
+        "seeds": [
+          31001,
+          31002,
+          31003,
+          31004
+        ],
+        "worlds_per_seed": 3
+      },
+      "world_admission_id": "admission.changing-maze.v1"
+    },
+    {
+      "adapter": "gum-changing-maze-v1",
+      "authored_family": "maze-topology-and-control-shifts",
+      "baseline": {
+        "controls": [
+          "candidate-before-training",
+          "matched-fresh",
+          "random"
+        ],
+        "same_perception": true,
+        "same_resource_limits": true,
+        "trials": 24
+      },
+      "capabilities": [
+        "replanning",
+        "strategy-revision",
+        "cross-family-transfer"
+      ],
+      "evaluation": {
+        "development_seeds": [
+          31111,
+          31112,
+          31113,
+          31114
+        ],
+        "examination_ids": [
+          "exam.changing-maze.transfer.v1",
+          "exam.causal-workshop.transfer.v1"
+        ],
+        "metrics": [
+          "success",
+          "efficiency",
+          "uncertainty",
+          "unnecessary-actions"
+        ],
+        "new_seed_trials": 16,
+        "structurally_shifted": true,
+        "trials": 32
+      },
+      "evidence": {
+        "hash_algorithm": "sha256",
+        "preserve_failures": true,
+        "protocol_hashes": true,
+        "replay_metadata": true,
+        "source_hashes": true,
+        "trajectories": true
+      },
+      "failure_policy": {
+        "abort_on_limit_breach": true,
+        "quarantine_candidate": true,
+        "record_diagnosis": true,
+        "rollback_to_promoted": true
+      },
+      "grade": 7,
+      "learner_inputs": [
+        "rgb-pixels",
+        "anonymous-action-slots",
+        "scalar-reward",
+        "termination-signal",
+        "public-info"
+      ],
+      "lesson_id": "changing-maze.revision.002",
+      "prerequisites": [
+        "changing-maze.memory.001",
+        "causal-workshop.composition.002"
+      ],
+      "prohibited_inputs": [
+        "audit-only-state",
+        "action-meanings",
+        "control-map",
+        "goal-coordinates",
+        "hazard-coordinates",
+        "sealed-seeds",
+        "task-solution"
+      ],
+      "promotion": {
+        "confidence_level": 0.95,
+        "maximum_uncertainty_rate": 0.2,
+        "maximum_unnecessary_action_rate": 0.25,
+        "minimum_fresh_advantage": 1.15,
+        "minimum_fresh_advantage_lower_bound": 1.0,
+        "minimum_success": 0.8,
+        "minimum_success_lower_bound": 0.65,
+        "required_gates": [
+          "sealed-performance",
+          "retention",
+          "evidence-integrity",
+          "resource-limits",
+          "control-advantage",
+          "input-boundary",
+          "replay"
+        ]
+      },
+      "rationale": "Previously useful routes and action meanings become unreliable, so success depends on detecting changed evidence, replanning, and avoiding perseveration.",
+      "resource_limits": {
+        "artifact_storage_mb": 1024,
+        "max_interactions": 20000,
+        "peak_memory_mb": 3072,
+        "wall_clock_seconds": 3600
+      },
+      "retention": {
+        "evaluation_seeds": [
+          31211,
+          31212,
+          31213,
+          31214
+        ],
+        "maximum_regression": 0.05,
+        "protected_skills": [
+          "spatial-memory",
+          "control-grounding",
+          "causal-intervention",
+          "object-persistence",
+          "categorization",
+          "skill-composition"
+        ],
+        "scope": "all-promoted-skills",
+        "trials": 24
+      },
+      "schema": "gum-school-lesson-v1",
+      "school": "changing-maze",
+      "sequence": 6,
+      "title": "Abandon stale routes after topology and controls change",
+      "training": {
+        "generator": "authored-maze-revision-v1",
+        "interaction_budget": 20000,
+        "seeds": [
+          31011,
+          31012,
+          31013,
+          31014
+        ],
+        "worlds_per_seed": 3
+      },
+      "world_admission_id": "admission.changing-maze.v1"
+    }
+  ],
+  "phase": 2,
+  "policies": {
+    "budgets": {
+      "maximum_evaluation_trials": 1000,
+      "maximum_lesson_interactions": 20000,
+      "maximum_total_training_interactions": 100000,
+      "status": "frozen-after-adapter-admission"
+    },
+    "failures_are_preserved": true,
+    "local_llm": {
+      "enabled_by_default": false,
+      "may_execute_code": false,
+      "may_grade": false,
+      "may_view_sealed_data": false,
+      "optional": true,
+      "trusted": false
+    },
+    "promotion_requires_all_gates": true,
+    "sealed_data_available_during_training": false,
+    "training_on_candidate_only": true
+  },
+  "schema": "gum-school-curriculum-v1",
+  "status": "adapters-admitted-not-trained",
+  "title": "GUM School foundational authored curriculum",
+  "transfer_matrix": {
+    "branch_origin": "pre-curriculum-promoted-snapshot",
+    "confidence_level": 0.95,
+    "design": "isolated-source-branches",
+    "matched_fresh_required": true,
+    "require_all_cells": true,
+    "source_schools": [
+      "object-laboratory",
+      "causal-workshop",
+      "changing-maze"
+    ],
+    "target_evaluation_training": false,
+    "targets": [
+      {
+        "examination_id": "exam.object-laboratory.transfer.v1",
+        "school": "object-laboratory"
+      },
+      {
+        "examination_id": "exam.causal-workshop.transfer.v1",
+        "school": "causal-workshop"
+      },
+      {
+        "examination_id": "exam.changing-maze.transfer.v1",
+        "school": "changing-maze"
+      }
+    ],
+    "trials_per_cell": 32
+  },
+  "version": 1,
+  "world_admissions": [
+    {
+      "adapter": "gum-object-laboratory-v1",
+      "admission_id": "admission.object-laboratory.v1",
+      "arbitrary_code_allowed": false,
+      "checks": {
+        "deterministic_reset": "passed",
+        "hard_horizon": "passed",
+        "hidden_state_leakage": "passed",
+        "random_baseline": "nontrivial",
+        "replay": "passed",
+        "safe_inspection": "passed",
+        "scripted_baseline": "nontrivial"
+      },
+      "declaration": {
+        "action_count": 6,
+        "action_kind": "discrete-anonymous",
+        "horizon": 160,
+        "observation_kind": "rgb",
+        "reward_maximum": 1.0,
+        "reward_minimum": -1.0
+      },
+      "evidence_hashes": [
+        "sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"
+      ],
+      "protocol_version": 1,
+      "schema": "gum-school-world-admission-v1",
+      "school": "object-laboratory",
+      "seed_partitions": {
+        "development": [
+          11101,
+          11102,
+          11103,
+          11104
+        ],
+        "sealed_seed_commitment": "sha256:378ce197b4d8f98b81c97fc2d4501a83205e7a7d44d984e1ef2ea7aa8e4c0451",
+        "training": [
+          11001,
+          11002,
+          11003,
+          11004
+        ]
+      },
+      "source_review_required": true,
+      "status": "admitted",
+      "title": "Object Laboratory adapter admission specification",
+      "world_packages_are_data": true
+    },
+    {
+      "adapter": "gum-causal-workshop-v1",
+      "admission_id": "admission.causal-workshop.v1",
+      "arbitrary_code_allowed": false,
+      "checks": {
+        "deterministic_reset": "passed",
+        "hard_horizon": "passed",
+        "hidden_state_leakage": "passed",
+        "random_baseline": "nontrivial",
+        "replay": "passed",
+        "safe_inspection": "passed",
+        "scripted_baseline": "nontrivial"
+      },
+      "declaration": {
+        "action_count": 8,
+        "action_kind": "discrete-anonymous",
+        "horizon": 200,
+        "observation_kind": "rgb",
+        "reward_maximum": 1.0,
+        "reward_minimum": -1.0
+      },
+      "evidence_hashes": [
+        "sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"
+      ],
+      "protocol_version": 1,
+      "schema": "gum-school-world-admission-v1",
+      "school": "causal-workshop",
+      "seed_partitions": {
+        "development": [
+          21101,
+          21102,
+          21103,
+          21104
+        ],
+        "sealed_seed_commitment": "sha256:7c643e564c1d86d0402919635c2ac7f1bddb7b94ac8ebc04bf7cd2b14ac17d36",
+        "training": [
+          21001,
+          21002,
+          21003,
+          21004
+        ]
+      },
+      "source_review_required": true,
+      "status": "admitted",
+      "title": "Causal Workshop adapter admission specification",
+      "world_packages_are_data": true
+    },
+    {
+      "adapter": "gum-changing-maze-v1",
+      "admission_id": "admission.changing-maze.v1",
+      "arbitrary_code_allowed": false,
+      "checks": {
+        "deterministic_reset": "passed",
+        "hard_horizon": "passed",
+        "hidden_state_leakage": "passed",
+        "random_baseline": "nontrivial",
+        "replay": "passed",
+        "safe_inspection": "passed",
+        "scripted_baseline": "nontrivial"
+      },
+      "declaration": {
+        "action_count": 6,
+        "action_kind": "discrete-anonymous",
+        "horizon": 240,
+        "observation_kind": "rgb",
+        "reward_maximum": 1.0,
+        "reward_minimum": -1.0
+      },
+      "evidence_hashes": [
+        "sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"
+      ],
+      "protocol_version": 1,
+      "schema": "gum-school-world-admission-v1",
+      "school": "changing-maze",
+      "seed_partitions": {
+        "development": [
+          31101,
+          31102,
+          31103,
+          31104
+        ],
+        "sealed_seed_commitment": "sha256:5f72e2e26f3a1e1de722ea0d231cdbb89b2f967c30b3d25b25b548cd4f8c35a0",
+        "training": [
+          31001,
+          31002,
+          31003,
+          31004
+        ]
+      },
+      "source_review_required": true,
+      "status": "admitted",
+      "title": "Changing Maze adapter admission specification",
+      "world_packages_are_data": true
+    }
+  ]
+}

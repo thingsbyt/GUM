@@ -1,0 +1,13 @@
+{
+  "base_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+  "candidate_snapshot_id": "sha256-09ca2c8482137a7a0069999348ec71f63d86051eb749041fcb8004a7aa103742",
+  "failed_gates": [
+    "control-advantage",
+    "evidence-integrity",
+    "sealed-performance"
+  ],
+  "format": "gum-school-quarantine-v1",
+  "lesson_id": "object-laboratory.occlusion.001",
+  "quarantined_at_utc": "2026-10-08T21:20:17.860497+00:00",
+  "run_id": "af80e4d7-707d-40f3-b30d-3872a2f1a01e"
+}

@@ -1,0 +1,154 @@
+{
+  "curriculum_id": "gum-school-v1",
+  "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
+  "decisions": [
+    {
+      "base_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+      "candidate_snapshot_id": "sha256-09ca2c8482137a7a0069999348ec71f63d86051eb749041fcb8004a7aa103742",
+      "curriculum_sha256": "335ca6b43fb4094dec2c6165b88639b2ad3ffe6759e73a839df1dd0ae9d0a0b8",
+      "decided_at_utc": "2026-10-08T21:20:17.863718+00:00",
+      "format": "gum-school-decision-v1",
+      "gates": {
+        "all_passed": false,
+        "format": "gum-school-gate-result-v1",
+        "gates": {
+          "control-advantage": {
+            "fresh_advantage": 0.0,
+            "passed": false,
+            "reasons": [
+              "fresh advantage is below minimum_fresh_advantage",
+              "fresh-advantage confidence lower bound is below its minimum"
+            ]
+          },
+          "evidence-integrity": {
+            "passed": false,
+            "reasons": [
+              "protocol_hashes_verified is false"
+            ]
+          },
+          "input-boundary": {
+            "passed": true,
+            "reasons": []
+          },
+          "replay": {
+            "passed": true,
+            "reasons": []
+          },
+          "resource-limits": {
+            "passed": true,
+            "reasons": []
+          },
+          "retention": {
+            "passed": true,
+            "reasons": [],
+            "regressions": {}
+          },
+          "sealed-performance": {
+            "passed": false,
+            "reasons": [
+              "sealed protocol was not verified",
+              "sealed trials 8 are below required 32",
+              "sealed success is below minimum_success",
+              "sealed success confidence lower bound is below its minimum",
+              "uncertainty rate exceeds its maximum"
+            ]
+          }
+        }
+      },
+      "lesson_id": "object-laboratory.occlusion.001",
+      "outcome": "quarantine",
+      "run_id": "af80e4d7-707d-40f3-b30d-3872a2f1a01e"
+    }
+  ],
+  "format": "gum-school-report-v1",
+  "generated_at_utc": "2026-10-08T21:20:17.964079+00:00",
+  "initial_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+  "ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "de5237655f0935a64d68d05135e4f067318f2fb400a5af56528a5d290a735052",
+      "ledger": "SCHOOL_LEDGER.jsonl",
+      "records": 5
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "de5237655f0935a64d68d05135e4f067318f2fb400a5af56528a5d290a735052",
+    "records": 5,
+    "valid": true
+  },
+  "next_lesson_id": "object-laboratory.occlusion.001",
+  "promoted_lessons": [],
+  "promoted_snapshot_id": "sha256-5845456a001e55964d49e1ca680c4a14b90e3ce1c5f5ca606198b960ca481c79",
+  "transfer_matrix": {
+    "cells": [],
+    "complete": false,
+    "diagnostic_sequential_results": [],
+    "missing_pairs": [
+      [
+        "object-laboratory",
+        "object-laboratory"
+      ],
+      [
+        "object-laboratory",
+        "causal-workshop"
+      ],
+      [
+        "object-laboratory",
+        "changing-maze"
+      ],
+      [
+        "causal-workshop",
+        "object-laboratory"
+      ],
+      [
+        "causal-workshop",
+        "causal-workshop"
+      ],
+      [
+        "causal-workshop",
+        "changing-maze"
+      ],
+      [
+        "changing-maze",
+        "object-laboratory"
+      ],
+      [
+        "changing-maze",
+        "causal-workshop"
+      ],
+      [
+        "changing-maze",
+        "changing-maze"
+      ]
+    ],
+    "protocol": {
+      "branch_origin": "pre-curriculum-promoted-snapshot",
+      "confidence_level": 0.95,
+      "design": "isolated-source-branches",
+      "matched_fresh_required": true,
+      "require_all_cells": true,
+      "source_schools": [
+        "object-laboratory",
+        "causal-workshop",
+        "changing-maze"
+      ],
+      "target_evaluation_training": false,
+      "targets": [
+        {
+          "examination_id": "exam.object-laboratory.transfer.v1",
+          "school": "object-laboratory"
+        },
+        {
+          "examination_id": "exam.causal-workshop.transfer.v1",
+          "school": "causal-workshop"
+        },
+        {
+          "examination_id": "exam.changing-maze.transfer.v1",
+          "school": "changing-maze"
+        }
+      ],
+      "trials_per_cell": 32
+    },
+    "warning": "Only verified isolated-source branch cells count toward completeness."
+  }
+}

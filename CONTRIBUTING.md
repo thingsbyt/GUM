@@ -7,7 +7,7 @@ must keep the schemas strict and pass both validation layers:
 
 ```powershell
 python -m gum.school curriculum/gum-school-v1.json
-python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py tests/test_school_worlds.py
+python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py tests/test_school_worlds.py tests/test_school_training.py
 python scripts/admit_school_worlds.py --trials 24
 ```
 
@@ -16,6 +16,11 @@ other task solutions to the public tree. A new adapter identifier is not an
 admitted adapter: source review, deterministic reset, hard horizon, leakage
 checks, nontrivial controls, replay, disjoint seed partitions, and hashed
 evidence are required before its admission status can change.
+
+Training-lane experiments must use a new workspace, public training or
+development seeds, and the ordinary engine decision path. Do not mark a
+development evaluation as sealed, reuse an evidence workspace, or promote a
+candidate from rehearsal evidence.
 
 GUM values reproducible failures as much as successful demonstrations.
 

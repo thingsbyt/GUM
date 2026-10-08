@@ -7,11 +7,12 @@ It accompanies [`curriculum/gum-school-v1.json`](../curriculum/gum-school-v1.jso
 and the strict schemas beginning with
 [`gum-school-curriculum-v1.schema.json`](../curriculum/schemas/gum-school-curriculum-v1.schema.json).
 
-The curriculum is now at **Phase 2: adapters admitted, not trained**. No lesson
-in this document has trained GUM and no learning result is claimed. The machine
-file is marked `adapters-admitted-not-trained`; the three foundational adapter
-records link to the deterministic admission evidence described in
-[`GUM_SCHOOL_WORLDS.md`](GUM_SCHOOL_WORLDS.md).
+The curriculum machine file remains at **adapters admitted, not officially
+trained**. One disposable candidate has completed a development-only rehearsal
+of the first lesson and was quarantined after scoring 0/8, so no learning
+capability is claimed. No sealed examination, promotion, or transfer-matrix
+cell has run. The distinction between this rehearsal and an official run is
+documented in [`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md).
 
 The curriculum asks whether a persistent learner can gain reusable competence
 from an authored sequence of meaningfully different worlds. A high score on a

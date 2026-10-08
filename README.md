@@ -122,19 +122,21 @@ The strongest defensible description is:
 ## GUM School
 
 GUM School now has a reviewed curriculum, a crash-resumable promotion engine,
-and admitted Object Laboratory, Causal Workshop, and Changing Maze adapters.
-Their deterministic reset, horizon, replay, inspection, leakage boundary,
-data-only packaging, and random/scripted controls have machine-readable
-evidence.
+three admitted foundational adapters, and a bounded cross-seed training lane.
+A development-only rehearsal trained one disposable candidate through the real
+engine, verified replay and the learner-input boundary, then quarantined it
+without changing the promoted learner.
 
-This is infrastructure, not a training result. No school lesson, sealed
-examination, promotion, or transfer-matrix cell has run, and no school
-capability is claimed yet. The next step is a bounded cross-seed learner and
-trainer rehearsal; the admission scripts are controls, not GUM.
+This is infrastructure plus an honestly failed development result, not a
+capability claim. The trained candidate and matched fresh learner each scored
+0/8; no official lesson, sealed examination, promotion, or transfer-matrix cell
+has run. The next step is to improve temporal cross-seed learning on public
+development data before freezing an official run.
 
 [Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
 [Read the GUM School engine boundary](docs/GUM_SCHOOL_ENGINE.md)
 [Read the foundational world admission](docs/GUM_SCHOOL_WORLDS.md)
+[Read the bounded training rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
 
 ## Research package
 
@@ -149,6 +151,7 @@ trainer rehearsal; the admission scripts are controls, not GUM.
 - [How the project evolved](docs/PROJECT_HISTORY.md)
 - [GUM School curriculum and promotion rules](docs/GUM_SCHOOL_CURRICULUM.md)
 - [GUM School engine and interruption safety](docs/GUM_SCHOOL_ENGINE.md)
+- [GUM School training lane and rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
 - [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)
@@ -175,11 +178,11 @@ Core verification:
 ```bash
 python -m pytest -q
 python -m gum.school curriculum/gum-school-v1.json
-python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_2.json
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_TRAINING_LANE.json
 ```
 
-The separate Phase 0, Phase 1, and v0.2.1 manifests remain immutable historical
-records; they are not regenerated when later source changes.
+The separate Phase 0, Phase 1, Phase 2, and v0.2.1 manifests remain immutable
+historical records; they are not regenerated when later source changes.
 
 The older neural experiments need `python -m pip install -e ".[dev,neural]"`.
 Some experiment suites are longer and have separate commands in [Reproducing the work](docs/REPRODUCING.md).

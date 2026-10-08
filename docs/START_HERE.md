@@ -31,6 +31,7 @@ A replay is an illustration. An audit file is evidence. Neither is independent r
 - [GUM School curriculum](GUM_SCHOOL_CURRICULUM.md) for the pre-training lesson, transfer, retention, and promotion specification
 - [GUM School engine](GUM_SCHOOL_ENGINE.md) for candidate isolation, rollback, recovery, and reporting
 - [GUM School foundational worlds](GUM_SCHOOL_WORLDS.md) for the three admitted adapters, boundaries, and dry-run baselines
+- [GUM School training lane](GUM_SCHOOL_TRAINING_LANE.md) for the quarantined development rehearsal and readiness decision
 - [Preliminary paper](PRELIMINARY_PAPER.md) for the research argument
 - [Claims and limitations](CLAIMS_AND_LIMITATIONS.md) for the boundaries
 

@@ -47,6 +47,19 @@ Pytest is intentional: unlike `unittest discover`, it collects both
 `unittest.TestCase` methods and the repository's module-level `test_*`
 functions.
 
+## GUM School development rehearsal
+
+Use a new empty workspace. The rehearsal uses only public training and
+development partitions and is deliberately unable to promote its candidate:
+
+```powershell
+python scripts/rehearse_school_training.py --workspace .test-temp/school-rehearsal
+python -m pytest -q tests/test_school_training.py
+```
+
+The command refuses to reuse a nonempty workspace. Its result is a systems and
+development check, not sealed evidence.
+
 ## Correct freeze procedure
 
 Never run an evaluation first and write its rules afterward. Use a new empty output directory.

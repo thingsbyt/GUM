@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-training-rehearsal",
+      "status": "failed-development",
+      "title": "GUM School training-lane rehearsal",
+      "headline": "0/8 candidate and 0/8 fresh; candidate safely quarantined",
+      "metrics": ["63 bounded training interactions", "Deterministic replay passed", "Promoted snapshot unchanged"],
+      "scope": "Public development-only rehearsal of the first lesson. Not sealed evidence, a promotion, or a capability claim.",
+      "evidence": "evidence/gum-school/rehearsal/foundational-lane-v1/REHEARSAL_REPORT.json"
+    },
+    {
       "id": "growth-v2",
       "status": "passed-internal",
       "title": "Concepts, skills, and transfer",
@@ -89,6 +98,7 @@
     {"id": "gallery", "title": "Demo gallery", "file": "docs/DEMO_GALLERY.md"},
     {"id": "school-handoff", "title": "GUM School handoff", "file": "docs/GUM_SCHOOL_HANDOFF.md"},
     {"id": "school-worlds", "title": "GUM School foundational worlds", "file": "docs/GUM_SCHOOL_WORLDS.md"},
+    {"id": "school-training", "title": "GUM School training lane", "file": "docs/GUM_SCHOOL_TRAINING_LANE.md"},
     {"id": "collaboration", "title": "Human–AI collaboration", "file": "AI_COLLABORATION.md"}
   ]
 }

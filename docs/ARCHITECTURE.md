@@ -17,6 +17,12 @@ registered, source-reviewed adapters behind strict data-only world packages.
 Their admission audit verifies protocol, hidden-state boundary, baseline,
 horizon, replay, and evidence checks before training.
 
+The training lane adds a strict JSON learner whose action-value parameters are
+shared by adapter rather than exact world identity. Candidate training is
+bounded, evaluation reads a frozen snapshot, and public development rehearsals
+are explicitly unable to satisfy the sealed-protocol gates. The first such
+rehearsal was quarantined without moving the promoted pointer.
+
 ## The shortest explanation
 
 GUM has five jobs:

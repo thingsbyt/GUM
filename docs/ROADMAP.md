@@ -1,6 +1,6 @@
 # Roadmap
 
-## Current: GUM School Phase 2
+## Current: GUM School training lane
 
 - authored curriculum for all ten planned schools and twelve capability grades;
 - machine-readable foundational sequence for Object Laboratory, Causal
@@ -18,12 +18,17 @@
 - strict data-only world packages and a closed six-generator registry; and
 - deterministic admission evidence covering horizons, replay, leakage,
   inspection, and random/scripted controls.
+- a strict persistent learner whose parameters are shared across seeds;
+- bounded candidate training and matched-fresh development evaluation;
+- deterministic evaluation replay and source/artifact hashing; and
+- a real engine rehearsal that quarantined the candidate and preserved the
+  promoted snapshot.
 
-Phase 2 still does not train GUM. The foundational adapters are admitted, but
-the existing exact-world tabular learner is not suitable for the curriculum's
-cross-seed claims. The next milestone is a bounded learner/trainer lane and a
-non-promoting end-to-end rehearsal that produces strict Phase 1 evidence. Only
-after that rehearsal should an official curriculum run begin.
+The rehearsal candidate scored 0/8, equal to its matched fresh control. The
+systems lane is working, but the learner is not ready for an official run. The
+next milestone is a stronger temporal learner calibrated only on public
+training and development partitions. After that, freeze the complete evaluated
+system and let an independent evaluator select withheld examination material.
 
 ## Now: frozen research snapshot
 

@@ -1,6 +1,16 @@
 # Changelog
 
-## Unreleased — GUM School Phase 2
+## Unreleased — GUM School training lane
+
+- Added a strict persistent cross-seed learner, bounded trainer, matched-fresh
+  development evaluator, deterministic replay, and one-shot rehearsal command.
+- Ran the first lesson through the actual candidate/evaluation/decision engine
+  using public partitions only. The candidate scored 0/8, was quarantined, and
+  left the promoted snapshot unchanged.
+- Preserved the failed run and hashes as development evidence without claiming
+  a sealed evaluation, promotion, transfer result, or learned capability.
+
+### Phase 2 foundational worlds
 
 - Added admitted Object Laboratory, Causal Workshop, and Changing Maze
   adapters with occlusion, ordered causal intervention, local navigation,

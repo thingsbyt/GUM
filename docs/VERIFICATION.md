@@ -1,5 +1,38 @@
 # Frozen release verification
 
+## GUM School training-lane verification
+
+The development-only training lane was verified on 2026-10-08. A fresh
+cross-seed learner ran through the real candidate, frozen evaluation, gate, and
+quarantine lifecycle using only public training and development seeds:
+
+```powershell
+python scripts/rehearse_school_training.py --workspace .test-temp/school-rehearsal
+python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py tests/test_school_worlds.py tests/test_school_training.py
+```
+
+The focused school suite passed **60/60 tests**. The complete repository suite
+passed **327/327 tests** in 149.28 seconds and emitted only the existing PyTorch
+scalar-conversion warning in `tests/test_method.py`.
+The secured Studio smoke test, documentation/package links, installed
+dependencies, and public-package integrity scan also passed.
+
+The saved run used 63 training interactions over eight episodes. The trained
+candidate and matched fresh learner each scored 0/8 on development trials.
+Replay and input-boundary verification passed; sealed-performance,
+evidence-integrity, and control-advantage failed. The engine quarantined the
+candidate, preserved the initial promoted snapshot, and recorded no promoted
+lesson. The canonical report digest is
+`sha256:99ddb90a0361e335ce4e8c210daf7e0055df87eff83974b3e25e0454e5bcfde5`.
+
+This verifies the training system's safety path, not first-lesson competence.
+No sealed data was generated or used, and no promotion or transfer claim
+follows. Verify the exact tree with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_TRAINING_LANE.json
+```
+
 ## GUM School Phase 2 verification
 
 Phase 2 was verified on 2026-10-08 without running a curriculum lesson,
