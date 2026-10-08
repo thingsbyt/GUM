@@ -121,18 +121,20 @@ The strongest defensible description is:
 
 ## GUM School
 
-GUM School now has a reviewed specification and a Phase 1 lifecycle engine: a
-human-readable curriculum, strict machine schemas, a validated six-lesson
-foundational sequence, content-addressed candidate snapshots, computed
-promotion gates, quarantine, interruption recovery, and append-only reporting.
+GUM School now has a reviewed curriculum, a crash-resumable promotion engine,
+and admitted Object Laboratory, Causal Workshop, and Changing Maze adapters.
+Their deterministic reset, horizon, replay, inspection, leakage boundary,
+data-only packaging, and random/scripted controls have machine-readable
+evidence.
 
-This is infrastructure, not a training result. The Object
-Laboratory, Causal Workshop, and Changing Maze adapters are explicitly marked
-`specified-not-admitted`; no school lesson has run and no school capability is
-claimed yet.
+This is infrastructure, not a training result. No school lesson, sealed
+examination, promotion, or transfer-matrix cell has run, and no school
+capability is claimed yet. The next step is a bounded cross-seed learner and
+trainer rehearsal; the admission scripts are controls, not GUM.
 
 [Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
 [Read the GUM School engine boundary](docs/GUM_SCHOOL_ENGINE.md)
+[Read the foundational world admission](docs/GUM_SCHOOL_WORLDS.md)
 
 ## Research package
 
@@ -173,11 +175,11 @@ Core verification:
 ```bash
 python -m pytest -q
 python -m gum.school curriculum/gum-school-v1.json
-python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_1.json
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_2.json
 ```
 
-The separate Phase 0 and v0.2.1 manifests remain immutable historical records;
-they are not regenerated when later source changes.
+The separate Phase 0, Phase 1, and v0.2.1 manifests remain immutable historical
+records; they are not regenerated when later source changes.
 
 The older neural experiments need `python -m pip install -e ".[dev,neural]"`.
 Some experiment suites are longer and have separate commands in [Reproducing the work](docs/REPRODUCING.md).

@@ -17,6 +17,7 @@ from .world_creator import WorldCreator, load_world
 from .builtin_worlds import (ASTEROIDS_ADAPTER, IMMUNE_ADAPTER, create_builtin_world,
                              load_asteroids, load_immune)
 from .specialist_minds import CooperativeTeamMind
+from .school.worlds import FOUNDATIONAL_LOADERS, create_foundational_world
 
 
 class GUMHarness:
@@ -31,6 +32,8 @@ class GUMHarness:
         self.adapters = AdapterRegistry(); self.adapters.register("gum-grid-v1", load_world)
         self.adapters.register(ASTEROIDS_ADAPTER, load_asteroids)
         self.adapters.register(IMMUNE_ADAPTER, load_immune)
+        for adapter, loader in FOUNDATIONAL_LOADERS.items():
+            self.adapters.register(adapter, loader)
         self.mind_path = self.workspace / "GUM_MIND.json"
         self.mind = PixelQLearner.load(self.mind_path) if self.mind_path.exists() else PixelQLearner()
         self.language_path = self.workspace / "GROUNDED_LANGUAGE_MEMORY.json"
@@ -70,6 +73,21 @@ class GUMHarness:
         self.load_world(folder)
         self.ledger.append("builtin-world-created", {"family": family, "world_id": folder.name,
             "private_genome_sha256": file_sha256(folder / "genome.private.json")})
+        return folder
+
+    def create_school_world(self, adapter: str, *, seed: int, mechanism: str = "mixed"):
+        folder = create_foundational_world(
+            self.world_root, adapter, seed=seed, mechanism=mechanism
+        )
+        self.load_world(folder)
+        self.ledger.append(
+            "school-world-created",
+            {
+                "adapter": adapter,
+                "world_id": folder.name,
+                "private_genome_sha256": file_sha256(folder / "genome.private.json"),
+            },
+        )
         return folder
 
     def register_perception_service(self, name: str, service):

@@ -12,9 +12,10 @@ Phase 1 implements the generic lifecycle in `gum.school`: content-addressed
 snapshots keep the last promoted mind isolated, training touches only a run
 candidate, evaluation uses a separate frozen copy, and all seven precommitted
 gates must pass before atomic pointer replacement. Prepared decisions resume
-without double promotion after interruption. Planned school adapters are
-allowlisted identifiers but are not runtime-admitted until their protocol,
-hidden-state, baseline, horizon, replay, and evidence checks pass.
+without double promotion after interruption. Phase 2 adds three explicitly
+registered, source-reviewed adapters behind strict data-only world packages.
+Their admission audit verifies protocol, hidden-state boundary, baseline,
+horizon, replay, and evidence checks before training.
 
 ## The shortest explanation
 

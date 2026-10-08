@@ -69,7 +69,8 @@ def test_all_school_schemas_are_valid_draft_2020_12_documents():
 def test_official_curriculum_passes_structural_and_semantic_validation():
     curriculum = validate_curriculum_file()
     assert curriculum["curriculum_id"] == "gum-school-v1"
-    assert curriculum["status"] == "specified-not-trained"
+    assert curriculum["phase"] == 2
+    assert curriculum["status"] == "adapters-admitted-not-trained"
 
 
 def test_curriculum_is_an_authored_foundational_sequence_not_random_tasks():
@@ -117,7 +118,7 @@ def test_prerequisites_retention_and_transfer_design_are_machine_enforced():
     assert matrix["branch_origin"] == "pre-curriculum-promoted-snapshot"
     assert len(matrix["source_schools"]) * len(matrix["targets"]) == 9
     assert matrix["target_evaluation_training"] is False
-    assert curriculum["policies"]["budgets"]["status"] == "provisional-until-adapter-admission"
+    assert curriculum["policies"]["budgets"]["status"] == "frozen-after-adapter-admission"
     declared_trials = sum(
         lesson["baseline"]["trials"]
         + lesson["evaluation"]["trials"]
@@ -140,12 +141,12 @@ def test_public_curriculum_contains_commitments_not_sealed_seed_lists_or_answers
         assert examination["selection"]["commitment_scope"] == "selection-protocol"
 
 
-def test_worlds_remain_unadmitted_until_phase_two_checks_have_evidence():
+def test_worlds_are_admitted_only_with_phase_two_evidence():
     curriculum = validate_curriculum_file()
     for admission in curriculum["world_admissions"]:
-        assert admission["status"] == "specified-not-admitted"
-        assert not admission["evidence_hashes"]
-        assert set(admission["checks"].values()) == {"required-before-admission"}
+        assert admission["status"] == "admitted"
+        assert admission["evidence_hashes"]
+        assert set(admission["checks"].values()) == {"passed", "nontrivial"}
 
 
 @pytest.mark.parametrize("fixture_path", sorted(FIXTURE_DIRECTORY.glob("*.json")), ids=lambda path: path.stem)

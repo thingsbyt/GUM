@@ -7,11 +7,11 @@ It accompanies [`curriculum/gum-school-v1.json`](../curriculum/gum-school-v1.jso
 and the strict schemas beginning with
 [`gum-school-curriculum-v1.schema.json`](../curriculum/schemas/gum-school-curriculum-v1.schema.json).
 
-**Phase 0 is specification only.** No lesson in this document has trained GUM,
-no new world adapter is admitted, and no result is claimed. The machine file is
-marked `specified-not-trained`; the three foundational adapter records are
-marked `specified-not-admitted`. Their checks must produce evidence before a
-school runner may load them.
+The curriculum is now at **Phase 2: adapters admitted, not trained**. No lesson
+in this document has trained GUM and no learning result is claimed. The machine
+file is marked `adapters-admitted-not-trained`; the three foundational adapter
+records link to the deterministic admission evidence described in
+[`GUM_SCHOOL_WORLDS.md`](GUM_SCHOOL_WORLDS.md).
 
 The curriculum asks whether a persistent learner can gain reusable competence
 from an authored sequence of meaningfully different worlds. A high score on a
@@ -230,9 +230,10 @@ automatically covers every capability of every previously promoted lesson, with
 the listed `protected_skills` acting as an explicit minimum rather than the
 complete set.
 
-The numeric budgets are precommitted safety ceilings but remain
-`provisional-until-adapter-admission`. Admission dry runs may justify a new
-curriculum version; they may not silently change the frozen v1 thresholds.
+The numeric budgets were precommitted safety ceilings and are now marked
+`frozen-after-adapter-admission`. Phase 2 dry runs did not change their numeric
+values. Any later change requires a new curriculum version; it may not silently
+alter the frozen v1 thresholds.
 
 ## Seed and examination policy
 
@@ -362,8 +363,9 @@ these are evidenced:
 10. world data cannot execute arbitrary code.
 
 The admission schema conditionally requires passed checks and at least one
-evidence hash for `admitted`. Phase 0 supplies no such hash because those
-adapters do not yet exist.
+evidence hash for `admitted`. Phase 2 satisfies that condition with the shared
+foundational admission report. It covers adapter behavior and public
+observation controls only, not GUM learning or sealed evaluation.
 
 ## Validation and adversarial fixtures
 

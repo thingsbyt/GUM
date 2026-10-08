@@ -1,6 +1,18 @@
 # Changelog
 
-## Unreleased — GUM School Phase 1
+## Unreleased — GUM School Phase 2
+
+- Added admitted Object Laboratory, Causal Workshop, and Changing Maze
+  adapters with occlusion, ordered causal intervention, local navigation,
+  topology change, and control-remapping mechanisms.
+- Added strict data-only world packages, explicit adapter registration, and a
+  closed mapping for all six authored curriculum generators.
+- Added deterministic admission checks for contracts, reset, hard horizons,
+  inspection copies, replay, hidden-state boundaries, and baseline separation.
+- Recorded 24-trial random and public-observation scripted controls for every
+  foundational adapter without running GUM training or sealed evaluation.
+
+### Phase 1 foundation
 
 - Added the complete human-readable GUM School curriculum and exact promotion,
   retention, transfer-matrix, sealed-evaluation, and rollback rules.

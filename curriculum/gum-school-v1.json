@@ -3,8 +3,8 @@
   "curriculum_id": "gum-school-v1",
   "title": "GUM School foundational authored curriculum",
   "version": 1,
-  "phase": 0,
-  "status": "specified-not-trained",
+  "phase": 2,
+  "status": "adapters-admitted-not-trained",
   "adapter_catalog": [
     "gum-grid-v1",
     "gum-two-rocket-asteroids-v1",
@@ -65,7 +65,7 @@
       "may_view_sealed_data": false
     },
     "budgets": {
-      "status": "provisional-until-adapter-admission",
+      "status": "frozen-after-adapter-admission",
       "maximum_total_training_interactions": 100000,
       "maximum_lesson_interactions": 20000,
       "maximum_evaluation_trials": 1000
@@ -93,7 +93,7 @@
       "title": "Object Laboratory adapter admission specification",
       "school": "object-laboratory",
       "adapter": "gum-object-laboratory-v1",
-      "status": "specified-not-admitted",
+      "status": "admitted",
       "protocol_version": 1,
       "source_review_required": true,
       "world_packages_are_data": true,
@@ -112,15 +112,15 @@
         "sealed_seed_commitment": "sha256:378ce197b4d8f98b81c97fc2d4501a83205e7a7d44d984e1ef2ea7aa8e4c0451"
       },
       "checks": {
-        "deterministic_reset": "required-before-admission",
-        "hard_horizon": "required-before-admission",
-        "safe_inspection": "required-before-admission",
-        "replay": "required-before-admission",
-        "hidden_state_leakage": "required-before-admission",
-        "random_baseline": "required-before-admission",
-        "scripted_baseline": "required-before-admission"
+        "deterministic_reset": "passed",
+        "hard_horizon": "passed",
+        "safe_inspection": "passed",
+        "replay": "passed",
+        "hidden_state_leakage": "passed",
+        "random_baseline": "nontrivial",
+        "scripted_baseline": "nontrivial"
       },
-      "evidence_hashes": []
+      "evidence_hashes": ["sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"]
     },
     {
       "schema": "gum-school-world-admission-v1",
@@ -128,7 +128,7 @@
       "title": "Causal Workshop adapter admission specification",
       "school": "causal-workshop",
       "adapter": "gum-causal-workshop-v1",
-      "status": "specified-not-admitted",
+      "status": "admitted",
       "protocol_version": 1,
       "source_review_required": true,
       "world_packages_are_data": true,
@@ -147,15 +147,15 @@
         "sealed_seed_commitment": "sha256:7c643e564c1d86d0402919635c2ac7f1bddb7b94ac8ebc04bf7cd2b14ac17d36"
       },
       "checks": {
-        "deterministic_reset": "required-before-admission",
-        "hard_horizon": "required-before-admission",
-        "safe_inspection": "required-before-admission",
-        "replay": "required-before-admission",
-        "hidden_state_leakage": "required-before-admission",
-        "random_baseline": "required-before-admission",
-        "scripted_baseline": "required-before-admission"
+        "deterministic_reset": "passed",
+        "hard_horizon": "passed",
+        "safe_inspection": "passed",
+        "replay": "passed",
+        "hidden_state_leakage": "passed",
+        "random_baseline": "nontrivial",
+        "scripted_baseline": "nontrivial"
       },
-      "evidence_hashes": []
+      "evidence_hashes": ["sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"]
     },
     {
       "schema": "gum-school-world-admission-v1",
@@ -163,7 +163,7 @@
       "title": "Changing Maze adapter admission specification",
       "school": "changing-maze",
       "adapter": "gum-changing-maze-v1",
-      "status": "specified-not-admitted",
+      "status": "admitted",
       "protocol_version": 1,
       "source_review_required": true,
       "world_packages_are_data": true,
@@ -182,15 +182,15 @@
         "sealed_seed_commitment": "sha256:5f72e2e26f3a1e1de722ea0d231cdbb89b2f967c30b3d25b25b548cd4f8c35a0"
       },
       "checks": {
-        "deterministic_reset": "required-before-admission",
-        "hard_horizon": "required-before-admission",
-        "safe_inspection": "required-before-admission",
-        "replay": "required-before-admission",
-        "hidden_state_leakage": "required-before-admission",
-        "random_baseline": "required-before-admission",
-        "scripted_baseline": "required-before-admission"
+        "deterministic_reset": "passed",
+        "hard_horizon": "passed",
+        "safe_inspection": "passed",
+        "replay": "passed",
+        "hidden_state_leakage": "passed",
+        "random_baseline": "nontrivial",
+        "scripted_baseline": "nontrivial"
       },
-      "evidence_hashes": []
+      "evidence_hashes": ["sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7"]
     }
   ],
   "examinations": [

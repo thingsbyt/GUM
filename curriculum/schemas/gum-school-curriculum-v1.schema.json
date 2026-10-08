@@ -24,8 +24,8 @@
     "curriculum_id": {"const": "gum-school-v1"},
     "title": {"type": "string", "minLength": 8, "maxLength": 120},
     "version": {"const": 1},
-    "phase": {"const": 0},
-    "status": {"const": "specified-not-trained"},
+    "phase": {"const": 2},
+    "status": {"const": "adapters-admitted-not-trained"},
     "adapter_catalog": {
       "type": "array",
       "minItems": 3,
@@ -120,7 +120,7 @@
           "additionalProperties": false,
           "required": ["status", "maximum_total_training_interactions", "maximum_lesson_interactions", "maximum_evaluation_trials"],
           "properties": {
-            "status": {"const": "provisional-until-adapter-admission"},
+            "status": {"const": "frozen-after-adapter-admission"},
             "maximum_total_training_interactions": {"type": "integer", "minimum": 1, "maximum": 100000000},
             "maximum_lesson_interactions": {"type": "integer", "minimum": 1, "maximum": 10000000},
             "maximum_evaluation_trials": {"type": "integer", "minimum": 1, "maximum": 1000000}

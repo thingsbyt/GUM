@@ -1,5 +1,45 @@
 # Frozen release verification
 
+## GUM School Phase 2 verification
+
+Phase 2 was verified on 2026-10-08 without running a curriculum lesson,
+generating sealed examination worlds, promoting a learner, or filling a
+transfer-matrix cell. The focused curriculum, lifecycle, and world suite passed
+**54/54 tests**:
+
+```powershell
+python -m gum.school curriculum/gum-school-v1.json
+python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py tests/test_school_worlds.py
+python scripts/admit_school_worlds.py --trials 24
+```
+
+The admission audit passed all three adapters and produced the evidence digest
+`sha256:8fa1317698b9e8689b4a0169cfe6a939074369089fddc967ae83ebadea9c61f7`.
+Every adapter passed contract, deterministic-reset, hard-horizon,
+copy-safe-inspection, replay, hidden-state-boundary, and data-only-package
+checks. Public-observation scripted controls achieved 24/24 in each world; the
+corresponding random controls achieved 14/24, 22/24, and 1/24. The causal result
+is admitted on a large efficiency separation as well as a smaller success
+difference: 16.71 versus 72.54 mean interactions.
+
+The complete repository suite passed **321/321 tests** in 146.58 seconds on
+Python 3.12. The first sandboxed attempt produced eight loopback permission
+errors in existing web-interface tests; the complete suite was rerun with local
+loopback permission and passed. It emitted the existing PyTorch
+scalar-conversion warning in `tests/test_method.py`. The secured Studio smoke
+test, package/link check, dependency check, and public-package integrity scan
+also passed, with zero publication-leak hits.
+
+This proves that the worlds satisfy their implemented admission contract. It
+does not prove that GUM can learn them. The scripted controls are independent
+admission probes, not the GUM learner, and no sealed or promotion claim follows.
+
+Verify the exact Phase 2 tree with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_PHASE_2.json
+```
+
 ## GUM School Phase 1 verification
 
 The reviewed curriculum and generic school lifecycle were verified on

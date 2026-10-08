@@ -1,6 +1,6 @@
 # Roadmap
 
-## Current: GUM School Phase 1
+## Current: GUM School Phase 2
 
 - authored curriculum for all ten planned schools and twelve capability grades;
 - machine-readable foundational sequence for Object Laboratory, Causal
@@ -13,11 +13,17 @@
 - strict evaluation records and computed seven-gate decisions;
 - quarantine, atomic pointer promotion, and interruption recovery; and
 - append-only decision and isolated-source transfer-matrix reporting.
+- source-reviewed Object Laboratory, Causal Workshop, and Changing Maze
+  adapters with distinct mechanisms;
+- strict data-only world packages and a closed six-generator registry; and
+- deterministic admission evidence covering horizons, replay, leakage,
+  inspection, and random/scripted controls.
 
-Phase 1 does not train GUM. Its three planned world adapters remain
-`specified-not-admitted`. The next implementation milestone is source-reviewed
-Object Laboratory, Causal Workshop, and Changing Maze adapters that pass the
-admission contract before any evaluated run.
+Phase 2 still does not train GUM. The foundational adapters are admitted, but
+the existing exact-world tabular learner is not suitable for the curriculum's
+cross-seed claims. The next milestone is a bounded learner/trainer lane and a
+non-promoting end-to-end rehearsal that produces strict Phase 1 evidence. Only
+after that rehearsal should an official curriculum run begin.
 
 ## Now: frozen research snapshot
 

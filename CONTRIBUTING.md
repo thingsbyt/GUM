@@ -7,7 +7,8 @@ must keep the schemas strict and pass both validation layers:
 
 ```powershell
 python -m gum.school curriculum/gum-school-v1.json
-python -m pytest -q tests/test_school_curriculum.py
+python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py tests/test_school_worlds.py
+python scripts/admit_school_worlds.py --trials 24
 ```
 
 Do not add sealed seed lists, action maps, answer keys, successful sequences, or
