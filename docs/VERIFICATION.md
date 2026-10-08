@@ -1,5 +1,37 @@
 # Frozen release verification
 
+## GUM School sealed-promotion verification
+
+The first official lesson was run on 2026-10-08 from frozen source commit
+`3237986684115e23c522d3f25f7599872ec22f45`. Training completed before the
+evaluator selected and committed its 32 withheld seeds:
+
+```powershell
+python scripts/run_school_sealed_exam.py --workspace evidence/gum-school/sealed/object-laboratory-occlusion-v1
+python -m pytest -q tests/test_school_sealed.py tests/test_school_training.py tests/test_school_engine.py tests/test_school_worlds.py tests/test_school_curriculum.py
+```
+
+The trained swarm scored 32/32, matched fresh scored 0/32, and random scored
+14/32. The success lower bound was 0.893, fresh advantage was 32.0, exact replay
+passed, and no private world package remained in the saved evidence. All seven
+gates passed and the engine promoted snapshot
+`sha256-2ce4ead31ceb61f73b70af8ed19cfd60ec70e293031d926c9e2ea208b1cacee5`.
+Training used 239 interactions; training plus candidate, controls, and replay
+used 5,869 interactions.
+
+The focused school suite passed **66/66 tests**. The complete repository suite
+passed **333/333 tests** in 160.96 seconds, with only the existing PyTorch
+scalar-conversion warning. Package checks, dependency checks, curriculum
+validation, and the publication-integrity scan passed. The canonical sealed
+report digest is
+`sha256:d79eae166176147be86e743a27797737dfb6485e1555120f7eacc99ab012ffa5`.
+
+Verify the final tree with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_SEALED_PROMOTION.json
+```
+
 ## GUM School training-lane verification
 
 The development-only training lane was verified on 2026-10-08. A fresh
@@ -11,8 +43,8 @@ python scripts/rehearse_school_training.py --workspace .test-temp/school-rehears
 python -m pytest -q tests/test_school_curriculum.py tests/test_school_engine.py tests/test_school_worlds.py tests/test_school_training.py
 ```
 
-The focused school suite passed **63/63 tests**. The complete repository suite
-passed **330/330 tests** in 158.67 seconds and emitted only the existing PyTorch
+The then-current focused school suite passed **63/63 tests**. The then-current
+complete repository suite passed **330/330 tests** in 158.67 seconds and emitted only the existing PyTorch
 scalar-conversion warning in `tests/test_method.py`.
 The secured Studio smoke test, documentation/package links, installed
 dependencies, and public-package integrity scan also passed.
@@ -27,7 +59,9 @@ Replay and input-boundary verification passed. Sealed-performance and
 evidence-integrity failed by design, because no sealed protocol was used. The
 engine quarantined the candidate, preserved the initial promoted snapshot, and
 recorded no promoted lesson. The canonical report digest is
-`sha256:864f02550bc880df4f667e1e52182c7993eb106031bca2667016b7c261d485bd`.
+The rehearsal was regenerated after the sealed-world source addition; its
+current digest is
+`sha256:78652decca994b623eb984722425b5d157b0258812222e0b36bdd37e79a12fa4`.
 
 This establishes narrow first-lesson development learning, not an official
 curriculum pass. Pixel tracking is engineered; anonymous action values are

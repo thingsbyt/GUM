@@ -1,0 +1,3736 @@
+{
+  "development_or_sealed": false,
+  "format": "gum-school-training-trajectories-v1",
+  "rows": [
+    {
+      "episode": 0,
+      "interactions": 7,
+      "return": -1.09,
+      "root_training_seed": 11001,
+      "seed": 11001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "cc99f5bda52aeffcd645a470",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "747a899a0bfa8e96016230f5",
+          "observation": "cc99f5bda52aeffcd645a470",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "747a899a0bfa8e96016230f5",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "d0ef2227dd064e22db9c5271",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "4003f45ddb33f2a520c1f3b3",
+          "observation": "d0ef2227dd064e22db9c5271",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "d56e8d74a3dde82b2e94da68",
+          "observation": "4003f45ddb33f2a520c1f3b3",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "d56e8d74a3dde82b2e94da68",
+          "observation": "d56e8d74a3dde82b2e94da68",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 1,
+      "interactions": 7,
+      "return": -1.09,
+      "root_training_seed": 11001,
+      "seed": 1011001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "2163e6ebf35b1655e324b5e2",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "89fd3f04b7497ad33254ac02",
+          "observation": "2163e6ebf35b1655e324b5e2",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "89fd3f04b7497ad33254ac02",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "306b8b2990ae81ebbbac66ca",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "bee3ab29a6eedf256957bfa3",
+          "observation": "306b8b2990ae81ebbbac66ca",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "db8aca4f78fe7642fb65d9a6",
+          "observation": "bee3ab29a6eedf256957bfa3",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "db8aca4f78fe7642fb65d9a6",
+          "observation": "db8aca4f78fe7642fb65d9a6",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 2,
+      "interactions": 9,
+      "return": -1.12,
+      "root_training_seed": 11001,
+      "seed": 2011001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "1778981eb762caaade005a99",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "6ff174b5c1bbaa61b2809ab0",
+          "observation": "1778981eb762caaade005a99",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "6ff174b5c1bbaa61b2809ab0",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "7191348a8a36351d03f9b25a",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "19ec6993f56ee467a648d2b7",
+          "observation": "7191348a8a36351d03f9b25a",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "19ec6993f56ee467a648d2b7",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "b9a0c27397f99ede395cd95f",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "b9a0c27397f99ede395cd95f",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 7,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "b9a0c27397f99ede395cd95f",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 8,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 9,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 3,
+      "interactions": 8,
+      "return": -1.11,
+      "root_training_seed": 11001,
+      "seed": 3011001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "eafbf5e5ce7d694d476be700",
+          "observation": "21a6ebc1a58384021f5a2b1a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "75f925b8903db0e29cffb33a",
+          "observation": "eafbf5e5ce7d694d476be700",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "75f925b8903db0e29cffb33a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d629b3486327fc9dc1edc889",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "ba150d7a7f770cf125c8d69e",
+          "observation": "d629b3486327fc9dc1edc889",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "ba150d7a7f770cf125c8d69e",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "3cb0b43493dda15c45604077",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "3cb0b43493dda15c45604077",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 7,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 8,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 4,
+      "interactions": 9,
+      "return": -1.09,
+      "root_training_seed": 11001,
+      "seed": 4011001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "65c5e7d50ebae9a2ef8d77da",
+          "observation": "21a6ebc1a58384021f5a2b1a",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "07763e08c1f947b6d326df6e",
+          "observation": "65c5e7d50ebae9a2ef8d77da",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "07763e08c1f947b6d326df6e",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "bb3a59fcb65d0e2040534a26",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "9b9be0d75d454031188c2507",
+          "observation": "bb3a59fcb65d0e2040534a26",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "b78043a762641cb5d5dbbaec",
+          "observation": "9b9be0d75d454031188c2507",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "b78043a762641cb5d5dbbaec",
+          "observation": "b78043a762641cb5d5dbbaec",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "b78043a762641cb5d5dbbaec",
+          "observation": "b78043a762641cb5d5dbbaec",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 7,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "b78043a762641cb5d5dbbaec",
+          "observation": "b78043a762641cb5d5dbbaec",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 8,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 9,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 5,
+      "interactions": 8,
+      "return": -1.1,
+      "root_training_seed": 11001,
+      "seed": 5011001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "24877c59638762ab35cfe5dd",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "0a966b9fb503dbf375eade6c",
+          "observation": "24877c59638762ab35cfe5dd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "0a966b9fb503dbf375eade6c",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "ae498f39b7b6c39451aa1651",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "dd2e57874c8db86a6ce5e7ec",
+          "observation": "ae498f39b7b6c39451aa1651",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "dd2e57874c8db86a6ce5e7ec",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "d4a84199cf5e74712a8ccaf2",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "d4a84199cf5e74712a8ccaf2",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 7,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 8,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 6,
+      "interactions": 7,
+      "return": -1.12,
+      "root_training_seed": 11001,
+      "seed": 6011001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "24877c59638762ab35cfe5dd",
+          "observation": "21a6ebc1a58384021f5a2b1a",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "0a966b9fb503dbf375eade6c",
+          "observation": "24877c59638762ab35cfe5dd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "0a966b9fb503dbf375eade6c",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "ae498f39b7b6c39451aa1651",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "dd2e57874c8db86a6ce5e7ec",
+          "observation": "ae498f39b7b6c39451aa1651",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "dd2e57874c8db86a6ce5e7ec",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "d4a84199cf5e74712a8ccaf2",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 7,
+      "interactions": 9,
+      "return": -1.13,
+      "root_training_seed": 11001,
+      "seed": 7011001,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "1778981eb762caaade005a99",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "6ff174b5c1bbaa61b2809ab0",
+          "observation": "1778981eb762caaade005a99",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "6ff174b5c1bbaa61b2809ab0",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "7191348a8a36351d03f9b25a",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "19ec6993f56ee467a648d2b7",
+          "observation": "7191348a8a36351d03f9b25a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "19ec6993f56ee467a648d2b7",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "b9a0c27397f99ede395cd95f",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "b9a0c27397f99ede395cd95f",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 7,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "b9a0c27397f99ede395cd95f",
+          "observation": "b9a0c27397f99ede395cd95f",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 8,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 9,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 0,
+      "interactions": 9,
+      "return": -1.15,
+      "root_training_seed": 11002,
+      "seed": 11002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "cc99f5bda52aeffcd645a470",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "747a899a0bfa8e96016230f5",
+          "observation": "cc99f5bda52aeffcd645a470",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "747a899a0bfa8e96016230f5",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d0ef2227dd064e22db9c5271",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "4003f45ddb33f2a520c1f3b3",
+          "observation": "d0ef2227dd064e22db9c5271",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d56e8d74a3dde82b2e94da68",
+          "observation": "4003f45ddb33f2a520c1f3b3",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d56e8d74a3dde82b2e94da68",
+          "observation": "d56e8d74a3dde82b2e94da68",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "d56e8d74a3dde82b2e94da68",
+          "observation": "d56e8d74a3dde82b2e94da68",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 7,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "d56e8d74a3dde82b2e94da68",
+          "observation": "d56e8d74a3dde82b2e94da68",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 8,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 9,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 1,
+      "interactions": 7,
+      "return": -1.11,
+      "root_training_seed": 11002,
+      "seed": 1011002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "38a01608e4038bf6de0458b9",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "edc9ac5667f6c5333d260ee9",
+          "observation": "38a01608e4038bf6de0458b9",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "edc9ac5667f6c5333d260ee9",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "260afbfd42582c6977165e30",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "d972d1ac6cb8b9ca633f9386",
+          "observation": "260afbfd42582c6977165e30",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "ca92cab6ff354fdce54a3f04",
+          "observation": "d972d1ac6cb8b9ca633f9386",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "ca92cab6ff354fdce54a3f04",
+          "observation": "ca92cab6ff354fdce54a3f04",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 2,
+      "interactions": 7,
+      "return": -1.12,
+      "root_training_seed": 11002,
+      "seed": 2011002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "30be519e53df1f7b732e1a7b",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "9d8102fc0b83f9760045852f",
+          "observation": "30be519e53df1f7b732e1a7b",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0017484696428384794,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "9d8102fc0b83f9760045852f",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "2d1d49cb9c0c9aa074acd315",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "d619445560b1187e3d91eb35",
+          "observation": "2d1d49cb9c0c9aa074acd315",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "bb5a7dccdf7f5553154bb5b7",
+          "observation": "d619445560b1187e3d91eb35",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "bb5a7dccdf7f5553154bb5b7",
+          "observation": "bb5a7dccdf7f5553154bb5b7",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 3,
+      "interactions": 7,
+      "return": -1.11,
+      "root_training_seed": 11002,
+      "seed": 3011002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "4567a14a253af2c44a659b5a",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "969deebe78b622eac96363c4",
+          "observation": "4567a14a253af2c44a659b5a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "969deebe78b622eac96363c4",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "20067f82700577e81497180b",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "2733ed2c1669afefdb9f5895",
+          "observation": "20067f82700577e81497180b",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "2733ed2c1669afefdb9f5895",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "a964651caf7a882d11c1f019",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 4,
+      "interactions": 8,
+      "return": -1.13,
+      "root_training_seed": 11002,
+      "seed": 4011002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 4,
+          "confidence": 0.0033194783090694235,
+          "next_observation": "24877c59638762ab35cfe5dd",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "0a966b9fb503dbf375eade6c",
+          "observation": "24877c59638762ab35cfe5dd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "0a966b9fb503dbf375eade6c",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "ae498f39b7b6c39451aa1651",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "dd2e57874c8db86a6ce5e7ec",
+          "observation": "ae498f39b7b6c39451aa1651",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "dd2e57874c8db86a6ce5e7ec",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "d4a84199cf5e74712a8ccaf2",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "d4a84199cf5e74712a8ccaf2",
+          "observation": "d4a84199cf5e74712a8ccaf2",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 7,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 8,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 5,
+      "interactions": 7,
+      "return": -1.11,
+      "root_training_seed": 11002,
+      "seed": 5011002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 4,
+          "confidence": 0.0015737603384077259,
+          "next_observation": "3b150decddc0d1f2aa879e88",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "cafb26c26db7ddf37380d698",
+          "observation": "3b150decddc0d1f2aa879e88",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "cafb26c26db7ddf37380d698",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "89366e3ca4d85a6f4574d6d2",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "e80c5190046fd426a96bca90",
+          "observation": "89366e3ca4d85a6f4574d6d2",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "4cf33b6ba855cc09f3dca019",
+          "observation": "e80c5190046fd426a96bca90",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "4cf33b6ba855cc09f3dca019",
+          "observation": "4cf33b6ba855cc09f3dca019",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 6,
+      "interactions": 7,
+      "return": -1.12,
+      "root_training_seed": 11002,
+      "seed": 6011002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 4,
+          "confidence": 0.00017498468839316494,
+          "next_observation": "1e5c211a14c697bf95b852ab",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "e57ce37f63f44ea9423359e9",
+          "observation": "1e5c211a14c697bf95b852ab",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "e57ce37f63f44ea9423359e9",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "23edacdf3048437763cacc12",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "737037e4722009b3a509a2eb",
+          "observation": "23edacdf3048437763cacc12",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "8c048d2e7e173571881c3f85",
+          "observation": "737037e4722009b3a509a2eb",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "8c048d2e7e173571881c3f85",
+          "observation": "8c048d2e7e173571881c3f85",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 7,
+      "interactions": 7,
+      "return": -1.1,
+      "root_training_seed": 11002,
+      "seed": 7011002,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 4,
+          "confidence": 0.0004140809114921984,
+          "next_observation": "e581bbfcccd9f8c1d03cc872",
+          "observation": "21a6ebc1a58384021f5a2b1a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "c277321498388988f071aa0d",
+          "observation": "e581bbfcccd9f8c1d03cc872",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "c277321498388988f071aa0d",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "1b746c30a09348e579d359be",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "264a997a72bc31a2db423acc",
+          "observation": "1b746c30a09348e579d359be",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "e454df12f1cf1425fc9ea619",
+          "observation": "264a997a72bc31a2db423acc",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "e454df12f1cf1425fc9ea619",
+          "observation": "e454df12f1cf1425fc9ea619",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 0,
+      "interactions": 7,
+      "return": -1.1,
+      "root_training_seed": 11003,
+      "seed": 11003,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.00041874563489685546,
+          "next_observation": "38a01608e4038bf6de0458b9",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "edc9ac5667f6c5333d260ee9",
+          "observation": "38a01608e4038bf6de0458b9",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "edc9ac5667f6c5333d260ee9",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "260afbfd42582c6977165e30",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "d972d1ac6cb8b9ca633f9386",
+          "observation": "260afbfd42582c6977165e30",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "ca92cab6ff354fdce54a3f04",
+          "observation": "d972d1ac6cb8b9ca633f9386",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "ca92cab6ff354fdce54a3f04",
+          "observation": "ca92cab6ff354fdce54a3f04",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 1,
+      "interactions": 7,
+      "return": 0.9,
+      "root_training_seed": 11003,
+      "seed": 1011003,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 3,
+          "confidence": 0.00017267144473642748,
+          "next_observation": "eafbf5e5ce7d694d476be700",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "75f925b8903db0e29cffb33a",
+          "observation": "eafbf5e5ce7d694d476be700",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "75f925b8903db0e29cffb33a",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "d629b3486327fc9dc1edc889",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "ba150d7a7f770cf125c8d69e",
+          "observation": "d629b3486327fc9dc1edc889",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "ba150d7a7f770cf125c8d69e",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "3cb0b43493dda15c45604077",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 2,
+      "interactions": 7,
+      "return": 0.89,
+      "root_training_seed": 11003,
+      "seed": 2011003,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 5,
+          "confidence": 0.00017267144473642748,
+          "next_observation": "4567a14a253af2c44a659b5a",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "969deebe78b622eac96363c4",
+          "observation": "4567a14a253af2c44a659b5a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "969deebe78b622eac96363c4",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "20067f82700577e81497180b",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "2733ed2c1669afefdb9f5895",
+          "observation": "20067f82700577e81497180b",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "2733ed2c1669afefdb9f5895",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "a964651caf7a882d11c1f019",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 3,
+      "interactions": 7,
+      "return": -1.09,
+      "root_training_seed": 11003,
+      "seed": 3011003,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.0012641389481694576,
+          "next_observation": "c0425a2c555a1e7380b4e763",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "6e8733d8f7533b01bde919f5",
+          "observation": "c0425a2c555a1e7380b4e763",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "6e8733d8f7533b01bde919f5",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0,
+          "next_observation": "bdcb90dac8e6120266755604",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "6267334d18c70e0d03ccf232",
+          "observation": "bdcb90dac8e6120266755604",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "13abe51625ae9dca039fbc48",
+          "observation": "6267334d18c70e0d03ccf232",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0025962489010937784,
+          "next_observation": "13abe51625ae9dca039fbc48",
+          "observation": "13abe51625ae9dca039fbc48",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 4,
+      "interactions": 8,
+      "return": 0.87,
+      "root_training_seed": 11003,
+      "seed": 4011003,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 5,
+          "confidence": 0.001385505965802336,
+          "next_observation": "cee5ab6a99a048f67a7d7abf",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d90639673dde3823ecdcaddf",
+          "observation": "cee5ab6a99a048f67a7d7abf",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "d90639673dde3823ecdcaddf",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.002211301462618609,
+          "next_observation": "53be48b6ed62686b6102c85a",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "8022b6a2386534db586e1e14",
+          "observation": "53be48b6ed62686b6102c85a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "93a5d1296c8d6a4621b219f8",
+          "observation": "8022b6a2386534db586e1e14",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.002865623739419121,
+          "next_observation": "93a5d1296c8d6a4621b219f8",
+          "observation": "93a5d1296c8d6a4621b219f8",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.003505858202707768,
+          "next_observation": "93a5d1296c8d6a4621b219f8",
+          "observation": "93a5d1296c8d6a4621b219f8",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 7,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 8,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 5,
+      "interactions": 8,
+      "return": -1.13,
+      "root_training_seed": 11003,
+      "seed": 5011003,
+      "success": false,
+      "trajectory": [
+        {
+          "action": 5,
+          "confidence": 0.001411631875741448,
+          "next_observation": "fe27c49f9d0de745c77f8463",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "36036a7540c309e2dbd92c03",
+          "observation": "fe27c49f9d0de745c77f8463",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "36036a7540c309e2dbd92c03",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.002211301462618609,
+          "next_observation": "a74353d664b4dbdc07250320",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0017484696428384794,
+          "next_observation": "29178c99bdcfedf5173d9c48",
+          "observation": "a74353d664b4dbdc07250320",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0017484696428384794,
+          "next_observation": "1bdf8c71b7eae8c863b36cf7",
+          "observation": "29178c99bdcfedf5173d9c48",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.08699326179577527,
+          "next_observation": "1bdf8c71b7eae8c863b36cf7",
+          "observation": "1bdf8c71b7eae8c863b36cf7",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.08757948005575067,
+          "next_observation": "1bdf8c71b7eae8c863b36cf7",
+          "observation": "1bdf8c71b7eae8c863b36cf7",
+          "public_info": {
+            "event": "rejected",
+            "success": false
+          },
+          "reward": -1.0,
+          "step": 7,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 1
+    },
+    {
+      "episode": 6,
+      "interactions": 7,
+      "return": 0.88,
+      "root_training_seed": 11003,
+      "seed": 6011003,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 1,
+          "confidence": 0.001411631875741448,
+          "next_observation": "ec3fe8b5aa95adc22a70e855",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "b4d5e539a1eb319234e3da00",
+          "observation": "ec3fe8b5aa95adc22a70e855",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "b4d5e539a1eb319234e3da00",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.002211301462618609,
+          "next_observation": "cf8c223ff6446742a168b486",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.002865623739419121,
+          "next_observation": "4d7dcc5091c9ce8169a8ac89",
+          "observation": "cf8c223ff6446742a168b486",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0026390116701886512,
+          "next_observation": "0978a76ec0a81c206e609810",
+          "observation": "4d7dcc5091c9ce8169a8ac89",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.08757948005575067,
+          "next_observation": "0978a76ec0a81c206e609810",
+          "observation": "0978a76ec0a81c206e609810",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 7,
+      "interactions": 8,
+      "return": 0.86,
+      "root_training_seed": 11003,
+      "seed": 7011003,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 3,
+          "confidence": 0.0018311256067571335,
+          "next_observation": "eafbf5e5ce7d694d476be700",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "75f925b8903db0e29cffb33a",
+          "observation": "eafbf5e5ce7d694d476be700",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "75f925b8903db0e29cffb33a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "d629b3486327fc9dc1edc889",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "ba150d7a7f770cf125c8d69e",
+          "observation": "d629b3486327fc9dc1edc889",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "ba150d7a7f770cf125c8d69e",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.15316550090115855,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "3cb0b43493dda15c45604077",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.15123831890503403,
+          "next_observation": "3cb0b43493dda15c45604077",
+          "observation": "3cb0b43493dda15c45604077",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 7,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 0,
+      "interactions": 7,
+      "return": 0.9,
+      "root_training_seed": 11004,
+      "seed": 11004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.0018311256067571335,
+          "next_observation": "4567a14a253af2c44a659b5a",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.003288694608260201,
+          "next_observation": "969deebe78b622eac96363c4",
+          "observation": "4567a14a253af2c44a659b5a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.003288694608260201,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "969deebe78b622eac96363c4",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.003288694608260201,
+          "next_observation": "20067f82700577e81497180b",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "2733ed2c1669afefdb9f5895",
+          "observation": "20067f82700577e81497180b",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "2733ed2c1669afefdb9f5895",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.003288694608260201,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "a964651caf7a882d11c1f019",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 7,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 1,
+      "interactions": 7,
+      "return": 0.89,
+      "root_training_seed": 11004,
+      "seed": 1011004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.001427721095374479,
+          "next_observation": "30811d7fee286f110d08c855",
+          "observation": "21a6ebc1a58384021f5a2b1a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "3b590756689340e721b4f570",
+          "observation": "30811d7fee286f110d08c855",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "3b590756689340e721b4f570",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "056d71ec415eec3a61abe0f3",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "d93c96930b9097de2881dfa0",
+          "observation": "056d71ec415eec3a61abe0f3",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "c61e172ad3be01c65e9951ec",
+          "observation": "d93c96930b9097de2881dfa0",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.19858390710125517,
+          "next_observation": "c61e172ad3be01c65e9951ec",
+          "observation": "c61e172ad3be01c65e9951ec",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 2,
+      "interactions": 7,
+      "return": 0.89,
+      "root_training_seed": 11004,
+      "seed": 2011004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.0010065507275803798,
+          "next_observation": "d31d771e4594f021424def93",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.003288694608260201,
+          "next_observation": "d623d06c10e8f1b4977f0280",
+          "observation": "d31d771e4594f021424def93",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.003855412987386009,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "d623d06c10e8f1b4977f0280",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0015429227189570627,
+          "next_observation": "de9ad27fa501de90cf63cfa5",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "0bd4b07851848aa4771b0a22",
+          "observation": "de9ad27fa501de90cf63cfa5",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0017484696428384794,
+          "next_observation": "cf6f3eb93f25617fabdb04b6",
+          "observation": "0bd4b07851848aa4771b0a22",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.08679429241230685,
+          "next_observation": "cf6f3eb93f25617fabdb04b6",
+          "observation": "cf6f3eb93f25617fabdb04b6",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 3,
+      "interactions": 7,
+      "return": 0.9,
+      "root_training_seed": 11004,
+      "seed": 3011004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.0005374346436229915,
+          "next_observation": "65c5e7d50ebae9a2ef8d77da",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0,
+          "next_observation": "07763e08c1f947b6d326df6e",
+          "observation": "65c5e7d50ebae9a2ef8d77da",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "07763e08c1f947b6d326df6e",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0025962489010937784,
+          "next_observation": "bb3a59fcb65d0e2040534a26",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0030541428378251245,
+          "next_observation": "9b9be0d75d454031188c2507",
+          "observation": "bb3a59fcb65d0e2040534a26",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0028955497858066392,
+          "next_observation": "b78043a762641cb5d5dbbaec",
+          "observation": "9b9be0d75d454031188c2507",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.20689825655184146,
+          "next_observation": "b78043a762641cb5d5dbbaec",
+          "observation": "b78043a762641cb5d5dbbaec",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 4,
+      "interactions": 8,
+      "return": 0.88,
+      "root_training_seed": 11004,
+      "seed": 4011004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.00014131272274975348,
+          "next_observation": "4567a14a253af2c44a659b5a",
+          "observation": "0ec2ed2c81438b7f5c02c699",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.0,
+          "next_observation": "969deebe78b622eac96363c4",
+          "observation": "4567a14a253af2c44a659b5a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0033194783090694235,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "969deebe78b622eac96363c4",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.002865623739419121,
+          "next_observation": "20067f82700577e81497180b",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0031860849995647422,
+          "next_observation": "2733ed2c1669afefdb9f5895",
+          "observation": "20067f82700577e81497180b",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.016377235652174194,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "2733ed2c1669afefdb9f5895",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.28129344868167927,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "a964651caf7a882d11c1f019",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 6,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.2597534976243163,
+          "next_observation": "a964651caf7a882d11c1f019",
+          "observation": "a964651caf7a882d11c1f019",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 7,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 5,
+      "interactions": 7,
+      "return": 0.9,
+      "root_training_seed": 11004,
+      "seed": 5011004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 1,
+          "confidence": 0.00012497782479614639,
+          "next_observation": "d31d771e4594f021424def93",
+          "observation": "95bb6053a0bb0bfe51c770f8",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0,
+          "next_observation": "d623d06c10e8f1b4977f0280",
+          "observation": "d31d771e4594f021424def93",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "d623d06c10e8f1b4977f0280",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0033194783090694235,
+          "next_observation": "de9ad27fa501de90cf63cfa5",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.0031860849995647422,
+          "next_observation": "0bd4b07851848aa4771b0a22",
+          "observation": "de9ad27fa501de90cf63cfa5",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 0,
+          "confidence": 0.051178888264269196,
+          "next_observation": "cf6f3eb93f25617fabdb04b6",
+          "observation": "0bd4b07851848aa4771b0a22",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.307900121024527,
+          "next_observation": "cf6f3eb93f25617fabdb04b6",
+          "observation": "cf6f3eb93f25617fabdb04b6",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 5,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 6,
+      "interactions": 7,
+      "return": 0.89,
+      "root_training_seed": 11004,
+      "seed": 6011004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 0,
+          "confidence": 0.00012497782479614639,
+          "next_observation": "ec3fe8b5aa95adc22a70e855",
+          "observation": "31b8943578075e5299268dbd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.01,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0017484696428384794,
+          "next_observation": "b4d5e539a1eb319234e3da00",
+          "observation": "ec3fe8b5aa95adc22a70e855",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.0015737603384077259,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "b4d5e539a1eb319234e3da00",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0011191108278901796,
+          "next_observation": "cf8c223ff6446742a168b486",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.002151509553180664,
+          "next_observation": "4d7dcc5091c9ce8169a8ac89",
+          "observation": "cf8c223ff6446742a168b486",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.00994369377888693,
+          "next_observation": "0978a76ec0a81c206e609810",
+          "observation": "4d7dcc5091c9ce8169a8ac89",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.30026238465936983,
+          "next_observation": "0978a76ec0a81c206e609810",
+          "observation": "0978a76ec0a81c206e609810",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    },
+    {
+      "episode": 7,
+      "interactions": 7,
+      "return": 0.88,
+      "root_training_seed": 11004,
+      "seed": 7011004,
+      "success": true,
+      "trajectory": [
+        {
+          "action": 4,
+          "confidence": 0.0004209694533393593,
+          "next_observation": "07a30ca1f98ff40d2b7ecfb2",
+          "observation": "21a6ebc1a58384021f5a2b1a",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 0,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.0017484696428384794,
+          "next_observation": "b509453a0685c24c26f4002f",
+          "observation": "07a30ca1f98ff40d2b7ecfb2",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 1,
+          "confidence": 0.0017484696428384794,
+          "next_observation": "a3d955311b4c8c834b4de4cd",
+          "observation": "b509453a0685c24c26f4002f",
+          "public_info": {
+            "event": "observed",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 3,
+          "confidence": 0.0033194783090694235,
+          "next_observation": "3907a4fa423850253b480251",
+          "observation": "a3d955311b4c8c834b4de4cd",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 5,
+          "confidence": 0.005515213681867692,
+          "next_observation": "ee0ed07eb277f3712a2ed79c",
+          "observation": "3907a4fa423850253b480251",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 4,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 4,
+          "confidence": 0.00852104652687069,
+          "next_observation": "261376ee15edbfd37b99142a",
+          "observation": "ee0ed07eb277f3712a2ed79c",
+          "public_info": {
+            "event": "advanced",
+            "success": false
+          },
+          "reward": -0.02,
+          "step": 5,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "action": 2,
+          "confidence": 0.3330190205234308,
+          "next_observation": "261376ee15edbfd37b99142a",
+          "observation": "261376ee15edbfd37b99142a",
+          "public_info": {
+            "event": "accepted",
+            "success": true
+          },
+          "reward": 1.0,
+          "step": 6,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "uncertain_actions": 6,
+      "unnecessary_actions": 0
+    }
+  ]
+}

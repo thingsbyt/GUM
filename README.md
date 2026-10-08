@@ -122,21 +122,24 @@ The strongest defensible description is:
 ## GUM School
 
 GUM School now has a reviewed curriculum, a crash-resumable promotion engine,
-three admitted foundational adapters, and a bounded cross-seed training lane.
+three admitted foundational adapters, a bounded cross-seed training lane, and
+one officially promoted lesson.
 The learner now forms pixel-derived temporal object memory and can spawn helper
 policies when uncertainty persists, up to a hard maximum of four. Helpers learn
 on separate episodes, exchange value estimates, and vote during evaluation.
 
-In the development-only first-lesson rehearsal, the trained swarm scored
-32/32 on unseen development seeds versus 0/32 for a matched fresh swarm. It was
-still quarantined: development data is not a sealed examination. No official
-lesson, promotion, or transfer-matrix cell has run, so this is a bounded
-development result rather than an official curriculum capability claim.
+After the development rehearsal was quarantined, the source was frozen and a
+separate evaluator selected 32 withheld, structurally shifted trials. The
+trained swarm scored 32/32, versus 0/32 for a matched fresh swarm and 14/32 for
+a random control. All seven gates passed and the engine promoted the first
+lesson. This is a narrow object-tracking result; later schools and the transfer
+matrix have not run.
 
 [Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
 [Read the GUM School engine boundary](docs/GUM_SCHOOL_ENGINE.md)
 [Read the foundational world admission](docs/GUM_SCHOOL_WORLDS.md)
 [Read the bounded training rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
+[Read the first sealed examination](docs/GUM_SCHOOL_SEALED_EXAM.md)
 
 ## Research package
 
@@ -152,6 +155,7 @@ development result rather than an official curriculum capability claim.
 - [GUM School curriculum and promotion rules](docs/GUM_SCHOOL_CURRICULUM.md)
 - [GUM School engine and interruption safety](docs/GUM_SCHOOL_ENGINE.md)
 - [GUM School training lane and rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
+- [GUM School first sealed examination](docs/GUM_SCHOOL_SEALED_EXAM.md)
 - [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)
@@ -178,10 +182,10 @@ Core verification:
 ```bash
 python -m pytest -q
 python -m gum.school curriculum/gum-school-v1.json
-python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_SWARM.json
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_SEALED_PROMOTION.json
 ```
 
-The separate Phase 0, Phase 1, Phase 2, training-lane, and v0.2.1 manifests
+The separate Phase 0, Phase 1, Phase 2, training-lane, swarm, and v0.2.1 manifests
 remain immutable historical records; they are not regenerated when later
 source changes.
 

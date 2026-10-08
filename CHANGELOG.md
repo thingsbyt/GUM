@@ -1,6 +1,16 @@
 # Changelog
 
-## Unreleased — GUM School training lane
+## Unreleased — GUM School sealed promotion
+
+- Added a post-freeze evaluator whose seed manifest is drawn only after public
+  training, committed before evaluation, and revealed with the evidence.
+- Added structurally shifted Object Laboratory examinations covering palette,
+  geometry, speed, barrier, background, and occlusion-duration changes.
+- Ran the first official lesson from frozen commit `3237986`: the trained swarm
+  scored 32/32, matched fresh scored 0/32, and random scored 14/32.
+- Passed all seven gates and atomically promoted the first learned snapshot.
+
+### Training-lane rehearsal
 
 - Added a strict persistent cross-seed learner, bounded trainer, matched-fresh
   development evaluator, deterministic replay, and one-shot rehearsal command.

@@ -2,11 +2,13 @@
 
 ## Status
 
-The bounded training lane has completed a learned development-only rehearsal
+The bounded training lane first completed a learned development-only rehearsal
 through the real school engine. The trained swarm scored 32/32 on unseen public
 development seeds against 0/32 for a matched fresh swarm. The disposable
-candidate was nevertheless quarantined. No official curriculum lesson, sealed
-examination, promotion, or transfer-matrix cell has run.
+candidate was correctly quarantined. That rehearsal was followed by a separate
+post-freeze sealed examination, which passed and promoted the first lesson.
+See [`GUM_SCHOOL_SEALED_EXAM.md`](GUM_SCHOOL_SEALED_EXAM.md). No later lesson or
+transfer-matrix cell has run.
 
 The canonical rehearsal record is
 [`evidence/gum-school/rehearsal/foundational-lane-v1/REHEARSAL_REPORT.json`](../evidence/gum-school/rehearsal/foundational-lane-v1/REHEARSAL_REPORT.json).
@@ -99,11 +101,10 @@ That is a real but narrow development result: its pixel tracker is engineered,
 while its anonymous action policy is learned. It says nothing yet about the
 later schools.
 
-An official first-lesson run now requires freezing this learner, trainer,
-engine, curriculum, adapters, and source hashes before an independent evaluator
-selects withheld examination material. No change made after seeing sealed
-results may flow back into that run. Later lessons should continue in the
-development lane until they meet the same standard.
+That official first-lesson sequence is now complete. The source was frozen
+before the evaluator selected withheld material, and no decision-relevant code
+changed after reveal. Later lessons should continue in the development lane
+until they meet the same standard.
 
 ## Reproduce
 

@@ -46,4 +46,7 @@ No finite audit proves the absence of every possible implementation bug, indirec
 
 > The included source, controls, traces, tests, and audits support genuine experience-dependent learning in GUM's documented bounded tasks; no known answer leakage or credential/private-path leak remains in the public-preview tree.
 
-The next confidence jump must come from outside task authors choosing sealed tasks after the learner and protocol are frozen.
+The first GUM School lesson has now passed a locally operated post-freeze sealed
+exam whose seeds were drawn only after training. The next confidence jump must
+come from outside task authors independently choosing tasks and replicating the
+result from the frozen learner and protocol.

@@ -7,13 +7,15 @@ It accompanies [`curriculum/gum-school-v1.json`](../curriculum/gum-school-v1.jso
 and the strict schemas beginning with
 [`gum-school-curriculum-v1.schema.json`](../curriculum/schemas/gum-school-curriculum-v1.schema.json).
 
-The curriculum machine file remains at **adapters admitted, not officially
-trained**. One disposable four-replica swarm completed a development-only
-rehearsal of the first lesson and scored 32/32 against 0/32 for a matched fresh
-swarm. It was still quarantined because no sealed protocol was used. No sealed
-examination, promotion, or transfer-matrix cell has run. The distinction
-between development learning and an official result is documented in
-[`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md).
+The curriculum machine file is the frozen pre-run specification and therefore
+retains its historical **adapters admitted, not officially trained** status.
+After a quarantined development rehearsal, the first lesson passed a post-freeze
+sealed examination 32/32 against 0/32 for a matched fresh swarm and 14/32 for a
+random policy. All seven gates passed and the candidate was promoted. The
+development and official records are documented in
+[`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md) and
+[`GUM_SCHOOL_SEALED_EXAM.md`](GUM_SCHOOL_SEALED_EXAM.md). No later lesson or
+transfer-matrix cell has run.
 
 The curriculum asks whether a persistent learner can gain reusable competence
 from an authored sequence of meaningfully different worlds. A high score on a

@@ -1,0 +1,97 @@
+{
+  "artifact_hashes": {
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/DECISION.json": "sha256:9665cec1dbebc0ef5f1c6d1518d1784343109dc3cb273bc964019de37d026a49",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/EVALUATION.json": "sha256:e67dc72f507ff99b75f55690a122cc7ff9870b649b5c35c036d95375ebd989ac",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/RUN.json": "sha256:2505675b88fbac38881a3b88380269df8de38692f83b8821c91f4296a8170d53",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/RUN.json.bak": "sha256:dbc9ff8b760c2883e1ca9345580bd32863ad5360252a9e145d34ca728a38feb1",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/SEALED_SEED_MANIFEST.json": "sha256:5378ee493cefdb4b37ea52a7fc4815eda58e5b7b637715b8089d39e92c55a23c",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/SOURCE_FREEZE.json": "sha256:5410662beefb2ddb378a59c22e8ea05990a0474d7d1f4735fbaf0b67e9da14b6",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/TRAINING.json": "sha256:899c028700feead5ed7e792e327959912b37bc2fabcc2e283e84def919898797",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/candidate/SCHOOL_LEARNER.json": "sha256:8b3319924c4fdac1c060a1873caad06e4d202f2e20321b2439a9fe325aa23a19",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/candidate/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/evaluation-state/SCHOOL_LEARNER.json": "sha256:8b3319924c4fdac1c060a1873caad06e4d202f2e20321b2439a9fe325aa23a19",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/evidence/sealed-examination.json": "sha256:c19fca16969e38f5acc92fcc12a606df26dfab4f5048c30f0428ac0e086be463",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/evidence/training-rehearsal.json": "sha256:a0b44fb1fccf0f0e48e0db12da82983114eaaebec216e1bcf8e32b272ed00b5a",
+    "runs/0f887253-c319-417f-adcc-6c69d3027ec7/evidence/training-trajectories.json": "sha256:d108ca7301001e7119e0ca951e128f79b639043e46e567f0fd884d33147cb6ba"
+  },
+  "development_only": false,
+  "examination_id": "exam.object-laboratory.transfer.v1",
+  "format": "gum-school-sealed-exam-report-v1",
+  "gates": {
+    "all_passed": true,
+    "format": "gum-school-gate-result-v1",
+    "gates": {
+      "control-advantage": {
+        "fresh_advantage": 32.0,
+        "passed": true,
+        "reasons": []
+      },
+      "evidence-integrity": {
+        "passed": true,
+        "reasons": []
+      },
+      "input-boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "replay": {
+        "passed": true,
+        "reasons": []
+      },
+      "resource-limits": {
+        "passed": true,
+        "reasons": []
+      },
+      "retention": {
+        "passed": true,
+        "reasons": [],
+        "regressions": {}
+      },
+      "sealed-performance": {
+        "passed": true,
+        "reasons": []
+      }
+    }
+  },
+  "ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "88395d39e6754b65257d3e1255bce9a7be741ddda0457e4ba53fc9f057864a21",
+      "ledger": "SCHOOL_LEDGER.jsonl",
+      "records": 5
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "88395d39e6754b65257d3e1255bce9a7be741ddda0457e4ba53fc9f057864a21",
+    "records": 5,
+    "valid": true
+  },
+  "lesson_id": "object-laboratory.occlusion.001",
+  "official_curriculum_run": true,
+  "result": {
+    "all_gates_passed": true,
+    "candidate_success_rate": 1.0,
+    "failed_gates": [],
+    "input_boundary_verified": true,
+    "matched_fresh_success_rate": 0.0,
+    "outcome": "promote",
+    "promoted_snapshot_changed": true,
+    "promoted_snapshot_id": "sha256-2ce4ead31ceb61f73b70af8ed19cfd60ec70e293031d926c9e2ea208b1cacee5",
+    "random_success_rate": 0.4375,
+    "replay_verified": true,
+    "source_and_protocol_verified": true,
+    "success_interval": {
+      "lower": 0.8928208017449293,
+      "method": "wilson",
+      "upper": 1.0
+    },
+    "total_interactions": 5869,
+    "training_interactions": 239
+  },
+  "run_id": "0f887253-c319-417f-adcc-6c69d3027ec7",
+  "sealed_data_used_for_training": false,
+  "seed_manifest_commitment": "sha256:5b09aa02569bad71a6e05cda4fdbe542f9481d00f66ddbb01d52a38a4cd42b8a",
+  "seed_manifest_revealed": true,
+  "source_freeze_git_head": "3237986684115e23c522d3f25f7599872ec22f45"
+}

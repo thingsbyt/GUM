@@ -1,0 +1,48 @@
+{
+  "evidence": {
+    "ledger_verified": true,
+    "protocol_hashes_verified": true,
+    "source_hashes_verified": true,
+    "trajectory_verified": true
+  },
+  "format": "gum-school-evaluation-v1",
+  "input_boundary": {
+    "verified": true,
+    "violations": []
+  },
+  "replay": {
+    "artifact_path": "evidence/sealed-examination.json",
+    "artifact_sha256": "sha256:c19fca16969e38f5acc92fcc12a606df26dfab4f5048c30f0428ac0e086be463",
+    "deterministic": true,
+    "verified": true
+  },
+  "resources": {
+    "artifact_storage_mb": 2.2473535537719727,
+    "interactions": 5869,
+    "peak_memory_mb": 49.67578125,
+    "wall_clock_seconds": 3.110660699996515
+  },
+  "retention": [],
+  "sealed": {
+    "confidence_level": 0.95,
+    "fresh_advantage_interval": {
+      "lower": 32.0,
+      "method": "paired-bootstrap",
+      "upper": 32.0
+    },
+    "fresh_success_rate": 0.0,
+    "protocol_verified": true,
+    "same_perception": true,
+    "same_resource_limits": true,
+    "success_interval": {
+      "lower": 0.8928208017449293,
+      "method": "wilson",
+      "upper": 1.0
+    },
+    "success_rate": 1.0,
+    "trials": 32,
+    "uncertainty_rate": 0.13168724279835392,
+    "unnecessary_action_rate": 0.0
+  },
+  "transfer_results": []
+}

@@ -26,6 +26,13 @@ reads a frozen snapshot, and public development rehearsals cannot satisfy the
 sealed-protocol gates. The first swarm rehearsal learned the development task
 but was quarantined without moving the promoted pointer.
 
+The sealed examiner freezes decision-relevant source hashes before training,
+selects its seed manifest from operating-system entropy only after training has
+finished, evaluates frozen candidate, matched-fresh, and random policies on a
+structurally shifted adapter mode, verifies deterministic replay, and submits
+the record to the unchanged seven-gate engine. The first official run passed
+all gates and atomically moved the promoted pointer.
+
 ## The shortest explanation
 
 GUM has five jobs:

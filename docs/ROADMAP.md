@@ -1,6 +1,6 @@
 # Roadmap
 
-## Current: GUM School training lane
+## Current: first GUM School lesson promoted
 
 - authored curriculum for all ten planned schools and twelve capability grades;
 - machine-readable foundational sequence for Object Laboratory, Causal
@@ -25,13 +25,15 @@
 - deterministic evaluation replay and source/artifact hashing; and
 - a real engine rehearsal that quarantined the candidate and preserved the
   promoted snapshot.
+- a post-freeze evaluator that draws withheld seeds only after training;
+- structurally shifted appearance, geometry, speed, and occlusion trials; and
+- an official 32/32 sealed pass with all seven gates and atomic promotion.
 
-The first-lesson swarm scored 32/32, compared with 0/32 for a matched fresh
-swarm. Under the same 16-episode budget, a deterministic single-replica
-ablation scored 25/32 and missed the development threshold. The learner is now
-development-ready for the first lesson, but not officially passed. The next
-milestone is an immutable first-lesson freeze and independent withheld
-evaluation, alongside development work on the later lessons.
+The development swarm scored 32/32, compared with 0/32 for a matched fresh
+swarm. The subsequent frozen sealed run also scored 32/32, versus 0/32 fresh
+and 14/32 random, and promoted the lesson. The next milestone is development
+work on the second lesson plus a retention check that protects this promoted
+skill. Cross-family transfer remains unmeasured.
 
 ## Now: frozen research snapshot
 

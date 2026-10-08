@@ -95,7 +95,7 @@ numeric values. It generates no sealed seeds or answers. Sealed evaluation
 material still must be selected only after the learner, trainer, curriculum,
 adapters, and source hashes are frozen for an evaluated run.
 
-## What remains before official training
+## Official first-lesson use
 
 The bounded cross-seed learner and trainer now run these adapters through the
 Phase 1 engine. A temporal object-memory learner with up to four on-demand
@@ -103,8 +103,10 @@ helper policies scored 32/32 against 0/32 for a matched fresh swarm on public
 development seeds. The run was safely quarantined. See
 [`GUM_SCHOOL_TRAINING_LANE.md`](GUM_SCHOOL_TRAINING_LANE.md).
 
-The first lesson is development-ready, not officially passed. The remaining
-work is to freeze the complete system and obtain independently selected sealed
-material, while continuing development of the later lessons. Official evidence
-must not substitute scripted admission controllers or relabel public
-development trials as sealed.
+The complete first-lesson system was frozen and evaluated on a shifted
+Object Laboratory mode with independently drawn post-training seeds. It passed
+32/32 and was promoted; see
+[`GUM_SCHOOL_SEALED_EXAM.md`](GUM_SCHOOL_SEALED_EXAM.md). The admission
+controllers were not used for training or grading, and public development
+trials were not relabeled as sealed. Later adapters remain admitted but
+untrained by the curriculum.

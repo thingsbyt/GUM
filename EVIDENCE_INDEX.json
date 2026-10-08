@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-sealed-object-occlusion",
+      "status": "passed-official",
+      "title": "GUM School first sealed examination",
+      "headline": "32/32 frozen swarm versus 0/32 fresh and 14/32 random; all seven gates passed",
+      "metrics": ["239 public-seed training interactions", "32 post-freeze withheld trials", "95% Wilson lower bound 0.893", "Atomic snapshot promotion"],
+      "scope": "Official pass for the first narrow Object Laboratory lesson only. Pixel tracking remains engineered; anonymous action mapping is learned. No later-school or cross-family claim.",
+      "evidence": "evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT.json"
+    },
+    {
       "id": "school-training-rehearsal",
       "status": "passed-development",
       "title": "GUM School training-lane rehearsal",
@@ -99,6 +108,7 @@
     {"id": "school-handoff", "title": "GUM School handoff", "file": "docs/GUM_SCHOOL_HANDOFF.md"},
     {"id": "school-worlds", "title": "GUM School foundational worlds", "file": "docs/GUM_SCHOOL_WORLDS.md"},
     {"id": "school-training", "title": "GUM School training lane", "file": "docs/GUM_SCHOOL_TRAINING_LANE.md"},
+    {"id": "school-sealed", "title": "GUM School first sealed examination", "file": "docs/GUM_SCHOOL_SEALED_EXAM.md"},
     {"id": "collaboration", "title": "Human–AI collaboration", "file": "AI_COLLABORATION.md"}
   ]
 }
