@@ -1,0 +1,62 @@
+{
+  "base_snapshot_id": "sha256-59b238c909e0dc560f175cab364c57a5ffcc121e2a703e34497963ba3c80306c",
+  "candidate_snapshot_id": "sha256-059137c51bcf5e977d4e56116590cadf1c64d63e9532b930cde60a2758d866a1",
+  "created_at_utc": "2026-10-09T17:33:22.257877+00:00",
+  "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
+  "decision_intent": {
+    "gates": {
+      "all_passed": true,
+      "format": "gum-school-gate-result-v1",
+      "gates": {
+        "control-advantage": {
+          "fresh_advantage": 3.764705882352941,
+          "passed": true,
+          "reasons": []
+        },
+        "evidence-integrity": {
+          "passed": true,
+          "reasons": []
+        },
+        "input-boundary": {
+          "passed": true,
+          "reasons": []
+        },
+        "replay": {
+          "passed": true,
+          "reasons": []
+        },
+        "resource-limits": {
+          "passed": true,
+          "reasons": []
+        },
+        "retention": {
+          "passed": true,
+          "reasons": [],
+          "regressions": {
+            "categorization": 0.0,
+            "causal-intervention": -0.16666666666666663,
+            "comparison": 0.0,
+            "control-grounding": -0.16666666666666663,
+            "entity-attention": 0.0,
+            "event-concept-formation": 0.0,
+            "immediate-prediction": -0.16666666666666663,
+            "object-persistence": 0.0,
+            "occlusion-tracking": 0.0
+          }
+        },
+        "sealed-performance": {
+          "passed": true,
+          "reasons": []
+        }
+      }
+    },
+    "outcome": "promote",
+    "prepared_at_utc": "2026-10-09T17:33:29.984168+00:00"
+  },
+  "format": "gum-school-run-v1",
+  "lesson_id": "causal-workshop.composition.002",
+  "lesson_sha256": "86aee97dfd092fec219ccf565f8bde0239faf12078dd0a6021c191ca80c25474",
+  "run_id": "90300579-861f-4e44-b494-a70b23202391",
+  "status": "promoted",
+  "updated_at_utc": "2026-10-09T17:33:30.020224+00:00"
+}

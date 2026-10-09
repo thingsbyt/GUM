@@ -86,3 +86,41 @@ def test_composition_candidate_passes_official_engine_protocol(
         "causal-workshop.controls.001",
         "causal-workshop.composition.002",
     ]
+
+
+def test_saved_official_composition_promotion_passed_every_gate():
+    root = Path(__file__).resolve().parents[1]
+    workspace = (
+        root / "evidence" / "gum-school"
+        / "sealed-recurrent-composition-official-v1"
+    )
+    report = json.loads(
+        (workspace / "OFFICIAL_COMPOSITION_PROMOTION.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert report["qualification"] == "pass"
+    assert report["official_curriculum_run"] is True
+    assert report["sealed_data_used_for_training"] is False
+    assert report["candidate"]["successes"] == 64
+    assert report["candidate_before_training"]["successes"] == 21
+    assert report["matched_fresh"]["successes"] == 17
+    assert report["uniform_random"]["successes"] == 17
+    assert report["retention"]["current_summary"]["successes"] == 72
+    assert report["decision"]["outcome"] == "promote"
+    assert report["decision"]["gates"]["all_passed"] is True
+    assert report["next_lesson_id"] == "changing-maze.memory.001"
+    assert report["source_freeze"]["git_head"] == (
+        "e5cd6719aff968a260ae99dac925479bdab4a615"
+    )
+    assert len(report["source_freeze"]["excluded_prior_sealed_seeds"]) == 288
+    assert set(report["seed_manifest"]["seeds"]).isdisjoint(
+        report["source_freeze"]["excluded_prior_sealed_seeds"]
+    )
+    progress = json.loads((workspace / "PROGRESS.json").read_text(encoding="utf-8"))
+    assert progress["promoted_lessons"][:4] == [
+        "object-laboratory.occlusion.001",
+        "object-laboratory.functional-category.002",
+        "causal-workshop.controls.001",
+        "causal-workshop.composition.002",
+    ]

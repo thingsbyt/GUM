@@ -1,5 +1,30 @@
 # GUM School sealed examinations
 
+## Official recurrent causal-composition promotion
+
+The Lesson 4 examiner and 32-action shifted-composition protocol were frozen at
+commit `e5cd6719aff968a260ae99dac925479bdab4a615`. Only afterward did the
+examiner select 64 operating-system-entropy seeds. Every public curriculum seed
+and all 288 seeds revealed by earlier sealed examinations were excluded. The
+candidate policy remained byte-identical to the public development artifact.
+
+The candidate scored **64/64 (100%)**, with a 95% Wilson lower bound of 0.943,
+versus **21/64** for the promoted pre-Lesson-4 policy, **17/64** for a matched
+fresh recurrent network, and **17/64** random. It averaged 14.17 actions under
+the 32-action cap, with a 13.9% unnecessary-action rate. Initial uncertainty
+was **100%**, post-causal-evidence uncertainty was **0%**, and confidence rose
+by 0.341 after positive scalar evidence.
+
+All three earlier lessons retained **72/72**, exact replay passed, source and
+protocol hashes verified, the ledger remained anchored, and all seven engine
+gates passed. The engine atomically promoted snapshot
+`sha256-059137c51bcf5e977d4e56116590cadf1c64d63e9532b930cde60a2758d866a1`.
+The next lesson is `changing-maze.memory.001`.
+
+This is an official result for bounded shuffled-control composition, not a
+claim of unrestricted causal reasoning. The canonical report is
+[`evidence/gum-school/sealed-recurrent-composition-official-v1/OFFICIAL_COMPOSITION_PROMOTION.json`](../evidence/gum-school/sealed-recurrent-composition-official-v1/OFFICIAL_COMPOSITION_PROMOTION.json).
+
 ## Official recurrent-policy promotion
 
 The School engine now accepts a strict v2 evaluation record that separates

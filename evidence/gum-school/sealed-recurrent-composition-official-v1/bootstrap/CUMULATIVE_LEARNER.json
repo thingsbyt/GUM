@@ -1,0 +1,12 @@
+{
+  "components": {
+    "CAUSAL_META_POLICY.pt": "sha256:ce428e9f45a7e9b1eac2707c0e45bb35c8cf9174a9731136a6fc59981be6c886",
+    "SCHOOL_LEARNER.json": "sha256:7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83"
+  },
+  "format": "gum-school-cumulative-learner-v1",
+  "routing": {
+    "default": "SCHOOL_LEARNER.json",
+    "gum-causal-workshop-v1": "CAUSAL_META_POLICY.pt"
+  },
+  "training_complete_before_bundle": true
+}

@@ -1,0 +1,11 @@
+{
+  "candidate_policy_sha256": "sha256:ea0577c86e68fbf9ed76e2dff0cde4e2e4a42d8cfc812e31c89758967be56453",
+  "format": "gum-school-composition-training-import-v1",
+  "lesson_id": "causal-workshop.composition.002",
+  "official_curriculum_run": true,
+  "policy_weights_changed_during_import": false,
+  "public_training_interactions": 18000,
+  "public_training_report_sha256": "sha256:c3bd8e9e9042a42d73c1c4def6dcfab25a69732e2eadca4468e735e143acf935",
+  "sealed_data_used": false,
+  "source_freeze_sha256": "sha256:159e11982f8188b7ddf3b5cbcc86cf4066b663d1b524fa4efbec44a06c4fc25c"
+}

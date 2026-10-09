@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-09 — Official recurrent causal-composition promotion
+
+- Froze the Lesson 4 examiner at commit `e5cd671`, then selected 64 fresh
+  operating-system-entropy seeds after excluding all public and 288 previously
+  revealed sealed seeds.
+- The unchanged candidate scored 64/64, versus 21/64 before Lesson 4 training,
+  17/64 matched fresh, and 17/64 random under the 32-action cap.
+- Retained all three prior lessons at 72/72, passed all seven engine gates, and
+  atomically advanced the official recurrent track to Changing Maze memory.
+
 ## 2026-10-09 — Reward-grounded causal-composition development pass
 
 - Added scalar reward-outcome replay: positive consequences reinforce an

@@ -1,0 +1,359 @@
+{
+  "expected": {
+    "interactions": 12,
+    "return": 1.6400000000000001,
+    "seed": 1007296743,
+    "success": true,
+    "trajectory": [
+      {
+        "action": 6,
+        "confidence": 1.1920928955078125e-07,
+        "next_observation": "2a4ebf0cd555293e1f6935a2",
+        "observation": "5d9e2ac4803c91d229375466",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 0,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 1,
+        "confidence": 0.06421399116516113,
+        "next_observation": "9cc8a9c7fba7a3e161f37271",
+        "observation": "2a4ebf0cd555293e1f6935a2",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 1,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 2,
+        "confidence": 0.13833087682724,
+        "next_observation": "389c0c70c9a5d1fbd0012b5a",
+        "observation": "9cc8a9c7fba7a3e161f37271",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 2,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 4,
+        "confidence": 0.22600901126861572,
+        "next_observation": "a3dcf57a1758a24aebabc6da",
+        "observation": "389c0c70c9a5d1fbd0012b5a",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 3,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.33333146572113037,
+        "next_observation": "4c3ffe08d6a9a5d55992002e",
+        "observation": "a3dcf57a1758a24aebabc6da",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 4,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.4716736674308777,
+        "next_observation": "a19d9a16f2fc81051dead9cd",
+        "observation": "4c3ffe08d6a9a5d55992002e",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 5,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.7455252408981323,
+        "next_observation": "a19d9a16f2fc81051dead9cd",
+        "observation": "a19d9a16f2fc81051dead9cd",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 6,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 5,
+        "confidence": 0.47333645820617676,
+        "next_observation": "e8edbc98c873693df52c50f9",
+        "observation": "a19d9a16f2fc81051dead9cd",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 7,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 7,
+        "confidence": 0.7689236402511597,
+        "next_observation": "273109a02108feb512f5eac5",
+        "observation": "e8edbc98c873693df52c50f9",
+        "public_info": {
+          "event": "regression",
+          "success": false
+        },
+        "reward": -0.1,
+        "step": 8,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.9999678730964661,
+        "next_observation": "a19d9a16f2fc81051dead9cd",
+        "observation": "273109a02108feb512f5eac5",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 9,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 5,
+        "confidence": 0.9968827962875366,
+        "next_observation": "e8edbc98c873693df52c50f9",
+        "observation": "a19d9a16f2fc81051dead9cd",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 10,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 4,
+        "confidence": 0.17703378200531006,
+        "next_observation": "039050e7a8f97de28fe0b7c0",
+        "observation": "e8edbc98c873693df52c50f9",
+        "public_info": {
+          "event": "completed",
+          "success": true
+        },
+        "reward": 1.0,
+        "step": 11,
+        "terminated": true,
+        "truncated": false
+      }
+    ],
+    "uncertain_actions": 1,
+    "unnecessary_actions": 0
+  },
+  "format": "gum-school-official-composition-replay-v1",
+  "replayed": {
+    "interactions": 12,
+    "return": 1.6400000000000001,
+    "seed": 1007296743,
+    "success": true,
+    "trajectory": [
+      {
+        "action": 6,
+        "confidence": 1.1920928955078125e-07,
+        "next_observation": "2a4ebf0cd555293e1f6935a2",
+        "observation": "5d9e2ac4803c91d229375466",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 0,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 1,
+        "confidence": 0.06421399116516113,
+        "next_observation": "9cc8a9c7fba7a3e161f37271",
+        "observation": "2a4ebf0cd555293e1f6935a2",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 1,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 2,
+        "confidence": 0.13833087682724,
+        "next_observation": "389c0c70c9a5d1fbd0012b5a",
+        "observation": "9cc8a9c7fba7a3e161f37271",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 2,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 4,
+        "confidence": 0.22600901126861572,
+        "next_observation": "a3dcf57a1758a24aebabc6da",
+        "observation": "389c0c70c9a5d1fbd0012b5a",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 3,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.33333146572113037,
+        "next_observation": "4c3ffe08d6a9a5d55992002e",
+        "observation": "a3dcf57a1758a24aebabc6da",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 4,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.4716736674308777,
+        "next_observation": "a19d9a16f2fc81051dead9cd",
+        "observation": "4c3ffe08d6a9a5d55992002e",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 5,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.7455252408981323,
+        "next_observation": "a19d9a16f2fc81051dead9cd",
+        "observation": "a19d9a16f2fc81051dead9cd",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 6,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 5,
+        "confidence": 0.47333645820617676,
+        "next_observation": "e8edbc98c873693df52c50f9",
+        "observation": "a19d9a16f2fc81051dead9cd",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 7,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 7,
+        "confidence": 0.7689236402511597,
+        "next_observation": "273109a02108feb512f5eac5",
+        "observation": "e8edbc98c873693df52c50f9",
+        "public_info": {
+          "event": "regression",
+          "success": false
+        },
+        "reward": -0.1,
+        "step": 8,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.9999678730964661,
+        "next_observation": "a19d9a16f2fc81051dead9cd",
+        "observation": "273109a02108feb512f5eac5",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 9,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 5,
+        "confidence": 0.9968827962875366,
+        "next_observation": "e8edbc98c873693df52c50f9",
+        "observation": "a19d9a16f2fc81051dead9cd",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 10,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 4,
+        "confidence": 0.17703378200531006,
+        "next_observation": "039050e7a8f97de28fe0b7c0",
+        "observation": "e8edbc98c873693df52c50f9",
+        "public_info": {
+          "event": "completed",
+          "success": true
+        },
+        "reward": 1.0,
+        "step": 11,
+        "terminated": true,
+        "truncated": false
+      }
+    ],
+    "uncertain_actions": 1,
+    "unnecessary_actions": 0
+  }
+}

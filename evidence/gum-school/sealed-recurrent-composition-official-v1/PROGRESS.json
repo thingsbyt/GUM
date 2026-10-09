@@ -1,0 +1,16 @@
+{
+  "format": "gum-school-progress-v1",
+  "inherited_lessons": [
+    "object-laboratory.occlusion.001",
+    "object-laboratory.functional-category.002",
+    "causal-workshop.controls.001"
+  ],
+  "initial_snapshot_id": "sha256-59b238c909e0dc560f175cab364c57a5ffcc121e2a703e34497963ba3c80306c",
+  "promoted_lessons": [
+    "object-laboratory.occlusion.001",
+    "object-laboratory.functional-category.002",
+    "causal-workshop.controls.001",
+    "causal-workshop.composition.002"
+  ],
+  "updated_at_utc": "2026-10-09T17:33:30.009569+00:00"
+}

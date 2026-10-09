@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-recurrent-causal-composition-official",
+      "status": "passed-official",
+      "title": "Official recurrent causal-composition promotion",
+      "headline": "64/64 fresh sealed composition success with 72/72 prior-lesson retention",
+      "metrics": ["64 post-freeze sealed trials", "21/64 pre-lesson, 17/64 matched fresh, and 17/64 random", "100% initial uncertainty and 0% post-causal-evidence uncertainty", "All seven gates passed; Changing Maze memory is next"],
+      "scope": "Official promotion for bounded anonymous three-stage causal composition under a 32-action cap. The unchanged recurrent policy used pixels, previous anonymous actions, scalar reward, termination, and memory. All public and 288 previously revealed sealed seeds were excluded. The curriculum, rewards, replay objective, retention allocation, world family, and evaluation protocol remain engineered; this is not unrestricted causal reasoning.",
+      "evidence": "evidence/gum-school/sealed-recurrent-composition-official-v1/OFFICIAL_COMPOSITION_PROMOTION.json"
+    },
+    {
       "id": "school-recurrent-causal-composition-reward-outcome-v2",
       "status": "passed-development",
       "title": "Reward-grounded recurrent causal composition",

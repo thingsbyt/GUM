@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-10-09T17:33:22.416283+00:00",
+  "files": {
+    "CAUSAL_META_POLICY.pt": "ea0577c86e68fbf9ed76e2dff0cde4e2e4a42d8cfc812e31c89758967be56453",
+    "CUMULATIVE_LEARNER.json": "050b980bebccdfdca750dce38f591858109af27a22847454426e78b683d0c012",
+    "SCHOOL_LEARNER.json": "7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83"
+  },
+  "format": "gum-school-snapshot-v1",
+  "lineage_location": "school ledger and decision records",
+  "snapshot_id": "sha256-059137c51bcf5e977d4e56116590cadf1c64d63e9532b930cde60a2758d866a1",
+  "total_bytes": 465962
+}

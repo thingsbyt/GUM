@@ -1,5 +1,17 @@
 # Frozen release verification
 
+## Official recurrent causal-composition promotion
+
+The examiner was committed before the 64 sealed seeds were drawn. The frozen
+candidate then scored 64/64 against 21/64 pre-lesson, 17/64 matched fresh, and
+17/64 random, while retaining all three prior lessons at 72/72. All seven
+engine gates passed and the promoted snapshot verifies independently.
+
+```powershell
+python -m pytest -q tests/test_school_composition_official.py
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_COMPOSITION_OFFICIAL.json
+```
+
 ## Causal-composition reward-outcome development result
 
 The promoted recurrent learner continued on public Lesson 4 worlds under one
