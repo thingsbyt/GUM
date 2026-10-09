@@ -1,5 +1,19 @@
 # Frozen release verification
 
+## Strict causal-scaffold ablation
+
+The development-only ablation removed the handcrafted probe-then-repeat
+intervention schedule and used no sealed cases. The promoted learner fell from
+64/64 with the scaffold to 4/64 without it. Starting from the Lesson 2 snapshot
+and retraining without the scaffold for the full 12,000-interaction budget
+reached 10/64, with a 95% Wilson upper bound of 0.264. The strict 0.80 criterion
+failed.
+
+```powershell
+python scripts/run_school_strict_causal_ablation.py --trials 64
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_STRICT_CAUSAL_ABLATION.json
+```
+
 ## GUM School causal-control promotion verification
 
 The third official lesson ran from source freeze commit

@@ -1,0 +1,80 @@
+{
+  "created_at_utc": "2026-10-09T12:48:28.661748+00:00",
+  "development_only": true,
+  "development_trials": 64,
+  "format": "gum-school-strict-causal-ablation-v1",
+  "full_budget_training_without_scaffold": {
+    "development": {
+      "interactions": 10830,
+      "mean_interactions": 169.21875,
+      "success_interval": {
+        "lower": 0.08714842338206585,
+        "method": "wilson",
+        "upper": 0.2642806177254878
+      },
+      "success_rate": 0.15625,
+      "successes": 10,
+      "trials": 64,
+      "uncertainty_rate": 1.0,
+      "unnecessary_action_rate": 0.9922437673130194
+    },
+    "training": {
+      "episodes": 127,
+      "interactions": 12000
+    }
+  },
+  "full_curriculum_training_budget": 12000,
+  "interpretation": "The unscaffolded learner did not discover a general causal intervention policy.",
+  "lesson_id": "causal-workshop.controls.001",
+  "official_curriculum_run": false,
+  "promoted_snapshot_without_scaffold": {
+    "interactions": 12012,
+    "mean_interactions": 187.6875,
+    "success_interval": {
+      "lower": 0.024571201396618017,
+      "method": "wilson",
+      "upper": 0.14997485092208662
+    },
+    "success_rate": 0.0625,
+    "successes": 4,
+    "trials": 64,
+    "uncertainty_rate": 1.0,
+    "unnecessary_action_rate": 0.994005994005994
+  },
+  "public_development_seeds": [
+    21101,
+    21102,
+    21103,
+    21104
+  ],
+  "public_training_seeds": [
+    21001,
+    21002,
+    21003,
+    21004
+  ],
+  "removed_scaffold": "probe-each-control-once-then-repeat-progress-control",
+  "scaffolded_promoted_control": {
+    "interactions": 383,
+    "mean_interactions": 5.984375,
+    "success_interval": {
+      "lower": 0.9433759402071946,
+      "method": "wilson",
+      "upper": 1.0
+    },
+    "success_rate": 1.0,
+    "successes": 64,
+    "trials": 64,
+    "uncertainty_rate": 0.0,
+    "unnecessary_action_rate": 0.0
+  },
+  "sealed_data_used": false,
+  "source_hashes": {
+    "gum/school/learner.py": "sha256:112c7b270d60b07deb743ccdc112c1ad0ae853bf5f2156d97f91e04eed8cf36c",
+    "gum/school/training.py": "sha256:c12e6b7c768495ffc7dd0b16d70fa18bf69bf9659aa29e537c6e38f229a99f19",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91",
+    "scripts/run_school_strict_causal_ablation.py": "sha256:131e7ba57243a61ff3cae486258aa55614906a69e599e6a6d37133807ae79711"
+  },
+  "strict_pass": false,
+  "strict_threshold": 0.8
+}

@@ -12,6 +12,15 @@
       "evidence": "evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT_003.json"
     },
     {
+      "id": "school-strict-causal-ablation",
+      "status": "failed-development",
+      "title": "Causal intervention scaffold ablation",
+      "headline": "Without the engineered intervention schedule: 4/64 retained and 10/64 after the full retraining budget",
+      "metrics": ["64 public development trials", "12,000 unscaffolded training interactions", "15.6% retrained success", "95% Wilson upper bound 0.264"],
+      "scope": "Negative result using public curriculum seeds only. The current learner did not invent a general intervention policy when the probe-then-repeat scheduler was removed. This narrows the third sealed pass to scaffolded control grounding.",
+      "evidence": "evidence/gum-school/strict/causal-controls-unscaffolded-v1/STRICT_CAUSAL_ABLATION.json"
+    },
+    {
       "id": "school-sealed-object-function",
       "status": "passed-official",
       "title": "GUM School second sealed examination",

@@ -23,6 +23,22 @@ and activate a probe-then-repeat strategy; within each new world, it grounds
 the shuffled anonymous control from observed progress. This is a bounded
 control-grounding result, not a claim of general causal reasoning.
 
+### Stricter scaffold-ablation result
+
+A subsequent public-seed test removed the complete probe-each-control and
+repeat-on-progress scheduler. The promoted learner then scored **4/64**. A
+Lesson 2 learner retrained without that scheduler used the full **12,000**
+interaction budget and scored **10/64** (15.6%; 95% Wilson interval
+8.7%–26.4%), far below the 80% criterion. The scaffolded control remained
+64/64.
+
+This stricter test failed. It shows that the current system did not invent a
+general intervention policy. The sealed promotion remains valid under its
+frozen protocol, but its interpretation is narrower: it demonstrates learned
+use of a supplied experimental routine and within-world control grounding.
+The negative-result report is
+[`evidence/gum-school/strict/causal-controls-unscaffolded-v1/STRICT_CAUSAL_ABLATION.json`](../evidence/gum-school/strict/causal-controls-unscaffolded-v1/STRICT_CAUSAL_ABLATION.json).
+
 ## Second lesson result
 
 The second official lesson, `object-laboratory.functional-category.002`, passed
