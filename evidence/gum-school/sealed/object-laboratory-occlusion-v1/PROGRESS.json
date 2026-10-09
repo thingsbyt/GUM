@@ -2,7 +2,8 @@
   "format": "gum-school-progress-v1",
   "initial_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
   "promoted_lessons": [
-    "object-laboratory.occlusion.001"
+    "object-laboratory.occlusion.001",
+    "object-laboratory.functional-category.002"
   ],
-  "updated_at_utc": "2026-10-08T23:41:45.875550+00:00"
+  "updated_at_utc": "2026-10-09T02:01:47.778026+00:00"
 }

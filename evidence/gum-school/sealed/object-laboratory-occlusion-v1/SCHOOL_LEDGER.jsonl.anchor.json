@@ -1,6 +1,6 @@
 {
   "format": "gum-ledger-anchor-v1",
-  "head": "88395d39e6754b65257d3e1255bce9a7be741ddda0457e4ba53fc9f057864a21",
+  "head": "8bacace59a77395aaaa18b9aeb650768a731b6320467e676adc6520cb72e9941",
   "ledger": "SCHOOL_LEDGER.jsonl",
-  "records": 5
+  "records": 9
 }

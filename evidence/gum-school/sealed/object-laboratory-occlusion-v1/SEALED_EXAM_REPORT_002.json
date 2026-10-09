@@ -1,0 +1,106 @@
+{
+  "artifact_hashes": {
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/DECISION.json": "sha256:bf936ea54db84eae3ae2e17319512dbc90654a75e76317d0e4a71ceb54f17fb5",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/EVALUATION.json": "sha256:36d43617eab8adc7a1c6849a06c914dd326e6ba93d661fdc577744b58e0cb4cb",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/RUN.json": "sha256:43e89c2b80ed88d2c153fae5c4762b35b5f8f11ccc57265210c42db158a4560c",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/RUN.json.bak": "sha256:c5b7c7ed7e4d975cc6c32f6abf42b79ea4c5b6d4eae5310cfc6bee6429149e36",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/SEALED_SEED_MANIFEST.json": "sha256:02c0d256befd8c4b511a91269fcb78d8e06f6f075c9555f3cac596d2cb56af84",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/SOURCE_FREEZE.json": "sha256:655ab32480b9fbece415af8b9af01239a363f7911eb90a0e9f1c22f8df8e1277",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/TRAINING.json": "sha256:824acfbf7e16453ae62c5002bc6a660f27de64d6d78eeb1cf7319949de50ea09",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/base-evaluation-state/SCHOOL_LEARNER.json": "sha256:8b3319924c4fdac1c060a1873caad06e4d202f2e20321b2439a9fe325aa23a19",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/base-evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:e17d7c8a1596493b8ef7d0f42731ed5a57646325a7262f55af17223d5a068422",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/candidate/SCHOOL_LEARNER.json": "sha256:7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/candidate/SCHOOL_LEARNER.json.bak": "sha256:8b3319924c4fdac1c060a1873caad06e4d202f2e20321b2439a9fe325aa23a19",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/evaluation-state/SCHOOL_LEARNER.json": "sha256:7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:8b3319924c4fdac1c060a1873caad06e4d202f2e20321b2439a9fe325aa23a19",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/evidence/sealed-examination.json": "sha256:ff55d1d6406547aff8c479d9e3d4c8786ec6f3d0b8bf3bb686615b68b331e162",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/evidence/training-rehearsal.json": "sha256:2f8fc9b9f044b2b1604ca1ac485e101dda917d37a962b613f2caaabbfc9c12bc",
+    "runs/7fbedf53-e7ce-41b6-a1ea-d66a778c2326/evidence/training-trajectories.json": "sha256:e076c9cfcc50b9cb8c1af4d094211e9cca596e008eeabba0fb51874970217896"
+  },
+  "development_only": false,
+  "examination_id": "exam.object-laboratory.transfer.v1",
+  "format": "gum-school-sealed-exam-report-v1",
+  "gates": {
+    "all_passed": true,
+    "format": "gum-school-gate-result-v1",
+    "gates": {
+      "control-advantage": {
+        "fresh_advantage": 2.2857142857142856,
+        "passed": true,
+        "reasons": []
+      },
+      "evidence-integrity": {
+        "passed": true,
+        "reasons": []
+      },
+      "input-boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "replay": {
+        "passed": true,
+        "reasons": []
+      },
+      "resource-limits": {
+        "passed": true,
+        "reasons": []
+      },
+      "retention": {
+        "passed": true,
+        "reasons": [],
+        "regressions": {
+          "entity-attention": 0.0,
+          "object-persistence": 0.0,
+          "occlusion-tracking": 0.0
+        }
+      },
+      "sealed-performance": {
+        "passed": true,
+        "reasons": []
+      }
+    }
+  },
+  "ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "8bacace59a77395aaaa18b9aeb650768a731b6320467e676adc6520cb72e9941",
+      "ledger": "SCHOOL_LEDGER.jsonl",
+      "records": 9
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "8bacace59a77395aaaa18b9aeb650768a731b6320467e676adc6520cb72e9941",
+    "records": 9,
+    "valid": true
+  },
+  "lesson_id": "object-laboratory.functional-category.002",
+  "official_curriculum_run": true,
+  "result": {
+    "all_gates_passed": true,
+    "candidate_before_training_success_rate": 0.4375,
+    "candidate_success_rate": 1.0,
+    "failed_gates": [],
+    "input_boundary_verified": true,
+    "matched_fresh_success_rate": 0.4375,
+    "outcome": "promote",
+    "promoted_snapshot_changed": true,
+    "promoted_snapshot_id": "sha256-9f4dfc739f7b96199269464b92630e1728d639456ebd6fce2e86ad404a6af463",
+    "random_success_rate": 0.46875,
+    "replay_verified": true,
+    "retention_baseline_success_rate": 1.0,
+    "retention_current_success_rate": 1.0,
+    "source_and_protocol_verified": true,
+    "success_interval": {
+      "lower": 0.8928208017449293,
+      "method": "wilson",
+      "upper": 1.0
+    },
+    "total_interactions": 1904,
+    "training_interactions": 1067
+  },
+  "run_id": "7fbedf53-e7ce-41b6-a1ea-d66a778c2326",
+  "sealed_data_used_for_training": false,
+  "seed_manifest_commitment": "sha256:a3d5995a795b3778aacf4eaae02c5ef6aa9dc10e7d9843111ce65d7fe5ae4913",
+  "seed_manifest_revealed": true,
+  "source_freeze_git_head": "b5888dc63f95cabdd997174fe1aef85e0cb21f0b"
+}

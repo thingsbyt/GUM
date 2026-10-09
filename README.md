@@ -155,7 +155,7 @@ matrix have not run.
 - [GUM School curriculum and promotion rules](docs/GUM_SCHOOL_CURRICULUM.md)
 - [GUM School engine and interruption safety](docs/GUM_SCHOOL_ENGINE.md)
 - [GUM School training lane and rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
-- [GUM School first sealed examination](docs/GUM_SCHOOL_SEALED_EXAM.md)
+- [GUM School sealed examinations](docs/GUM_SCHOOL_SEALED_EXAM.md)
 - [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)

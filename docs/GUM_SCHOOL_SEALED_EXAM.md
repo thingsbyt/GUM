@@ -1,6 +1,30 @@
-# GUM School first sealed examination
+# GUM School sealed examinations
 
-## Result
+## Second lesson result
+
+The second official lesson, `object-laboratory.functional-category.002`, passed
+on 2026-10-08. The trained swarm scored **32/32** on a post-freeze RGB-shifted
+sealed set. The same promoted learner before this lesson scored **14/32**, a
+matched fresh swarm scored **14/32**, and random scored **15/32**. The 95%
+Wilson lower bound was 0.893. Lesson 1 retention was **24/24 before and after**
+training, and all seven gates passed.
+
+The source freeze names commit
+`b5888dc63f95cabdd997174fe1aef85e0cb21f0b`. The engine promoted snapshot
+`sha256-9f4dfc739f7b96199269464b92630e1728d639456ebd6fce2e86ad404a6af463`.
+Training used 1,067 interactions; the entire training, baseline, control,
+retention, and replay protocol used 1,904. The canonical report is
+[`evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT_002.json`](../evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT_002.json),
+with SHA-256 digest
+`4198237756d9b46d60d5d7e7c8c6c09ef5a44c47f53ffcdd3e8c1edce64726eb`.
+
+The learner inferred stable object identity across the appearance change and
+learned the anonymous final action mapping from scalar reward. The visual glyph
+comparison and the policy for when to probe are engineered. This is evidence
+for a bounded functional-categorization lesson, not unrestricted concept
+learning.
+
+## First lesson result
 
 The first official GUM School lesson, `object-laboratory.occlusion.001`, passed
 its post-freeze sealed examination on 2026-10-08. The frozen four-policy swarm

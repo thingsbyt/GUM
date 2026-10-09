@@ -19,6 +19,10 @@ def main() -> int:
     parser.add_argument("--training-episodes-per-seed", type=int, default=8)
     parser.add_argument("--trials", type=int, default=32)
     parser.add_argument("--max-replicas", type=int, default=4)
+    parser.add_argument(
+        "--continue-existing", action="store_true",
+        help="Run the next lesson in an existing promoted school workspace.",
+    )
     args = parser.parse_args()
     config = SealedExamConfig(
         training=TrainingLaneConfig(
@@ -33,11 +37,18 @@ def main() -> int:
         "workspace": args.workspace,
         "config": config,
         "learner_seed": args.learner_seed,
+        "continue_existing": args.continue_existing,
     }
     if args.curriculum is not None:
         kwargs["curriculum_path"] = args.curriculum
     report = run_official_sealed_exam(**kwargs)
     result = report["result"]
+    sequence = int(report["lesson_id"].rsplit(".", 1)[-1])
+    report_name = (
+        "SEALED_EXAM_REPORT.json"
+        if sequence == 1
+        else f"SEALED_EXAM_REPORT_{sequence:03d}.json"
+    )
     print(json.dumps({
         "outcome": result["outcome"],
         "all_gates_passed": result["all_gates_passed"],
@@ -45,7 +56,7 @@ def main() -> int:
         "matched_fresh_success_rate": result["matched_fresh_success_rate"],
         "random_success_rate": result["random_success_rate"],
         "promoted_snapshot_changed": result["promoted_snapshot_changed"],
-        "report": str(args.workspace / "SEALED_EXAM_REPORT.json"),
+        "report": str(args.workspace / report_name),
     }, indent=2, sort_keys=True))
     return 0 if result["all_gates_passed"] else 2
 

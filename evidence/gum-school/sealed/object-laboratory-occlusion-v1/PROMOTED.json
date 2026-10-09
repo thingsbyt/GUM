@@ -1,8 +1,8 @@
 {
   "format": "gum-school-promoted-pointer-v1",
-  "generation": 2,
-  "previous_snapshot_id": "sha256-e90074328541c6a9cb7b97c7c67defbcbfa0864ca737ce2979a11cc27c35a80d",
-  "promoted_at_utc": "2026-10-08T23:41:45.865986+00:00",
-  "run_id": "0f887253-c319-417f-adcc-6c69d3027ec7",
-  "snapshot_id": "sha256-2ce4ead31ceb61f73b70af8ed19cfd60ec70e293031d926c9e2ea208b1cacee5"
+  "generation": 3,
+  "previous_snapshot_id": "sha256-2ce4ead31ceb61f73b70af8ed19cfd60ec70e293031d926c9e2ea208b1cacee5",
+  "promoted_at_utc": "2026-10-09T02:01:47.778026+00:00",
+  "run_id": "7fbedf53-e7ce-41b6-a1ea-d66a778c2326",
+  "snapshot_id": "sha256-9f4dfc739f7b96199269464b92630e1728d639456ebd6fce2e86ad404a6af463"
 }

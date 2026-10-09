@@ -1,0 +1,67 @@
+{
+  "evidence": {
+    "ledger_verified": true,
+    "protocol_hashes_verified": true,
+    "source_hashes_verified": true,
+    "trajectory_verified": true
+  },
+  "format": "gum-school-evaluation-v1",
+  "input_boundary": {
+    "verified": true,
+    "violations": []
+  },
+  "replay": {
+    "artifact_path": "evidence/sealed-examination.json",
+    "artifact_sha256": "sha256:ff55d1d6406547aff8c479d9e3d4c8786ec6f3d0b8bf3bb686615b68b331e162",
+    "deterministic": true,
+    "verified": true
+  },
+  "resources": {
+    "artifact_storage_mb": 0.8574914932250977,
+    "interactions": 1904,
+    "peak_memory_mb": 46.18359375,
+    "wall_clock_seconds": 5.10243129999435
+  },
+  "retention": [
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "entity-attention"
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "object-persistence"
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "occlusion-tracking"
+    }
+  ],
+  "sealed": {
+    "confidence_level": 0.95,
+    "fresh_advantage_interval": {
+      "lower": 1.6842105263157894,
+      "method": "paired-bootstrap",
+      "upper": 3.5555555555555554
+    },
+    "fresh_success_rate": 0.4375,
+    "protocol_verified": true,
+    "same_perception": true,
+    "same_resource_limits": true,
+    "success_interval": {
+      "lower": 0.8928208017449293,
+      "method": "wilson",
+      "upper": 1.0
+    },
+    "success_rate": 1.0,
+    "trials": 32,
+    "uncertainty_rate": 0.0,
+    "unnecessary_action_rate": 0.0
+  },
+  "transfer_results": []
+}

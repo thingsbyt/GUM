@@ -1,5 +1,25 @@
 # Frozen release verification
 
+## GUM School second sealed-promotion verification
+
+The second official lesson ran from source freeze commit
+`b5888dc63f95cabdd997174fe1aef85e0cb21f0b` after the first lesson's promoted
+snapshot. Training completed before 32 unique sealed seeds were selected.
+
+The trained learner scored 32/32; the candidate before this lesson and the
+matched fresh learner each scored 14/32; random scored 15/32. Lesson 1 scored
+24/24 both before and after the new training. Exact replay, the input boundary,
+the evidence ledger, and all seven promotion gates passed. The promoted
+snapshot is
+`sha256-9f4dfc739f7b96199269464b92630e1728d639456ebd6fce2e86ad404a6af463`.
+
+The complete suite passed **334/334 tests**, with only the existing PyTorch
+scalar-conversion warning. Verify this tree with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_FUNCTIONAL_PROMOTION.json
+```
+
 ## GUM School sealed-promotion verification
 
 The first official lesson was run on 2026-10-08 from frozen source commit

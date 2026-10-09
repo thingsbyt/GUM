@@ -3,7 +3,6 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-import shutil
 
 from gum.lineage import HashLedger, canonical
 from gum.school.learner import CrossSeedSchoolLearner
@@ -143,12 +142,20 @@ def test_second_official_lesson_keeps_first_lesson_and_promotes(
     _DeterministicSystemRandom.next_seed = 1_200_000_003
     monkeypatch.setattr("gum.school.sealed.secrets.SystemRandom", _DeterministicSystemRandom)
     monkeypatch.setattr("gum.school.sealed.secrets.token_hex", lambda count: "cd" * count)
-    canonical_workspace = (
-        Path(__file__).resolve().parents[1]
-        / "evidence" / "gum-school" / "sealed" / "object-laboratory-occlusion-v1"
-    )
     workspace = tmp_path / "continued-school"
-    shutil.copytree(canonical_workspace, workspace)
+    run_official_sealed_exam(
+        workspace,
+        config=SealedExamConfig(
+            training=TrainingLaneConfig(
+                max_training_interactions=600,
+                training_episodes_per_seed=8,
+                development_trials=32,
+                max_replicas=4,
+            ),
+            trials=32,
+        ),
+    )
+    _DeterministicSystemRandom.next_seed = 1_300_000_003
     report = run_official_sealed_exam(
         workspace,
         continue_existing=True,

@@ -1,0 +1,111 @@
+{
+  "after": {
+    "boundary_violations": [],
+    "communication_rounds": 72,
+    "episodes": 288,
+    "epsilon": 0.05,
+    "evaluation_steps": 0,
+    "format": "gum-school-cross-seed-learner-v2",
+    "max_replicas": 4,
+    "memory_states": 79,
+    "parameter_count": 2226,
+    "replica_count": 4,
+    "replica_episodes": [
+      72,
+      72,
+      72,
+      72
+    ],
+    "seen_world_count": 8,
+    "shared_adapters": [
+      "gum-object-laboratory-v1"
+    ],
+    "spawn_events": [
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 2,
+        "training_step": 2
+      },
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 3,
+        "training_step": 5
+      },
+      {
+        "episode": 1,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 4,
+        "training_step": 9
+      }
+    ],
+    "training_steps": 1306
+  },
+  "artifact_storage_mb": 0.48584842681884766,
+  "before": {
+    "boundary_violations": [],
+    "communication_rounds": 8,
+    "episodes": 32,
+    "epsilon": 0.21578806480709567,
+    "evaluation_steps": 0,
+    "format": "gum-school-cross-seed-learner-v2",
+    "max_replicas": 4,
+    "memory_states": 29,
+    "parameter_count": 1026,
+    "replica_count": 4,
+    "replica_episodes": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "seen_world_count": 4,
+    "shared_adapters": [
+      "gum-object-laboratory-v1"
+    ],
+    "spawn_events": [
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 2,
+        "training_step": 2
+      },
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 3,
+        "training_step": 5
+      },
+      {
+        "episode": 1,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 4,
+        "training_step": 9
+      }
+    ],
+    "training_steps": 239
+  },
+  "episodes": 256,
+  "format": "gum-school-training-evidence-v1",
+  "input_boundary": {
+    "learner_received_audit_state": false,
+    "learner_received_private_world_data": false,
+    "violations": []
+  },
+  "interaction_limit": 4000,
+  "interactions": 1067,
+  "lesson_id": "object-laboratory.functional-category.002",
+  "official_curriculum_run": true,
+  "peak_memory_mb": 45.69140625,
+  "sealed_data_used": false,
+  "source_hashes": {
+    "gum/protocol.py": "sha256:5c1998eb02d5086e149fb16e7bd8517aefff88abcb9563deef2368db72554909",
+    "gum/school/learner.py": "sha256:c09307f61a71103fd98cdb8214477daa576cdf8f46529c34c97bef52da55d55b",
+    "gum/school/training.py": "sha256:39a08cabe7908cc1009d032440401835c82901c87c14e88be9109cca125994ae",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91"
+  },
+  "trajectory_path": "training-trajectories.json",
+  "trajectory_sha256": "sha256:e076c9cfcc50b9cb8c1af4d094211e9cca596e008eeabba0fb51874970217896",
+  "wall_clock_seconds": 2.9955367000002298
+}

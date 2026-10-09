@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-sealed-object-function",
+      "status": "passed-official",
+      "title": "GUM School second sealed examination",
+      "headline": "32/32 trained versus 14/32 before training and fresh; Lesson 1 retained at 24/24",
+      "metrics": ["1,067 public-seed training interactions", "32 post-freeze shifted trials", "95% Wilson lower bound 0.893", "Seven promotion gates passed"],
+      "scope": "Official pass for the second narrow Object Laboratory lesson. Pixel parsing and active probing are engineered; appearance-to-identity and anonymous output mappings are learned from scalar reward. No causal-school or general-intelligence claim.",
+      "evidence": "evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT_002.json"
+    },
+    {
       "id": "school-sealed-object-occlusion",
       "status": "passed-official",
       "title": "GUM School first sealed examination",
