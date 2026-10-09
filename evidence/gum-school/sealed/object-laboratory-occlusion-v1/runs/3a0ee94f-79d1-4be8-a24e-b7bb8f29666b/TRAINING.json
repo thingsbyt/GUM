@@ -1,0 +1,10 @@
+{
+  "artifact_storage_mb": 0.3670215606689453,
+  "completed": true,
+  "evidence_path": "evidence/training-rehearsal.json",
+  "evidence_sha256": "sha256:097e1948e796df45d55b5b5c2940f2ee28aa08b419be3d98c7102ab65268c019",
+  "format": "gum-school-training-summary-v1",
+  "interactions": 854,
+  "peak_memory_mb": 44.36328125,
+  "wall_clock_seconds": 0.9106556000042474
+}

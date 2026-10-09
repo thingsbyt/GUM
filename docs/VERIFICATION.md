@@ -1,5 +1,23 @@
 # Frozen release verification
 
+## GUM School causal-control promotion verification
+
+The third official lesson ran from source freeze commit
+`6043e3b231df34cd92d4a7aa8104ff0fb5529358`. The trained learner scored 32/32;
+the candidate before this lesson and matched fresh learner each scored 6/32;
+random scored 2/32. The earlier lessons retained 48/48 both before and after
+training. Exact replay, the input boundary, cumulative retention, the evidence
+ledger, and all seven promotion gates passed. The promoted snapshot is
+`sha256-d2ff17304c7286ccb1c18c7a33a8c769c9dfeca998566cb14a557261aaa2dd31`.
+
+The focused school suite passed **67/67 tests** and the complete suite passed
+**334/334 tests**, with only the existing PyTorch scalar-conversion warning.
+Verify this tree with:
+
+```powershell
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_CAUSAL_PROMOTION.json
+```
+
 ## GUM School second sealed-promotion verification
 
 The second official lesson ran from source freeze commit

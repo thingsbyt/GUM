@@ -1,0 +1,109 @@
+{
+  "artifact_hashes": {
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/DECISION.json": "sha256:c4cd6be4858c6b463fe7099d532a6499d8a1031f634073f417c328ed465cb4ac",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/EVALUATION.json": "sha256:6f83fd896ee11b27ea1654d327ef6919e4ce12c3fa44ce602150c9b49b9b67df",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/RUN.json": "sha256:7acaaf186f7095526131073fa16ac33a819f4fe4a45b538df8fdc32e0c8f6bf0",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/RUN.json.bak": "sha256:17f95a79e6a27e78225d09481dda93e220525a6eaf5a438d89295c1461af35ed",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/SEALED_SEED_MANIFEST.json": "sha256:bf849a0cf83d35620afb7a21045398ff06d395e3060d7aa6f925d92ec2a5b517",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/SOURCE_FREEZE.json": "sha256:9d26ffa0eb962dc4284d9e13712c010e9576f89caed97f8a2cbae7455bb699ed",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/TRAINING.json": "sha256:bced2a264544b5832d2787d73b8ff1ee9752a9c96afeac4f4ffd309d0371ef72",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/base-evaluation-state/SCHOOL_LEARNER.json": "sha256:7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/base-evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:8b3319924c4fdac1c060a1873caad06e4d202f2e20321b2439a9fe325aa23a19",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/candidate/SCHOOL_LEARNER.json": "sha256:8e775fec82ce89306e67142accc257ccfe22ae34653da85746e940613f9339df",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/candidate/SCHOOL_LEARNER.json.bak": "sha256:7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/evaluation-state/SCHOOL_LEARNER.json": "sha256:8e775fec82ce89306e67142accc257ccfe22ae34653da85746e940613f9339df",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/evaluation-state/SCHOOL_LEARNER.json.bak": "sha256:7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/evidence/sealed-examination.json": "sha256:954507e8a003f527424ba1310c7d6f935cd78351e2705747562bbb332a7aa4be",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/evidence/training-rehearsal.json": "sha256:097e1948e796df45d55b5b5c2940f2ee28aa08b419be3d98c7102ab65268c019",
+    "runs/3a0ee94f-79d1-4be8-a24e-b7bb8f29666b/evidence/training-trajectories.json": "sha256:c65be52f4d4bc9663c8b7160f8171a53fe01a2e562af711c3f88d0f7f3e250fb"
+  },
+  "development_only": false,
+  "examination_id": "exam.causal-workshop.transfer.v1",
+  "format": "gum-school-sealed-exam-report-v1",
+  "gates": {
+    "all_passed": true,
+    "format": "gum-school-gate-result-v1",
+    "gates": {
+      "control-advantage": {
+        "fresh_advantage": 5.333333333333333,
+        "passed": true,
+        "reasons": []
+      },
+      "evidence-integrity": {
+        "passed": true,
+        "reasons": []
+      },
+      "input-boundary": {
+        "passed": true,
+        "reasons": []
+      },
+      "replay": {
+        "passed": true,
+        "reasons": []
+      },
+      "resource-limits": {
+        "passed": true,
+        "reasons": []
+      },
+      "retention": {
+        "passed": true,
+        "reasons": [],
+        "regressions": {
+          "categorization": 0.0,
+          "comparison": 0.0,
+          "entity-attention": 0.0,
+          "event-concept-formation": 0.0,
+          "object-persistence": 0.0,
+          "occlusion-tracking": 0.0
+        }
+      },
+      "sealed-performance": {
+        "passed": true,
+        "reasons": []
+      }
+    }
+  },
+  "ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "53ffc674a34b86e827dc9c8e2211fe82f45338c40728cf9e131e87a00de0bef0",
+      "ledger": "SCHOOL_LEDGER.jsonl",
+      "records": 13
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "53ffc674a34b86e827dc9c8e2211fe82f45338c40728cf9e131e87a00de0bef0",
+    "records": 13,
+    "valid": true
+  },
+  "lesson_id": "causal-workshop.controls.001",
+  "official_curriculum_run": true,
+  "result": {
+    "all_gates_passed": true,
+    "candidate_before_training_success_rate": 0.1875,
+    "candidate_success_rate": 1.0,
+    "failed_gates": [],
+    "input_boundary_verified": true,
+    "matched_fresh_success_rate": 0.1875,
+    "outcome": "promote",
+    "promoted_snapshot_changed": true,
+    "promoted_snapshot_id": "sha256-d2ff17304c7286ccb1c18c7a33a8c769c9dfeca998566cb14a557261aaa2dd31",
+    "random_success_rate": 0.0625,
+    "replay_verified": true,
+    "retention_baseline_success_rate": 1.0,
+    "retention_current_success_rate": 1.0,
+    "source_and_protocol_verified": true,
+    "success_interval": {
+      "lower": 0.8928208017449293,
+      "method": "wilson",
+      "upper": 1.0
+    },
+    "total_interactions": 2566,
+    "training_interactions": 854
+  },
+  "run_id": "3a0ee94f-79d1-4be8-a24e-b7bb8f29666b",
+  "sealed_data_used_for_training": false,
+  "seed_manifest_commitment": "sha256:31ea360f1908140dddd6d0ac163f7bcc3950b5e323af9c4f6fca6b41491bcab9",
+  "seed_manifest_revealed": true,
+  "source_freeze_git_head": "6043e3b231df34cd92d4a7aa8104ff0fb5529358"
+}

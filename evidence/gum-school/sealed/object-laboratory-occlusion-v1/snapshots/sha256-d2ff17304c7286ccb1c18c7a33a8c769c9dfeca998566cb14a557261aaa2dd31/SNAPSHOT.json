@@ -1,0 +1,11 @@
+{
+  "created_at_utc": "2026-10-09T12:31:37.894696+00:00",
+  "files": {
+    "SCHOOL_LEARNER.json": "8e775fec82ce89306e67142accc257ccfe22ae34653da85746e940613f9339df",
+    "SCHOOL_LEARNER.json.bak": "7fa0ad263ccb3b25e3efd164b275c20dae80643ff49bdab75dadbfa178725c83"
+  },
+  "format": "gum-school-snapshot-v1",
+  "lineage_location": "school ledger and decision records",
+  "snapshot_id": "sha256-d2ff17304c7286ccb1c18c7a33a8c769c9dfeca998566cb14a557261aaa2dd31",
+  "total_bytes": 198298
+}

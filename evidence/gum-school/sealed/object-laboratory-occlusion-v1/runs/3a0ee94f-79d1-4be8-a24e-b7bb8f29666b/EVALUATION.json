@@ -1,0 +1,85 @@
+{
+  "evidence": {
+    "ledger_verified": true,
+    "protocol_hashes_verified": true,
+    "source_hashes_verified": true,
+    "trajectory_verified": true
+  },
+  "format": "gum-school-evaluation-v1",
+  "input_boundary": {
+    "verified": true,
+    "violations": []
+  },
+  "replay": {
+    "artifact_path": "evidence/sealed-examination.json",
+    "artifact_sha256": "sha256:954507e8a003f527424ba1310c7d6f935cd78351e2705747562bbb332a7aa4be",
+    "deterministic": true,
+    "verified": true
+  },
+  "resources": {
+    "artifact_storage_mb": 1.353841781616211,
+    "interactions": 2566,
+    "peak_memory_mb": 48.70703125,
+    "wall_clock_seconds": 3.43385390000185
+  },
+  "retention": [
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "entity-attention"
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "object-persistence"
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "occlusion-tracking"
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "categorization"
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "comparison"
+    },
+    {
+      "baseline_success_rate": 1.0,
+      "current_success_rate": 1.0,
+      "evidence_verified": true,
+      "skill": "event-concept-formation"
+    }
+  ],
+  "sealed": {
+    "confidence_level": 0.95,
+    "fresh_advantage_interval": {
+      "lower": 2.909090909090909,
+      "method": "paired-bootstrap",
+      "upper": 16.0
+    },
+    "fresh_success_rate": 0.1875,
+    "protocol_verified": true,
+    "same_perception": true,
+    "same_resource_limits": true,
+    "success_interval": {
+      "lower": 0.8928208017449293,
+      "method": "wilson",
+      "upper": 1.0
+    },
+    "success_rate": 1.0,
+    "trials": 32,
+    "uncertainty_rate": 0.0,
+    "unnecessary_action_rate": 0.0
+  },
+  "transfer_results": []
+}

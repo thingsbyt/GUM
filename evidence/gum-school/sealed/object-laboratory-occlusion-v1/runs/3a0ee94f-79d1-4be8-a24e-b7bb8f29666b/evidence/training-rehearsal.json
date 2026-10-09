@@ -1,0 +1,112 @@
+{
+  "after": {
+    "boundary_violations": [],
+    "communication_rounds": 104,
+    "episodes": 416,
+    "epsilon": 0.05,
+    "evaluation_steps": 0,
+    "format": "gum-school-cross-seed-learner-v2",
+    "max_replicas": 4,
+    "memory_states": 309,
+    "parameter_count": 10026,
+    "replica_count": 4,
+    "replica_episodes": [
+      104,
+      104,
+      104,
+      104
+    ],
+    "seen_world_count": 12,
+    "shared_adapters": [
+      "gum-causal-workshop-v1",
+      "gum-object-laboratory-v1"
+    ],
+    "spawn_events": [
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 2,
+        "training_step": 2
+      },
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 3,
+        "training_step": 5
+      },
+      {
+        "episode": 1,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 4,
+        "training_step": 9
+      }
+    ],
+    "training_steps": 2160
+  },
+  "artifact_storage_mb": 0.3670215606689453,
+  "before": {
+    "boundary_violations": [],
+    "communication_rounds": 72,
+    "episodes": 288,
+    "epsilon": 0.05,
+    "evaluation_steps": 0,
+    "format": "gum-school-cross-seed-learner-v2",
+    "max_replicas": 4,
+    "memory_states": 79,
+    "parameter_count": 2226,
+    "replica_count": 4,
+    "replica_episodes": [
+      72,
+      72,
+      72,
+      72
+    ],
+    "seen_world_count": 8,
+    "shared_adapters": [
+      "gum-object-laboratory-v1"
+    ],
+    "spawn_events": [
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 2,
+        "training_step": 2
+      },
+      {
+        "episode": 0,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 3,
+        "training_step": 5
+      },
+      {
+        "episode": 1,
+        "reason": "sustained-low-action-confidence",
+        "replica_count": 4,
+        "training_step": 9
+      }
+    ],
+    "training_steps": 1306
+  },
+  "episodes": 128,
+  "format": "gum-school-training-evidence-v1",
+  "input_boundary": {
+    "learner_received_audit_state": false,
+    "learner_received_private_world_data": false,
+    "violations": []
+  },
+  "interaction_limit": 2000,
+  "interactions": 854,
+  "lesson_id": "causal-workshop.controls.001",
+  "official_curriculum_run": true,
+  "peak_memory_mb": 44.36328125,
+  "sealed_data_used": false,
+  "source_hashes": {
+    "gum/protocol.py": "sha256:5c1998eb02d5086e149fb16e7bd8517aefff88abcb9563deef2368db72554909",
+    "gum/school/learner.py": "sha256:112c7b270d60b07deb743ccdc112c1ad0ae853bf5f2156d97f91e04eed8cf36c",
+    "gum/school/training.py": "sha256:c12e6b7c768495ffc7dd0b16d70fa18bf69bf9659aa29e537c6e38f229a99f19",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91"
+  },
+  "trajectory_path": "training-trajectories.json",
+  "trajectory_sha256": "sha256:c65be52f4d4bc9663c8b7160f8171a53fe01a2e562af711c3f88d0f7f3e250fb",
+  "wall_clock_seconds": 0.9106556000042474
+}

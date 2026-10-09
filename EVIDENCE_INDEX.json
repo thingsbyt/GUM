@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-sealed-causal-controls",
+      "status": "passed-official",
+      "title": "GUM School third sealed examination",
+      "headline": "32/32 trained versus 6/32 before training and fresh; prior lessons retained at 48/48",
+      "metrics": ["854 public-seed training interactions", "32 post-freeze shifted trials", "95% Wilson lower bound 0.893", "Seven promotion gates passed"],
+      "scope": "Official pass for the first narrow Causal Workshop lesson. Intervention scheduling is engineered; the reusable probe-then-repeat strategy is activated through reward and each anonymous control is grounded from its observed consequence. No open-ended causal-reasoning claim.",
+      "evidence": "evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT_003.json"
+    },
+    {
       "id": "school-sealed-object-function",
       "status": "passed-official",
       "title": "GUM School second sealed examination",

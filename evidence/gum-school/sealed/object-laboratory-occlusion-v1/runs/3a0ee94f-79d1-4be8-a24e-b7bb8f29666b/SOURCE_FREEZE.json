@@ -1,0 +1,54 @@
+{
+  "created_at_utc": "2026-10-09T12:31:36.899432+00:00",
+  "curriculum_id": "gum-school-v1",
+  "examination_id": "exam.causal-workshop.transfer.v1",
+  "format": "gum-school-source-freeze-v1",
+  "git_head": "6043e3b231df34cd92d4a7aa8104ff0fb5529358",
+  "lesson_id": "causal-workshop.controls.001",
+  "protocol": {
+    "candidate_learning_during_evaluation": false,
+    "controls": [
+      "candidate-before-training",
+      "matched-fresh",
+      "random"
+    ],
+    "curriculum_selection_commitment": "sha256:7c643e564c1d86d0402919635c2ac7f1bddb7b94ac8ebc04bf7cd2b14ac17d36",
+    "examination_id": "exam.causal-workshop.transfer.v1",
+    "format": "gum-school-sealed-protocol-v1",
+    "manifest_revealed_with_completed_evidence": true,
+    "manifest_selected_after_training": true,
+    "mechanism": "causal-controls-spatial-rgb-v1",
+    "per_trial_interaction_limit": 11,
+    "seed_range": [
+      1000000000,
+      2000000000
+    ],
+    "seed_selection": "system-random-unique-integers",
+    "selection_protocol": "post-freeze-independent-v1",
+    "trials": 32
+  },
+  "protocol_sha256": "sha256:9eb3690b336e0824653983ed3ba7f3cfed6275ae0e3808d9b0915ce332b80b5a",
+  "source_hashes": {
+    "curriculum/gum-school-v1.json": "sha256:8d13611f64aef08cca81bba6cb83bac980ab5b6d1a9d2e6e4600e7add721445a",
+    "curriculum/schemas/gum-school-curriculum-v1.schema.json": "sha256:42c0308a463d31ad4a04863be8fc4568f24a09d0c2b2013e510622ec60b05e8f",
+    "curriculum/schemas/gum-school-examination-v1.schema.json": "sha256:a0ccbc401020f9a91654c50a8db5f4bb3a626940f09d94a2d0237d4b8de6b4c4",
+    "curriculum/schemas/gum-school-lesson-v1.schema.json": "sha256:79476bd30893381536e15c442c07e19fb0094199b5f6ee80a65fc2d6ecad6fb2",
+    "curriculum/schemas/gum-school-world-admission-v1.schema.json": "sha256:985e87deb25ce5b7c5a02c5b7b8c463e760fee22abeb7e7b4eaf1b65b3ccb0f7",
+    "gum/lineage.py": "sha256:c79240daa1dc7d579c572713b0f4bdd4d433ada092f45c27965f6c3aa5121101",
+    "gum/mind.py": "sha256:4effd951d3092534185d85faa451889d3dc84112007dfe1d949698a531e44016",
+    "gum/protocol.py": "sha256:5c1998eb02d5086e149fb16e7bd8517aefff88abcb9563deef2368db72554909",
+    "gum/school/__init__.py": "sha256:ef601a76a80d400e09c87ed661a3e3c87a27e958becda0b31a1dcb391bc87421",
+    "gum/school/__main__.py": "sha256:f018144e64aa64333ce8fa773c98e593bace03f2c0ec425b5ebdddc2f45c0bd9",
+    "gum/school/admission.py": "sha256:c33c413cfea66845f689f92325d34c8d6aa402c269bee5bfb96bd9d6e6a23020",
+    "gum/school/engine.py": "sha256:b72818816e225903e1d72aefafcaa72d3c30bfe0b28594b49dcff52310b3ed41",
+    "gum/school/evaluation.py": "sha256:494a1a8d4cddd95a1b2935f98fcf30d64edf78f36dba757ad44dbc1c549671bd",
+    "gum/school/learner.py": "sha256:112c7b270d60b07deb743ccdc112c1ad0ae853bf5f2156d97f91e04eed8cf36c",
+    "gum/school/rehearsal.py": "sha256:0eb7bedc764fb620eddae49c67d113016738f906b752867e4fe6e5c16342900e",
+    "gum/school/sealed.py": "sha256:d9664c52b89673a36e7301de4620dda756cbd2dd1af17927a9b7513007f0b77e",
+    "gum/school/snapshots.py": "sha256:876f51fe6104ff79bf06a78201b0352e517e0f51fa6ff42c18fbf99ae0d9af2e",
+    "gum/school/training.py": "sha256:c12e6b7c768495ffc7dd0b16d70fa18bf69bf9659aa29e537c6e38f229a99f19",
+    "gum/school/validation.py": "sha256:f2fdc78f0ae990b78fe0a203c312d97c41112b254c715a2953d6844a1caa9375",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91",
+    "gum/storage.py": "sha256:8ccd1de7bd5d09aff224fcdb160d7e3efcb6e90337447e8711f11f68c8e7c434"
+  }
+}

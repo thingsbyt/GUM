@@ -1,5 +1,28 @@
 # GUM School sealed examinations
 
+## Third lesson result
+
+The third official lesson, `causal-workshop.controls.001`, passed on 2026-10-09.
+The trained swarm scored **32/32** on post-freeze color- and position-shifted
+control problems. Its pre-lesson self and a matched fresh learner each scored
+**6/32**; random scored **2/32**. The 95% Wilson lower bound was 0.893. The two
+earlier lessons jointly retained **48/48 before and after**, and all seven gates
+passed.
+
+The source freeze names commit
+`6043e3b231df34cd92d4a7aa8104ff0fb5529358`. The engine promoted snapshot
+`sha256-d2ff17304c7286ccb1c18c7a33a8c769c9dfeca998566cb14a557261aaa2dd31`.
+Training used 854 interactions; the complete training, baseline, control,
+retention, and replay protocol used 2,566. The canonical report is
+[`evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT_003.json`](../evidence/gum-school/sealed/object-laboratory-occlusion-v1/SEALED_EXAM_REPORT_003.json),
+with SHA-256 digest
+`ba8a624ea60b348911a8ca98e3f213e029f4d1c91a7fd2af8387222268778f7e`.
+
+The intervention schedule is engineered. Reward teaches the learner to retain
+and activate a probe-then-repeat strategy; within each new world, it grounds
+the shuffled anonymous control from observed progress. This is a bounded
+control-grounding result, not a claim of general causal reasoning.
+
 ## Second lesson result
 
 The second official lesson, `object-laboratory.functional-category.002`, passed
