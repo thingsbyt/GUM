@@ -1,0 +1,76 @@
+{
+  "artifact_hashes": {
+    "metric_source": "sha256:ebb4d6f6cf83d364c06c37d2c552b347966733b0bfaff573ade5d127b19a40cf",
+    "policy": "sha256:ce428e9f45a7e9b1eac2707c0e45bb35c8cf9174a9731136a6fc59981be6c886",
+    "prior_public_training_report": "sha256:c791a46df3e49ff59d8837b75e4e7b7e7da1e1ca8f9f7ddbf3b44d53dfc56d64",
+    "public_trajectories": "sha256:ac9c92f9d2b9ff14d205c081d2f9f97d6d9c47fe9ea1c9714f857dde989156b4",
+    "validation_source": "sha256:922ea6b5ef76661de03f143a86663123d5d94c93f763bda104ba5e50d19d4f37"
+  },
+  "behavioral_summary": {
+    "interactions": 3693,
+    "mean_interactions": 7.212890625,
+    "success_rate": 0.857421875,
+    "successes": 439,
+    "trials": 512,
+    "uncertainty_rate": 0.5358786894124018,
+    "unnecessary_action_rate": 0.11183319794205253
+  },
+  "created_at_utc": "2026-10-09T15:14:54.364500+00:00",
+  "development_only": true,
+  "format": "gum-school-symmetry-uncertainty-validation-v1",
+  "lesson_id": "causal-workshop.controls.001",
+  "policy_weights_changed": false,
+  "protocol": {
+    "current_action_consequence_is_prior_evidence": false,
+    "event_labels_used": false,
+    "hidden_state_used": false,
+    "maximum_post_causal_uncertainty_rate": 0.2,
+    "minimum_initial_uncertainty_rate": 0.95,
+    "positive_causal_evidence": "an earlier action produced scalar reward > 0",
+    "principle": "Require uncertainty before indistinguishable controls have evidence, then require confidence after an earlier action has produced positive scalar reward."
+  },
+  "public_development_seeds": [
+    21101,
+    21102,
+    21103,
+    21104
+  ],
+  "sealed_data_used": false,
+  "symmetry_aware_uncertainty": {
+    "confidence_gain_after_causal_evidence": 0.7196596700709674,
+    "confidence_threshold": 0.05,
+    "episodes": 512,
+    "forbidden_information_used": false,
+    "format": "gum-school-symmetry-aware-uncertainty-v1",
+    "information_used": [
+      "decision-confidence",
+      "prior-scalar-reward"
+    ],
+    "initial_decisions": 512,
+    "initial_uncertain_decisions": 512,
+    "initial_uncertainty_rate": 1.0,
+    "post_causal_evidence_decisions": 913,
+    "post_causal_evidence_mean_confidence": 0.7679343687743765,
+    "post_causal_evidence_uncertain_decisions": 0,
+    "post_causal_evidence_uncertainty_rate": 0.0,
+    "pre_causal_evidence_decisions": 2780,
+    "pre_causal_evidence_mean_confidence": 0.0482746987034091,
+    "pre_causal_evidence_uncertain_decisions": 1979,
+    "pre_causal_evidence_uncertainty_rate": 0.7118705035971223,
+    "successful_episodes": 439,
+    "successful_episodes_with_post_causal_decisions": 439,
+    "successful_episodes_without_post_causal_decisions": 0
+  },
+  "symmetry_uncertainty_gate": {
+    "format": "gum-school-symmetry-uncertainty-gate-v1",
+    "passed": true,
+    "reasons": [],
+    "thresholds": {
+      "maximum_post_causal_uncertainty_rate": 0.2,
+      "minimum_confidence_gain_after_causal_evidence": 0.0,
+      "minimum_initial_uncertainty_rate": 0.95
+    }
+  },
+  "trials": 512,
+  "validation_pass": true
+}
