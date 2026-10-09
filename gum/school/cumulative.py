@@ -162,6 +162,36 @@ class CumulativeSchoolLearner:
         return path
 
     @classmethod
+    def replace_causal_policy(
+        cls,
+        directory: Path,
+        *,
+        causal_path: Path,
+    ) -> Path:
+        """Replace only the reviewed causal component of a valid bundle."""
+        directory = Path(directory)
+        cls.load_bundle(directory)
+        causal_target = directory / CAUSAL_FILENAME
+        shutil.copy2(Path(causal_path), causal_target)
+        RecurrentCausalLearner.load(causal_target)
+        manifest = {
+            "format": cls.format,
+            "components": {
+                BASE_FILENAME: f"sha256:{file_sha256(directory / BASE_FILENAME)}",
+                CAUSAL_FILENAME: f"sha256:{file_sha256(causal_target)}",
+            },
+            "routing": {
+                CAUSAL_WORKSHOP_ADAPTER: CAUSAL_FILENAME,
+                "default": BASE_FILENAME,
+            },
+            "training_complete_before_bundle": True,
+        }
+        path = directory / BUNDLE_FILENAME
+        atomic_write_json(path, manifest, backup=False, sort_keys=True)
+        cls.load_bundle(directory)
+        return path
+
+    @classmethod
     def load_bundle(cls, directory: Path) -> "CumulativeSchoolLearner":
         directory = Path(directory)
         path = directory / BUNDLE_FILENAME
