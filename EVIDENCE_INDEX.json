@@ -21,6 +21,15 @@
       "evidence": "evidence/gum-school/strict/causal-controls-unscaffolded-v1/STRICT_CAUSAL_ABLATION.json"
     },
     {
+      "id": "school-recurrent-causal-meta",
+      "status": "passed-development",
+      "title": "Reward-grounded recurrent causal-policy experiment",
+      "headline": "439/512 learned versus 38/512 random and 32/512 untrained under an 11-action cap",
+      "metrics": ["12,000 public-seed interactions", "85.7% learned success", "95% Wilson interval 82.4%–88.5%", "No event labels, tried-action mask, probe order, or repeat rule"],
+      "scope": "Development-only pass. A permutation-equivariant recurrent policy with scalar-reward self-imitation met the 80% success and 65% Wilson-lower-bound gates. Iterative development informed the final generic sampling temperature, so this is not sealed confirmation or an official promotion; no sealed cases were used.",
+      "evidence": "evidence/gum-school/research/causal-recurrent-meta-v1/RECURRENT_META_REPORT.json"
+    },
+    {
       "id": "school-sealed-object-function",
       "status": "passed-official",
       "title": "GUM School second sealed examination",

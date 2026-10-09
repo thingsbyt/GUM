@@ -1,0 +1,919 @@
+{
+  "created_at_utc": "2026-10-09T13:38:33.441535+00:00",
+  "development_only": true,
+  "evaluation": {
+    "same_untrained_network": {
+      "episode_limit": 11,
+      "interactions": 5522,
+      "mean_interactions": 10.78515625,
+      "mean_return": 0.14974609375,
+      "sample_trajectories": [
+        {
+          "actions": [
+            0,
+            5,
+            5,
+            2,
+            5,
+            5,
+            2,
+            5,
+            1,
+            7,
+            5
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": -0.10999999999999999,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 21101,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 6
+        },
+        {
+          "actions": [
+            7,
+            6,
+            2,
+            1,
+            3,
+            6,
+            3,
+            3,
+            1,
+            6,
+            6
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.01000000000000001,
+          "rewards": [
+            0.2,
+            -0.1,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 21102,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 5
+        },
+        {
+          "actions": [
+            7,
+            2,
+            4,
+            6,
+            4,
+            7,
+            2,
+            2,
+            2,
+            1,
+            0
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": -0.10999999999999999,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 21103,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 5
+        },
+        {
+          "actions": [
+            4,
+            7,
+            7,
+            0,
+            0,
+            0,
+            4,
+            4,
+            7,
+            0,
+            2
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": -0.10999999999999999,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 21104,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 7
+        },
+        {
+          "actions": [
+            3,
+            6,
+            4,
+            7,
+            7,
+            1,
+            4,
+            1,
+            5,
+            0,
+            1
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.009999999999999983,
+          "rewards": [
+            0.2,
+            -0.01,
+            -0.01,
+            -0.1,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 31101,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 3
+        },
+        {
+          "actions": [
+            4,
+            5,
+            7,
+            1,
+            0,
+            5,
+            3,
+            6,
+            3,
+            5,
+            5
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.00999999999999999,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            -0.01,
+            -0.1,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 31102,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 3
+        },
+        {
+          "actions": [
+            2,
+            3,
+            1,
+            1,
+            5,
+            6,
+            6,
+            5,
+            2,
+            3,
+            7
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.22,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            0.2,
+            -0.01,
+            -0.1,
+            -0.01,
+            -0.01
+          ],
+          "seed": 31103,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 3
+        },
+        {
+          "actions": [
+            2,
+            2,
+            2
+          ],
+          "interactions": 3,
+          "loss": null,
+          "return": 1.4,
+          "rewards": [
+            0.2,
+            0.2,
+            1.0
+          ],
+          "seed": 31104,
+          "success": true,
+          "uncertain_actions": 3,
+          "unnecessary_actions": 0
+        }
+      ],
+      "success_interval": {
+        "lower": 0.04461659649349124,
+        "method": "wilson",
+        "upper": 0.08689950726403116
+      },
+      "success_rate": 0.0625,
+      "successes": 32,
+      "trials": 512,
+      "uncertainty_rate": 1.0,
+      "unnecessary_action_rate": 0.34498370155740676
+    },
+    "trained_recurrent_policy": {
+      "episode_limit": 11,
+      "interactions": 3693,
+      "mean_interactions": 7.212890625,
+      "mean_return": 1.188671875,
+      "sample_trajectories": [
+        {
+          "actions": [
+            0,
+            5,
+            7,
+            2,
+            5,
+            5,
+            3,
+            4,
+            1,
+            6,
+            6
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.31000000000000005,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            0.2
+          ],
+          "seed": 21101,
+          "success": false,
+          "uncertain_actions": 6,
+          "unnecessary_actions": 2
+        },
+        {
+          "actions": [
+            7,
+            7,
+            7
+          ],
+          "interactions": 3,
+          "loss": null,
+          "return": 1.4,
+          "rewards": [
+            0.2,
+            0.2,
+            1.0
+          ],
+          "seed": 21102,
+          "success": true,
+          "uncertain_actions": 1,
+          "unnecessary_actions": 0
+        },
+        {
+          "actions": [
+            7,
+            2,
+            4,
+            6,
+            4,
+            7,
+            5,
+            0,
+            3,
+            3,
+            3
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 1.32,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            0.2,
+            1.0
+          ],
+          "seed": 21103,
+          "success": true,
+          "uncertain_actions": 5,
+          "unnecessary_actions": 2
+        },
+        {
+          "actions": [
+            4,
+            7,
+            1,
+            0,
+            3,
+            0,
+            4,
+            4,
+            6,
+            0,
+            2
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": -0.10999999999999999,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 21104,
+          "success": false,
+          "uncertain_actions": 5,
+          "unnecessary_actions": 4
+        },
+        {
+          "actions": [
+            3,
+            3,
+            3
+          ],
+          "interactions": 3,
+          "loss": null,
+          "return": 1.4,
+          "rewards": [
+            0.2,
+            0.2,
+            1.0
+          ],
+          "seed": 31101,
+          "success": true,
+          "uncertain_actions": 1,
+          "unnecessary_actions": 0
+        },
+        {
+          "actions": [
+            4,
+            5,
+            7,
+            1,
+            1,
+            1
+          ],
+          "interactions": 6,
+          "loss": null,
+          "return": 1.37,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            0.2,
+            1.0
+          ],
+          "seed": 31102,
+          "success": true,
+          "uncertain_actions": 4,
+          "unnecessary_actions": 0
+        },
+        {
+          "actions": [
+            2,
+            3,
+            1,
+            5,
+            7,
+            6,
+            6,
+            6
+          ],
+          "interactions": 8,
+          "loss": null,
+          "return": 1.35,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            0.2,
+            1.0
+          ],
+          "seed": 31103,
+          "success": true,
+          "uncertain_actions": 6,
+          "unnecessary_actions": 0
+        },
+        {
+          "actions": [
+            2,
+            2,
+            2
+          ],
+          "interactions": 3,
+          "loss": null,
+          "return": 1.4,
+          "rewards": [
+            0.2,
+            0.2,
+            1.0
+          ],
+          "seed": 31104,
+          "success": true,
+          "uncertain_actions": 1,
+          "unnecessary_actions": 0
+        }
+      ],
+      "success_interval": {
+        "lower": 0.8244703208053621,
+        "method": "wilson",
+        "upper": 0.8850500051427335
+      },
+      "success_rate": 0.857421875,
+      "successes": 439,
+      "trials": 512,
+      "uncertainty_rate": 0.5358786894124018,
+      "unnecessary_action_rate": 0.11183319794205253
+    },
+    "uniform_random_policy": {
+      "episode_limit": 11,
+      "interactions": 5508,
+      "mean_interactions": 10.7578125,
+      "mean_return": 0.174921875,
+      "sample_trajectories": [
+        {
+          "actions": [
+            2,
+            7,
+            5,
+            1,
+            3,
+            7,
+            1,
+            3,
+            7,
+            4,
+            5
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": -0.10999999999999999,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 21101,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 5
+        },
+        {
+          "actions": [
+            2,
+            1,
+            6,
+            7,
+            5,
+            7,
+            3,
+            5,
+            0,
+            5,
+            7
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.42999999999999994,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            -0.01,
+            0.2,
+            -0.01,
+            -0.01,
+            -0.1,
+            -0.01,
+            0.2
+          ],
+          "seed": 21102,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 2
+        },
+        {
+          "actions": [
+            6,
+            1,
+            3,
+            6,
+            7,
+            2,
+            1,
+            2,
+            5,
+            1,
+            5
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.01000000000000001,
+          "rewards": [
+            -0.01,
+            -0.01,
+            0.2,
+            -0.1,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 21103,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 4
+        },
+        {
+          "actions": [
+            1,
+            2,
+            7,
+            3,
+            6,
+            6,
+            5,
+            4,
+            0,
+            4,
+            7
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.010000000000000009,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.1
+          ],
+          "seed": 21104,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 2
+        },
+        {
+          "actions": [
+            5,
+            3,
+            7,
+            2,
+            4,
+            7,
+            3,
+            4,
+            3,
+            5,
+            0
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.33999999999999997,
+          "rewards": [
+            -0.01,
+            0.2,
+            -0.1,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            -0.01,
+            0.2,
+            -0.01,
+            -0.1
+          ],
+          "seed": 31101,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 2
+        },
+        {
+          "actions": [
+            0,
+            2,
+            4,
+            4,
+            0,
+            2,
+            7,
+            5,
+            5,
+            0,
+            0
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": -0.10999999999999999,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 31102,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 6
+        },
+        {
+          "actions": [
+            0,
+            0,
+            4,
+            7,
+            6,
+            4,
+            4,
+            3,
+            0,
+            6,
+            3
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.22,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            -0.1,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            -0.01
+          ],
+          "seed": 31103,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 4
+        },
+        {
+          "actions": [
+            0,
+            1,
+            0,
+            5,
+            4,
+            6,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "interactions": 11,
+          "loss": null,
+          "return": 0.10000000000000002,
+          "rewards": [
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            -0.01,
+            0.2,
+            -0.01,
+            -0.01,
+            -0.01
+          ],
+          "seed": 31104,
+          "success": false,
+          "uncertain_actions": 11,
+          "unnecessary_actions": 4
+        }
+      ],
+      "success_interval": {
+        "lower": 0.05454794773329394,
+        "method": "wilson",
+        "upper": 0.10023111753072339
+      },
+      "success_rate": 0.07421875,
+      "successes": 38,
+      "trials": 512,
+      "uncertainty_rate": 1.0,
+      "unnecessary_action_rate": 0.3404139433551198
+    }
+  },
+  "format": "gum-school-recurrent-meta-experiment-v1",
+  "interpretation": "The reward-grounded recurrent policy met the strict development criterion.",
+  "learner_status": {
+    "evaluation_episodes": 512,
+    "evaluation_interactions": 3693,
+    "format": "gum-school-recurrent-meta-policy-v1",
+    "information_boundary": [
+      "pixels",
+      "previous_action",
+      "scalar_reward",
+      "termination",
+      "memory"
+    ],
+    "parameter_count": 33186,
+    "seed": 8620101,
+    "training_episodes": 1122,
+    "training_interactions": 12000
+  },
+  "lesson_id": "causal-workshop.controls.001",
+  "method": {
+    "config": {
+      "action_count": 8,
+      "action_memory_size": 16,
+      "batch_episodes": 32,
+      "discount": 0.97,
+      "entropy_coefficient": 0.02,
+      "evaluation_temperature": 0.25,
+      "gradient_clip": 1.0,
+      "hidden_size": 64,
+      "learning_rate": 0.001,
+      "pooled_size": 8,
+      "value_coefficient": 0.5,
+      "visual_width": 32
+    },
+    "family": "recurrent-model-free-meta-reinforcement-learning",
+    "forbidden_inputs": [
+      "public_info.event",
+      "hidden_world_state",
+      "tried_action_mask",
+      "prescribed_probe_order",
+      "repeat_progress_rule"
+    ],
+    "information_boundary": [
+      "pixels",
+      "previous_action",
+      "scalar_reward",
+      "termination",
+      "memory"
+    ],
+    "optimizer": "batched-advantage-actor-critic-plus-success-replay"
+  },
+  "official_curriculum_run": false,
+  "public_development_seeds": [
+    21101,
+    21102,
+    21103,
+    21104
+  ],
+  "public_training_seeds": [
+    21001,
+    21002,
+    21003,
+    21004
+  ],
+  "research_basis": {
+    "learning_to_reinforcement_learn": "https://arxiv.org/abs/1611.05763",
+    "recurrent_pomdp_baseline": "https://proceedings.mlr.press/v162/ni22a.html",
+    "rl_squared": "https://arxiv.org/abs/1611.02779",
+    "self_imitation_learning": "https://proceedings.mlr.press/v80/oh18b.html"
+  },
+  "sealed_data_used": false,
+  "source_hashes": {
+    "gum/school/recurrent_meta.py": "sha256:9c9a741ee729b56e840d8938195c5301fc13db8a057783f4959595d6bab07c45",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91",
+    "scripts/run_school_recurrent_meta_experiment.py": "sha256:d3b13055e300d1d6d58ca3ef519c424189246725c42de7cbcd635dfc9985c0bf"
+  },
+  "strict_pass": true,
+  "strict_thresholds": {
+    "maximum_actions_per_trial": 11,
+    "maximum_training_actions_per_episode": 11,
+    "success_rate": 0.8,
+    "wilson_lower_bound": 0.65
+  },
+  "training": {
+    "budget": 12000,
+    "episodes": 1122,
+    "interactions": 12000,
+    "last_100_mean_interactions": 10.5,
+    "last_100_success_rate": 0.1,
+    "self_imitation": {
+      "epochs": 100,
+      "final_cross_entropy": 1.8551181554794312,
+      "selected_trajectories": 92,
+      "selection": "all trajectories with positive terminal reward",
+      "updates": 600
+    },
+    "success_rate": 0.08199643493761141,
+    "successes": 92
+  }
+}

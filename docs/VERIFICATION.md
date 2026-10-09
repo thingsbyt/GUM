@@ -1,5 +1,29 @@
 # Frozen release verification
 
+## Recurrent causal meta-policy research result
+
+A development-only follow-up replaced the causal scheduler with a
+permutation-equivariant recurrent policy. The learner received pixels, its
+previous anonymous action, scalar reward, termination, and learned memory. It
+did not receive event labels, hidden state, a tried-action mask, a probe order,
+or a repeat-on-progress rule. Training used the curriculum's full 12,000 public
+interactions and reward-ranked self-imitation; evaluation allowed only 11
+actions per held-out public-seed trial.
+
+The frozen policy scored **439/512 (85.7%)**, versus **38/512 (7.4%)** random
+and **32/512 (6.3%)** for the same untrained network. Its 95% Wilson interval
+was 82.4%–88.5%; mean completion was 7.21 actions and the repeated-useless-action
+rate was 11.2%. It passed the pre-existing 80% success and 65%
+Wilson-lower-bound development gates. Iterative development informed the final
+generic sampling temperature, so this is not sealed confirmation or an
+official promotion. No sealed cases were used.
+
+```powershell
+python scripts/run_school_recurrent_meta_experiment.py --budget 12000 --trials 512
+python -m pytest -q tests/test_school_recurrent_meta.py
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_RECURRENT_META.json
+```
+
 ## Strict causal-scaffold ablation
 
 The development-only ablation removed the handcrafted probe-then-repeat

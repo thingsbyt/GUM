@@ -39,6 +39,20 @@ use of a supplied experimental routine and within-world control grounding.
 The negative-result report is
 [`evidence/gum-school/strict/causal-controls-unscaffolded-v1/STRICT_CAUSAL_ABLATION.json`](../evidence/gum-school/strict/causal-controls-unscaffolded-v1/STRICT_CAUSAL_ABLATION.json).
 
+### Recurrent policy follow-up
+
+A research follow-up then trained a symmetry-aware recurrent policy from
+pixels, previous anonymous actions, scalar rewards, termination, and learned
+memory. It used no event labels, hidden world state, tried-action mask,
+prescribed probe order, or repeat-on-progress rule. Under a stricter 11-action
+development cap, it scored **439/512 (85.7%)**, compared with **38/512 (7.4%)**
+random and **32/512 (6.3%)** for the same untrained architecture. Its 95% Wilson
+lower bound was 82.4%, passing the 65% gate. Iterative development informed the
+final generic sampling temperature, so the result remains development evidence,
+not sealed confirmation or an official promotion; no sealed cases were opened.
+The report is
+[`evidence/gum-school/research/causal-recurrent-meta-v1/RECURRENT_META_REPORT.json`](../evidence/gum-school/research/causal-recurrent-meta-v1/RECURRENT_META_REPORT.json).
+
 ## Second lesson result
 
 The second official lesson, `object-laboratory.functional-category.002`, passed
