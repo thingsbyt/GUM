@@ -18,7 +18,11 @@ import numpy as np
 from gum.protocol import PublicWorldSpec, Transition
 from gum.storage import atomic_write_json
 
-from .worlds import FOUNDATIONAL_ADAPTERS, OBJECT_LABORATORY_ADAPTER
+from .worlds import (
+    CAUSAL_WORKSHOP_ADAPTER,
+    FOUNDATIONAL_ADAPTERS,
+    OBJECT_LABORATORY_ADAPTER,
+)
 
 
 class SchoolLearnerError(ValueError):
@@ -93,6 +97,9 @@ class CrossSeedSchoolLearner:
         self._function_final_signatures: tuple[str, ...] = ()
         self._function_shift_started = False
         self._function_ready = False
+        self._causal_active = False
+        self._causal_tried: set[int] = set()
+        self._causal_progress_action: int | None = None
 
     @staticmethod
     def _validate_observation(spec: PublicWorldSpec, observation: Any) -> np.ndarray:
@@ -314,6 +321,44 @@ class CrossSeedSchoolLearner:
         destination = best[2][self._track_target_index]
         self._predicted_slot = int(np.argmin(np.abs(slots - destination)))
 
+    @staticmethod
+    def _causal_meta_key() -> str:
+        return "causal-meta:probe-then-repeat-progress"
+
+    def _causal_strategy_learned(self) -> bool:
+        if self.spec is None:
+            return False
+        states = self.swarm_values.get(self.spec.adapter, {})
+        visits_by_state = self.swarm_visits.get(self.spec.adapter, {})
+        values = states.get(self._causal_meta_key())
+        visits = visits_by_state.get(self._causal_meta_key())
+        return bool(
+            values is not None
+            and visits is not None
+            and int(visits[:, 0].sum()) > 0
+            and float(values[:, 0].mean()) > 0.05
+        )
+
+    def _causal_action(self) -> int:
+        if self.spec is None:
+            raise SchoolLearnerError("causal action requested before begin")
+        if self._causal_progress_action is not None:
+            action = self._causal_progress_action
+        else:
+            untried = [
+                action for action in range(self.spec.action_count)
+                if action not in self._causal_tried
+            ]
+            if not untried:
+                self._causal_tried.clear()
+                untried = list(range(self.spec.action_count))
+            offset = (self.episodes + self.active_replica) % len(untried)
+            action = untried[offset]
+        confidence = np.zeros(self.spec.action_count, dtype=np.float64)
+        confidence[action] = 1.0
+        self.last_q = confidence
+        return int(action)
+
     def _parameters(self, spec: PublicWorldSpec) -> np.ndarray:
         if spec.adapter not in FOUNDATIONAL_ADAPTERS:
             raise SchoolLearnerError(f"unadmitted school adapter {spec.adapter!r}")
@@ -490,6 +535,9 @@ class CrossSeedSchoolLearner:
         self.uncertainty_streak = 0
         self.episode_step = 0
         self._initialize_function_memory(array)
+        self._causal_active = spec.adapter == CAUSAL_WORKSHOP_ADAPTER
+        self._causal_tried = set()
+        self._causal_progress_action = None
         if self._function_active:
             self._tracker_active = False
             self._predicted_slot = None
@@ -503,6 +551,14 @@ class CrossSeedSchoolLearner:
         array = self._validate_observation(self.spec, observation)
         self.features = self.visual_features(array)
         self._update_tracker(array)
+        if self._causal_active and (training or self._causal_strategy_learned()):
+            mask = sum(1 << action for action in self._causal_tried)
+            progress = (
+                "unknown" if self._causal_progress_action is None
+                else str(self._causal_progress_action)
+            )
+            self.last_state_key = f"causal-memory:tried={mask}:progress={progress}"
+            return self._causal_action()
         state_key = self._state_key()
         resolved_key = self._resolved_action_key()
         if not training and resolved_key is not None:
@@ -588,6 +644,10 @@ class CrossSeedSchoolLearner:
         current_state = self.last_state_key
         self.episode_step += 1
         event = transition.public_info.get("event")
+        if self._causal_active:
+            self._causal_tried.add(action)
+            if event == "progress" or float(transition.reward) > 0.1:
+                self._causal_progress_action = action
         self._update_function_memory(next_array, action=action, event=event)
         if not self._function_active:
             self._update_tracker(next_array)
@@ -644,6 +704,15 @@ class CrossSeedSchoolLearner:
                         target_value - current_value
                     )
                     appearance_visits[self.active_replica, identity] += 1
+            if self._causal_active and terminal and float(transition.reward) > 0:
+                strategy_values, strategy_visits = self._swarm_parameters(
+                    self.spec.adapter, self._causal_meta_key()
+                )
+                current_value = float(strategy_values[self.active_replica, 0])
+                strategy_values[self.active_replica, 0] += self.swarm_alpha * (
+                    1.0 - current_value
+                )
+                strategy_visits[self.active_replica, 0] += 1
         elif training:
             parameters = self._parameters(self.spec)
             current = float(parameters[action] @ self.features)

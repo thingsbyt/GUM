@@ -44,6 +44,7 @@ from .worlds import FOUNDATIONAL_LOADERS, create_foundational_world, create_less
 
 SHIFTED_MECHANISM = "occlusion-shifted"
 FUNCTIONAL_SHIFT = "functional-category-rgb-affine-v1"
+CAUSAL_CONTROL_SHIFT = "causal-controls-spatial-rgb-v1"
 SELECTION_PROTOCOL = "post-freeze-independent-v1"
 SEED_MINIMUM = 1_000_000_000
 SEED_MAXIMUM = 2_000_000_000
@@ -110,9 +111,18 @@ def frozen_source_hashes(root: Path | None = None) -> dict[str, str]:
 
 
 def _sealed_mechanism(lesson: dict[str, Any]) -> str:
-    if lesson["training"]["generator"] == "authored-object-function-v1":
+    generator = lesson["training"]["generator"]
+    if generator == "authored-object-function-v1":
         return FUNCTIONAL_SHIFT
+    if generator == "authored-causal-controls-v1":
+        return CAUSAL_CONTROL_SHIFT
     return SHIFTED_MECHANISM
+
+
+def _sealed_interaction_limit(lesson: dict[str, Any], horizon: int) -> int:
+    if lesson["training"]["generator"] == "authored-causal-controls-v1":
+        return min(int(horizon), 11)
+    return int(horizon)
 
 
 def _protocol_definition(
@@ -129,6 +139,11 @@ def _protocol_definition(
         "seed_range": [SEED_MINIMUM, SEED_MAXIMUM],
         "trials": trials,
         "mechanism": _sealed_mechanism(lesson),
+        "per_trial_interaction_limit": (
+            11
+            if lesson["training"]["generator"] == "authored-causal-controls-v1"
+            else "public-horizon"
+        ),
         "controls": list(lesson["baseline"]["controls"]),
         "candidate_learning_during_evaluation": False,
         "manifest_selected_after_training": True,
@@ -266,10 +281,13 @@ def _verify_seed_manifest(
 class _RGBShiftedWorld:
     """Apply a frozen pixel-only appearance shift without exposing hidden state."""
 
-    def __init__(self, world, *, seed: int):
+    def __init__(self, world, *, seed: int, translate: bool = False):
         self._world = world
         self._scale = 0.88 + 0.04 * (int(seed) % 5)
         self._offset = 3 + 2 * (int(seed) % 4)
+        self._translate = bool(translate)
+        self._dx = 1 + int(seed) % 3
+        self._dy = 1 + (int(seed) // 3) % 3
         self._last = np.zeros(world.public_spec().observation_shape, dtype=np.uint8)
 
     def public_spec(self):
@@ -278,6 +296,11 @@ class _RGBShiftedWorld:
     def _shift(self, observation) -> np.ndarray:
         pixels = np.asarray(observation, dtype=np.float64)
         shifted = np.clip(np.rint(pixels * self._scale + self._offset), 0, 255)
+        if self._translate:
+            background = shifted[0, 0].copy()
+            shifted = np.roll(shifted, shift=(self._dy, self._dx), axis=(0, 1))
+            shifted[:self._dy, :] = background
+            shifted[:, :self._dx] = background
         self._last = shifted.astype(np.uint8)
         return self._last.copy()
 
@@ -297,19 +320,24 @@ class _RGBShiftedWorld:
 
 def _load_sealed_world(package: Path, lesson: dict[str, Any], *, seed: int):
     world = FOUNDATIONAL_LOADERS[lesson["adapter"]](package)
-    if _sealed_mechanism(lesson) == FUNCTIONAL_SHIFT:
+    mechanism = _sealed_mechanism(lesson)
+    if mechanism == FUNCTIONAL_SHIFT:
         return _RGBShiftedWorld(world, seed=seed)
+    if mechanism == CAUSAL_CONTROL_SHIFT:
+        return _RGBShiftedWorld(world, seed=seed, translate=True)
     return world
 
 
 def _create_sealed_world(
     root: Path, lesson: dict[str, Any], *, seed: int
 ) -> Path:
-    mechanism = (
-        "functional-category"
-        if _sealed_mechanism(lesson) == FUNCTIONAL_SHIFT
-        else SHIFTED_MECHANISM
-    )
+    sealed_mechanism = _sealed_mechanism(lesson)
+    if sealed_mechanism == FUNCTIONAL_SHIFT:
+        mechanism = "functional-category"
+    elif sealed_mechanism == CAUSAL_CONTROL_SHIFT:
+        mechanism = "controls"
+    else:
+        mechanism = SHIFTED_MECHANISM
     return create_foundational_world(
         root, lesson["adapter"], seed=seed, mechanism=mechanism
     )
@@ -336,18 +364,26 @@ def _retention_trials(
     return rows, list(learner.boundary_violations)
 
 
-def _run_random_episode(world, *, seed: int, policy_seed: int) -> dict[str, Any]:
+def _run_random_episode(
+    world, *, seed: int, policy_seed: int, interaction_limit: int | None = None
+) -> dict[str, Any]:
     rng = np.random.default_rng(policy_seed)
     observation = world.reset(seed)
     rows = []
     total = 0.0
     unnecessary = 0
+    known_ineffective_actions: set[int] = set()
     success = False
-    for step in range(world.public_spec().horizon):
+    limit = world.public_spec().horizon if interaction_limit is None else interaction_limit
+    for step in range(min(world.public_spec().horizon, limit)):
         action = int(rng.integers(world.public_spec().action_count))
         transition = world.step(action)
         event = transition.public_info.get("event")
-        if event in {"blocked", "no-change", "rejected"}:
+        if event == "no-change":
+            if action in known_ineffective_actions:
+                unnecessary += 1
+            known_ineffective_actions.add(action)
+        elif event in {"blocked", "rejected"}:
             unnecessary += 1
         rows.append({
             "step": step,
@@ -381,7 +417,7 @@ def make_sealed_evaluator(
     freeze: dict[str, Any],
     manifest: dict[str, Any],
     base_directory: Path | None = None,
-    retention_lesson: dict[str, Any] | None = None,
+    retention_lessons: list[dict[str, Any]] | None = None,
 ):
     config.validate()
 
@@ -416,22 +452,26 @@ def make_sealed_evaluator(
             candidate_world = _load_sealed_world(package, lesson, seed=seed)
             fresh_world = _load_sealed_world(package, lesson, seed=seed)
             random_world = _load_sealed_world(package, lesson, seed=seed)
+            interaction_limit = _sealed_interaction_limit(
+                lesson, candidate_world.public_spec().horizon
+            )
             candidate_rows.append(_run_episode(
                 candidate, candidate_world, seed=seed, training=False,
-                interaction_limit=candidate_world.public_spec().horizon,
+                interaction_limit=interaction_limit,
             ))
             if base is not None:
                 base_world = _load_sealed_world(package, lesson, seed=seed)
                 base_rows.append(_run_episode(
                     base, base_world, seed=seed, training=False,
-                    interaction_limit=base_world.public_spec().horizon,
+                    interaction_limit=interaction_limit,
                 ))
             fresh_rows.append(_run_episode(
                 fresh, fresh_world, seed=seed, training=False,
-                interaction_limit=fresh_world.public_spec().horizon,
+                interaction_limit=interaction_limit,
             ))
             random_rows.append(_run_random_episode(
                 random_world, seed=seed, policy_seed=seed ^ 0x5EED5EED,
+                interaction_limit=interaction_limit,
             ))
             if index == config.replay_trial_index:
                 replay_package, replay_seed = package, seed
@@ -442,7 +482,9 @@ def make_sealed_evaluator(
         replay_world = _load_sealed_world(replay_package, lesson, seed=replay_seed)
         replay_row = _run_episode(
             replay_learner, replay_world, seed=replay_seed, training=False,
-            interaction_limit=replay_world.public_spec().horizon,
+            interaction_limit=_sealed_interaction_limit(
+                lesson, replay_world.public_spec().horizon
+            ),
         )
         expected_replay = candidate_rows[config.replay_trial_index]
         replay_verified = canonical(replay_row) == canonical(expected_replay)
@@ -455,38 +497,52 @@ def make_sealed_evaluator(
         current_retention_rows: list[dict[str, Any]] = []
         baseline_retention_summary = None
         current_retention_summary = None
+        retention_by_lesson: list[dict[str, Any]] = []
         retention_violations: list[str] = []
-        if retention_lesson is not None:
+        if retention_lessons:
             if base_path is None:
                 raise SealedExamError("retention evaluation requires a frozen base learner")
             retention_root = Path(evidence_directory) / "retention-worlds"
             retention_root.mkdir()
-            baseline_retention_rows, before_violations = _retention_trials(
-                base_path,
-                lesson=retention_lesson,
-                seeds=lesson["retention"]["evaluation_seeds"],
-                trials=lesson["retention"]["trials"],
-                worlds_root=retention_root / "baseline",
-            )
-            current_retention_rows, after_violations = _retention_trials(
-                candidate_path,
-                lesson=retention_lesson,
-                seeds=lesson["retention"]["evaluation_seeds"],
-                trials=lesson["retention"]["trials"],
-                worlds_root=retention_root / "current",
-            )
+            for prior_lesson in retention_lessons:
+                slug = prior_lesson["lesson_id"].replace(".", "-")
+                baseline_rows, before_violations = _retention_trials(
+                    base_path,
+                    lesson=prior_lesson,
+                    seeds=lesson["retention"]["evaluation_seeds"],
+                    trials=lesson["retention"]["trials"],
+                    worlds_root=retention_root / slug / "baseline",
+                )
+                current_rows, after_violations = _retention_trials(
+                    candidate_path,
+                    lesson=prior_lesson,
+                    seeds=lesson["retention"]["evaluation_seeds"],
+                    trials=lesson["retention"]["trials"],
+                    worlds_root=retention_root / slug / "current",
+                )
+                baseline_summary = _summarize(baseline_rows)
+                current_summary = _summarize(current_rows)
+                baseline_retention_rows.extend(baseline_rows)
+                current_retention_rows.extend(current_rows)
+                retention_violations.extend(before_violations + after_violations)
+                retention_by_lesson.append({
+                    "lesson_id": prior_lesson["lesson_id"],
+                    "baseline_trials": baseline_rows,
+                    "current_trials": current_rows,
+                    "baseline_summary": baseline_summary,
+                    "current_summary": current_summary,
+                })
+                retention_rows.extend(
+                    {
+                        "skill": skill,
+                        "baseline_success_rate": baseline_summary["success_rate"],
+                        "current_success_rate": current_summary["success_rate"],
+                        "evidence_verified": True,
+                    }
+                    for skill in sorted(set(prior_lesson["capabilities"]))
+                )
             baseline_retention_summary = _summarize(baseline_retention_rows)
             current_retention_summary = _summarize(current_retention_rows)
-            retention_violations = before_violations + after_violations
-            retention_rows = [
-                {
-                    "skill": skill,
-                    "baseline_success_rate": baseline_retention_summary["success_rate"],
-                    "current_success_rate": current_retention_summary["success_rate"],
-                    "evidence_verified": True,
-                }
-                for skill in sorted(set(retention_lesson["capabilities"]))
-            ]
         lower, upper = _wilson(candidate_summary["successes"], candidate_summary["trials"])
         advantage_lower, advantage_upper = _paired_advantage_interval(
             [row["success"] for row in candidate_rows],
@@ -509,7 +565,10 @@ def make_sealed_evaluator(
             "matched_fresh_summary": fresh_summary,
             "random_summary": random_summary,
             "retention": {
-                "lesson_id": None if retention_lesson is None else retention_lesson["lesson_id"],
+                "lesson_ids": [
+                    prior_lesson["lesson_id"] for prior_lesson in (retention_lessons or [])
+                ],
+                "by_lesson": retention_by_lesson,
                 "baseline_trials": baseline_retention_rows,
                 "current_trials": current_retention_rows,
                 "baseline_summary": baseline_retention_summary,
@@ -641,10 +700,9 @@ def run_official_sealed_exam(
     if lesson is None:
         raise SealedExamError("curriculum contains no remaining lesson to examine")
     promoted_lessons = list(engine.status()["promoted_lessons"])
-    retention_lesson = (
-        None if not promoted_lessons
-        else engine.lesson_by_id[promoted_lessons[-1]]
-    )
+    retention_lessons = [
+        engine.lesson_by_id[lesson_id] for lesson_id in promoted_lessons
+    ]
     started = engine.begin_lesson(lesson["lesson_id"])
     run_id = started["run_id"]
     run_directory = workspace / "runs" / run_id
@@ -668,7 +726,7 @@ def run_official_sealed_exam(
             freeze=freeze,
             manifest=manifest,
             base_directory=base_directory,
-            retention_lesson=retention_lesson,
+            retention_lessons=retention_lessons,
         )
         evaluation = evaluator(
             engine.candidate_snapshot_directory(run_id), lesson, run_directory / "evidence"

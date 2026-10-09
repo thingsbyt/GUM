@@ -185,3 +185,33 @@ def test_second_official_lesson_keeps_first_lesson_and_promotes(
     assert (workspace / "SEALED_EXAM_REPORT_002.json").is_file()
     assert not list(workspace.rglob("genome.private.json"))
     assert not list(workspace.rglob("world.json"))
+
+    _DeterministicSystemRandom.next_seed = 1_400_000_003
+    causal_report = run_official_sealed_exam(
+        workspace,
+        continue_existing=True,
+        config=SealedExamConfig(
+            training=TrainingLaneConfig(
+                max_training_interactions=2_000,
+                training_episodes_per_seed=32,
+                development_trials=32,
+                max_replicas=4,
+            ),
+            trials=32,
+        ),
+    )
+    assert causal_report["lesson_id"] == "causal-workshop.controls.001"
+    assert causal_report["result"]["outcome"] == "promote"
+    assert causal_report["result"]["candidate_success_rate"] == 1.0
+    assert causal_report["result"]["candidate_before_training_success_rate"] < 0.8
+    assert causal_report["result"]["matched_fresh_success_rate"] < 0.8
+    assert causal_report["result"]["retention_baseline_success_rate"] == 1.0
+    assert causal_report["result"]["retention_current_success_rate"] == 1.0
+    assert all(row["passed"] for row in causal_report["gates"]["gates"].values())
+    school_report = json.loads((workspace / "SCHOOL_REPORT.json").read_text(encoding="utf-8"))
+    assert school_report["promoted_lessons"][:3] == [
+        "object-laboratory.occlusion.001",
+        "object-laboratory.functional-category.002",
+        "causal-workshop.controls.001",
+    ]
+    assert (workspace / "SEALED_EXAM_REPORT_003.json").is_file()

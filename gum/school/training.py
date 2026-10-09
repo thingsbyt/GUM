@@ -92,6 +92,7 @@ def _run_episode(
     total = 0.0
     uncertainty = 0
     unnecessary = 0
+    known_ineffective_actions: set[int] = set()
     success = False
     for step in range(min(world.public_spec().horizon, interaction_limit)):
         before = observation_id(observation)
@@ -102,7 +103,11 @@ def _run_episode(
         transition = world.step(action)
         learner.observe(action, transition, training=training)
         event = transition.public_info.get("event")
-        if event in {"blocked", "no-change", "rejected"}:
+        if event == "no-change":
+            if action in known_ineffective_actions:
+                unnecessary += 1
+            known_ineffective_actions.add(action)
+        elif event in {"blocked", "rejected"}:
             unnecessary += 1
         row = {
             "step": step,
