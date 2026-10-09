@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import shutil
 
 from gum.lineage import HashLedger, canonical
 from gum.school.learner import CrossSeedSchoolLearner
@@ -134,3 +135,46 @@ def test_official_sealed_exam_selects_after_training_and_promotes(
     for relative, expected in report["artifact_hashes"].items():
         actual = hashlib.sha256((workspace / relative).read_bytes()).hexdigest()
         assert expected == f"sha256:{actual}"
+
+
+def test_second_official_lesson_keeps_first_lesson_and_promotes(
+    tmp_path: Path, monkeypatch,
+):
+    _DeterministicSystemRandom.next_seed = 1_200_000_003
+    monkeypatch.setattr("gum.school.sealed.secrets.SystemRandom", _DeterministicSystemRandom)
+    monkeypatch.setattr("gum.school.sealed.secrets.token_hex", lambda count: "cd" * count)
+    canonical_workspace = (
+        Path(__file__).resolve().parents[1]
+        / "evidence" / "gum-school" / "sealed" / "object-laboratory-occlusion-v1"
+    )
+    workspace = tmp_path / "continued-school"
+    shutil.copytree(canonical_workspace, workspace)
+    report = run_official_sealed_exam(
+        workspace,
+        continue_existing=True,
+        config=SealedExamConfig(
+            training=TrainingLaneConfig(
+                max_training_interactions=4_000,
+                training_episodes_per_seed=64,
+                development_trials=32,
+                max_replicas=4,
+            ),
+            trials=32,
+        ),
+    )
+    assert report["lesson_id"] == "object-laboratory.functional-category.002"
+    assert report["result"]["outcome"] == "promote"
+    assert report["result"]["candidate_success_rate"] >= 0.8
+    assert report["result"]["candidate_before_training_success_rate"] < 0.8
+    assert report["result"]["retention_baseline_success_rate"] == 1.0
+    assert report["result"]["retention_current_success_rate"] == 1.0
+    assert report["result"]["promoted_snapshot_changed"] is True
+    assert all(row["passed"] for row in report["gates"]["gates"].values())
+    school_report = json.loads((workspace / "SCHOOL_REPORT.json").read_text(encoding="utf-8"))
+    assert school_report["promoted_lessons"][:2] == [
+        "object-laboratory.occlusion.001",
+        "object-laboratory.functional-category.002",
+    ]
+    assert (workspace / "SEALED_EXAM_REPORT_002.json").is_file()
+    assert not list(workspace.rglob("genome.private.json"))
+    assert not list(workspace.rglob("world.json"))

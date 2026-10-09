@@ -84,6 +84,15 @@ class CrossSeedSchoolLearner:
         self._track_x0 = np.zeros(0, dtype=np.float64)
         self._track_target_index: int | None = None
         self._predicted_slot: int | None = None
+        self._function_active = False
+        self._function_target_role: int | None = None
+        self._function_roles: dict[int, int] = {}
+        self._function_colors: list[tuple[int, int, int]] = []
+        self._function_x0 = np.zeros(0, dtype=np.float64)
+        self._function_identity_slots: tuple[int, ...] | None = None
+        self._function_final_signatures: tuple[str, ...] = ()
+        self._function_shift_started = False
+        self._function_ready = False
 
     @staticmethod
     def _validate_observation(spec: PublicWorldSpec, observation: Any) -> np.ndarray:
@@ -154,6 +163,119 @@ class CrossSeedSchoolLearner:
         self._track_x0 = np.asarray([row["x"] for row in objects], dtype=np.float64)
         self._track_target_index = target_index
 
+    @staticmethod
+    def _role_glyph(observation: np.ndarray, *, effect: bool = False) -> int | None:
+        if effect:
+            box = observation[4:18, 25:39]
+            vertical = observation[6:16, 30:33]
+            horizontal = observation[9:12, 27:37]
+        else:
+            box = observation[3:15, 3:15]
+            vertical = observation[5:13, 7:10]
+            horizontal = observation[7:10, 5:13]
+        if float(np.mean(np.max(box, axis=2) > 120)) < 0.45:
+            return None
+        vertical_dark = int(np.sum(np.max(vertical, axis=2) < 70))
+        horizontal_dark = int(np.sum(np.max(horizontal, axis=2) < 70))
+        if vertical_dark == horizontal_dark:
+            return None
+        return 0 if vertical_dark > horizontal_dark else 1
+
+    @classmethod
+    def _function_objects(cls, observation: np.ndarray) -> list[dict[str, Any]]:
+        return sorted(
+            [
+                row for row in cls._color_components(observation)
+                if row["y"] > 20 and row["width"] <= 10 and row["height"] <= 10
+            ],
+            key=lambda row: row["x"],
+        )
+
+    def _initialize_function_memory(self, observation: np.ndarray) -> None:
+        self._function_active = False
+        self._function_target_role = self._role_glyph(observation)
+        self._function_roles = {}
+        self._function_colors = []
+        self._function_x0 = np.zeros(0, dtype=np.float64)
+        self._function_identity_slots = None
+        self._function_final_signatures = ()
+        self._function_shift_started = False
+        self._function_ready = False
+        objects = self._function_objects(observation)
+        if self._function_target_role is None or len(objects) != 4:
+            return
+        self._function_active = True
+        self._function_colors = [row["color"] for row in objects]
+        self._function_x0 = np.asarray([row["x"] for row in objects], dtype=np.float64)
+
+    @staticmethod
+    def _fit_identity_slots(
+        initial_x: np.ndarray,
+        visible_indices: list[int],
+        observed_x: np.ndarray,
+    ) -> tuple[int, ...] | None:
+        slots = np.sort(initial_x)
+        initial = initial_x[visible_indices]
+        if float(np.max(np.abs(observed_x - initial))) < 0.5:
+            return tuple(
+                int(np.argmin(np.abs(slots - value))) for value in initial_x
+            )
+        best: tuple[float, float, tuple[float, ...]] | None = None
+        for assignment in itertools.permutations(float(value) for value in slots):
+            destinations = np.asarray(assignment, dtype=np.float64)[visible_indices]
+            displacement = destinations - initial
+            denominator = float(displacement @ displacement)
+            if denominator == 0.0:
+                continue
+            progress = float(displacement @ (observed_x - initial) / denominator)
+            residual = float(np.sum((initial + progress * displacement - observed_x) ** 2))
+            penalty = 0.0 if 0.03 <= progress <= 0.5 else 1000.0
+            candidate = (residual + penalty, residual, assignment)
+            if best is None or candidate[:2] < best[:2]:
+                best = candidate
+        if best is None:
+            return None
+        return tuple(int(np.argmin(np.abs(slots - destination))) for destination in best[2])
+
+    def _update_function_memory(
+        self,
+        observation: np.ndarray,
+        *,
+        action: int,
+        event: str | None,
+    ) -> None:
+        if not self._function_active:
+            return
+        if action >= 2 and event in {"effect-observed", "no-change"}:
+            role = self._role_glyph(observation, effect=True)
+            if role is not None:
+                self._function_roles[action - 2] = role
+        if event == "appearance-shifted":
+            self._function_shift_started = True
+        objects = self._function_objects(observation)
+        if len(objects) != 4:
+            return
+        if self._function_shift_started:
+            current = {row["color"]: row for row in objects}
+            visible = [
+                index for index, color in enumerate(self._function_colors)
+                if color in current
+            ]
+            if len(visible) >= 3:
+                observed = np.asarray(
+                    [current[self._function_colors[index]]["x"] for index in visible],
+                    dtype=np.float64,
+                )
+                self._function_identity_slots = self._fit_identity_slots(
+                    self._function_x0, visible, observed
+                )
+        median_y = float(np.median([row["y"] for row in objects]))
+        if self._function_shift_started and median_y >= 46.0:
+            self._function_ready = True
+            self._function_final_signatures = tuple(
+                self._color_signature(row["color"]) for row in objects
+            )
+
     def _update_tracker(self, observation: np.ndarray) -> None:
         if not self._tracker_active or self._predicted_slot is not None or self.episode_step < 1:
             return
@@ -206,6 +328,16 @@ class CrossSeedSchoolLearner:
         return self.weights[spec.adapter]
 
     def _state_key(self) -> str | None:
+        if self._function_active:
+            role = "unknown" if self._function_target_role is None else self._function_target_role
+            mask = sum(1 << identity for identity in self._function_roles)
+            if not self._function_shift_started:
+                return f"function-memory:probe:target={role}:mask={mask}"
+            if not self._function_ready:
+                return f"function-memory:transition:target={role}:mask={mask}"
+            candidates = self._function_candidate_slots()
+            encoded = "unknown" if not candidates else ",".join(str(slot) for slot in candidates)
+            return f"function-memory:ready:candidates={encoded}"
         if not self._tracker_active:
             return None
         step = min(self.episode_step, 6)
@@ -216,6 +348,56 @@ class CrossSeedSchoolLearner:
         if not self._tracker_active or self._predicted_slot is None:
             return None
         return f"object-action-map:slot={self._predicted_slot}"
+
+    def _function_candidate_slots(self) -> tuple[int, ...]:
+        if self._function_target_role is None:
+            return ()
+        identity_slots = self._function_identity_slots
+        if identity_slots is None:
+            identity_slots = self._appearance_identity_slots()
+        if identity_slots is None:
+            return ()
+        return tuple(sorted(
+            identity_slots[identity]
+            for identity, role in self._function_roles.items()
+            if role == self._function_target_role
+        ))
+
+    @staticmethod
+    def _function_action_key(slot: int) -> str:
+        return f"function-action-map:slot={slot}"
+
+    @staticmethod
+    def _color_signature(color: tuple[int, int, int]) -> str:
+        order = tuple(int(index) for index in np.argsort(np.asarray(color)))
+        return "".join(str(index) for index in order)
+
+    @staticmethod
+    def _appearance_key(signature: str) -> str:
+        return f"function-appearance:channel-order={signature}"
+
+    def _appearance_identity_slots(self) -> tuple[int, ...] | None:
+        if len(self._function_final_signatures) != 4 or self.spec is None:
+            return None
+        rows = []
+        for signature in self._function_final_signatures:
+            values, _ = self._swarm_parameters(
+                self.spec.adapter, self._appearance_key(signature)
+            )
+            rows.append(values.mean(axis=0)[:4])
+        scores = np.asarray(rows, dtype=np.float64)
+        best: tuple[float, tuple[int, ...]] | None = None
+        for assignment in itertools.permutations(range(4)):
+            score = float(sum(scores[slot, identity] for slot, identity in enumerate(assignment)))
+            candidate = (score, tuple(int(identity) for identity in assignment))
+            if best is None or candidate[0] > best[0]:
+                best = candidate
+        if best is None:
+            return None
+        slots_by_identity = [0, 0, 0, 0]
+        for slot, identity in enumerate(best[1]):
+            slots_by_identity[identity] = slot
+        return tuple(slots_by_identity)
 
     def _swarm_parameters(self, adapter: str, state_key: str) -> tuple[np.ndarray, np.ndarray]:
         action_count = self.action_counts[adapter]
@@ -229,6 +411,27 @@ class CrossSeedSchoolLearner:
                 (self.replica_count, action_count), dtype=np.int64
             )
         return values_by_state[state_key], visits_by_state[state_key]
+
+    def _allowed_actions(self) -> np.ndarray:
+        if self.spec is None:
+            return np.zeros(0, dtype=np.int64)
+        if self._function_active and self._function_ready:
+            # Observation actions have already become public no-ops in this
+            # state. Keep the learned choice among the four anonymous output
+            # actions instead of allowing a deterministic no-op loop.
+            return np.arange(2, self.spec.action_count, dtype=np.int64)
+        if not self._function_active or self._function_shift_started:
+            return np.arange(self.spec.action_count if self.spec is not None else 0)
+        unprobed = [
+            2 + identity for identity in range(4)
+            if identity not in self._function_roles
+        ]
+        match_known = (
+            self._function_target_role is not None
+            and self._function_target_role in self._function_roles.values()
+        )
+        allowed = ([0, 1] if match_known or not unprobed else []) + unprobed
+        return np.asarray(allowed, dtype=np.int64)
 
     @staticmethod
     def _q_confidence(values: np.ndarray) -> float:
@@ -286,7 +489,12 @@ class CrossSeedSchoolLearner:
         self.active_replica = self.episodes % self.replica_count if training else 0
         self.uncertainty_streak = 0
         self.episode_step = 0
-        self._initialize_tracker(array)
+        self._initialize_function_memory(array)
+        if self._function_active:
+            self._tracker_active = False
+            self._predicted_slot = None
+        else:
+            self._initialize_tracker(array)
         self.seen_worlds.add(spec.world_id)
 
     def act(self, observation: Any, *, training: bool) -> int:
@@ -308,8 +516,24 @@ class CrossSeedSchoolLearner:
         self.last_state_key = state_key
         if state_key is not None:
             values, _ = self._swarm_parameters(self.spec.adapter, state_key)
+            if not training and self._function_ready:
+                candidates = self._function_candidate_slots()
+                if candidates:
+                    transfer_rows = [
+                        self._swarm_parameters(
+                            self.spec.adapter, self._function_action_key(slot)
+                        )[0]
+                        for slot in candidates
+                    ]
+                    transferred = np.maximum.reduce(transfer_rows)
+                    if self._q_confidence(transferred.mean(axis=0)) >= 0.05:
+                        values = transferred
             aggregate = values.mean(axis=0)
             self.last_q = aggregate
+            allowed = self._allowed_actions()
+            if not len(allowed):
+                allowed = np.arange(self.spec.action_count)
+            self.last_q = aggregate[allowed]
             if training:
                 confidence = self._q_confidence(aggregate)
                 self.uncertainty_streak = (
@@ -324,12 +548,15 @@ class CrossSeedSchoolLearner:
                     self.last_q = aggregate
                 epsilon = self.replica_epsilons[self.active_replica]
                 if self.rng.random() < epsilon:
-                    return int(self.rng.integers(self.spec.action_count))
+                    return int(allowed[int(self.rng.integers(len(allowed)))])
                 row = values[self.active_replica]
-                return int(np.flatnonzero(row == np.max(row))[0])
-            votes = np.asarray([int(np.argmax(row)) for row in values], dtype=np.int64)
+                finalists = allowed[row[allowed] == np.max(row[allowed])]
+                return int(finalists[0])
+            votes = np.asarray(
+                [int(allowed[np.argmax(row[allowed])]) for row in values], dtype=np.int64
+            )
             counts = np.bincount(votes, minlength=self.spec.action_count)
-            finalists = np.flatnonzero(counts == np.max(counts))
+            finalists = allowed[counts[allowed] == np.max(counts[allowed])]
             return int(finalists[np.argmax(aggregate[finalists])])
 
         parameters = self._parameters(self.spec)
@@ -360,7 +587,10 @@ class CrossSeedSchoolLearner:
         terminal = bool(transition.terminated or transition.truncated)
         current_state = self.last_state_key
         self.episode_step += 1
-        self._update_tracker(next_array)
+        event = transition.public_info.get("event")
+        self._update_function_memory(next_array, action=action, event=event)
+        if not self._function_active:
+            self._update_tracker(next_array)
         next_state = self._state_key()
         if training and current_state is not None:
             values, visits = self._swarm_parameters(self.spec.adapter, current_state)
@@ -381,6 +611,39 @@ class CrossSeedSchoolLearner:
                     float(transition.reward) - resolved_current
                 )
                 resolved_visits[self.active_replica, action] += 1
+            function_candidates = self._function_candidate_slots()
+            if terminal and len(function_candidates) == 1:
+                function_values, function_visits = self._swarm_parameters(
+                    self.spec.adapter,
+                    self._function_action_key(function_candidates[0]),
+                )
+                function_current = float(function_values[self.active_replica, action])
+                function_values[self.active_replica, action] += self.swarm_alpha * (
+                    float(transition.reward) - function_current
+                )
+                function_visits[self.active_replica, action] += 1
+            if (
+                terminal
+                and action >= 2
+                and len(self._function_final_signatures) == 4
+                and self._function_target_role is not None
+            ):
+                selected_slot = action - 2
+                signature = self._function_final_signatures[selected_slot]
+                appearance_values, appearance_visits = self._swarm_parameters(
+                    self.spec.adapter, self._appearance_key(signature)
+                )
+                observed_reward = float(transition.reward)
+                for identity, role in self._function_roles.items():
+                    compatible = role == self._function_target_role
+                    target_value = observed_reward if compatible else -observed_reward
+                    current_value = float(
+                        appearance_values[self.active_replica, identity]
+                    )
+                    appearance_values[self.active_replica, identity] += self.swarm_alpha * (
+                        target_value - current_value
+                    )
+                    appearance_visits[self.active_replica, identity] += 1
         elif training:
             parameters = self._parameters(self.spec)
             current = float(parameters[action] @ self.features)

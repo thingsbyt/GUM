@@ -1,4 +1,4 @@
-"""Post-freeze sealed examination for the first GUM School lesson.
+"""Post-freeze sealed examinations for sequential GUM School lessons.
 
 The source and protocol are frozen before seed selection. Training completes
 without access to the seed manifest; only then does a system-random evaluator
@@ -22,6 +22,7 @@ import psutil
 
 from gum.lineage import HashLedger, canonical, file_sha256
 from gum.mind import observation_id
+from gum.protocol import Transition
 from gum.storage import atomic_write_json
 
 from .engine import SchoolEngine
@@ -38,10 +39,11 @@ from .training import (
     make_official_trainer,
 )
 from .validation import DEFAULT_CURRICULUM
-from .worlds import FOUNDATIONAL_LOADERS, create_foundational_world
+from .worlds import FOUNDATIONAL_LOADERS, create_foundational_world, create_lesson_world
 
 
 SHIFTED_MECHANISM = "occlusion-shifted"
+FUNCTIONAL_SHIFT = "functional-category-rgb-affine-v1"
 SELECTION_PROTOCOL = "post-freeze-independent-v1"
 SEED_MINIMUM = 1_000_000_000
 SEED_MAXIMUM = 2_000_000_000
@@ -107,7 +109,15 @@ def frozen_source_hashes(root: Path | None = None) -> dict[str, str]:
     }
 
 
-def _protocol_definition(examination: dict[str, Any], *, trials: int) -> dict[str, Any]:
+def _sealed_mechanism(lesson: dict[str, Any]) -> str:
+    if lesson["training"]["generator"] == "authored-object-function-v1":
+        return FUNCTIONAL_SHIFT
+    return SHIFTED_MECHANISM
+
+
+def _protocol_definition(
+    examination: dict[str, Any], *, lesson: dict[str, Any], trials: int
+) -> dict[str, Any]:
     return {
         "format": "gum-school-sealed-protocol-v1",
         "examination_id": examination["examination_id"],
@@ -118,8 +128,8 @@ def _protocol_definition(examination: dict[str, Any], *, trials: int) -> dict[st
         "seed_selection": "system-random-unique-integers",
         "seed_range": [SEED_MINIMUM, SEED_MAXIMUM],
         "trials": trials,
-        "mechanism": SHIFTED_MECHANISM,
-        "controls": ["matched-fresh", "random"],
+        "mechanism": _sealed_mechanism(lesson),
+        "controls": list(lesson["baseline"]["controls"]),
         "candidate_learning_during_evaluation": False,
         "manifest_selected_after_training": True,
         "manifest_revealed_with_completed_evidence": True,
@@ -140,7 +150,7 @@ def create_source_freeze(
     examination = examinations[examination_id]
     if examination["selection"]["protocol"] != SELECTION_PROTOCOL:
         raise SealedExamError("curriculum does not name the supported sealed protocol")
-    protocol = _protocol_definition(examination, trials=trials)
+    protocol = _protocol_definition(examination, lesson=lesson, trials=trials)
     value = {
         "format": "gum-school-source-freeze-v1",
         "created_at_utc": _utc_now(),
@@ -253,6 +263,79 @@ def _verify_seed_manifest(
     return not public.intersection(seeds)
 
 
+class _RGBShiftedWorld:
+    """Apply a frozen pixel-only appearance shift without exposing hidden state."""
+
+    def __init__(self, world, *, seed: int):
+        self._world = world
+        self._scale = 0.88 + 0.04 * (int(seed) % 5)
+        self._offset = 3 + 2 * (int(seed) % 4)
+        self._last = np.zeros(world.public_spec().observation_shape, dtype=np.uint8)
+
+    def public_spec(self):
+        return self._world.public_spec()
+
+    def _shift(self, observation) -> np.ndarray:
+        pixels = np.asarray(observation, dtype=np.float64)
+        shifted = np.clip(np.rint(pixels * self._scale + self._offset), 0, 255)
+        self._last = shifted.astype(np.uint8)
+        return self._last.copy()
+
+    def reset(self, seed: int | None = None) -> np.ndarray:
+        return self._shift(self._world.reset(seed))
+
+    def step(self, action: Any) -> Transition:
+        row = self._world.step(action)
+        return Transition(
+            self._shift(row.observation), row.reward, row.terminated,
+            row.truncated, dict(row.public_info),
+        )
+
+    def human_frame(self) -> np.ndarray:
+        return self._last.copy()
+
+
+def _load_sealed_world(package: Path, lesson: dict[str, Any], *, seed: int):
+    world = FOUNDATIONAL_LOADERS[lesson["adapter"]](package)
+    if _sealed_mechanism(lesson) == FUNCTIONAL_SHIFT:
+        return _RGBShiftedWorld(world, seed=seed)
+    return world
+
+
+def _create_sealed_world(
+    root: Path, lesson: dict[str, Any], *, seed: int
+) -> Path:
+    mechanism = (
+        "functional-category"
+        if _sealed_mechanism(lesson) == FUNCTIONAL_SHIFT
+        else SHIFTED_MECHANISM
+    )
+    return create_foundational_world(
+        root, lesson["adapter"], seed=seed, mechanism=mechanism
+    )
+
+
+def _retention_trials(
+    learner_path: Path,
+    *,
+    lesson: dict[str, Any],
+    seeds: list[int],
+    trials: int,
+    worlds_root: Path,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    learner = CrossSeedSchoolLearner.load(learner_path)
+    rows: list[dict[str, Any]] = []
+    for index in range(trials):
+        seed = int(seeds[index % len(seeds)]) + 10_000 * (index // len(seeds))
+        package = create_lesson_world(worlds_root, lesson, seed=seed)
+        world = FOUNDATIONAL_LOADERS[lesson["adapter"]](package)
+        rows.append(_run_episode(
+            learner, world, seed=seed, training=False,
+            interaction_limit=world.public_spec().horizon,
+        ))
+    return rows, list(learner.boundary_violations)
+
+
 def _run_random_episode(world, *, seed: int, policy_seed: int) -> dict[str, Any]:
     rng = np.random.default_rng(policy_seed)
     observation = world.reset(seed)
@@ -297,6 +380,8 @@ def make_sealed_evaluator(
     config: SealedExamConfig,
     freeze: dict[str, Any],
     manifest: dict[str, Any],
+    base_directory: Path | None = None,
+    retention_lesson: dict[str, Any] | None = None,
 ):
     config.validate()
 
@@ -308,6 +393,11 @@ def make_sealed_evaluator(
             raise SealedExamError("sealed seed manifest failed verification")
         candidate_path = Path(candidate_directory) / LEARNER_FILENAME
         candidate = CrossSeedSchoolLearner.load(candidate_path)
+        base_path = (
+            None if base_directory is None
+            else Path(base_directory) / LEARNER_FILENAME
+        )
+        base = None if base_path is None else CrossSeedSchoolLearner.load(base_path)
         fresh = CrossSeedSchoolLearner(
             candidate.seed,
             max_replicas=candidate.max_replicas,
@@ -316,21 +406,26 @@ def make_sealed_evaluator(
         worlds_root = Path(evidence_directory) / "sealed-worlds"
         worlds_root.mkdir()
         candidate_rows: list[dict[str, Any]] = []
+        base_rows: list[dict[str, Any]] = []
         fresh_rows: list[dict[str, Any]] = []
         random_rows: list[dict[str, Any]] = []
         replay_package: Path | None = None
         replay_seed: int | None = None
         for index, seed in enumerate(manifest["seeds"]):
-            package = create_foundational_world(
-                worlds_root, lesson["adapter"], seed=seed, mechanism=SHIFTED_MECHANISM
-            )
-            candidate_world = FOUNDATIONAL_LOADERS[lesson["adapter"]](package)
-            fresh_world = FOUNDATIONAL_LOADERS[lesson["adapter"]](package)
-            random_world = FOUNDATIONAL_LOADERS[lesson["adapter"]](package)
+            package = _create_sealed_world(worlds_root, lesson, seed=seed)
+            candidate_world = _load_sealed_world(package, lesson, seed=seed)
+            fresh_world = _load_sealed_world(package, lesson, seed=seed)
+            random_world = _load_sealed_world(package, lesson, seed=seed)
             candidate_rows.append(_run_episode(
                 candidate, candidate_world, seed=seed, training=False,
                 interaction_limit=candidate_world.public_spec().horizon,
             ))
+            if base is not None:
+                base_world = _load_sealed_world(package, lesson, seed=seed)
+                base_rows.append(_run_episode(
+                    base, base_world, seed=seed, training=False,
+                    interaction_limit=base_world.public_spec().horizon,
+                ))
             fresh_rows.append(_run_episode(
                 fresh, fresh_world, seed=seed, training=False,
                 interaction_limit=fresh_world.public_spec().horizon,
@@ -344,7 +439,7 @@ def make_sealed_evaluator(
         if replay_package is None or replay_seed is None:
             raise SealedExamError("sealed replay trial was not selected")
         replay_learner = CrossSeedSchoolLearner.load(candidate_path)
-        replay_world = FOUNDATIONAL_LOADERS[lesson["adapter"]](replay_package)
+        replay_world = _load_sealed_world(replay_package, lesson, seed=replay_seed)
         replay_row = _run_episode(
             replay_learner, replay_world, seed=replay_seed, training=False,
             interaction_limit=replay_world.public_spec().horizon,
@@ -352,8 +447,46 @@ def make_sealed_evaluator(
         expected_replay = candidate_rows[config.replay_trial_index]
         replay_verified = canonical(replay_row) == canonical(expected_replay)
         candidate_summary = _summarize(candidate_rows)
+        base_summary = None if not base_rows else _summarize(base_rows)
         fresh_summary = _summarize(fresh_rows)
         random_summary = _summarize(random_rows)
+        retention_rows: list[dict[str, Any]] = []
+        baseline_retention_rows: list[dict[str, Any]] = []
+        current_retention_rows: list[dict[str, Any]] = []
+        baseline_retention_summary = None
+        current_retention_summary = None
+        retention_violations: list[str] = []
+        if retention_lesson is not None:
+            if base_path is None:
+                raise SealedExamError("retention evaluation requires a frozen base learner")
+            retention_root = Path(evidence_directory) / "retention-worlds"
+            retention_root.mkdir()
+            baseline_retention_rows, before_violations = _retention_trials(
+                base_path,
+                lesson=retention_lesson,
+                seeds=lesson["retention"]["evaluation_seeds"],
+                trials=lesson["retention"]["trials"],
+                worlds_root=retention_root / "baseline",
+            )
+            current_retention_rows, after_violations = _retention_trials(
+                candidate_path,
+                lesson=retention_lesson,
+                seeds=lesson["retention"]["evaluation_seeds"],
+                trials=lesson["retention"]["trials"],
+                worlds_root=retention_root / "current",
+            )
+            baseline_retention_summary = _summarize(baseline_retention_rows)
+            current_retention_summary = _summarize(current_retention_rows)
+            retention_violations = before_violations + after_violations
+            retention_rows = [
+                {
+                    "skill": skill,
+                    "baseline_success_rate": baseline_retention_summary["success_rate"],
+                    "current_success_rate": current_retention_summary["success_rate"],
+                    "evidence_verified": True,
+                }
+                for skill in sorted(set(retention_lesson["capabilities"]))
+            ]
         lower, upper = _wilson(candidate_summary["successes"], candidate_summary["trials"])
         advantage_lower, advantage_upper = _paired_advantage_interval(
             [row["success"] for row in candidate_rows],
@@ -368,11 +501,20 @@ def make_sealed_evaluator(
             "source_freeze": freeze,
             "seed_manifest": manifest,
             "candidate_trials": candidate_rows,
+            "candidate_before_training_trials": base_rows,
             "matched_fresh_trials": fresh_rows,
             "random_trials": random_rows,
             "candidate_summary": candidate_summary,
+            "candidate_before_training_summary": base_summary,
             "matched_fresh_summary": fresh_summary,
             "random_summary": random_summary,
+            "retention": {
+                "lesson_id": None if retention_lesson is None else retention_lesson["lesson_id"],
+                "baseline_trials": baseline_retention_rows,
+                "current_trials": current_retention_rows,
+                "baseline_summary": baseline_retention_summary,
+                "current_summary": current_retention_summary,
+            },
             "replay": {
                 "trial_index": config.replay_trial_index,
                 "expected": expected_replay,
@@ -383,6 +525,9 @@ def make_sealed_evaluator(
         replay_path = Path(evidence_directory) / "sealed-examination.json"
         atomic_write_json(replay_path, evidence, backup=False, sort_keys=True)
         shutil.rmtree(worlds_root)
+        retention_worlds = Path(evidence_directory) / "retention-worlds"
+        if retention_worlds.exists():
+            shutil.rmtree(retention_worlds)
 
         training_summary = json.loads(
             (Path(evidence_directory).parent / "TRAINING.json").read_text(encoding="utf-8")
@@ -391,6 +536,11 @@ def make_sealed_evaluator(
             summary["interactions"]
             for summary in (candidate_summary, fresh_summary, random_summary)
         ) + replay_row["interactions"]
+        if base_summary is not None:
+            evaluation_interactions += base_summary["interactions"]
+        for summary in (baseline_retention_summary, current_retention_summary):
+            if summary is not None:
+                evaluation_interactions += summary["interactions"]
         wall = max(0.001, time.perf_counter() - started)
         peak = psutil.Process().memory_info().rss / (1024.0 * 1024.0)
         workspace = Path(evidence_directory).parent.parent.parent
@@ -418,7 +568,7 @@ def make_sealed_evaluator(
                     "method": "paired-bootstrap",
                 },
             },
-            "retention": [],
+            "retention": retention_rows,
             "evidence": {
                 "source_hashes_verified": sources_verified,
                 "protocol_hashes_verified": protocol_verified,
@@ -435,9 +585,15 @@ def make_sealed_evaluator(
                 "interactions": training_summary["interactions"] + evaluation_interactions,
             },
             "input_boundary": {
-                "verified": not candidate.boundary_violations and not fresh.boundary_violations,
+                "verified": not (
+                    candidate.boundary_violations or fresh.boundary_violations
+                    or (base is not None and base.boundary_violations)
+                    or retention_violations
+                ),
                 "violations": (
                     list(candidate.boundary_violations) + list(fresh.boundary_violations)
+                    + ([] if base is None else list(base.boundary_violations))
+                    + retention_violations
                 ),
             },
             "replay": {
@@ -458,25 +614,42 @@ def run_official_sealed_exam(
     curriculum_path: Path = DEFAULT_CURRICULUM,
     config: SealedExamConfig = SealedExamConfig(),
     learner_seed: int = 8_620_001,
+    continue_existing: bool = False,
 ) -> dict[str, Any]:
-    """Run one official lesson, selecting sealed seeds only after training."""
+    """Run the next official lesson, selecting sealed seeds only after training."""
     config.validate()
     workspace = Path(workspace)
-    if workspace.exists() and any(workspace.iterdir()):
+    populated = workspace.exists() and any(workspace.iterdir())
+    if populated and not continue_existing:
         raise FileExistsError(f"sealed exam workspace is not empty: {workspace}")
     workspace.mkdir(parents=True, exist_ok=True)
     engine = SchoolEngine(workspace, Path(curriculum_path))
-    bootstrap = workspace / "bootstrap"
-    initialize_school_learner(
-        bootstrap, seed=learner_seed, max_replicas=config.training.max_replicas
-    )
-    initial_pointer = engine.initialize_promoted(bootstrap)
+    if populated:
+        status = engine.status()
+        if status["active"]["status"] != "idle":
+            raise SealedExamError("existing school has an unfinished active lesson")
+        initial_pointer = engine.snapshots.promoted()
+        if initial_pointer is None:
+            raise SealedExamError("existing school has no promoted learner")
+    else:
+        bootstrap = workspace / "bootstrap"
+        initialize_school_learner(
+            bootstrap, seed=learner_seed, max_replicas=config.training.max_replicas
+        )
+        initial_pointer = engine.initialize_promoted(bootstrap)
     lesson = engine.next_lesson()
     if lesson is None:
-        raise SealedExamError("curriculum contains no lesson to examine")
+        raise SealedExamError("curriculum contains no remaining lesson to examine")
+    promoted_lessons = list(engine.status()["promoted_lessons"])
+    retention_lesson = (
+        None if not promoted_lessons
+        else engine.lesson_by_id[promoted_lessons[-1]]
+    )
     started = engine.begin_lesson(lesson["lesson_id"])
     run_id = started["run_id"]
     run_directory = workspace / "runs" / run_id
+    base_directory = run_directory / "base-evaluation-state"
+    engine.snapshots.materialize(initial_pointer["snapshot_id"], base_directory)
     freeze = create_source_freeze(
         run_directory / "SOURCE_FREEZE.json",
         curriculum=engine.curriculum,
@@ -491,7 +664,11 @@ def run_official_sealed_exam(
             run_directory / "SEALED_SEED_MANIFEST.json", freeze=freeze, lesson=lesson
         )
         evaluator = make_sealed_evaluator(
-            config=config, freeze=freeze, manifest=manifest
+            config=config,
+            freeze=freeze,
+            manifest=manifest,
+            base_directory=base_directory,
+            retention_lesson=retention_lesson,
         )
         evaluation = evaluator(
             engine.candidate_snapshot_directory(run_id), lesson, run_directory / "evidence"
@@ -532,8 +709,19 @@ def run_official_sealed_exam(
                 if not row["passed"]
             ],
             "candidate_success_rate": evaluation["sealed"]["success_rate"],
+            "candidate_before_training_success_rate": (
+                sealed_evidence["candidate_before_training_summary"]["success_rate"]
+            ),
             "matched_fresh_success_rate": evaluation["sealed"]["fresh_success_rate"],
             "random_success_rate": sealed_evidence["random_summary"]["success_rate"],
+            "retention_baseline_success_rate": (
+                None if sealed_evidence["retention"]["baseline_summary"] is None
+                else sealed_evidence["retention"]["baseline_summary"]["success_rate"]
+            ),
+            "retention_current_success_rate": (
+                None if sealed_evidence["retention"]["current_summary"] is None
+                else sealed_evidence["retention"]["current_summary"]["success_rate"]
+            ),
             "success_interval": evaluation["sealed"]["success_interval"],
             "training_interactions": summary["interactions"],
             "total_interactions": evaluation["resources"]["interactions"],
@@ -550,5 +738,10 @@ def run_official_sealed_exam(
         "artifact_hashes": artifacts,
         "ledger": HashLedger(workspace / "SCHOOL_LEDGER.jsonl").verify(),
     }
-    atomic_write_json(workspace / "SEALED_EXAM_REPORT.json", report, backup=False, sort_keys=True)
+    report_name = (
+        "SEALED_EXAM_REPORT.json"
+        if lesson["sequence"] == 1
+        else f"SEALED_EXAM_REPORT_{lesson['sequence']:03d}.json"
+    )
+    atomic_write_json(workspace / report_name, report, backup=False, sort_keys=True)
     return report
