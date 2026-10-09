@@ -11,6 +11,8 @@ import torch
 from test_method import tiny_config
 from jepa_asteroids.stable_learning import (DuelingQNetwork, StableLearner,
     StableReplay, evaluate, random_shift, run_session)
+from jepa_asteroids.mastery import (calibrate_visual_policy, evaluate_visual_policy,
+    train_vision_curriculum)
 
 
 class NoHardwareGuard:
@@ -95,6 +97,34 @@ class StableSessionTests(unittest.TestCase):
             self.assertEqual((work / 'stable_brain.pt').read_bytes(), brain)
             with self.assertRaises(FileExistsError):
                 run_session(cfg, work, torch.device('cpu'), guard, episodes=1, fresh=True)
+
+    def test_prior_to_visual_curriculum_and_frozen_ablation_protocol(self):
+        cfg = stable_cfg(episode_steps=16)
+        guard = NoHardwareGuard()
+        with tempfile.TemporaryDirectory() as td:
+            work = Path(td)
+            run_session(cfg, work, torch.device('cpu'), guard, episodes=1, fresh=True)
+            (work / 'mastery_policy.json').write_text(
+                '{"probabilities":[0.1,0.1,0.2,0.1,0.5]}', encoding='utf-8')
+            trained = train_vision_curriculum(cfg, work, torch.device('cpu'), guard,
+                                              episodes=2, start_prior_weight=.8,
+                                              end_prior_weight=0.0)
+            self.assertEqual(trained['episodes_completed'], 2)
+            self.assertEqual(trained['results'][-1]['prior_weight'], 0.0)
+            calibrated = calibrate_visual_policy(cfg, work, torch.device('cpu'), guard,
+                                                 episodes=2)
+            self.assertEqual(calibrated['selected']['prior_weight'], 0.0)
+            brain = (work / 'stable_brain.pt').read_bytes()
+            replay = (work / 'stable_replay' / 'manifest.json').read_bytes()
+            report = evaluate_visual_policy(cfg, work, torch.device('cpu'), guard,
+                                            episodes=2, seed_offset=9)
+            self.assertEqual(set(report['summaries']), {'random', 'constant_fire',
+                'learned_prior', 'visual_selected', 'visual_greedy', 'occluded_visual',
+                'shuffled_frame_order', 'corrupted_visual_mapping'})
+            self.assertEqual(set(report['gates']), {'beats_learned_prior', 'uses_pixels',
+                'control_mapping_matters', 'promoted'})
+            self.assertEqual((work / 'stable_brain.pt').read_bytes(), brain)
+            self.assertEqual((work / 'stable_replay' / 'manifest.json').read_bytes(), replay)
 
 
 if __name__ == '__main__':

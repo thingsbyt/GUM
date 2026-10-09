@@ -18,6 +18,7 @@ ACTIONS={'verify':['verify'],'collect':['collect'],'encode':['encode'],'train':[
          'trial_train':['train','--max-steps','10'],'evaluate':['evaluate','--trials','8'],
          'start_fresh':['learn','--episodes','1000000','--fresh'],
          'continue':['learn','--episodes','1000000'],
+         'vision_curriculum':['vision-curriculum','--episodes','192'],
          'watch':['watch','--episodes','1000000','--replay-delay','.03']}
 
 class Controller:
@@ -45,7 +46,7 @@ class Controller:
                 self.workspace=self.base_workspace/'brains'/identity
                 self.workspace.mkdir(parents=True,exist_ok=False)
                 atomic_json(self.base_workspace/'active_brain.json',{'workspace':str(self.workspace)})
-            elif action in ('continue','watch') and not (self.workspace/'stable_brain.pt').exists():
+            elif action in ('continue','watch','vision_curriculum') and not (self.workspace/'stable_brain.pt').exists():
                 raise RuntimeError('No saved brain is selected. Start fresh first.')
             (self.workspace/'STOP').unlink(missing_ok=True)
             self.log=(self.workspace/'job.log').open('w',encoding='utf-8')
@@ -77,14 +78,17 @@ class Controller:
         except (OSError,ValueError,json.JSONDecodeError,ZeroDivisionError):result={}
         self._quality_key=key;self._quality_cache=result;return result
     def evaluation(self)->dict:
-        path=self.workspace/'mastery_evaluation.json'
-        try:key=(path.stat().st_mtime_ns,path.stat().st_size)
-        except OSError:return {}
+        paths=(self.workspace/'mastery_evaluation.json',self.workspace/'vision_evaluation.json')
+        key=tuple((path.stat().st_mtime_ns,path.stat().st_size) if path.exists() else None
+                  for path in paths)
         if key==self._evaluation_key:return self._evaluation_cache
+        result={}
         try:
-            summaries=json.loads(path.read_text(encoding='utf-8'))['summaries']
-            result={name:{field:row[field] for field in ('mean_hits','mean_return','termination_rate')}
-                    for name,row in summaries.items()}
+            for path in paths:
+                if not path.exists():continue
+                summaries=json.loads(path.read_text(encoding='utf-8'))['summaries']
+                result.update({name:{field:row[field] for field in
+                    ('mean_hits','mean_return','termination_rate')} for name,row in summaries.items()})
         except (OSError,KeyError,TypeError,ValueError,json.JSONDecodeError):result={}
         self._evaluation_key=key;self._evaluation_cache=result;return result
     def state(self)->dict:
@@ -129,7 +133,12 @@ def make_handler(controller:Controller):
             if path=='/api/state':return self._json(200,controller.state())
             if path in ('/current.png','/goal.png'):
                 file=controller.workspace/path.lstrip('/')
-                if file.exists():return self._reply(200,file.read_bytes(),'image/png')
+                try:
+                    if file.exists():return self._reply(200,file.read_bytes(),'image/png')
+                except PermissionError:
+                    # Windows can briefly lock the old image during an atomic
+                    # replacement. The 4 Hz client poll will retry naturally.
+                    return self._json(503,{'error':'Frame is being refreshed.'})
                 return self._json(404,{'error':'No frame yet.'})
             return self._json(404,{'error':'Not found.'})
         def do_POST(self):

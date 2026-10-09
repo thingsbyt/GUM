@@ -46,6 +46,15 @@ def parser():
     mp.add_argument('--episodes',type=int,default=6);mp.add_argument('--checkpoint',default='')
     me=sub.add_parser('master-evaluate',help='Evaluate the learned prior plus JEPA visual controller')
     me.add_argument('--episodes',type=int,default=64);me.add_argument('--seed-offset',type=int,default=100000)
+    vc=sub.add_parser('vision-curriculum',help='Withdraw the learned action prior while training visual control')
+    vc.add_argument('--episodes',type=int,default=192)
+    vc.add_argument('--start-prior-weight',type=float,default=.9)
+    vc.add_argument('--end-prior-weight',type=float,default=0.0)
+    vcal=sub.add_parser('vision-calibrate',help='Freeze a visual-only action rule on development seeds')
+    vcal.add_argument('--episodes',type=int,default=24)
+    ve=sub.add_parser('vision-evaluate',help='Run frozen visual-only, occlusion and shuffled-frame tests')
+    ve.add_argument('--episodes',type=int,default=64);ve.add_argument('--seed-offset',type=int,default=400000)
+    ve.add_argument('--label',default='untouched')
     sub.add_parser('lifelong-status',help='Show the persistent multi-task skill registry')
     sub.add_parser('lifelong-proof',help='Run the deterministic A-B-A retention and revisit benchmark')
     lb=sub.add_parser('lifelong-benchmark',help='Train Catch-Avoid-Navigate-Catch from pixels')
@@ -166,6 +175,19 @@ def main(argv=None)->int:
             from .mastery import evaluate_mastery
             print(json.dumps(evaluate_mastery(cfg,workspace,device,guard,episodes=args.episodes,
                                               seed_offset=args.seed_offset),indent=2))
+        elif args.command=='vision-curriculum':
+            from .mastery import train_vision_curriculum
+            print(json.dumps(train_vision_curriculum(cfg,workspace,device,guard,
+                episodes=args.episodes,start_prior_weight=args.start_prior_weight,
+                end_prior_weight=args.end_prior_weight),indent=2))
+        elif args.command=='vision-calibrate':
+            from .mastery import calibrate_visual_policy
+            print(json.dumps(calibrate_visual_policy(
+                cfg,workspace,device,guard,episodes=args.episodes),indent=2))
+        elif args.command=='vision-evaluate':
+            from .mastery import evaluate_visual_policy
+            print(json.dumps(evaluate_visual_policy(cfg,workspace,device,guard,
+                episodes=args.episodes,seed_offset=args.seed_offset,label=args.label),indent=2))
         elif args.command=='lifelong-proof':
             from .lifelong import run_toy_continual_proof
             print(json.dumps(run_toy_continual_proof(workspace,device),indent=2))

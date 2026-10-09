@@ -130,9 +130,13 @@ class DashboardTests(unittest.TestCase):
         report={'summaries':{'visual_mastery':{'episodes':64,'mean_hits':7.3,
             'mean_return':7.1,'termination_rate':.09,'mean_steps':123}}}
         (self.path/'mastery_evaluation.json').write_text(json.dumps(report),encoding='utf-8')
+        vision={'summaries':{'visual_selected':{'episodes':64,'mean_hits':4.3,
+            'mean_return':2.7,'termination_rate':.36,'mean_steps':109}}}
+        (self.path/'vision_evaluation.json').write_text(json.dumps(vision),encoding='utf-8')
         with self.request('/api/state') as r:state=json.load(r)
         self.assertEqual(state['evaluation']['visual_mastery'],{
             'mean_hits':7.3,'mean_return':7.1,'termination_rate':.09})
+        self.assertEqual(state['evaluation']['visual_selected']['mean_hits'],4.3)
     def test_stop_post_creates_file(self):
         with self.request('/api/action',method='POST',payload={'action':'stop'}) as r:self.assertTrue(json.load(r)['ok'])
         self.assertTrue((self.path/'STOP').exists())

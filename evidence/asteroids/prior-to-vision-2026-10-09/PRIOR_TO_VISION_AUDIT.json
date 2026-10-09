@@ -1,0 +1,42 @@
+{
+  "format": "gum-prior-to-vision-development-audit-v1",
+  "date": "2026-10-09",
+  "status": "failed; not promoted",
+  "curriculum": {
+    "episodes": 192,
+    "prior_weight_start": 0.9,
+    "prior_weight_end": 0.0,
+    "environment_decisions_before": 20629,
+    "environment_decisions_after": 43611,
+    "updates_before": 2944,
+    "updates_after": 6016,
+    "candidate_checkpoint": "stable_milestones/update_00006016.pt",
+    "restored_active_checkpoint": "stable_milestones/update_00002944.pt"
+  },
+  "evaluation": {
+    "protocol": "frozen matched seeds; no replay writes or weight updates",
+    "episodes_per_policy": 64,
+    "seed_offset": 400000,
+    "summaries": {
+      "random": {"mean_hits": 4.78125, "mean_return": 3.35784895833332, "termination_rate": 0.328125},
+      "constant_fire": {"mean_hits": 4.28125, "mean_return": 3.583885416666655, "termination_rate": 0.1875},
+      "learned_prior": {"mean_hits": 6.421875, "mean_return": 5.63999999999999, "termination_rate": 0.203125},
+      "visual_selected": {"mean_hits": 4.296875, "mean_return": 2.7167291666666573, "termination_rate": 0.359375},
+      "visual_greedy": {"mean_hits": 2.34375, "mean_return": 0.5134687499999923, "termination_rate": 0.40625},
+      "occluded_visual": {"mean_hits": 4.953125, "mean_return": 3.6129166666666546, "termination_rate": 0.3125},
+      "shuffled_frame_order": {"mean_hits": 4.125, "mean_return": 2.9415416666666534, "termination_rate": 0.28125},
+      "corrupted_visual_mapping": {"mean_hits": 2.578125, "mean_return": -0.3746822916666746, "termination_rate": 0.625}
+    },
+    "paired_hit_differences": {
+      "visual_minus_prior": {"mean": -2.125, "bootstrap_95_interval": [-3.0625, -1.1558593750000057]},
+      "visual_minus_occluded": {"mean": -0.65625, "bootstrap_95_interval": [-1.53125, 0.21875]},
+      "visual_minus_corrupted": {"mean": 1.71875, "bootstrap_95_interval": [0.875, 2.5472656249999943]}
+    },
+    "gates": {
+      "beats_learned_prior": false,
+      "uses_pixels": false,
+      "control_mapping_matters": true,
+      "promoted": false
+    }
+  }
+}

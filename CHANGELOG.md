@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-09 — Prior-to-vision curriculum development attempt
+
+- Added a bounded curriculum that linearly withdraws an outcome-trained action
+  prior while a pixel-conditioned Double DQN continues learning from real
+  replay; added separate development calibration and frozen visual ablations.
+- Ran 192 curriculum episodes, 22,982 new environment decisions, and 3,072 GPU
+  updates. The prior contribution fell from 90% to zero as scheduled.
+- Rejected the candidate on 64 untouched matched seeds: visual-only scored 4.30
+  mean hits versus 6.42 for the learned prior, while complete visual occlusion
+  scored 4.95. The candidate therefore failed both competence and pixel-use
+  gates and was not promoted.
+- Preserved the failed 6,016-update checkpoint for diagnosis and restored the
+  previous 2,944-update learner as the active brain.
+
 ## 2026-10-09 — Faster live Asteroids learning and outcome-trained policy
 
 - Accelerated stable GPU updates 4.29x, from 2.27 to 9.73 updates/second in a
