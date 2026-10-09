@@ -124,6 +124,15 @@ class DashboardTests(unittest.TestCase):
         with self.request('/api/state') as r:self.assertIn('progress',json.load(r))
         with self.request('/') as r:
             html=r.read().decode();self.assertIn(self.controller.token,html);self.assertNotIn('__LAB_TOKEN__',html)
+            self.assertIn("Agent's visual input",html);self.assertNotIn('Predicted outcome',html)
+            self.assertIn('Watch learned policy live',html)
+    def test_state_exposes_compact_mastery_evaluation(self):
+        report={'summaries':{'visual_mastery':{'episodes':64,'mean_hits':7.3,
+            'mean_return':7.1,'termination_rate':.09,'mean_steps':123}}}
+        (self.path/'mastery_evaluation.json').write_text(json.dumps(report),encoding='utf-8')
+        with self.request('/api/state') as r:state=json.load(r)
+        self.assertEqual(state['evaluation']['visual_mastery'],{
+            'mean_hits':7.3,'mean_return':7.1,'termination_rate':.09})
     def test_stop_post_creates_file(self):
         with self.request('/api/action',method='POST',payload={'action':'stop'}) as r:self.assertTrue(json.load(r)['ok'])
         self.assertTrue((self.path/'STOP').exists())

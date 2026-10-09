@@ -12,7 +12,7 @@ Double DQN, a lagged target network, multi-step targets and image augmentation.
 """
 from __future__ import annotations
 
-from collections import deque
+from collections import OrderedDict, deque
 import copy
 import hashlib
 import json
@@ -73,6 +73,11 @@ class StableReplay:
             self.manifest = {**expected, 'seen_episodes': 0, 'archive_candidates': 0,
                              'recent': [], 'archive': []}
             self._save()
+        # Training samples repeatedly revisit a small set of recent episodes.
+        # Keeping a bounded decoded cache avoids reopening and decompressing the
+        # same NPZ once per item in every mini-batch.
+        self._episode_cache: OrderedDict[str, dict[str, np.ndarray]] = OrderedDict()
+        self._episode_cache_limit = min(32, cfg.stable_replay_episodes)
 
     def _save(self) -> None:
         atomic_json(self.path, self.manifest)
@@ -86,8 +91,20 @@ class StableReplay:
 
     def _drop(self, entry: dict) -> None:
         path = self.raw / entry['file']
+        self._episode_cache.pop(entry['file'], None)
         if path.exists():
             path.unlink()
+
+    def _episode_data(self, entry: dict) -> dict[str, np.ndarray]:
+        name = entry['file']
+        cached = self._episode_cache.pop(name, None)
+        if cached is None:
+            with np.load(self.raw / name, allow_pickle=False) as value:
+                cached = {key: value[key].copy() for key in value.files}
+        self._episode_cache[name] = cached
+        while len(self._episode_cache) > self._episode_cache_limit:
+            self._episode_cache.popitem(last=False)
+        return cached
 
     def _rebalance(self) -> None:
         total = self.cfg.stable_replay_episodes
@@ -148,32 +165,32 @@ class StableReplay:
             use_recent = recent and (not archive or self.rng.random() < self.cfg.stable_recent_fraction)
             pool = recent if use_recent else archive
             entry = pool[int(self.rng.integers(len(pool)))]
-            with np.load(self.raw / entry['file'], allow_pickle=False) as data:
-                first = stack - 1
-                outcomes = np.flatnonzero(np.abs(data['rewards'][first:]) > .1) + first
-                if len(outcomes) and self.rng.random() < self.cfg.stable_outcome_fraction:
-                    index = int(outcomes[int(self.rng.integers(len(outcomes)))])
-                else:
-                    index = int(self.rng.integers(first, len(data['actions'])))
-                total = 0.0
-                terminal = False
-                steps = 0
-                for offset in range(self.cfg.stable_n_step):
-                    at = index + offset
-                    if at >= len(data['actions']):
-                        break
-                    total += (gamma ** offset) * float(data['rewards'][at]) / 5.0
-                    steps += 1
-                    if bool(data['dones'][at]):
-                        terminal = True
-                        break
-                obs.append(data['frames'][index - stack + 1:index + 1].copy())
-                one_nxt.append(data['frames'][index - stack + 2:index + 2].copy())
-                nxt.append(data['frames'][index - stack + 1 + steps:index + 1 + steps].copy())
-                actions.append(int(data['actions'][index]))
-                returns.append(total)
-                dones.append(terminal)
-                discounts.append(gamma ** steps)
+            data = self._episode_data(entry)
+            first = stack - 1
+            outcomes = np.flatnonzero(np.abs(data['rewards'][first:]) > .1) + first
+            if len(outcomes) and self.rng.random() < self.cfg.stable_outcome_fraction:
+                index = int(outcomes[int(self.rng.integers(len(outcomes)))])
+            else:
+                index = int(self.rng.integers(first, len(data['actions'])))
+            total = 0.0
+            terminal = False
+            steps = 0
+            for offset in range(self.cfg.stable_n_step):
+                at = index + offset
+                if at >= len(data['actions']):
+                    break
+                total += (gamma ** offset) * float(data['rewards'][at]) / 5.0
+                steps += 1
+                if bool(data['dones'][at]):
+                    terminal = True
+                    break
+            obs.append(data['frames'][index - stack + 1:index + 1].copy())
+            one_nxt.append(data['frames'][index - stack + 2:index + 2].copy())
+            nxt.append(data['frames'][index - stack + 1 + steps:index + 1 + steps].copy())
+            actions.append(int(data['actions'][index]))
+            returns.append(total)
+            dones.append(terminal)
+            discounts.append(gamma ** steps)
         return (torch.from_numpy(np.stack(obs)), torch.tensor(actions),
                 torch.tensor(returns, dtype=torch.float32), torch.from_numpy(np.stack(nxt)),
                 torch.from_numpy(np.stack(one_nxt)),
@@ -226,14 +243,17 @@ def random_shift(frames: torch.Tensor, padding: int) -> torch.Tensor:
     if padding == 0:
         return frames
     padded = F.pad(frames, (padding, padding, padding, padding), mode='replicate')
+    batch = frames.shape[0]
     height, width = frames.shape[-2:]
     limit = 2 * padding + 1
-    crops = []
-    for sample in padded:
-        top = int(torch.randint(limit, (), device=frames.device))
-        left = int(torch.randint(limit, (), device=frames.device))
-        crops.append(sample[:, top:top + height, left:left + width])
-    return torch.stack(crops)
+    tops = torch.randint(limit, (batch,), device=frames.device)
+    lefts = torch.randint(limit, (batch,), device=frames.device)
+    batch_index = torch.arange(batch, device=frames.device)[:, None, None]
+    rows = tops[:, None, None] + torch.arange(height, device=frames.device)[None, :, None]
+    columns = lefts[:, None, None] + torch.arange(width, device=frames.device)[None, None, :]
+    # Channel-last indexing expresses all independently shifted crops in one
+    # GPU operation and avoids a device synchronization per sample.
+    return padded.permute(0, 2, 3, 1)[batch_index, rows, columns].permute(0, 3, 1, 2).contiguous()
 
 
 class StableLearner:
@@ -351,8 +371,8 @@ class StableLearner:
                 raise FloatingPointError('Non-finite stable-control loss.')
             self.optimizer.zero_grad(set_to_none=True)
             loss.backward()
-            norm = torch.nn.utils.clip_grad_norm_(self.online.parameters(),
-                                                   self.cfg.stable_grad_clip,
+            optimized = list(self.online.parameters()) + list(self.jepa_predictor.parameters())
+            norm = torch.nn.utils.clip_grad_norm_(optimized, self.cfg.stable_grad_clip,
                                                    error_if_nonfinite=True)
             self.optimizer.step()
             with torch.no_grad():
@@ -368,7 +388,7 @@ class StableLearner:
                 self.state['target_syncs'] += 1
             record = {'update': self.state['updates'], 'loss': float(loss.detach()),
                       'q_loss': float(q_loss.detach()), 'jepa_loss': float(jepa_loss.detach()),
-                      'mean_abs_td': float(td.abs().mean()),
+                      'mean_abs_td': float(td.detach().abs().mean()),
                       'mean_q': float(predictions.detach().mean()),
                       'mean_target': float(targets.mean()), 'gradient_norm': float(norm),
                       'target_synced': synced, 'seconds': time.monotonic() - tick}
@@ -388,6 +408,7 @@ def run_episode(cfg: Config, workspace: Path, learner: StableLearner, replay: St
     greedy = 0
     hits = 0
     started = time.monotonic()
+    last_publish = 0.0
     for decision in range(cfg.episode_steps):
         enough = replay.transition_count() >= cfg.stable_warmup_transitions
         exploring = learning and (not enough or learner.rng.random() < learner.epsilon())
@@ -408,15 +429,20 @@ def run_episode(cfg: Config, workspace: Path, learner: StableLearner, replay: St
         learner.state['action_counts'][action] += int(learning)
         if learning:
             learner.state['environment_steps'] += 1
-        publish(workspace, frame, eye)
-        progress(workspace, 'stable-learning' if learning else 'stable-watch',
-                 episode=learner.state['episodes'] + 1, decision=decision + 1, score=hits,
-                 lifetime_experience=learner.state['environment_steps'],
-                 training_updates=learner.state['updates'], epsilon=learner.epsilon(),
-                 activity='exploring' if exploring else 'acting from learned real returns',
-                 q_values=q_values, simulated_seconds=info['simulated_seconds'],
-                 wall_seconds=time.monotonic() - started,
-                 message='Learning trainable visual control locally from pixels and real outcomes.')
+        now = time.monotonic()
+        should_publish = bool(done or replay_delay or now - last_publish >= 0.20)
+        if should_publish:
+            publish(workspace, frame, eye)
+            progress(workspace, 'stable-learning' if learning else 'stable-watch',
+                     episode=learner.state['episodes'] + 1, decision=decision + 1, score=hits,
+                     lifetime_experience=learner.state['environment_steps'],
+                     training_updates=learner.state['updates'], epsilon=learner.epsilon(),
+                     activity='exploring' if exploring else 'acting from learned real returns',
+                     action=action, control_source='random-exploration' if exploring else 'learned-q-values',
+                     q_values=q_values, simulated_seconds=info['simulated_seconds'],
+                     wall_seconds=now - started,
+                     message='Learning trainable visual control locally from pixels and real outcomes.')
+            last_publish = now
         if replay_delay:
             time.sleep(replay_delay)
         if done:
@@ -430,6 +456,12 @@ def run_episode(cfg: Config, workspace: Path, learner: StableLearner, replay: St
         replay.add(np.stack(eyes), np.asarray(actions), np.asarray(rewards), np.asarray(dones),
                    seed=seed, hits=hits, updates=learner.state['updates'])
         learner.state['episodes'] += 1
+        progress(workspace, 'stable-replay-update',
+                 episode=learner.state['episodes'], score=hits,
+                 lifetime_experience=learner.state['environment_steps'],
+                 training_updates=learner.state['updates'], epsilon=learner.epsilon(),
+                 requested_updates=cfg.stable_updates_per_episode,
+                 message='Updating the policy on bounded real-experience replay.')
         completed = learner.train(replay, guard, cfg.stable_updates_per_episode)
         result['updates_completed'] = len(completed)
         crossed = completed and (learner.state['updates'] % cfg.stable_milestone_updates < len(completed))

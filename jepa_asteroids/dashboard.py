@@ -18,7 +18,7 @@ ACTIONS={'verify':['verify'],'collect':['collect'],'encode':['encode'],'train':[
          'trial_train':['train','--max-steps','10'],'evaluate':['evaluate','--trials','8'],
          'start_fresh':['learn','--episodes','1000000','--fresh'],
          'continue':['learn','--episodes','1000000'],
-         'watch':['watch','--episodes','1','--replay-delay','.03']}
+         'watch':['watch','--episodes','1000000','--replay-delay','.03']}
 
 class Controller:
     def __init__(self,cfg:Config,config_path:Path,workspace:Path):
@@ -32,6 +32,8 @@ class Controller:
         except (OSError,KeyError,ValueError,json.JSONDecodeError):pass
         self.token=secrets.token_urlsafe(24);self.process=None;self.log=None
         self.lock=threading.Lock();self.action=None
+        self._quality_key=None;self._quality_cache={}
+        self._evaluation_key=None;self._evaluation_cache={}
     def start(self,action:str):
         if action not in ACTIONS:raise ValueError('Unknown action.')
         with self.lock:
@@ -54,6 +56,37 @@ class Controller:
             self.action=action
     def stop(self):
         (self.workspace/'STOP').touch()
+    def quality(self)->dict:
+        path=self.workspace/'stable_episodes.jsonl'
+        try:key=(path.stat().st_mtime_ns,path.stat().st_size)
+        except OSError:return {}
+        if key==self._quality_key:return self._quality_cache
+        try:
+            size=key[1]
+            with path.open('rb') as handle:
+                handle.seek(max(0,size-65536));raw=handle.read().decode('utf-8',errors='ignore')
+            lines=raw.splitlines()
+            if size>65536 and lines:lines=lines[1:]
+            rows=[json.loads(line) for line in lines if line.strip()][-10:]
+            steps=sum(int(row.get('steps',0)) for row in rows)
+            result={'window_episodes':len(rows),
+                'mean_hits':sum(float(row.get('hits',0)) for row in rows)/len(rows),
+                'mean_return':sum(float(row.get('return',0)) for row in rows)/len(rows),
+                'survival_rate':sum(not bool(row.get('terminated')) for row in rows)/len(rows),
+                'greedy_action_rate':sum(int(row.get('greedy_decisions',0)) for row in rows)/max(1,steps)}
+        except (OSError,ValueError,json.JSONDecodeError,ZeroDivisionError):result={}
+        self._quality_key=key;self._quality_cache=result;return result
+    def evaluation(self)->dict:
+        path=self.workspace/'mastery_evaluation.json'
+        try:key=(path.stat().st_mtime_ns,path.stat().st_size)
+        except OSError:return {}
+        if key==self._evaluation_key:return self._evaluation_cache
+        try:
+            summaries=json.loads(path.read_text(encoding='utf-8'))['summaries']
+            result={name:{field:row[field] for field in ('mean_hits','mean_return','termination_rate')}
+                    for name,row in summaries.items()}
+        except (OSError,KeyError,TypeError,ValueError,json.JSONDecodeError):result={}
+        self._evaluation_key=key;self._evaluation_cache=result;return result
     def state(self)->dict:
         try:progress=json.loads((self.workspace/'status.json').read_text(encoding='utf-8'))
         except (OSError,json.JSONDecodeError):progress={'stage':'ready','message':'Set up the official DINOv3 weights, then record and encode.'}
@@ -64,8 +97,10 @@ class Controller:
         except OSError:log=''
         code=self.process.poll() if self.process else None
         return {'running':self.process is not None and code is None,'returncode':code,'action':self.action,
-            'progress':progress,'log':log,'config':{'name':self.cfg.name,'batch_size':self.cfg.stable_batch_size,
-            'epochs':0,'predictor_dim':self.cfg.stable_latent_dim,'predictor_depth':2},
+            'progress':progress,'quality':self.quality(),'evaluation':self.evaluation(),'log':log,'config':{'name':self.cfg.name,
+            'architecture':'Dueling Double DQN + auxiliary JEPA prediction',
+            'batch_size':self.cfg.stable_batch_size,'updates_per_episode':self.cfg.stable_updates_per_episode,
+            'latent_dim':self.cfg.stable_latent_dim},
             'workspace':str(self.workspace),'stop_requested':(self.workspace/'STOP').exists()}
 
 

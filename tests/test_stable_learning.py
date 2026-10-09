@@ -43,6 +43,14 @@ class StableNetworkTests(unittest.TestCase):
         self.assertFalse(torch.equal(before, model.eyes[0].weight))
         self.assertEqual(model(frames).shape, (4, cfg.action_dim))
 
+    def test_vectorized_random_shift_preserves_constant_images(self):
+        frames = torch.stack([
+            torch.full((4, 64, 128), value, dtype=torch.uint8)
+            for value in range(6)
+        ])
+        shifted = random_shift(frames, 4)
+        torch.testing.assert_close(shifted, frames)
+
     def test_n_step_replay_shapes_and_discount(self):
         cfg = stable_cfg()
         with tempfile.TemporaryDirectory() as td:
@@ -60,6 +68,7 @@ class StableNetworkTests(unittest.TestCase):
             self.assertEqual(obs.shape[1], cfg.self_frame_stack)
             self.assertEqual(actions.shape, returns.shape)
             self.assertTrue(torch.all(discounts <= cfg.stable_discount))
+            self.assertTrue(replay._episode_cache)
 
 
 class StableSessionTests(unittest.TestCase):

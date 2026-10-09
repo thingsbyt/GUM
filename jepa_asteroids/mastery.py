@@ -196,8 +196,9 @@ def watch_mastery(cfg: Config, workspace: Path, device: torch.device, guard: Gua
             actions.append(action)
             publish(workspace, frame, eye)
             progress(workspace, 'mastery-watch', episode=episode + 1, decision=decision + 1,
-                     score=hits, activity='frozen mastered visual policy',
-                     message='Watching without replay writes or learning.')
+                     score=hits, action=action, control_source='learned prior + visual policy',
+                     activity='frozen outcome-trained policy',
+                     message='Watching the frozen learned policy; weights and replay are unchanged.')
             if replay_delay:
                 time.sleep(replay_delay)
             if done:

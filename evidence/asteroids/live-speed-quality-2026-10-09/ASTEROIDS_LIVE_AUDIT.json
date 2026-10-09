@@ -1,0 +1,67 @@
+{
+  "format": "gum-asteroids-live-development-audit-v1",
+  "date": "2026-10-09",
+  "status": "local development result; not sealed promotion or general mastery",
+  "speed": {
+    "matched_conditions": [
+      "same brain",
+      "same replay",
+      "same batch size",
+      "same objective",
+      "same GPU",
+      "same exploration schedule"
+    ],
+    "before_seconds_per_update": 0.44136,
+    "after_seconds_per_update": 0.10279,
+    "before_updates_per_second": 2.2657,
+    "after_updates_per_second": 9.7288,
+    "speedup": 4.2939
+  },
+  "training_checkpoint": {
+    "environment_decisions": 20629,
+    "gradient_updates": 2944,
+    "action_prior_signal": "episode returns only; no engine state or action labels",
+    "combined_policy": {
+      "learned_prior_weight": 0.9,
+      "visual_dqn_weight": 0.1
+    }
+  },
+  "evaluation": {
+    "protocol": "frozen matched seeds; no replay writes or weight updates",
+    "episodes_per_policy": 64,
+    "seed_offset": 300000,
+    "summaries": {
+      "uniform_random": {
+        "mean_hits": 4.078125,
+        "mean_return": 2.092874999999987,
+        "termination_rate": 0.4375
+      },
+      "constant_fire": {
+        "mean_hits": 4.09375,
+        "mean_return": 3.3931822916666583,
+        "termination_rate": 0.1875
+      },
+      "learned_prior": {
+        "mean_hits": 7.0,
+        "mean_return": 6.301130208333326,
+        "termination_rate": 0.1875
+      },
+      "visual_plus_learned_prior": {
+        "mean_hits": 7.328125,
+        "mean_return": 7.106286458333327,
+        "termination_rate": 0.09375
+      },
+      "corrupted_control_mapping": {
+        "mean_hits": 1.109375,
+        "mean_return": -2.815093750000003,
+        "termination_rate": 0.8125
+      }
+    }
+  },
+  "verification": {
+    "focused_tests_passed": 22,
+    "complete_tests_passed": 370,
+    "complete_tests_failed": 0
+  },
+  "limitation": "Most present performance comes from a state-independent outcome-trained action prior; situation-dependent visual tactics remain an open objective."
+}

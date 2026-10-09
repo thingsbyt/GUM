@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-10-09 — Faster live Asteroids learning and outcome-trained policy
+
+- Accelerated stable GPU updates 4.29x, from 2.27 to 9.73 updates/second in a
+  matched local benchmark, by caching decoded replay episodes and removing a
+  per-sample GPU synchronization from visual augmentation.
+- Reworked the live dashboard to refresh four times per second, label the
+  learner's grayscale visual input accurately, expose rolling training and
+  frozen-evaluation quality, and play a learned policy continuously until the
+  user pauses it.
+- Learned an anonymous action prior from episode returns only, then combined it
+  with the frozen visual controller. On 64 new matched seeds it achieved 7.33
+  mean hits versus 4.09 constant-fire and 4.08 random; a corrupted control map
+  fell to 1.11 hits and 81.25% termination.
+- This is a strong local development result, not a claim of Asteroids mastery:
+  the current controller is 90% state-independent learned prior and 10% visual
+  action values, so richer situation-dependent visual behavior remains open.
+
 ## 2026-10-09 — Reward-gated spatial-memory development pass
 
 - Added a Changing Maze specialist whose fixed visual memory machinery builds
