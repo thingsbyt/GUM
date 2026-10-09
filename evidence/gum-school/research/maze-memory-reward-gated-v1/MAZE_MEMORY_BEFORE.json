@@ -1,0 +1,27 @@
+{
+  "alpha": 0.5,
+  "boundary_violations": [],
+  "evaluation_episodes": 0,
+  "evaluation_interactions": 0,
+  "format": "gum-school-maze-memory-v1",
+  "mode_values": [
+    0.0,
+    0.0
+  ],
+  "mode_visits": [
+    0,
+    0
+  ],
+  "rng_state": {
+    "bit_generator": "PCG64",
+    "has_uint32": 0,
+    "state": {
+      "inc": 18438579778062455872196599375400725907,
+      "state": 311902136495321758429480070270720390288
+    },
+    "uinteger": 0
+  },
+  "seed": 23,
+  "training_episodes": 0,
+  "training_interactions": 0
+}

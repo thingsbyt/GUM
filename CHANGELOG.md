@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-10-09 — Reward-gated spatial-memory development pass
+
+- Added a Changing Maze specialist whose fixed visual memory machinery builds
+  an episodic map and grounds anonymous controls only through observed pixel
+  displacement; it never receives hidden coordinates, control meanings, event
+  labels, or authored action sequences.
+- Used scalar return to learn whether to activate the reusable map-and-plan
+  strategy, exhausting the fixed 15,000-interaction public training budget.
+- Passed all public research gates on 128 development mazes at 128/128, versus
+  18/128 for the same untrained architecture and 0/128 when only carried
+  spatial memory was erased. This is not yet a sealed promotion.
+
 ## 2026-10-09 — Official recurrent causal-composition promotion
 
 - Froze the Lesson 4 examiner at commit `e5cd671`, then selected 64 fresh

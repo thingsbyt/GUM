@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-maze-memory-reward-gated-v1",
+      "status": "passed-development",
+      "title": "Reward-gated episodic spatial memory",
+      "headline": "128/128 public unseen mazes versus 18/128 fresh and 0/128 without carried spatial memory",
+      "metrics": ["15,000 public training interactions", "100% success; 95% Wilson lower bound 0.971", "17.8% uncertainty and 4.9% unnecessary actions", "All eight public research gates passed"],
+      "scope": "Public-only Lesson 5 development pass. Pixel segmentation, the episodic map store, frontier/path search, and control-hypothesis machinery are engineered learner biology. Scalar return learned whether to activate that strategy; map contents, goal location, and shuffled control meanings were inferred online from pixels. No hidden coordinates, event labels, action meanings, successful sequences, or sealed cases were used. This is not an official promotion or unrestricted navigation claim.",
+      "evidence": "evidence/gum-school/research/maze-memory-reward-gated-v1/MAZE_MEMORY_RESEARCH_REPORT.json"
+    },
+    {
       "id": "school-recurrent-causal-composition-official",
       "status": "passed-official",
       "title": "Official recurrent causal-composition promotion",
