@@ -80,3 +80,28 @@ def test_bundle_manifest_names_only_reviewed_components(tmp_path: Path):
     assert set(manifest["components"]) == {
         "SCHOOL_LEARNER.json", "CAUSAL_META_POLICY.pt"
     }
+
+
+def test_saved_sealed_confirmation_preserves_uncertainty_gate_failure():
+    report_path = (
+        Path(__file__).resolve().parents[1]
+        / "evidence" / "gum-school" / "sealed-recheck"
+        / "causal-recurrent-meta-v1" / "SEALED_RECURRENT_CONFIRMATION.json"
+    )
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    assert report["qualification"] == "fail"
+    assert report["candidate"]["successes"] == 64
+    assert report["candidate"]["trials"] == 64
+    assert report["matched_fresh"]["successes"] == 4
+    assert report["uniform_random"]["successes"] == 4
+    assert report["retention"]["current_summary"]["successes"] == 48
+    gates = report["gates"]["gates"]
+    assert gates["sealed-performance"]["passed"] is False
+    assert gates["sealed-performance"]["reasons"] == [
+        "uncertainty rate exceeds its maximum"
+    ]
+    assert all(
+        row["passed"] for name, row in gates.items()
+        if name != "sealed-performance"
+    )
+    assert report["promoted_workspace_mutated"] is False

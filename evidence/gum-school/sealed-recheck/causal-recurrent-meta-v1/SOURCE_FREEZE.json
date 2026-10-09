@@ -1,0 +1,53 @@
+{
+  "candidate_hashes": {
+    "CAUSAL_META_POLICY.pt": "sha256:ce428e9f45a7e9b1eac2707c0e45bb35c8cf9174a9731136a6fc59981be6c886",
+    "CUMULATIVE_LEARNER.json": "sha256:d3a89304ef34f38661bb79f44122fd9ba886e91fa9bf11c7b9ede8a50da67856",
+    "SCHOOL_LEARNER.json": "sha256:8e775fec82ce89306e67142accc257ccfe22ae34653da85746e940613f9339df"
+  },
+  "created_at_utc": "2026-10-09T15:00:29.843356+00:00",
+  "format": "gum-school-recurrent-source-freeze-v1",
+  "git_clean_before_workspace_creation": true,
+  "git_head": "ed0735e8c002e9a3d38db173ca44a265389ac459",
+  "protocol": {
+    "candidate_learning_during_evaluation": false,
+    "controls": [
+      "same-untrained-network",
+      "uniform-random"
+    ],
+    "format": "gum-school-recurrent-sealed-protocol-v1",
+    "lesson_id": "causal-workshop.controls.001",
+    "mechanism": "causal-controls-spatial-rgb-v1",
+    "per_trial_interaction_limit": 11,
+    "promotion_workspace_mutated": false,
+    "retention_lessons": [
+      "object-laboratory.occlusion.001",
+      "object-laboratory.functional-category.002"
+    ],
+    "seed_range": [
+      1000000000,
+      2000000000
+    ],
+    "selection": "post-freeze system-random unique integers",
+    "trials": 64
+  },
+  "protocol_sha256": "sha256:1b8cd6b9cbc1223c81436514082325d358711fab2e6b140c3116823f83c200e6",
+  "public_training_evidence_sha256": "sha256:c791a46df3e49ff59d8837b75e4e7b7e7da1e1ca8f9f7ddbf3b44d53dfc56d64",
+  "source_hashes": {
+    "curriculum/gum-school-v1.json": "sha256:8d13611f64aef08cca81bba6cb83bac980ab5b6d1a9d2e6e4600e7add721445a",
+    "curriculum/schemas/gum-school-curriculum-v1.schema.json": "sha256:42c0308a463d31ad4a04863be8fc4568f24a09d0c2b2013e510622ec60b05e8f",
+    "curriculum/schemas/gum-school-examination-v1.schema.json": "sha256:a0ccbc401020f9a91654c50a8db5f4bb3a626940f09d94a2d0237d4b8de6b4c4",
+    "curriculum/schemas/gum-school-lesson-v1.schema.json": "sha256:79476bd30893381536e15c442c07e19fb0094199b5f6ee80a65fc2d6ecad6fb2",
+    "curriculum/schemas/gum-school-world-admission-v1.schema.json": "sha256:985e87deb25ce5b7c5a02c5b7b8c463e760fee22abeb7e7b4eaf1b65b3ccb0f7",
+    "gum/lineage.py": "sha256:c79240daa1dc7d579c572713b0f4bdd4d433ada092f45c27965f6c3aa5121101",
+    "gum/protocol.py": "sha256:5c1998eb02d5086e149fb16e7bd8517aefff88abcb9563deef2368db72554909",
+    "gum/school/cumulative.py": "sha256:925bc52a69d663d5c68b47aea966193feb0053554f3e913e94a78cd9f1bd9ac0",
+    "gum/school/evaluation.py": "sha256:494a1a8d4cddd95a1b2935f98fcf30d64edf78f36dba757ad44dbc1c549671bd",
+    "gum/school/learner.py": "sha256:112c7b270d60b07deb743ccdc112c1ad0ae853bf5f2156d97f91e04eed8cf36c",
+    "gum/school/recurrent_meta.py": "sha256:9c9a741ee729b56e840d8938195c5301fc13db8a057783f4959595d6bab07c45",
+    "gum/school/sealed.py": "sha256:d9664c52b89673a36e7301de4620dda756cbd2dd1af17927a9b7513007f0b77e",
+    "gum/school/training.py": "sha256:c12e6b7c768495ffc7dd0b16d70fa18bf69bf9659aa29e537c6e38f229a99f19",
+    "gum/school/worlds.py": "sha256:ac4d9a3fc31615a4efbbf3d909067af7125ded43212c22b4e7c4330c9dabbf91",
+    "gum/storage.py": "sha256:8ccd1de7bd5d09aff224fcdb160d7e3efcb6e90337447e8711f11f68c8e7c434",
+    "scripts/run_school_recurrent_sealed_confirmation.py": "sha256:8e9e5a9f36ffadf1b6032e942d630022fd27c9aa02d729351ac9baa4e9598449"
+  }
+}

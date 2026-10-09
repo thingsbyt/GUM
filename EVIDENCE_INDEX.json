@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-recurrent-causal-sealed-confirmation",
+      "status": "failed-sealed-confirmation",
+      "title": "Recurrent causal-policy sealed confirmation",
+      "headline": "64/64 causal success and 48/48 retention, but the uncertainty-rate gate failed",
+      "metrics": ["64 post-freeze sealed trials", "4/64 matched fresh and 4/64 random", "95% Wilson lower bound 0.943", "34.5% uncertainty rate versus a 20% maximum"],
+      "scope": "Supplemental sealed confirmation of the integrated cumulative candidate. Behavioral performance, retention, controls, integrity, resources, input boundary, and replay passed. Formal qualification failed because the entropy-based metric counts the unavoidable first intervention among symmetric controls as uncertain. The promoted workspace was not mutated and the revealed seeds were not reused.",
+      "evidence": "evidence/gum-school/sealed-recheck/causal-recurrent-meta-v1/SEALED_RECURRENT_CONFIRMATION.json"
+    },
+    {
       "id": "school-sealed-causal-controls",
       "status": "passed-official",
       "title": "GUM School third sealed examination",

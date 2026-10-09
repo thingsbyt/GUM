@@ -1,5 +1,26 @@
 # Frozen release verification
 
+## Recurrent causal-policy sealed confirmation
+
+After commit `ed0735e`, a supplemental evaluator bundled the promoted Object
+Laboratory learner with the frozen recurrent causal specialist, froze source
+and candidate hashes, and only then selected 64 unique seeds from operating-
+system entropy. The candidate scored **64/64**, while the identical untrained
+network and random policy each scored **4/64**. Lessons 1–2 retained **48/48**,
+exact replay passed, and the promoted workspace was not changed.
+
+The formal qualification nevertheless **failed**. The entropy-based
+uncertainty metric counted the first intervention—when all untouched anonymous
+controls are necessarily symmetric—as uncertain. Because the learned policy
+completed quickly, that one decision produced a 34.5% uncertainty-action rate,
+above the curriculum's 20% ceiling. The other six gates passed. This failure is
+preserved; the revealed seeds were not rerun or used for training.
+
+```powershell
+python -m pytest -q tests/test_school_cumulative.py
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_RECURRENT_SEALED_CONFIRMATION.json
+```
+
 ## Recurrent causal meta-policy research result
 
 A development-only follow-up replaced the causal scheduler with a

@@ -1,5 +1,24 @@
 # GUM School sealed examinations
 
+## Recurrent causal-policy supplemental confirmation
+
+The cumulative candidate combined the promoted Object Laboratory learner with
+the frozen recurrent causal policy. After source commit `ed0735e`, the
+supplemental protocol froze source and candidate hashes and selected 64 new
+seeds from operating-system entropy. The candidate scored **64/64**; the same
+untrained architecture and random each scored **4/64**. The 95% Wilson lower
+bound was 0.943, unnecessary actions were 3.4%, replay was exact, and Lessons
+1–2 retained **48/48**.
+
+Formal qualification failed solely on the uncertainty gate. The policy
+correctly assigns equal probability to initially indistinguishable controls,
+so its first intervention is entropy-uncertain. Fast completion made those
+first interventions 34.5% of all actions, above the pre-existing 20% ceiling.
+The result is preserved as a failure: no confidence value was falsified, no
+revealed seed was reused, and the promoted workspace was not changed. The
+canonical report is
+[`evidence/gum-school/sealed-recheck/causal-recurrent-meta-v1/SEALED_RECURRENT_CONFIRMATION.json`](../evidence/gum-school/sealed-recheck/causal-recurrent-meta-v1/SEALED_RECURRENT_CONFIRMATION.json).
+
 ## Third lesson result
 
 The third official lesson, `causal-workshop.controls.001`, passed on 2026-10-09.
