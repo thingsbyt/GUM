@@ -120,3 +120,28 @@ def test_saved_first_composition_attempt_is_preserved_as_failure():
     assert report["evaluation"]["trained_composition_policy"]["trials"] == 512
     assert report["evaluation"]["controls_lesson_retention"]["successes"] == 255
     assert report["evaluation"]["controls_lesson_retention"]["trials"] == 256
+
+
+def test_saved_reward_outcome_composition_attempt_passed_public_gates():
+    root = Path(__file__).resolve().parents[1]
+    report = json.loads(
+        (
+            root / "evidence" / "gum-school" / "research"
+            / "causal-composition-reward-outcome-v2"
+            / "COMPOSITION_REWARD_OUTCOME_REPORT.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert report["development_only"] is True
+    assert report["sealed_data_used"] is False
+    assert report["official_curriculum_run"] is False
+    assert report["strict_pass"] is True
+    assert report["training"]["interactions"] == 18_000
+    assert report["training"]["lanes"]["composition"]["interactions"] == 14_400
+    assert report["training"]["lanes"]["controls_rehearsal"]["interactions"] == 3_600
+    assert report["evaluation"]["trained_composition_policy"]["successes"] == 511
+    assert report["evaluation"]["trained_composition_policy"]["trials"] == 512
+    assert report["evaluation"]["controls_lesson_retention"]["successes"] == 254
+    assert report["evaluation"]["controls_lesson_retention"]["trials"] == 256
+    assert report["evaluation"]["trained_composition_policy"]["success_interval"][
+        "lower"
+    ] > 0.98

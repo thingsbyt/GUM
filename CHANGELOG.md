@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-09 — Reward-grounded causal-composition development pass
+
+- Added scalar reward-outcome replay: positive consequences reinforce an
+  action in context, while negative consequences suppress it in context.
+- Shared the fixed 18,000-interaction budget 80/20 between composition and
+  prior-lesson rehearsal to prevent catastrophic forgetting.
+- Passed the public Lesson 4 gates at 511/512 composition trials with a 0.989
+  Wilson lower bound and 254/256 controls retention. No sealed Lesson 4 data
+  was used, so this is a development pass rather than an official promotion.
+
 ## 2026-10-09 — Causal-composition development attempt
 
 - Continued the officially promoted recurrent policy for the full 18,000

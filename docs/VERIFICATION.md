@@ -1,5 +1,20 @@
 # Frozen release verification
 
+## Causal-composition reward-outcome development result
+
+The promoted recurrent learner continued on public Lesson 4 worlds under one
+fixed 18,000-interaction budget. Scalar reward-outcome replay reinforced its
+own positive actions and suppressed its own negatively rewarded actions in
+their recurrent contexts. Twenty percent of the budget rehearsed Lesson 3.
+The frozen result scored 511/512 on public composition evaluation and retained
+Lesson 3 on 254/256 trials. No sealed Lesson 4 data was used.
+
+```powershell
+python scripts/run_school_recurrent_composition_reward_outcome.py
+python -m pytest -q tests/test_school_recurrent_meta.py tests/test_school_recurrent_official.py
+python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_GUM_SCHOOL_COMPOSITION_REWARD_OUTCOME.json
+```
+
 ## Recurrent causal-policy sealed confirmation
 
 After commit `ed0735e`, a supplemental evaluator bundled the promoted Object

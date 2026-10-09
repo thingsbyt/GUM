@@ -30,6 +30,26 @@ reinforced many ineffective actions that merely preceded eventual success; a
 subsequent method must correct that credit-assignment problem without using
 event labels or hidden action sequences.
 
+### Reward-outcome composition development pass
+
+The corrected learner used only pixels, its previous anonymous action, scalar
+reward, termination, and recurrent memory. It replayed its own positive-reward
+actions as contextual targets and used negative scalar outcomes only to
+suppress the failed action in that context. A fixed 20% of the same 18,000-
+interaction budget rehearsed the prior controls lesson; no hidden control map,
+event label, authored action target, or sealed Lesson 4 case was available.
+
+The learned policy solved **511/512 (99.8%)** public composition trials, with a
+95% Wilson lower bound of **0.989**, versus **153/512** for the promoted starting
+policy, **133/512** fresh, and **137/512** random. Controls retention was
+**254/256 (99.2%)**, with a 0.972 lower bound. All fixed public development
+gates passed. This shows that the recurrent learner acquired the bounded
+probe, remember, suppress-after-failure, and compose behavior from scalar
+consequences. It is not yet an official or sealed Lesson 4 promotion.
+
+The canonical development report is
+[`evidence/gum-school/research/causal-composition-reward-outcome-v2/COMPOSITION_REWARD_OUTCOME_REPORT.json`](../evidence/gum-school/research/causal-composition-reward-outcome-v2/COMPOSITION_REWARD_OUTCOME_REPORT.json).
+
 This is an official pass for the recurrent policy on the bounded anonymous
 controls lesson, not a claim of unrestricted causal reasoning. The canonical
 report is

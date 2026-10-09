@@ -426,6 +426,210 @@ class RecurrentCausalLearner:
             "final_cross_entropy": final_loss,
         }
 
+    def fit_reward_event_imitation(
+        self,
+        trajectories: list[dict[str, Any]],
+        *,
+        epochs: int = 100,
+        batch_episodes: int = 16,
+    ) -> dict[str, float]:
+        """Imitate only actions with an immediate positive scalar consequence.
+
+        Full trajectories still construct recurrent state. No event label,
+        hidden action identity, or authored target is consulted.
+        """
+        if epochs < 1 or batch_episodes < 1:
+            raise ValueError("epochs and batch_episodes must be positive")
+        selected = [
+            trajectory for trajectory in trajectories
+            if any(float(reward) > 0.0 for reward in trajectory.get("rewards", []))
+        ]
+        if not selected:
+            raise ValueError("reward-event imitation requires positive reward events")
+        generator = np.random.default_rng(self.seed + 173)
+        updates = 0
+        final_loss = 0.0
+        positive_tokens = sum(
+            sum(float(reward) > 0.0 for reward in trajectory["rewards"])
+            for trajectory in selected
+        )
+        for _ in range(epochs):
+            order = generator.permutation(len(selected))
+            pending_losses = []
+            for position, trajectory_index in enumerate(order):
+                trajectory = selected[int(trajectory_index)]
+                observations = trajectory["observations"]
+                actions = trajectory["actions"]
+                rewards = trajectory["rewards"]
+                if not actions or not (
+                    len(observations) == len(actions) == len(rewards)
+                ):
+                    raise ValueError("invalid reward-event imitation trajectory")
+                hidden = torch.zeros(1, self.config.hidden_size, device=self.device)
+                action_memory = torch.zeros(
+                    1,
+                    self.config.action_count,
+                    self.config.action_memory_size,
+                    device=self.device,
+                )
+                previous_action = self.config.action_count
+                previous_reward = 0.0
+                logits_by_step = []
+                for step, observation in enumerate(observations):
+                    pixels = torch.from_numpy(np.asarray(observation).copy()).to(self.device)
+                    logits, _, hidden, action_memory = self.policy(
+                        pixels,
+                        torch.tensor([previous_action], device=self.device),
+                        torch.tensor(
+                            [previous_reward], dtype=torch.float32, device=self.device
+                        ),
+                        torch.tensor(
+                            [float(step == 0)], dtype=torch.float32, device=self.device
+                        ),
+                        hidden,
+                        action_memory,
+                    )
+                    logits_by_step.append(logits.squeeze(0))
+                    previous_action = int(actions[step])
+                    previous_reward = float(rewards[step])
+                logits = torch.stack(logits_by_step)
+                targets = torch.tensor(actions, dtype=torch.int64, device=self.device)
+                weights = torch.tensor(
+                    [float(float(reward) > 0.0) for reward in rewards],
+                    dtype=torch.float32,
+                    device=self.device,
+                )
+                token_losses = F.cross_entropy(logits, targets, reduction="none")
+                pending_losses.append((token_losses * weights).sum() / weights.sum())
+                at_boundary = len(pending_losses) == batch_episodes
+                at_end = position == len(order) - 1
+                if at_boundary or at_end:
+                    loss = torch.stack(pending_losses).mean()
+                    self.optimizer.zero_grad(set_to_none=True)
+                    loss.backward()
+                    nn.utils.clip_grad_norm_(
+                        self.policy.parameters(), self.config.gradient_clip
+                    )
+                    self.optimizer.step()
+                    updates += 1
+                    final_loss = float(loss.detach())
+                    pending_losses = []
+        return {
+            "selected_trajectories": len(selected),
+            "positive_reward_tokens": positive_tokens,
+            "epochs": epochs,
+            "updates": updates,
+            "final_cross_entropy": final_loss,
+        }
+
+    def fit_reward_outcome_replay(
+        self,
+        trajectories: list[dict[str, Any]],
+        *,
+        epochs: int = 100,
+        batch_episodes: int = 16,
+    ) -> dict[str, float]:
+        """Replay rewarded actions and suppress actions with negative outcomes.
+
+        Positive actions receive ordinary imitation loss. Negative actions
+        receive unlikelihood loss in the same recurrent context. Selection and
+        supervision use scalar reward only.
+        """
+        if epochs < 1 or batch_episodes < 1:
+            raise ValueError("epochs and batch_episodes must be positive")
+        selected = [
+            trajectory for trajectory in trajectories
+            if any(float(reward) > 0.0 for reward in trajectory.get("rewards", []))
+        ]
+        if not selected:
+            raise ValueError("reward-outcome replay requires positive reward events")
+        generator = np.random.default_rng(self.seed + 191)
+        updates = 0
+        final_loss = 0.0
+        positive_tokens = sum(
+            sum(float(reward) > 0.0 for reward in trajectory["rewards"])
+            for trajectory in selected
+        )
+        negative_tokens = sum(
+            sum(float(reward) < 0.0 for reward in trajectory["rewards"])
+            for trajectory in selected
+        )
+        for _ in range(epochs):
+            order = generator.permutation(len(selected))
+            pending_losses = []
+            for position, trajectory_index in enumerate(order):
+                trajectory = selected[int(trajectory_index)]
+                observations = trajectory["observations"]
+                actions = trajectory["actions"]
+                rewards = trajectory["rewards"]
+                if not actions or not (
+                    len(observations) == len(actions) == len(rewards)
+                ):
+                    raise ValueError("invalid reward-outcome replay trajectory")
+                hidden = torch.zeros(1, self.config.hidden_size, device=self.device)
+                action_memory = torch.zeros(
+                    1,
+                    self.config.action_count,
+                    self.config.action_memory_size,
+                    device=self.device,
+                )
+                previous_action = self.config.action_count
+                previous_reward = 0.0
+                logits_by_step = []
+                for step, observation in enumerate(observations):
+                    pixels = torch.from_numpy(np.asarray(observation).copy()).to(self.device)
+                    logits, _, hidden, action_memory = self.policy(
+                        pixels,
+                        torch.tensor([previous_action], device=self.device),
+                        torch.tensor(
+                            [previous_reward], dtype=torch.float32, device=self.device
+                        ),
+                        torch.tensor(
+                            [float(step == 0)], dtype=torch.float32, device=self.device
+                        ),
+                        hidden,
+                        action_memory,
+                    )
+                    logits_by_step.append(logits.squeeze(0))
+                    previous_action = int(actions[step])
+                    previous_reward = float(rewards[step])
+                logits = torch.stack(logits_by_step)
+                targets = torch.tensor(actions, dtype=torch.int64, device=self.device)
+                reward_tensor = torch.tensor(
+                    rewards, dtype=torch.float32, device=self.device
+                )
+                positive = reward_tensor > 0.0
+                negative = reward_tensor < 0.0
+                token_losses = []
+                if positive.any():
+                    token_losses.append(F.cross_entropy(logits[positive], targets[positive]))
+                if negative.any():
+                    probabilities = torch.softmax(logits[negative], dim=-1)
+                    chosen = probabilities.gather(1, targets[negative, None]).squeeze(1)
+                    token_losses.append(-torch.log1p(-chosen.clamp_max(1.0 - 1e-6)).mean())
+                pending_losses.append(torch.stack(token_losses).mean())
+                at_boundary = len(pending_losses) == batch_episodes
+                at_end = position == len(order) - 1
+                if at_boundary or at_end:
+                    loss = torch.stack(pending_losses).mean()
+                    self.optimizer.zero_grad(set_to_none=True)
+                    loss.backward()
+                    nn.utils.clip_grad_norm_(
+                        self.policy.parameters(), self.config.gradient_clip
+                    )
+                    self.optimizer.step()
+                    updates += 1
+                    final_loss = float(loss.detach())
+                    pending_losses = []
+        return {
+            "selected_trajectories": len(selected),
+            "positive_reward_tokens": positive_tokens,
+            "negative_reward_tokens": negative_tokens,
+            "epochs": epochs,
+            "updates": updates,
+            "final_outcome_loss": final_loss,
+        }
+
     def confidence(self) -> float:
         return self._last_confidence
 

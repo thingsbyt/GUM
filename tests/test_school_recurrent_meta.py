@@ -84,6 +84,45 @@ def test_checkpoint_round_trip(tmp_path: Path):
         torch.testing.assert_close(expected, actual)
 
 
+def test_reward_event_imitation_selects_only_positive_reward_tokens():
+    learner = RecurrentCausalLearner(
+        10, config=RecurrentMetaConfig(hidden_size=16, action_memory_size=8)
+    )
+    observation = np.zeros((72, 72, 3), dtype=np.uint8)
+    result = learner.fit_reward_event_imitation(
+        [{
+            "observations": [observation, observation, observation],
+            "actions": [1, 2, 3],
+            "rewards": [-0.01, 0.2, 1.0],
+        }],
+        epochs=1,
+        batch_episodes=1,
+    )
+    assert result["selected_trajectories"] == 1
+    assert result["positive_reward_tokens"] == 2
+    assert result["updates"] == 1
+
+
+def test_reward_outcome_replay_counts_scalar_supervision_tokens():
+    learner = RecurrentCausalLearner(
+        11, config=RecurrentMetaConfig(hidden_size=16, action_memory_size=8)
+    )
+    observation = np.zeros((72, 72, 3), dtype=np.uint8)
+    result = learner.fit_reward_outcome_replay(
+        [{
+            "observations": [observation, observation, observation],
+            "actions": [1, 2, 3],
+            "rewards": [-0.01, 0.2, 1.0],
+        }],
+        epochs=1,
+        batch_episodes=1,
+    )
+    assert result["selected_trajectories"] == 1
+    assert result["positive_reward_tokens"] == 2
+    assert result["negative_reward_tokens"] == 1
+    assert result["updates"] == 1
+
+
 def test_saved_research_result_is_a_development_pass_only():
     report_path = (
         Path(__file__).resolve().parents[1]

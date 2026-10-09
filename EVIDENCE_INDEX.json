@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-recurrent-causal-composition-reward-outcome-v2",
+      "status": "passed-development",
+      "title": "Reward-grounded recurrent causal composition",
+      "headline": "511/512 public composition success with 254/256 controls retention",
+      "metrics": ["18,000 total public training interactions", "99.8% composition success; 95% Wilson lower bound 0.989", "153/512 starting policy, 133/512 fresh, and 137/512 random", "99.2% prior-lesson retention"],
+      "scope": "Public-only Lesson 4 development pass. The recurrent policy learned contextual positive-action reuse and negative-action suppression from scalar reward while 20% of the fixed budget rehearsed Lesson 3. No event labels, hidden control sequences, authored targets, or sealed Lesson 4 cases were used. This is not an official promotion or unrestricted causal-reasoning claim.",
+      "evidence": "evidence/gum-school/research/causal-composition-reward-outcome-v2/COMPOSITION_REWARD_OUTCOME_REPORT.json"
+    },
+    {
       "id": "school-recurrent-causal-composition-v1",
       "status": "failed-development",
       "title": "First recurrent causal-composition attempt",
