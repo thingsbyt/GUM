@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-10-09 — Symmetry-aware recurrent confirmation
+
+- Versioned uncertainty measurement for anonymous controls into pre-evidence
+  and post-causal-evidence phases without reading event labels or hidden state.
+- Publicly validated the frozen recurrent policy on 512 development cases,
+  then committed the protocol before selecting fresh sealed seeds.
+- Passed a supplemental 64-trial sealed confirmation at 64/64, versus 4/64
+  untrained and 4/64 random, with 48/48 prior-lesson retention.
+- Preserved the earlier failed confirmation and left the official promoted
+  workspace unchanged.
+
 ## Unreleased — GUM School sealed promotion
 
 - Added a post-freeze evaluator whose seed manifest is drawn only after public

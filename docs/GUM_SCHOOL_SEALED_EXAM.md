@@ -1,5 +1,33 @@
 # GUM School sealed examinations
 
+## Symmetry-aware recurrent confirmation
+
+The uncertainty rule was versioned after the first recurrent confirmation
+exposed a measurement error: it treated uncertainty before any evidence as a
+failure even though the anonymous controls were indistinguishable. The new
+rule requires both honest uncertainty on the first decision and low uncertainty
+after an earlier action has produced positive scalar reward. It reads only the
+policy's decision confidence and prior scalar rewards, never event labels or
+hidden state. On 512 public development cases, the frozen policy had 100%
+initial uncertainty, 0% post-causal-evidence uncertainty, and a mean confidence
+gain of 0.720. The policy weights were not changed.
+
+Source, candidate, public validation, and thresholds were then committed at
+`7f5effed1ea5e662c3f341dfaee6c72f3bb3cc11` before a new seed manifest was
+drawn. The examiner excluded all 160 seeds revealed by four earlier sealed
+manifests. On 64 fresh sealed cases the candidate scored **64/64**, versus
+**4/64** for the same untrained architecture and **4/64** random. Initial
+uncertainty was **100%**, post-causal-evidence uncertainty was **0%**, mean
+confidence rose by 0.670 after causal evidence, and unnecessary actions were
+3.1%. The 95% Wilson lower bound was 0.943. Lessons 1–2 retained **48/48**,
+replay was exact, and both the seven standard gates and the added
+symmetry-calibration gate passed.
+
+This is a supplemental symmetry-aware qualification, not an official
+curriculum promotion. The promoted workspace was not mutated, and the original
+failed confirmation below remains intact. The canonical report is
+[`evidence/gum-school/sealed-recheck/causal-recurrent-meta-v2/SEALED_SYMMETRY_CONFIRMATION.json`](../evidence/gum-school/sealed-recheck/causal-recurrent-meta-v2/SEALED_SYMMETRY_CONFIRMATION.json).
+
 ## Recurrent causal-policy supplemental confirmation
 
 The cumulative candidate combined the promoted Object Laboratory learner with

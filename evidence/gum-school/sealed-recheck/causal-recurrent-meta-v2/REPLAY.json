@@ -1,0 +1,163 @@
+{
+  "expected": {
+    "interactions": 5,
+    "return": 1.38,
+    "seed": 1002955241,
+    "success": true,
+    "trajectory": [
+      {
+        "action": 4,
+        "confidence": 1.1920928955078125e-07,
+        "next_observation": "eb19c3a456dfc0a43f0e8113",
+        "observation": "1568b1eabf1e4a20c7359d83",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 0,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 7,
+        "confidence": 0.02600884437561035,
+        "next_observation": "256adb054d1ee2d86b65724c",
+        "observation": "eb19c3a456dfc0a43f0e8113",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 1,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.04608041048049927,
+        "next_observation": "efa8da0394eb346079b5f778",
+        "observation": "256adb054d1ee2d86b65724c",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 2,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.5381501913070679,
+        "next_observation": "539275123e19751e9f032d95",
+        "observation": "efa8da0394eb346079b5f778",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 3,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.7153066992759705,
+        "next_observation": "0d1f1b33098b2e44f7919738",
+        "observation": "539275123e19751e9f032d95",
+        "public_info": {
+          "event": "completed",
+          "success": true
+        },
+        "reward": 1.0,
+        "step": 4,
+        "terminated": true,
+        "truncated": false
+      }
+    ],
+    "uncertain_actions": 3,
+    "unnecessary_actions": 0
+  },
+  "format": "gum-school-recurrent-replay-v2",
+  "replayed": {
+    "interactions": 5,
+    "return": 1.38,
+    "seed": 1002955241,
+    "success": true,
+    "trajectory": [
+      {
+        "action": 4,
+        "confidence": 1.1920928955078125e-07,
+        "next_observation": "eb19c3a456dfc0a43f0e8113",
+        "observation": "1568b1eabf1e4a20c7359d83",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 0,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 7,
+        "confidence": 0.02600884437561035,
+        "next_observation": "256adb054d1ee2d86b65724c",
+        "observation": "eb19c3a456dfc0a43f0e8113",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 1,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.04608041048049927,
+        "next_observation": "efa8da0394eb346079b5f778",
+        "observation": "256adb054d1ee2d86b65724c",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 2,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.5381501913070679,
+        "next_observation": "539275123e19751e9f032d95",
+        "observation": "efa8da0394eb346079b5f778",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 3,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 0,
+        "confidence": 0.7153066992759705,
+        "next_observation": "0d1f1b33098b2e44f7919738",
+        "observation": "539275123e19751e9f032d95",
+        "public_info": {
+          "event": "completed",
+          "success": true
+        },
+        "reward": 1.0,
+        "step": 4,
+        "terminated": true,
+        "truncated": false
+      }
+    ],
+    "uncertain_actions": 3,
+    "unnecessary_actions": 0
+  }
+}

@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-recurrent-causal-symmetry-confirmation",
+      "status": "passed-supplemental",
+      "title": "Symmetry-aware recurrent causal-policy confirmation",
+      "headline": "64/64 fresh sealed success with honest initial uncertainty and 0% post-evidence uncertainty",
+      "metrics": ["64 fresh post-freeze sealed trials", "4/64 matched fresh and 4/64 random", "100% initial uncertainty and 0% post-causal-evidence uncertainty", "48/48 retention and exact replay"],
+      "scope": "Supplemental qualification under a versioned uncertainty protocol. The rule was publicly validated and source-frozen before new seeds were drawn, and all 160 previously revealed sealed seeds were excluded. The frozen recurrent policy learned the action strategy; the environment, reward, confidence calculation, and evaluation protocol remain engineered. This did not mutate the official promoted workspace, and the earlier failed confirmation remains preserved.",
+      "evidence": "evidence/gum-school/sealed-recheck/causal-recurrent-meta-v2/SEALED_SYMMETRY_CONFIRMATION.json"
+    },
+    {
       "id": "school-recurrent-causal-sealed-confirmation",
       "status": "failed-sealed-confirmation",
       "title": "Recurrent causal-policy sealed confirmation",

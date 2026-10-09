@@ -91,3 +91,40 @@ def test_saved_public_validation_precommits_passing_protocol():
         ]
         == 0.0
     )
+
+
+def test_saved_fresh_sealed_confirmation_passes_without_seed_reuse():
+    root = Path(__file__).resolve().parents[1]
+    directory = (
+        root / "evidence" / "gum-school" / "sealed-recheck"
+        / "causal-recurrent-meta-v2"
+    )
+    report = json.loads(
+        (directory / "SEALED_SYMMETRY_CONFIRMATION.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert report["qualification"] == "pass"
+    assert report["candidate"]["successes"] == 64
+    assert report["candidate"]["trials"] == 64
+    assert report["matched_fresh"]["successes"] == 4
+    assert report["uniform_random"]["successes"] == 4
+    assert report["retention"]["current_summary"]["successes"] == 48
+    assert report["gates"]["all_passed"] is True
+    assert report["gates"]["standard_curriculum_gates"]["all_passed"] is True
+    assert report["gates"]["symmetry_uncertainty_gate"]["passed"] is True
+    assert report["symmetry_aware_uncertainty"]["initial_uncertainty_rate"] == 1.0
+    assert (
+        report["symmetry_aware_uncertainty"][
+            "post_causal_evidence_uncertainty_rate"
+        ]
+        == 0.0
+    )
+    assert report["official_curriculum_promotion"] is False
+    assert report["promoted_workspace_mutated"] is False
+    assert report["prior_failed_confirmation_preserved"] is True
+    assert report["evaluation"]["replay"]["verified"] is True
+    seeds = set(report["seed_manifest"]["seeds"])
+    excluded = set(report["source_freeze"]["excluded_prior_sealed_seeds"])
+    assert len(seeds) == 64
+    assert seeds.isdisjoint(excluded)

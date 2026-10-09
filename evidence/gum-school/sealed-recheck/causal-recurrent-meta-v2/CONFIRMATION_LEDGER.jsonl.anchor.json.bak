@@ -1,0 +1,6 @@
+{
+  "format": "gum-ledger-anchor-v1",
+  "head": "a80f76374a8a548500de82c3cf0594524a20347a6cd3319a38bf34467d31b8b8",
+  "ledger": "CONFIRMATION_LEDGER.jsonl",
+  "records": 3
+}
