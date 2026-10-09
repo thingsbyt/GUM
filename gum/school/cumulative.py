@@ -125,6 +125,43 @@ class CumulativeSchoolLearner:
         return path
 
     @classmethod
+    def augment_existing_base(
+        cls,
+        directory: Path,
+        *,
+        causal_path: Path,
+    ) -> Path:
+        """Add a reviewed recurrent specialist to an engine-cloned base state."""
+        directory = Path(directory)
+        base_target = directory / BASE_FILENAME
+        if not directory.is_dir() or set(
+            path.name for path in directory.iterdir()
+        ) != {BASE_FILENAME}:
+            raise CumulativeLearnerError(
+                "existing candidate must contain only the reviewed base learner"
+            )
+        CrossSeedSchoolLearner.load(base_target)
+        causal_target = directory / CAUSAL_FILENAME
+        shutil.copy2(Path(causal_path), causal_target)
+        RecurrentCausalLearner.load(causal_target)
+        manifest = {
+            "format": cls.format,
+            "components": {
+                BASE_FILENAME: f"sha256:{file_sha256(base_target)}",
+                CAUSAL_FILENAME: f"sha256:{file_sha256(causal_target)}",
+            },
+            "routing": {
+                CAUSAL_WORKSHOP_ADAPTER: CAUSAL_FILENAME,
+                "default": BASE_FILENAME,
+            },
+            "training_complete_before_bundle": True,
+        }
+        path = directory / BUNDLE_FILENAME
+        atomic_write_json(path, manifest, backup=False, sort_keys=True)
+        cls.load_bundle(directory)
+        return path
+
+    @classmethod
     def load_bundle(cls, directory: Path) -> "CumulativeSchoolLearner":
         directory = Path(directory)
         path = directory / BUNDLE_FILENAME

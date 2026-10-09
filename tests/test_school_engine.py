@@ -9,6 +9,7 @@ import pytest
 
 from gum.school import SchoolEngine, SchoolEngineError, SnapshotStore
 from gum.school.evaluation import evaluate_promotion_gates
+from gum.school.symmetry_uncertainty import summarize_symmetry_aware_uncertainty
 from gum.school.validation import DEFAULT_CURRICULUM, load_json
 
 
@@ -203,6 +204,60 @@ def test_engine_clones_promoted_state_and_enforces_authored_order(tmp_path: Path
     with pytest.raises(SchoolEngineError, match="already active"):
         engine.begin_lesson()
     assert engine.snapshots.promoted()["snapshot_id"] == before["promoted_snapshot_id"]
+
+
+def test_engine_can_start_verified_track_from_inherited_curriculum_prefix(tmp_path: Path):
+    workspace = tmp_path / "inherited-school"
+    engine = SchoolEngine(workspace, DEFAULT_CURRICULUM)
+    inherited = [
+        "object-laboratory.occlusion.001",
+        "object-laboratory.functional-category.002",
+    ]
+    engine.initialize_promoted(
+        _initial_state(tmp_path),
+        inherited_lessons=inherited,
+        inheritance_evidence={"source": "verified-official-school", "verified": True},
+    )
+    assert engine.status()["inherited_lessons"] == inherited
+    assert engine.status()["promoted_lessons"] == inherited
+    assert engine.next_lesson()["lesson_id"] == "causal-workshop.controls.001"
+    reopened = SchoolEngine(workspace, DEFAULT_CURRICULUM)
+    assert reopened.status()["inherited_lessons"] == inherited
+
+
+def test_engine_rejects_nonprefix_inheritance(tmp_path: Path):
+    engine = SchoolEngine(tmp_path / "invalid-inheritance", DEFAULT_CURRICULUM)
+    with pytest.raises(SchoolEngineError, match="exact curriculum prefix"):
+        engine.initialize_promoted(
+            _initial_state(tmp_path),
+            inherited_lessons=["object-laboratory.functional-category.002"],
+            inheritance_evidence={"verified": True},
+        )
+
+
+def test_v2_evaluation_uses_symmetry_aware_uncertainty_gate(tmp_path: Path):
+    engine = _engine(tmp_path)
+    started = engine.begin_lesson()
+    run_id = started["run_id"]
+    engine.mark_training_complete(run_id, _training_summary(engine, run_id))
+    evaluation = _evaluation(engine, run_id, success=1.0, fresh=0.5)
+    calibration = summarize_symmetry_aware_uncertainty([
+        {
+            "success": True,
+            "trajectory": [
+                {"confidence": 0.0, "reward": 0.2},
+                {"confidence": 0.8, "reward": 1.0},
+            ],
+        }
+        for _ in range(32)
+    ])
+    evaluation["format"] = "gum-school-evaluation-v2"
+    evaluation["sealed"]["uncertainty_rate"] = 0.0
+    evaluation["uncertainty_calibration"] = calibration
+    engine.record_evaluation(run_id, evaluation)
+    decision = engine.finalize(run_id)
+    assert decision["outcome"] == "promote"
+    assert decision["gates"]["gates"]["sealed-performance"]["passed"] is True
 
 
 def test_all_seven_gates_promote_candidate_atomically(tmp_path: Path):

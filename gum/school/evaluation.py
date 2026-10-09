@@ -6,6 +6,12 @@ from pathlib import PurePosixPath
 import re
 from typing import Any
 
+from .symmetry_uncertainty import (
+    SymmetryUncertaintyError,
+    evaluate_symmetry_uncertainty_gate,
+    validate_symmetry_uncertainty_summary,
+)
+
 
 class SchoolEvaluationError(ValueError):
     pass
@@ -86,11 +92,17 @@ def validate_training_summary(summary: Any) -> dict:
 
 
 def validate_evaluation_record(record: Any) -> dict:
-    row = _strict_object(record, "evaluation", {
+    if not isinstance(record, dict):
+        raise SchoolEvaluationError("evaluation must be an object")
+    record_format = record.get("format")
+    fields = {
         "format", "sealed", "retention", "evidence", "resources", "input_boundary",
         "replay", "transfer_results",
-    })
-    if row["format"] != "gum-school-evaluation-v1":
+    }
+    if record_format == "gum-school-evaluation-v2":
+        fields.add("uncertainty_calibration")
+    row = _strict_object(record, "evaluation", fields)
+    if row["format"] not in {"gum-school-evaluation-v1", "gum-school-evaluation-v2"}:
         raise SchoolEvaluationError("evaluation has an unsupported format")
 
     sealed = _strict_object(row["sealed"], "evaluation.sealed", {
@@ -119,6 +131,31 @@ def validate_evaluation_record(record: Any) -> dict:
         raise SchoolEvaluationError(
             "evaluation.sealed.fresh_advantage_interval must use paired-bootstrap"
         )
+
+    if row["format"] == "gum-school-evaluation-v2":
+        try:
+            calibration = validate_symmetry_uncertainty_summary(
+                row["uncertainty_calibration"]
+            )
+        except SymmetryUncertaintyError as error:
+            raise SchoolEvaluationError(
+                f"evaluation.uncertainty_calibration is invalid: {error}"
+            ) from error
+        if not math.isclose(
+            float(sealed["uncertainty_rate"]),
+            float(calibration["post_causal_evidence_uncertainty_rate"]),
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        ):
+            raise SchoolEvaluationError(
+                "evaluation.sealed.uncertainty_rate must equal the "
+                "post-causal-evidence uncertainty rate"
+            )
+        expected_successes = int(round(float(sealed["success_rate"]) * sealed["trials"]))
+        if calibration["successful_episodes"] != expected_successes:
+            raise SchoolEvaluationError(
+                "evaluation.uncertainty_calibration success count differs from sealed result"
+            )
 
     if not isinstance(row["retention"], list):
         raise SchoolEvaluationError("evaluation.retention must be an array")
@@ -220,6 +257,14 @@ def evaluate_promotion_gates(
         sealed_reasons.append("sealed success confidence lower bound is below its minimum")
     if sealed["uncertainty_rate"] > promotion["maximum_uncertainty_rate"]:
         sealed_reasons.append("uncertainty rate exceeds its maximum")
+    if evaluation["format"] == "gum-school-evaluation-v2":
+        symmetry_gate = evaluate_symmetry_uncertainty_gate(
+            evaluation["uncertainty_calibration"],
+            maximum_post_causal_uncertainty_rate=promotion[
+                "maximum_uncertainty_rate"
+            ],
+        )
+        sealed_reasons.extend(symmetry_gate["reasons"])
     if sealed["unnecessary_action_rate"] > promotion["maximum_unnecessary_action_rate"]:
         sealed_reasons.append("unnecessary-action rate exceeds its maximum")
 

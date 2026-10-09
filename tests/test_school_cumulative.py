@@ -82,6 +82,18 @@ def test_bundle_manifest_names_only_reviewed_components(tmp_path: Path):
     }
 
 
+def test_engine_candidate_can_be_augmented_with_recurrent_specialist(tmp_path: Path):
+    candidate = tmp_path / "candidate"
+    candidate.mkdir()
+    CrossSeedSchoolLearner(31).save(candidate / "SCHOOL_LEARNER.json")
+    source = tmp_path / "causal.pt"
+    RecurrentCausalLearner(32).save(source)
+    CumulativeSchoolLearner.augment_existing_base(candidate, causal_path=source)
+    learner = CumulativeSchoolLearner.load_bundle(candidate)
+    assert learner.base.seed == 31
+    assert learner.causal.seed == 32
+
+
 def test_saved_sealed_confirmation_preserves_uncertainty_gate_failure():
     report_path = (
         Path(__file__).resolve().parents[1]

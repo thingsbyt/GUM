@@ -140,6 +140,7 @@ class SchoolEngine:
             return {
                 "format": "gum-school-progress-v1",
                 "initial_snapshot_id": None,
+                "inherited_lessons": [],
                 "promoted_lessons": [],
                 "updated_at_utc": _utc_now(),
             }
@@ -179,9 +180,24 @@ class SchoolEngine:
                 result.append(path.parent.name)
         return result
 
-    def initialize_promoted(self, state_directory: Path) -> dict:
+    def initialize_promoted(
+        self,
+        state_directory: Path,
+        *,
+        inherited_lessons: list[str] | None = None,
+        inheritance_evidence: dict | None = None,
+    ) -> dict:
         if self.snapshots.promoted() is not None:
             raise SchoolEngineError("the promoted learner is already initialized")
+        inherited = [] if inherited_lessons is None else list(inherited_lessons)
+        ordered_ids = [lesson["lesson_id"] for lesson in self.ordered_lessons]
+        if inherited != ordered_ids[:len(inherited)] or len(set(inherited)) != len(inherited):
+            raise SchoolEngineError("inherited lessons must be an exact curriculum prefix")
+        if inherited:
+            if not isinstance(inheritance_evidence, dict) or not inheritance_evidence:
+                raise SchoolEngineError("inherited lessons require explicit evidence provenance")
+        elif inheritance_evidence is not None:
+            raise SchoolEngineError("inheritance evidence was supplied without inherited lessons")
         manifest = self.snapshots.create(state_directory)
         pointer = self.snapshots.promote(
             manifest["snapshot_id"], expected_current=None, run_id="initialization"
@@ -190,12 +206,18 @@ class SchoolEngine:
             {
                 "format": "gum-school-progress-v1",
                 "initial_snapshot_id": manifest["snapshot_id"],
-                "promoted_lessons": [],
+                "inherited_lessons": inherited,
+                "promoted_lessons": inherited,
             }
         )
         self._append_once(
             "school-initialized",
-            {"snapshot_id": manifest["snapshot_id"], "curriculum_sha256": self.curriculum_sha256},
+            {
+                "snapshot_id": manifest["snapshot_id"],
+                "curriculum_sha256": self.curriculum_sha256,
+                "inherited_lessons": inherited,
+                "inheritance_evidence": inheritance_evidence,
+            },
             event_key="school-initialized",
         )
         self.write_report()
@@ -552,6 +574,7 @@ class SchoolEngine:
                 {
                     "format": "gum-school-progress-v1",
                     "initial_snapshot_id": pointer["snapshot_id"],
+                    "inherited_lessons": [],
                     "promoted_lessons": [],
                 }
             )
@@ -614,6 +637,7 @@ class SchoolEngine:
             return
         progress = self._progress()
         initialized_snapshot = None
+        initialized_inherited: list[str] = []
         promoted_events = []
         if self.ledger.path.exists():
             with self.ledger.path.open(encoding="utf-8") as handle:
@@ -624,12 +648,19 @@ class SchoolEngine:
                     event_key = row.get("payload", {}).get("event_key")
                     if event_key == "school-initialized":
                         initialized_snapshot = row["payload"].get("snapshot_id")
+                        initialized_inherited = list(
+                            row["payload"].get("inherited_lessons", [])
+                        )
                     elif (row.get("event") == "promotion-decided"
                           and row.get("payload", {}).get("outcome") == "promote"):
                         promoted_events.append(row)
         if initialized_snapshot != progress.get("initial_snapshot_id"):
             raise SchoolEngineError("progress initial snapshot differs from the school ledger")
-        expected_lessons = [row["payload"]["lesson_id"] for row in promoted_events]
+        if progress.get("inherited_lessons", []) != initialized_inherited:
+            raise SchoolEngineError("inherited lesson progress differs from the school ledger")
+        expected_lessons = initialized_inherited + [
+            row["payload"]["lesson_id"] for row in promoted_events
+        ]
         if progress.get("promoted_lessons") != expected_lessons:
             raise SchoolEngineError("promoted lesson progress differs from the school ledger")
         expected_snapshot = (
@@ -673,6 +704,7 @@ class SchoolEngine:
             "curriculum_sha256": self.curriculum_sha256,
             "promoted_snapshot_id": None if pointer is None else pointer["snapshot_id"],
             "initial_snapshot_id": progress["initial_snapshot_id"],
+            "inherited_lessons": progress.get("inherited_lessons", []),
             "promoted_lessons": progress["promoted_lessons"],
             "next_lesson_id": None if self.next_lesson() is None else self.next_lesson()["lesson_id"],
             "decisions": decisions,
@@ -806,6 +838,7 @@ class SchoolEngine:
             "curriculum_sha256": self.curriculum_sha256,
             "promoted_snapshot_id": None if pointer is None else pointer["snapshot_id"],
             "promoted_generation": None if pointer is None else pointer["generation"],
+            "inherited_lessons": progress.get("inherited_lessons", []),
             "promoted_lessons": progress["promoted_lessons"],
             "active": active,
             "next_lesson_id": None if self.next_lesson() is None else self.next_lesson()["lesson_id"],

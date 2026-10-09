@@ -20,6 +20,30 @@ class SymmetryUncertaintyError(ValueError):
     pass
 
 
+SUMMARY_FIELDS = {
+    "format",
+    "information_used",
+    "forbidden_information_used",
+    "confidence_threshold",
+    "episodes",
+    "initial_decisions",
+    "initial_uncertain_decisions",
+    "initial_uncertainty_rate",
+    "pre_causal_evidence_decisions",
+    "pre_causal_evidence_uncertain_decisions",
+    "pre_causal_evidence_uncertainty_rate",
+    "post_causal_evidence_decisions",
+    "post_causal_evidence_uncertain_decisions",
+    "post_causal_evidence_uncertainty_rate",
+    "pre_causal_evidence_mean_confidence",
+    "post_causal_evidence_mean_confidence",
+    "confidence_gain_after_causal_evidence",
+    "successful_episodes",
+    "successful_episodes_with_post_causal_decisions",
+    "successful_episodes_without_post_causal_decisions",
+}
+
+
 def _finite_confidence(value: Any) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise SymmetryUncertaintyError("trajectory confidence must be numeric")
@@ -120,6 +144,114 @@ def summarize_symmetry_aware_uncertainty(
             successes - successful_with_post_evidence
         ),
     }
+
+
+def validate_symmetry_uncertainty_summary(summary: Any) -> dict[str, Any]:
+    """Strictly validate a persisted symmetry-aware summary and its arithmetic."""
+    if not isinstance(summary, dict) or set(summary) != SUMMARY_FIELDS:
+        raise SymmetryUncertaintyError(
+            "symmetry-aware uncertainty summary fields differ from the reviewed format"
+        )
+    if summary["format"] != "gum-school-symmetry-aware-uncertainty-v1":
+        raise SymmetryUncertaintyError("unsupported symmetry-aware uncertainty format")
+    if summary["information_used"] != ["decision-confidence", "prior-scalar-reward"]:
+        raise SymmetryUncertaintyError("symmetry-aware metric used an unreviewed input boundary")
+    if summary["forbidden_information_used"] is not False:
+        raise SymmetryUncertaintyError("symmetry-aware metric used forbidden information")
+
+    integer_fields = (
+        "episodes",
+        "initial_decisions",
+        "initial_uncertain_decisions",
+        "pre_causal_evidence_decisions",
+        "pre_causal_evidence_uncertain_decisions",
+        "post_causal_evidence_decisions",
+        "post_causal_evidence_uncertain_decisions",
+        "successful_episodes",
+        "successful_episodes_with_post_causal_decisions",
+        "successful_episodes_without_post_causal_decisions",
+    )
+    for field in integer_fields:
+        value = summary[field]
+        if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+            raise SymmetryUncertaintyError(f"{field} must be a non-negative integer")
+    numeric_fields = (
+        "confidence_threshold",
+        "initial_uncertainty_rate",
+        "pre_causal_evidence_uncertainty_rate",
+        "post_causal_evidence_uncertainty_rate",
+        "pre_causal_evidence_mean_confidence",
+        "post_causal_evidence_mean_confidence",
+        "confidence_gain_after_causal_evidence",
+    )
+    for field in numeric_fields:
+        value = summary[field]
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise SymmetryUncertaintyError(f"{field} must be numeric")
+        if not math.isfinite(float(value)):
+            raise SymmetryUncertaintyError(f"{field} must be finite")
+    if not 0.0 < float(summary["confidence_threshold"]) < 1.0:
+        raise SymmetryUncertaintyError("confidence_threshold must be in (0, 1)")
+    for field in (
+        "initial_uncertainty_rate",
+        "pre_causal_evidence_uncertainty_rate",
+        "post_causal_evidence_uncertainty_rate",
+        "pre_causal_evidence_mean_confidence",
+        "post_causal_evidence_mean_confidence",
+    ):
+        if not 0.0 <= float(summary[field]) <= 1.0:
+            raise SymmetryUncertaintyError(f"{field} must be in [0, 1]")
+
+    if summary["episodes"] < 1 or summary["initial_decisions"] != summary["episodes"]:
+        raise SymmetryUncertaintyError("initial-decision coverage must equal episode count")
+    count_pairs = (
+        ("initial_uncertain_decisions", "initial_decisions"),
+        ("pre_causal_evidence_uncertain_decisions", "pre_causal_evidence_decisions"),
+        ("post_causal_evidence_uncertain_decisions", "post_causal_evidence_decisions"),
+        ("successful_episodes", "episodes"),
+        ("successful_episodes_with_post_causal_decisions", "successful_episodes"),
+        ("successful_episodes_without_post_causal_decisions", "successful_episodes"),
+    )
+    for numerator, denominator in count_pairs:
+        if summary[numerator] > summary[denominator]:
+            raise SymmetryUncertaintyError(f"{numerator} exceeds {denominator}")
+    if (
+        summary["successful_episodes_with_post_causal_decisions"]
+        + summary["successful_episodes_without_post_causal_decisions"]
+        != summary["successful_episodes"]
+    ):
+        raise SymmetryUncertaintyError("successful-episode coverage counts are inconsistent")
+
+    expected_rates = {
+        "initial_uncertainty_rate": (
+            summary["initial_uncertain_decisions"] / summary["initial_decisions"]
+        ),
+        "pre_causal_evidence_uncertainty_rate": (
+            summary["pre_causal_evidence_uncertain_decisions"]
+            / max(1, summary["pre_causal_evidence_decisions"])
+        ),
+        "post_causal_evidence_uncertainty_rate": (
+            summary["post_causal_evidence_uncertain_decisions"]
+            / max(1, summary["post_causal_evidence_decisions"])
+            if summary["post_causal_evidence_decisions"]
+            else 1.0
+        ),
+    }
+    for field, expected in expected_rates.items():
+        if not math.isclose(float(summary[field]), expected, rel_tol=0.0, abs_tol=1e-12):
+            raise SymmetryUncertaintyError(f"{field} differs from its recorded counts")
+    expected_gain = (
+        float(summary["post_causal_evidence_mean_confidence"])
+        - float(summary["pre_causal_evidence_mean_confidence"])
+    )
+    if not math.isclose(
+        float(summary["confidence_gain_after_causal_evidence"]),
+        expected_gain,
+        rel_tol=0.0,
+        abs_tol=1e-12,
+    ):
+        raise SymmetryUncertaintyError("confidence gain differs from recorded means")
+    return summary
 
 
 def evaluate_symmetry_uncertainty_gate(

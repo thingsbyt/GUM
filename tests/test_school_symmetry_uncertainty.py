@@ -8,6 +8,7 @@ from gum.school.symmetry_uncertainty import (
     SymmetryUncertaintyError,
     evaluate_symmetry_uncertainty_gate,
     summarize_symmetry_aware_uncertainty,
+    validate_symmetry_uncertainty_summary,
 )
 
 
@@ -70,6 +71,15 @@ def test_metric_rejects_nonfinite_confidence():
         summarize_symmetry_aware_uncertainty([
             _episode([float("nan")], [-0.01], success=False)
         ])
+
+
+def test_persisted_summary_rejects_changed_rate():
+    summary = summarize_symmetry_aware_uncertainty([
+        _episode([0.0, 0.8, 0.9], [0.2, 0.2, 1.0])
+    ])
+    summary["post_causal_evidence_uncertainty_rate"] = 0.5
+    with pytest.raises(SymmetryUncertaintyError, match="recorded counts"):
+        validate_symmetry_uncertainty_summary(summary)
 
 
 def test_saved_public_validation_precommits_passing_protocol():
