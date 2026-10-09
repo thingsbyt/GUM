@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 — Causal-composition development attempt
+
+- Continued the officially promoted recurrent policy for the full 18,000
+  public-interaction Lesson 4 budget under a 32-action cap.
+- Improved composition from 29.9% to 43.4% and retained Lesson 3 at 99.6%, but
+  preserved the run as a failure because it missed the 80% criterion.
+
 ## 2026-10-09 — Official recurrent-policy promotion
 
 - Added strict v2 engine evaluation records for symmetry-aware causal

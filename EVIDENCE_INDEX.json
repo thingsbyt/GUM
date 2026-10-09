@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-recurrent-causal-composition-v1",
+      "status": "failed-development",
+      "title": "First recurrent causal-composition attempt",
+      "headline": "Composition improved from 29.9% to 43.4% but missed the 80% criterion",
+      "metrics": ["18,000 public training interactions", "222/512 trained versus 153/512 before training", "133/512 fresh and 137/512 random", "255/256 controls retention"],
+      "scope": "Public-only Lesson 4 development failure. The continued recurrent policy improved and retained Lesson 3, but return-weighted self-imitation reinforced ineffective actions preceding success and did not reach the precommitted success threshold. No sealed Lesson 4 cases were used.",
+      "evidence": "evidence/gum-school/research/causal-composition-recurrent-v1/COMPOSITION_REPORT.json"
+    },
+    {
       "id": "school-recurrent-causal-official-promotion",
       "status": "passed-official",
       "title": "Official recurrent causal-policy promotion",

@@ -102,3 +102,21 @@ def test_saved_official_recurrent_promotion_passed_all_gates():
         "object-laboratory.functional-category.002",
         "causal-workshop.controls.001",
     ]
+
+
+def test_saved_first_composition_attempt_is_preserved_as_failure():
+    root = Path(__file__).resolve().parents[1]
+    report = json.loads(
+        (
+            root / "evidence" / "gum-school" / "research"
+            / "causal-composition-recurrent-v1" / "COMPOSITION_REPORT.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert report["development_only"] is True
+    assert report["sealed_data_used"] is False
+    assert report["strict_pass"] is False
+    assert report["training"]["interactions"] == 18_000
+    assert report["evaluation"]["trained_composition_policy"]["successes"] == 222
+    assert report["evaluation"]["trained_composition_policy"]["trials"] == 512
+    assert report["evaluation"]["controls_lesson_retention"]["successes"] == 255
+    assert report["evaluation"]["controls_lesson_retention"]["trials"] == 256

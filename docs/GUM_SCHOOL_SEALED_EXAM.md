@@ -18,6 +18,18 @@ promoted snapshot
 `sha256-59b238c909e0dc560f175cab364c57a5ffcc121e2a703e34497963ba3c80306c`.
 The next lesson is now `causal-workshop.composition.002`.
 
+### First composition development attempt
+
+The promoted recurrent policy was continued for the full 18,000-interaction
+public Lesson 4 budget under a 32-action cap. Composition improved from
+**153/512 (29.9%)** before training to **222/512 (43.4%)** after training,
+while Lesson 3 retention was **255/256 (99.6%)**. Random scored 137/512 and a
+fresh recurrent network scored 133/512. The attempt failed the 80% development
+criterion and is preserved as a negative result. Its return-weighted replay
+reinforced many ineffective actions that merely preceded eventual success; a
+subsequent method must correct that credit-assignment problem without using
+event labels or hidden action sequences.
+
 This is an official pass for the recurrent policy on the bounded anonymous
 controls lesson, not a claim of unrestricted causal reasoning. The canonical
 report is
