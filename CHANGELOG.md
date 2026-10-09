@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-09 — Official recurrent-policy promotion
+
+- Added strict v2 engine evaluation records for symmetry-aware causal
+  uncertainty and verified curriculum-prefix inheritance for a new track.
+- Ran 64 newly selected official sealed trials after freezing commit `5da84f0`.
+- Promoted the recurrent candidate at 61/64 versus 8/64 pre-lesson, 7/64
+  matched fresh, and 4/64 random, with 48/48 retention.
+- Advanced the recurrent track to `causal-workshop.composition.002`.
+
 ## 2026-10-09 — Symmetry-aware recurrent confirmation
 
 - Versioned uncertainty measurement for anonymous controls into pre-evidence

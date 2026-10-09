@@ -1,5 +1,28 @@
 # GUM School sealed examinations
 
+## Official recurrent-policy promotion
+
+The School engine now accepts a strict v2 evaluation record that separates
+uncertainty before causal evidence from uncertainty afterward. The recurrent
+track inherited only the two verified Object Laboratory promotions, imported
+the unchanged public-trained recurrent policy, froze source and protocol at
+commit `5da84f02f1e4c9a1f283d9ba664cd65152d8f4b7`, and excluded all 224 seeds
+revealed by five earlier sealed manifests before drawing 64 new seeds.
+
+The candidate scored **61/64 (95.3%)**, versus **8/64** for its pre-Lesson-3
+base, **7/64** for the matched untrained recurrent network, and **4/64** random.
+The 95% Wilson lower bound was 0.871. Initial uncertainty was 100%,
+post-causal-evidence uncertainty was 0%, and unnecessary actions were 4.9%.
+Lessons 1–2 retained **48/48**. All seven gates passed, so the engine atomically
+promoted snapshot
+`sha256-59b238c909e0dc560f175cab364c57a5ffcc121e2a703e34497963ba3c80306c`.
+The next lesson is now `causal-workshop.composition.002`.
+
+This is an official pass for the recurrent policy on the bounded anonymous
+controls lesson, not a claim of unrestricted causal reasoning. The canonical
+report is
+[`evidence/gum-school/sealed-recurrent-official-v2/OFFICIAL_RECURRENT_PROMOTION.json`](../evidence/gum-school/sealed-recurrent-official-v2/OFFICIAL_RECURRENT_PROMOTION.json).
+
 ## Symmetry-aware recurrent confirmation
 
 The uncertainty rule was versioned after the first recurrent confirmation

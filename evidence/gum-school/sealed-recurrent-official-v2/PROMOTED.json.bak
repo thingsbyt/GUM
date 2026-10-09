@@ -1,0 +1,8 @@
+{
+  "format": "gum-school-promoted-pointer-v1",
+  "generation": 1,
+  "previous_snapshot_id": null,
+  "promoted_at_utc": "2026-10-09T15:39:24.347904+00:00",
+  "run_id": "initialization",
+  "snapshot_id": "sha256-54c127ac63c2eca6979715140ff00f39380a3d19a55c55bcbd3e313ea93ffa00"
+}

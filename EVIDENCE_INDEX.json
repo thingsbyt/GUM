@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "school-recurrent-causal-official-promotion",
+      "status": "passed-official",
+      "title": "Official recurrent causal-policy promotion",
+      "headline": "61/64 fresh sealed success; all engine gates passed; 48/48 retention",
+      "metrics": ["64 new post-freeze sealed trials", "8/64 pre-lesson, 7/64 matched fresh, and 4/64 random", "100% initial uncertainty and 0% post-causal-evidence uncertainty", "Atomic engine promotion; Lesson 4 is next"],
+      "scope": "Official recurrent-track promotion for the bounded anonymous-controls lesson. The track inherited two previously verified Object Laboratory lessons, used the unchanged public-trained recurrent policy, and excluded all previously revealed sealed seeds. The environment, reward, confidence calculation, and evaluation protocol remain engineered. No unrestricted causal-reasoning claim.",
+      "evidence": "evidence/gum-school/sealed-recurrent-official-v2/OFFICIAL_RECURRENT_PROMOTION.json"
+    },
+    {
       "id": "school-recurrent-causal-symmetry-confirmation",
       "status": "passed-supplemental",
       "title": "Symmetry-aware recurrent causal-policy confirmation",

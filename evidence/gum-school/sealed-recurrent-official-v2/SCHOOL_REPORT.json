@@ -1,0 +1,158 @@
+{
+  "curriculum_id": "gum-school-v1",
+  "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
+  "decisions": [
+    {
+      "base_snapshot_id": "sha256-54c127ac63c2eca6979715140ff00f39380a3d19a55c55bcbd3e313ea93ffa00",
+      "candidate_snapshot_id": "sha256-59b238c909e0dc560f175cab364c57a5ffcc121e2a703e34497963ba3c80306c",
+      "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
+      "decided_at_utc": "2026-10-09T15:39:32.586117+00:00",
+      "format": "gum-school-decision-v1",
+      "gates": {
+        "all_passed": true,
+        "format": "gum-school-gate-result-v1",
+        "gates": {
+          "control-advantage": {
+            "fresh_advantage": 8.714285714285714,
+            "passed": true,
+            "reasons": []
+          },
+          "evidence-integrity": {
+            "passed": true,
+            "reasons": []
+          },
+          "input-boundary": {
+            "passed": true,
+            "reasons": []
+          },
+          "replay": {
+            "passed": true,
+            "reasons": []
+          },
+          "resource-limits": {
+            "passed": true,
+            "reasons": []
+          },
+          "retention": {
+            "passed": true,
+            "reasons": [],
+            "regressions": {
+              "categorization": 0.0,
+              "comparison": 0.0,
+              "entity-attention": 0.0,
+              "event-concept-formation": 0.0,
+              "object-persistence": 0.0,
+              "occlusion-tracking": 0.0
+            }
+          },
+          "sealed-performance": {
+            "passed": true,
+            "reasons": []
+          }
+        }
+      },
+      "lesson_id": "causal-workshop.controls.001",
+      "outcome": "promote",
+      "run_id": "238790d7-24c1-4a4f-a23f-976901cda800"
+    }
+  ],
+  "format": "gum-school-report-v1",
+  "generated_at_utc": "2026-10-09T15:39:32.656799+00:00",
+  "inherited_lessons": [
+    "object-laboratory.occlusion.001",
+    "object-laboratory.functional-category.002"
+  ],
+  "initial_snapshot_id": "sha256-54c127ac63c2eca6979715140ff00f39380a3d19a55c55bcbd3e313ea93ffa00",
+  "ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "4be38564a1c65de4347035f3cd16c51e3b32318d72a6c3ae2839d8c436f61dce",
+      "ledger": "SCHOOL_LEDGER.jsonl",
+      "records": 5
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "4be38564a1c65de4347035f3cd16c51e3b32318d72a6c3ae2839d8c436f61dce",
+    "records": 5,
+    "valid": true
+  },
+  "next_lesson_id": "causal-workshop.composition.002",
+  "promoted_lessons": [
+    "object-laboratory.occlusion.001",
+    "object-laboratory.functional-category.002",
+    "causal-workshop.controls.001"
+  ],
+  "promoted_snapshot_id": "sha256-59b238c909e0dc560f175cab364c57a5ffcc121e2a703e34497963ba3c80306c",
+  "transfer_matrix": {
+    "cells": [],
+    "complete": false,
+    "diagnostic_sequential_results": [],
+    "missing_pairs": [
+      [
+        "object-laboratory",
+        "object-laboratory"
+      ],
+      [
+        "object-laboratory",
+        "causal-workshop"
+      ],
+      [
+        "object-laboratory",
+        "changing-maze"
+      ],
+      [
+        "causal-workshop",
+        "object-laboratory"
+      ],
+      [
+        "causal-workshop",
+        "causal-workshop"
+      ],
+      [
+        "causal-workshop",
+        "changing-maze"
+      ],
+      [
+        "changing-maze",
+        "object-laboratory"
+      ],
+      [
+        "changing-maze",
+        "causal-workshop"
+      ],
+      [
+        "changing-maze",
+        "changing-maze"
+      ]
+    ],
+    "protocol": {
+      "branch_origin": "pre-curriculum-promoted-snapshot",
+      "confidence_level": 0.95,
+      "design": "isolated-source-branches",
+      "matched_fresh_required": true,
+      "require_all_cells": true,
+      "source_schools": [
+        "object-laboratory",
+        "causal-workshop",
+        "changing-maze"
+      ],
+      "target_evaluation_training": false,
+      "targets": [
+        {
+          "examination_id": "exam.object-laboratory.transfer.v1",
+          "school": "object-laboratory"
+        },
+        {
+          "examination_id": "exam.causal-workshop.transfer.v1",
+          "school": "causal-workshop"
+        },
+        {
+          "examination_id": "exam.changing-maze.transfer.v1",
+          "school": "changing-maze"
+        }
+      ],
+      "trials_per_cell": 32
+    },
+    "warning": "Only verified isolated-source branch cells count toward completeness."
+  }
+}

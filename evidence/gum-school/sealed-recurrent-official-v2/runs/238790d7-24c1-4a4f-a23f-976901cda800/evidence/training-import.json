@@ -1,0 +1,11 @@
+{
+  "causal_policy_sha256": "sha256:ce428e9f45a7e9b1eac2707c0e45bb35c8cf9174a9731136a6fc59981be6c886",
+  "format": "gum-school-recurrent-training-import-v1",
+  "lesson_id": "causal-workshop.controls.001",
+  "official_curriculum_run": true,
+  "policy_weights_changed_during_import": false,
+  "public_training_interactions": 12000,
+  "public_training_report_sha256": "sha256:c791a46df3e49ff59d8837b75e4e7b7e7da1e1ca8f9f7ddbf3b44d53dfc56d64",
+  "sealed_data_used": false,
+  "source_freeze_sha256": "sha256:2cdd53a3c042009ba7d49eff8b576f19f973f7132b03b96914d77a652b7da267"
+}

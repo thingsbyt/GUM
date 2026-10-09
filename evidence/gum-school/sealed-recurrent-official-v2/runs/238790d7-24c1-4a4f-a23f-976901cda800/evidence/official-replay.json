@@ -1,0 +1,135 @@
+{
+  "expected": {
+    "interactions": 4,
+    "return": 1.3900000000000001,
+    "seed": 1009173505,
+    "success": true,
+    "trajectory": [
+      {
+        "action": 6,
+        "confidence": 1.1920928955078125e-07,
+        "next_observation": "d46ee1b9f5fe0b21c18e782a",
+        "observation": "9f8eace860918da3a37d5610",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 0,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.043043553829193115,
+        "next_observation": "a4be674f8281a16633118ac5",
+        "observation": "d46ee1b9f5fe0b21c18e782a",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 1,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.5752805471420288,
+        "next_observation": "77050595d96dd6ca0ed8c704",
+        "observation": "a4be674f8281a16633118ac5",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 2,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.733630359172821,
+        "next_observation": "6e17ac61f00d71ab705c697a",
+        "observation": "77050595d96dd6ca0ed8c704",
+        "public_info": {
+          "event": "completed",
+          "success": true
+        },
+        "reward": 1.0,
+        "step": 3,
+        "terminated": true,
+        "truncated": false
+      }
+    ],
+    "uncertain_actions": 2,
+    "unnecessary_actions": 0
+  },
+  "format": "gum-school-official-recurrent-replay-v1",
+  "replayed": {
+    "interactions": 4,
+    "return": 1.3900000000000001,
+    "seed": 1009173505,
+    "success": true,
+    "trajectory": [
+      {
+        "action": 6,
+        "confidence": 1.1920928955078125e-07,
+        "next_observation": "d46ee1b9f5fe0b21c18e782a",
+        "observation": "9f8eace860918da3a37d5610",
+        "public_info": {
+          "event": "no-change",
+          "success": false
+        },
+        "reward": -0.01,
+        "step": 0,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.043043553829193115,
+        "next_observation": "a4be674f8281a16633118ac5",
+        "observation": "d46ee1b9f5fe0b21c18e782a",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 1,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.5752805471420288,
+        "next_observation": "77050595d96dd6ca0ed8c704",
+        "observation": "a4be674f8281a16633118ac5",
+        "public_info": {
+          "event": "progress",
+          "success": false
+        },
+        "reward": 0.2,
+        "step": 2,
+        "terminated": false,
+        "truncated": false
+      },
+      {
+        "action": 3,
+        "confidence": 0.733630359172821,
+        "next_observation": "6e17ac61f00d71ab705c697a",
+        "observation": "77050595d96dd6ca0ed8c704",
+        "public_info": {
+          "event": "completed",
+          "success": true
+        },
+        "reward": 1.0,
+        "step": 3,
+        "terminated": true,
+        "truncated": false
+      }
+    ],
+    "uncertain_actions": 2,
+    "unnecessary_actions": 0
+  }
+}

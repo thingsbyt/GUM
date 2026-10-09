@@ -70,3 +70,35 @@ def test_recurrent_candidate_is_promoted_by_official_engine(tmp_path: Path, monk
     assert set(report["seed_manifest"]["seeds"]).isdisjoint(
         report["source_freeze"]["excluded_prior_sealed_seeds"]
     )
+
+
+def test_saved_official_recurrent_promotion_passed_all_gates():
+    root = Path(__file__).resolve().parents[1]
+    workspace = root / "evidence" / "gum-school" / "sealed-recurrent-official-v2"
+    report = json.loads(
+        (workspace / "OFFICIAL_RECURRENT_PROMOTION.json").read_text(encoding="utf-8")
+    )
+    assert report["qualification"] == "pass"
+    assert report["official_curriculum_run"] is True
+    assert report["candidate"]["successes"] == 61
+    assert report["candidate"]["trials"] == 64
+    assert report["candidate_before_training"]["successes"] == 8
+    assert report["matched_fresh"]["successes"] == 7
+    assert report["uniform_random"]["successes"] == 4
+    assert report["retention"]["current_summary"]["successes"] == 48
+    assert report["decision"]["outcome"] == "promote"
+    assert report["decision"]["gates"]["all_passed"] is True
+    assert report["next_lesson_id"] == "causal-workshop.composition.002"
+    assert report["source_freeze"]["git_head"] == (
+        "5da84f02f1e4c9a1f283d9ba664cd65152d8f4b7"
+    )
+    assert len(report["source_freeze"]["excluded_prior_sealed_seeds"]) == 224
+    assert set(report["seed_manifest"]["seeds"]).isdisjoint(
+        report["source_freeze"]["excluded_prior_sealed_seeds"]
+    )
+    progress = json.loads((workspace / "PROGRESS.json").read_text(encoding="utf-8"))
+    assert progress["promoted_lessons"][:3] == [
+        "object-laboratory.occlusion.001",
+        "object-laboratory.functional-category.002",
+        "causal-workshop.controls.001",
+    ]

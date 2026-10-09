@@ -1,0 +1,59 @@
+{
+  "base_snapshot_id": "sha256-54c127ac63c2eca6979715140ff00f39380a3d19a55c55bcbd3e313ea93ffa00",
+  "candidate_snapshot_id": "sha256-59b238c909e0dc560f175cab364c57a5ffcc121e2a703e34497963ba3c80306c",
+  "created_at_utc": "2026-10-09T15:39:24.386695+00:00",
+  "curriculum_sha256": "d0b1137649497580f22dd82ac5358d8008eb97fd245443a2d1698120bc671d59",
+  "decision_intent": {
+    "gates": {
+      "all_passed": true,
+      "format": "gum-school-gate-result-v1",
+      "gates": {
+        "control-advantage": {
+          "fresh_advantage": 8.714285714285714,
+          "passed": true,
+          "reasons": []
+        },
+        "evidence-integrity": {
+          "passed": true,
+          "reasons": []
+        },
+        "input-boundary": {
+          "passed": true,
+          "reasons": []
+        },
+        "replay": {
+          "passed": true,
+          "reasons": []
+        },
+        "resource-limits": {
+          "passed": true,
+          "reasons": []
+        },
+        "retention": {
+          "passed": true,
+          "reasons": [],
+          "regressions": {
+            "categorization": 0.0,
+            "comparison": 0.0,
+            "entity-attention": 0.0,
+            "event-concept-formation": 0.0,
+            "object-persistence": 0.0,
+            "occlusion-tracking": 0.0
+          }
+        },
+        "sealed-performance": {
+          "passed": true,
+          "reasons": []
+        }
+      }
+    },
+    "outcome": "promote",
+    "prepared_at_utc": "2026-10-09T15:39:32.567070+00:00"
+  },
+  "format": "gum-school-run-v1",
+  "lesson_id": "causal-workshop.controls.001",
+  "lesson_sha256": "141e9aff5bbc78e0b64462051e8ec6bfea1fcc3c1ab2f19bb65d660d6a852c1f",
+  "run_id": "238790d7-24c1-4a4f-a23f-976901cda800",
+  "status": "promoted",
+  "updated_at_utc": "2026-10-09T15:39:32.586117+00:00"
+}

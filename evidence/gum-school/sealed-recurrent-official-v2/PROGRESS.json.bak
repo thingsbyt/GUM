@@ -1,0 +1,13 @@
+{
+  "format": "gum-school-progress-v1",
+  "inherited_lessons": [
+    "object-laboratory.occlusion.001",
+    "object-laboratory.functional-category.002"
+  ],
+  "initial_snapshot_id": "sha256-54c127ac63c2eca6979715140ff00f39380a3d19a55c55bcbd3e313ea93ffa00",
+  "promoted_lessons": [
+    "object-laboratory.occlusion.001",
+    "object-laboratory.functional-category.002"
+  ],
+  "updated_at_utc": "2026-10-09T15:39:24.351045+00:00"
+}
