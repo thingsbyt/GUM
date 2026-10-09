@@ -1,0 +1,117 @@
+{
+  "checkpoint": "b5a6a4dc-4ced-4f2e-85c1-aeb703ffddbc",
+  "communication_rounds": 1,
+  "completed_missions": 1,
+  "failure_counts": {},
+  "format": "gum-school-mission-swarm-v1",
+  "knowledge_ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "35d43b229eefffaa466d09768887a611507bd5958e3d212e035403ef5a6de71e",
+      "ledger": "KNOWLEDGE_LEDGER.jsonl",
+      "records": 1
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "35d43b229eefffaa466d09768887a611507bd5958e3d212e035403ef5a6de71e",
+    "records": 1,
+    "valid": true
+  },
+  "members": [
+    {
+      "brain": {
+        "path": "snapshots/b5a6a4dc-4ced-4f2e-85c1-aeb703ffddbc/b6b4f739-ee30-4e8a-8c3a-7f8358cd24df.pt",
+        "sha256": "sha256:1183cbcf28322ed5ec5a97c2d100f33500e0b1844e519f4c0b5024397512e590"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.333237+00:00",
+        "fingerprint": "4274445447425ebce01846b878dcf9037e51afaba41fcd82a0033aa3203455c0",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+        "name": "Fortis-1",
+        "parent_id": null,
+        "role": "pathfinder",
+        "seed": 8650101
+      },
+      "missions": 1,
+      "shared_imports": 0,
+      "successes": 1
+    },
+    {
+      "brain": {
+        "path": "snapshots/b5a6a4dc-4ced-4f2e-85c1-aeb703ffddbc/64f4b068-8364-4d7c-93eb-70befe540826.pt",
+        "sha256": "sha256:b80a77195754c365a6153f5829a7a8e8ab2898f56cf0b8a88f869c565df228c2"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.341707+00:00",
+        "fingerprint": "1fcb0b48be2efee2d8a32b8698a1940b889281dbc3e6652fb42ddc3221845ba3",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "64f4b068-8364-4d7c-93eb-70befe540826",
+        "name": "Fortis-2",
+        "parent_id": null,
+        "role": "challenger",
+        "seed": 8650211
+      },
+      "missions": 1,
+      "shared_imports": 1,
+      "successes": 1
+    },
+    {
+      "brain": {
+        "path": "snapshots/b5a6a4dc-4ced-4f2e-85c1-aeb703ffddbc/a3c6326d-975a-4e14-ad35-bb38c7dca454.pt",
+        "sha256": "sha256:9ad9b4ca4ed1879b68030ccabf56fe4122dd6c6ce80790170a313483d2732c10"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.347706+00:00",
+        "fingerprint": "0a20671102814f369940677b5cb57252f18e0f370f93cdd4d7a7ce52f477c803",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "a3c6326d-975a-4e14-ad35-bb38c7dca454",
+        "name": "Fortis-3",
+        "parent_id": null,
+        "role": "modeler",
+        "seed": 8650307
+      },
+      "missions": 1,
+      "shared_imports": 1,
+      "successes": 1
+    },
+    {
+      "brain": {
+        "path": "snapshots/b5a6a4dc-4ced-4f2e-85c1-aeb703ffddbc/ff000542-4fbb-4219-806d-60448c41c681.pt",
+        "sha256": "sha256:3c5ae7894feeff8e39fbb40ff999424d5bf8bd56572ce1cf3772750721c95ec0"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.353221+00:00",
+        "fingerprint": "5abac41c2a78f4faf6649f1b0fdb5318fa971571ce5cfd1c5f795c9702f96462",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "ff000542-4fbb-4219-806d-60448c41c681",
+        "name": "Fortis-4",
+        "parent_id": null,
+        "role": "keeper",
+        "seed": 8650401
+      },
+      "missions": 1,
+      "shared_imports": 1,
+      "successes": 1
+    }
+  ],
+  "mission_ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "adfa31966c2a5fd870e3b5b0fb91169c88eb02071a009c6a96c114d678002963",
+      "ledger": "MISSION_LEDGER.jsonl",
+      "records": 3
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "adfa31966c2a5fd870e3b5b0fb91169c88eb02071a009c6a96c114d678002963",
+    "records": 3,
+    "valid": true
+  },
+  "share_epochs": 1,
+  "strategy_revisions": 0
+}

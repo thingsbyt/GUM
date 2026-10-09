@@ -29,6 +29,21 @@ def _spec() -> PublicWorldSpec:
     )
 
 
+def _maze_spec() -> PublicWorldSpec:
+    return PublicWorldSpec(
+        "public-maze-world",
+        "changing-maze",
+        "gum-changing-maze-v1",
+        1,
+        "rgb",
+        (88, 88, 3),
+        "discrete-anonymous",
+        6,
+        240,
+        (-1.0, 1.0),
+    )
+
+
 class _ForbiddenInfo(dict):
     def get(self, *args, **kwargs):
         raise AssertionError("the learner read public_info")
@@ -70,6 +85,57 @@ def test_anonymous_controls_are_symmetric_until_their_outcomes_differ():
     assert torch.count_nonzero(changed[:, 3]).item() > 0
     assert torch.count_nonzero(changed[:, :3]).item() == 0
     assert torch.count_nonzero(changed[:, 4:]).item() == 0
+
+
+def test_one_general_policy_masks_action_slots_absent_from_a_world():
+    learner = RecurrentCausalLearner(12)
+    observation = np.zeros((88, 88, 3), dtype=np.uint8)
+    learner.begin(_maze_spec(), observation, training=False)
+    for _ in range(20):
+        assert 0 <= learner.act(observation, training=False) < 6
+        assert 0.0 <= learner.confidence() <= 1.0
+
+
+def test_episodic_novelty_rewards_new_pixels_without_public_labels():
+    learner = RecurrentCausalLearner(
+        13,
+        config=RecurrentMetaConfig(
+            batch_episodes=1,
+            episodic_novelty_coefficient=0.2,
+        ),
+    )
+    observation = np.zeros((88, 88, 3), dtype=np.uint8)
+    novel = observation.copy()
+    novel[0, 0, 0] = 1
+    learner.begin(_maze_spec(), observation, training=True)
+    action = learner.act(observation, training=True)
+    learner.observe(
+        action,
+        Transition(novel, 0.0, False, False, _ForbiddenInfo()),
+        training=True,
+    )
+    assert learner._rewards == pytest.approx([0.2])
+    assert learner.intrinsic_reward_total == pytest.approx(0.2)
+
+
+def test_generic_action_explorer_learns_effects_from_pixel_change():
+    learner = RecurrentCausalLearner(
+        14,
+        config=RecurrentMetaConfig(episodic_action_exploration_mix=1.0),
+    )
+    observation = np.zeros((88, 88, 3), dtype=np.uint8)
+    changed = observation.copy()
+    changed[1, 1, 1] = 1
+    learner.begin(_maze_spec(), observation, training=False)
+    action = learner.act(observation, training=False)
+    learner.observe(
+        action,
+        Transition(changed, 0.0, False, False, _ForbiddenInfo()),
+        training=False,
+    )
+    assert learner._action_effect_trials[action] == 1.0
+    assert learner._action_effect_changes[action] == 1.0
+    assert sum(learner._episodic_action_counts.values())[action] == 1
 
 
 def test_checkpoint_round_trip(tmp_path: Path):

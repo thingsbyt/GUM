@@ -1,0 +1,121 @@
+{
+  "checkpoint": "e2fa77e1-36fd-4a36-9ed5-54e0d94a5e62",
+  "communication_rounds": 2,
+  "completed_missions": 5,
+  "failure_counts": {
+    "07e4847fbbcea0f29a1d75919792edb544a10e1c9abe79f781adc6a197a96df2": 1,
+    "4dff7eed1477dba6b043f77486fde91cf5a569d9ec7734aaa49d654a96917ed6": 1,
+    "b0fbd8de916f97bc22831c9ef244f26c1b5a40c469f7bd0775d985094b58a49b": 1
+  },
+  "format": "gum-school-mission-swarm-v1",
+  "knowledge_ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "e3970a41e0e28921db7f0a3dc663d4693be831e8370659a958ae4b7bec7b06dc",
+      "ledger": "KNOWLEDGE_LEDGER.jsonl",
+      "records": 5
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "e3970a41e0e28921db7f0a3dc663d4693be831e8370659a958ae4b7bec7b06dc",
+    "records": 5,
+    "valid": true
+  },
+  "members": [
+    {
+      "brain": {
+        "path": "snapshots/e2fa77e1-36fd-4a36-9ed5-54e0d94a5e62/b6b4f739-ee30-4e8a-8c3a-7f8358cd24df.pt",
+        "sha256": "sha256:12d4228f829e34253d151ac8a115f91eb52dc47a37c9a0d804557a38c17cab6d"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.333237+00:00",
+        "fingerprint": "4274445447425ebce01846b878dcf9037e51afaba41fcd82a0033aa3203455c0",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+        "name": "Fortis-1",
+        "parent_id": null,
+        "role": "pathfinder",
+        "seed": 8650101
+      },
+      "missions": 5,
+      "shared_imports": 0,
+      "successes": 2
+    },
+    {
+      "brain": {
+        "path": "snapshots/e2fa77e1-36fd-4a36-9ed5-54e0d94a5e62/64f4b068-8364-4d7c-93eb-70befe540826.pt",
+        "sha256": "sha256:8fa2fa2d32d04e13768d3c109c19426f98ce9b60eb218b0f544948f513483cd5"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.341707+00:00",
+        "fingerprint": "1fcb0b48be2efee2d8a32b8698a1940b889281dbc3e6652fb42ddc3221845ba3",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "64f4b068-8364-4d7c-93eb-70befe540826",
+        "name": "Fortis-2",
+        "parent_id": null,
+        "role": "challenger",
+        "seed": 8650211
+      },
+      "missions": 5,
+      "shared_imports": 2,
+      "successes": 2
+    },
+    {
+      "brain": {
+        "path": "snapshots/e2fa77e1-36fd-4a36-9ed5-54e0d94a5e62/a3c6326d-975a-4e14-ad35-bb38c7dca454.pt",
+        "sha256": "sha256:dd98b8ae3b8d69680ddabe186b8d7facd10aac935bfa7f511b4bc19e5e99f913"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.347706+00:00",
+        "fingerprint": "0a20671102814f369940677b5cb57252f18e0f370f93cdd4d7a7ce52f477c803",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "a3c6326d-975a-4e14-ad35-bb38c7dca454",
+        "name": "Fortis-3",
+        "parent_id": null,
+        "role": "modeler",
+        "seed": 8650307
+      },
+      "missions": 5,
+      "shared_imports": 2,
+      "successes": 2
+    },
+    {
+      "brain": {
+        "path": "snapshots/e2fa77e1-36fd-4a36-9ed5-54e0d94a5e62/ff000542-4fbb-4219-806d-60448c41c681.pt",
+        "sha256": "sha256:2604aa269cecf692d5736c67eb9bb27454798ca57904db5ed439c908772276be"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.353221+00:00",
+        "fingerprint": "5abac41c2a78f4faf6649f1b0fdb5318fa971571ce5cfd1c5f795c9702f96462",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "ff000542-4fbb-4219-806d-60448c41c681",
+        "name": "Fortis-4",
+        "parent_id": null,
+        "role": "keeper",
+        "seed": 8650401
+      },
+      "missions": 5,
+      "shared_imports": 2,
+      "successes": 2
+    }
+  ],
+  "mission_ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "5c1ca45683ca1f5aa4626f6546ae32e6612f9eb4ecd1666d9607d5e82067fc8f",
+      "ledger": "MISSION_LEDGER.jsonl",
+      "records": 11
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "5c1ca45683ca1f5aa4626f6546ae32e6612f9eb4ecd1666d9607d5e82067fc8f",
+    "records": 11,
+    "valid": true
+  },
+  "share_epochs": 1,
+  "strategy_revisions": 3
+}

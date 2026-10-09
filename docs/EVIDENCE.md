@@ -67,11 +67,63 @@ This supports: **GUM can learn and use a tiny grounded visual vocabulary, includ
 
 It does not support: **GUM understands unrestricted natural language.** The action family, rendering, and question mechanism are engineered.
 
+## GUM School: general recurrent maze development
+
+Primary file:
+
+- [`evidence/gum-school/research/general-recurrent-maze-quatro-forti-v2/QUATRO_FORTI_REPORT.json`](../evidence/gum-school/research/general-recurrent-maze-quatro-forti-v2/QUATRO_FORTI_REPORT.json)
+
+This study excludes the engineered maze specialist. One recurrent policy,
+continued from the officially promoted causal-composition policy, receives
+pixels, previous anonymous action, scalar reward, termination, recurrent
+memory, first-visit novelty, and generic online action-effect statistics. It
+never receives coordinates, a map, action meanings, a route, event labels, or
+audit state.
+
+Four learner seeds trained for 15,000 interactions each on disjoint generated
+world partitions, then faced 128 untouched mazes each. The candidates solved
+125/512 (24.41%), the inherited policy with the identical exploration biology
+solved 116/512 (22.66%), and uniform random solved 52/512 (10.16%). Two
+replicas improved on the inherited baseline and two regressed. The earlier v1
+run is retained, but its policy-gradient likelihood did not match the sampled
+exploration mixture; v2 corrects that mathematical error.
+
+This supports: **generic episodic action-effect exploration transfers to unseen
+mazes, and the corrected aggregate candidate result was modestly above its
+inherited baseline.**
+
+It does not support: **maze mastery, a robust benefit from recurrent weight
+learning, or official Lesson 5 promotion.** The predeclared four-of-four
+replication criterion failed.
+
+## GUM School: cooperative mission swarm
+
+Primary file:
+
+- [`evidence/gum-school/research/cooperative-mission-swarm-v2/MISSION_SWARM_SMOKE_REPORT.json`](../evidence/gum-school/research/cooperative-mission-swarm-v2/MISSION_SWARM_SMOKE_REPORT.json)
+
+Four durable recurrent learners watched five distinct development missions,
+with captaincy distributed across all four. The team completed one causal
+mission and one of four mazes. Each success was shared to the other three
+members; three failures triggered recorded strategy revisions. All five public
+experiences, every post-mission brain, identities, and both hash-chained ledgers
+survived verification after reload.
+
+This supports: **the cooperative identity, observation, communication,
+strategy-change, and persistence machinery works end to end.**
+
+It does not support: **a multi-agent performance advantage or maze mastery.**
+This was an architecture smoke run without a baseline, not a promotion trial.
+
 ## Showcase evidence
 
 The `evidence/showcase` folder preserves earlier or complementary experiments used in the public gallery:
 
-- `two-rocket` tests two-agent Asteroids coordination and includes solo, random, and no-message comparisons.
+- `two-rocket` tests an engineered two-agent Asteroids controller and includes
+  solo, random, and no-message comparisons. Anonymous control meanings and
+  pixel-derived motion tracks are learned online; tracking, target assignment,
+  pursuit, avoidance, and firing logic are engineered rather than learned end
+  to end.
 - `dual-reveal-gate` tests information sharing where each agent observes only part of a hidden answer.
 - `cooperative-rescue` is a fictional two-agent environment, not biomedical evidence.
 - `useful-workflows` covers ten bounded file/data workflows.

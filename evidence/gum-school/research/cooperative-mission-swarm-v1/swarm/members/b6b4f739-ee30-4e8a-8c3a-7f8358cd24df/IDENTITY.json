@@ -1,0 +1,11 @@
+{
+  "born_at_utc": "2026-10-09T21:14:55.333237+00:00",
+  "fingerprint": "4274445447425ebce01846b878dcf9037e51afaba41fcd82a0033aa3203455c0",
+  "format": "gum-mission-member-identity-v1",
+  "generation": 0,
+  "member_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+  "name": "Fortis-1",
+  "parent_id": null,
+  "role": "pathfinder",
+  "seed": 8650101
+}

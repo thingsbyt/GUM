@@ -1,0 +1,6 @@
+{
+  "format": "gum-ledger-anchor-v1",
+  "head": "d129f131b61b29daf500772774967e80238f54edc3f9b322fe8a28167c176e16",
+  "ledger": "MISSION_LEDGER.jsonl",
+  "records": 10
+}

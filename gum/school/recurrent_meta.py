@@ -39,6 +39,9 @@ class RecurrentMetaConfig:
     gradient_clip: float = 1.0
     batch_episodes: int = 32
     evaluation_temperature: float = 0.25
+    training_exploration_mix: float = 0.0
+    episodic_action_exploration_mix: float = 0.0
+    episodic_novelty_coefficient: float = 0.0
 
     def validate(self) -> None:
         if self.action_count < 2:
@@ -58,6 +61,12 @@ class RecurrentMetaConfig:
             raise ValueError("batch_episodes must be positive")
         if self.evaluation_temperature <= 0.0:
             raise ValueError("evaluation_temperature must be positive")
+        if not 0.0 <= self.training_exploration_mix < 1.0:
+            raise ValueError("training_exploration_mix must be in [0, 1)")
+        if not 0.0 <= self.episodic_action_exploration_mix <= 1.0:
+            raise ValueError("episodic_action_exploration_mix must be in [0, 1]")
+        if self.episodic_novelty_coefficient < 0.0:
+            raise ValueError("episodic_novelty_coefficient cannot be negative")
 
 
 class RecurrentMetaPolicy(nn.Module):
@@ -160,6 +169,12 @@ class RecurrentCausalLearner:
         self._last_confidence = 0.0
         self._training = False
         self._generator = torch.Generator(device="cpu")
+        self._episodic_counts: dict[str, int] = {}
+        self._episodic_action_counts: dict[str, np.ndarray] = {}
+        self._action_effect_changes = np.zeros(self.config.action_count, dtype=np.float64)
+        self._action_effect_trials = np.zeros(self.config.action_count, dtype=np.float64)
+        self._acted_observation_key: str | None = None
+        self.intrinsic_reward_total = 0.0
 
     @staticmethod
     def _episode_seed(spec: PublicWorldSpec) -> int:
@@ -168,8 +183,8 @@ class RecurrentCausalLearner:
 
     def begin(self, spec: PublicWorldSpec, observation: Any, *, training: bool) -> None:
         array = np.asarray(observation)
-        if spec.action_count != self.config.action_count:
-            raise ValueError("world action count does not match recurrent policy")
+        if not 2 <= spec.action_count <= self.config.action_count:
+            raise ValueError("world action count exceeds recurrent policy capacity")
         if tuple(array.shape) != tuple(spec.observation_shape) or array.dtype != np.uint8:
             raise ValueError("observation differs from the public world contract")
         self._spec = spec
@@ -188,6 +203,11 @@ class RecurrentCausalLearner:
         self._entropies = []
         self._rewards = []
         self._training = bool(training)
+        self._episodic_counts = {self._observation_key(array): 1}
+        self._episodic_action_counts = {}
+        self._action_effect_changes.fill(0.0)
+        self._action_effect_trials.fill(0.0)
+        self._acted_observation_key = None
         # Evaluation remains stochastic but reproducible for each public world.
         self._generator.manual_seed(self._episode_seed(spec))
 
@@ -214,27 +234,75 @@ class RecurrentCausalLearner:
             self._action_memory,
         )
 
+    @staticmethod
+    def _observation_key(observation: np.ndarray) -> str:
+        array = np.ascontiguousarray(observation)
+        digest = hashlib.sha256()
+        digest.update(str(array.dtype).encode("ascii"))
+        digest.update(str(array.shape).encode("ascii"))
+        digest.update(array.tobytes())
+        return digest.hexdigest()[:24]
+
     def act(self, observation: Any, *, training: bool) -> int:
         if bool(training) != self._training:
             raise ValueError("act training mode differs from begin")
         context = torch.enable_grad() if training else torch.no_grad()
         with context:
             logits, value, hidden, action_memory = self._policy_step(observation)
+            assert self._spec is not None
+            available_logits = logits[:, :self._spec.action_count]
             temperature = 1.0 if training else self.config.evaluation_temperature
-            probabilities = torch.softmax(logits / temperature, dim=-1)
+            probabilities = torch.softmax(available_logits / temperature, dim=-1)
+            if training and self.config.training_exploration_mix > 0.0:
+                mix = self.config.training_exploration_mix
+                probabilities = (
+                    (1.0 - mix) * probabilities
+                    + mix / self._spec.action_count
+                )
+            action_mix = self.config.episodic_action_exploration_mix
+            if action_mix > 0.0:
+                observation_key = self._observation_key(np.asarray(observation))
+                counts = self._episodic_action_counts.setdefault(
+                    observation_key,
+                    np.zeros(self._spec.action_count, dtype=np.int64),
+                )
+                novelty = 1.0 / np.sqrt(counts.astype(np.float64) + 1.0)
+                effect = (
+                    self._action_effect_changes[:self._spec.action_count] + 1.0
+                ) / (
+                    self._action_effect_trials[:self._spec.action_count] + 2.0
+                )
+                exploration = novelty * np.sqrt(effect)
+                exploration /= exploration.sum()
+                exploration_tensor = torch.tensor(
+                    exploration,
+                    dtype=probabilities.dtype,
+                    device=probabilities.device,
+                )[None, :]
+                probabilities = (
+                    (1.0 - action_mix) * probabilities
+                    + action_mix * exploration_tensor
+                )
             if training:
                 action_tensor = torch.multinomial(probabilities, 1).squeeze(1)
             else:
                 action_tensor = torch.multinomial(
                     probabilities.cpu(), 1, generator=self._generator
                 ).squeeze(1).to(self.device)
-            log_probabilities = torch.log_softmax(logits, dim=-1)
+            log_probabilities = torch.log(
+                probabilities.clamp_min(torch.finfo(probabilities.dtype).tiny)
+            )
             log_prob = log_probabilities.gather(1, action_tensor[:, None]).squeeze(1)
             entropy = -(probabilities * log_probabilities).sum(dim=1)
-            normalized_entropy = entropy / np.log(self.config.action_count)
-            self._last_confidence = float((1.0 - normalized_entropy).item())
+            normalized_entropy = entropy / np.log(self._spec.action_count)
+            self._last_confidence = float(
+                torch.clamp(1.0 - normalized_entropy, 0.0, 1.0).item()
+            )
             self._hidden = hidden
             self._action_memory = action_memory
+            if action_mix > 0.0:
+                counts[int(action_tensor.item())] += 1
+                self._acted_observation_key = observation_key
             if training:
                 self._log_probs.append(log_prob.squeeze(0))
                 self._values.append(value.squeeze(0))
@@ -247,7 +315,7 @@ class RecurrentCausalLearner:
         if isinstance(action, bool) or not isinstance(action, (int, np.integer)):
             raise ValueError("action must be an integer")
         action = int(action)
-        if not 0 <= action < self.config.action_count:
+        if not 0 <= action < self._spec.action_count:
             raise ValueError("action is outside the public contract")
         reward = float(transition.reward)
         if not np.isfinite(reward):
@@ -255,11 +323,34 @@ class RecurrentCausalLearner:
         # Deliberately do not read transition.public_info.  Learning is grounded
         # only in consequence pixels, scalar reward, action, and termination.
         done = bool(transition.terminated or transition.truncated)
+        if (
+            self.config.episodic_action_exploration_mix > 0.0
+            and self._acted_observation_key is not None
+        ):
+            next_key = self._observation_key(np.asarray(transition.observation))
+            self._action_effect_trials[action] += 1.0
+            self._action_effect_changes[action] += float(
+                next_key != self._acted_observation_key
+            )
         self._previous_action = action
         self._previous_reward = reward
         self._previous_done = done
         if training:
-            self._rewards.append(reward)
+            shaped_reward = reward
+            if self.config.episodic_novelty_coefficient > 0.0:
+                array = np.asarray(transition.observation)
+                if tuple(array.shape) != tuple(self._spec.observation_shape):
+                    raise ValueError("transition observation differs from the public contract")
+                key = self._observation_key(array)
+                visits = self._episodic_counts.get(key, 0) + 1
+                self._episodic_counts[key] = visits
+                intrinsic = (
+                    self.config.episodic_novelty_coefficient
+                    if visits == 1 else 0.0
+                )
+                shaped_reward += intrinsic
+                self.intrinsic_reward_total += intrinsic
+            self._rewards.append(shaped_reward)
             self.training_interactions += 1
         else:
             self.evaluation_interactions += 1
@@ -360,9 +451,14 @@ class RecurrentCausalLearner:
                 observations = trajectory["observations"]
                 actions = trajectory["actions"]
                 rewards = trajectory["rewards"]
+                action_count = int(
+                    trajectory.get("action_count", self.config.action_count)
+                )
+                if not 2 <= action_count <= self.config.action_count:
+                    raise ValueError("self-imitation action count is invalid")
                 if not actions or not (
                     len(observations) == len(actions) == len(rewards)
-                ):
+                ) or any(not 0 <= int(action) < action_count for action in actions):
                     raise ValueError("invalid self-imitation trajectory")
                 hidden = torch.zeros(
                     1, self.config.hidden_size, device=self.device
@@ -390,7 +486,7 @@ class RecurrentCausalLearner:
                         hidden,
                         action_memory,
                     )
-                    logits_by_step.append(logits.squeeze(0))
+                    logits_by_step.append(logits.squeeze(0)[:action_count])
                     previous_action = int(actions[step])
                     previous_reward = float(rewards[step])
                 logits = torch.stack(logits_by_step)
@@ -642,6 +738,7 @@ class RecurrentCausalLearner:
             "training_interactions": self.training_interactions,
             "evaluation_episodes": self.evaluation_episodes,
             "evaluation_interactions": self.evaluation_interactions,
+            "intrinsic_reward_total": self.intrinsic_reward_total,
             "information_boundary": [
                 "pixels", "previous_action", "scalar_reward", "termination", "memory"
             ],
@@ -679,4 +776,5 @@ class RecurrentCausalLearner:
             "evaluation_episodes", "evaluation_interactions",
         ):
             setattr(result, field, int(status[field]))
+        result.intrinsic_reward_total = float(status.get("intrinsic_reward_total", 0.0))
         return result

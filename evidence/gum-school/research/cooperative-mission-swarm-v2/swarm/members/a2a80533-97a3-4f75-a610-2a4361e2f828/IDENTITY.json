@@ -1,0 +1,11 @@
+{
+  "born_at_utc": "2026-10-09T21:16:04.107871+00:00",
+  "fingerprint": "0efcc132ec729103f1b527da155858af6469cca86f4d124427b4f7eed2076b9d",
+  "format": "gum-mission-member-identity-v1",
+  "generation": 0,
+  "member_id": "a2a80533-97a3-4f75-a610-2a4361e2f828",
+  "name": "Fortis-2",
+  "parent_id": null,
+  "role": "challenger",
+  "seed": 8650211
+}

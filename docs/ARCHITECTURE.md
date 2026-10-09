@@ -26,6 +26,15 @@ reads a frozen snapshot, and public development rehearsals cannot satisfy the
 sealed-protocol gates. The first swarm rehearsal learned the development task
 but was quarantined without moving the promoted pointer.
 
+The newer neural development lane adds a separate persistent mission layer
+around the general recurrent policy. Exactly four durable identities watch the
+same public experience and propose actions; a rotating captain acts during
+learning, while successful reward-grounded trajectories are shared to the
+other three members. Every mission preserves all four brains plus the complete
+public experience. An exact retry after failure rotates leadership and
+exploration strategy instead of repeating the same attempt. This is generic
+coordination scaffolding, not a maze solver; see [`MISSION_SWARM.md`](MISSION_SWARM.md).
+
 The sealed examiner freezes decision-relevant source hashes before training,
 selects its seed manifest from operating-system entropy only after training has
 finished, evaluates frozen candidate, matched-fresh, and random policies on a

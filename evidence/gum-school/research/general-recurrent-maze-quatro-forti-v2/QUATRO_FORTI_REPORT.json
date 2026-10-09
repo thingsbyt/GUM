@@ -1,0 +1,59 @@
+{
+  "all_four_improved": false,
+  "candidate": {
+    "interactions": 109802,
+    "mean_interactions": 214.45703125,
+    "success_rate": 0.244140625,
+    "successes": 125,
+    "trials": 512
+  },
+  "candidate_trials_per_replica": 128,
+  "created_at_utc": "2026-10-09T21:07:50.671323+00:00",
+  "development_only": true,
+  "device": "cuda",
+  "disjoint_world_seed_offsets": [
+    100000000,
+    200000000,
+    300000000,
+    400000000
+  ],
+  "format": "gum-school-general-recurrent-maze-quatro-forti-v2",
+  "independent_learner_seeds": [
+    8640101,
+    8640211,
+    8640307,
+    8640401
+  ],
+  "inherited_with_same_exploration_biology": {
+    "interactions": 111712,
+    "mean_interactions": 218.1875,
+    "success_rate": 0.2265625,
+    "successes": 116,
+    "trials": 512
+  },
+  "maze_specialist_used": false,
+  "official_curriculum_run": false,
+  "replica_passes": 2,
+  "replica_reports": [
+    "replica-1/REPLICA_REPORT.json",
+    "replica-2/REPLICA_REPORT.json",
+    "replica-3/REPLICA_REPORT.json",
+    "replica-4/REPLICA_REPORT.json"
+  ],
+  "replications": 4,
+  "sealed_data_used": false,
+  "source_hashes": {
+    "gum/school/recurrent_meta.py": "sha256:2832bfe926e04f9b81fc250cae111c0c87f5efc36d6f7c2cb191cc89b22df807",
+    "scripts/run_school_recurrent_maze_experiment.py": "sha256:dbadfe8b167fbcfb7c8e0dc5648d522f1ae4cf405de9bfc2caf2d373d92c457c",
+    "scripts/run_school_recurrent_maze_quatro_forti.py": "sha256:c140a2eb0b2387874292982f029789777c8eca569f69c796b5f669f45051add7"
+  },
+  "training_interactions_per_replica": 15000,
+  "uniform_random": {
+    "interactions": 118939,
+    "mean_interactions": 232.302734375,
+    "success_rate": 0.1015625,
+    "successes": 52,
+    "trials": 512
+  },
+  "wall_clock_seconds": 757.973551099989
+}

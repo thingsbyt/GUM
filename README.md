@@ -71,10 +71,17 @@ The algorithms and boundaries are engineered. The tested action meanings, concep
 | Real Data Rescue | 5/5 unfamiliar JSONL files repaired; 348× advantage | operation names, fields, mappings, correct order, validator |
 | Learning-to-Learn | five minds; median 2.30×, mean 4.48× held-out speedup | task family, dynamics, action meanings, goals, solutions, best strategy |
 | Grounded clarification | 45/45; 30/30 ambiguous references resolved | word dictionary and test answers |
-| Two-rocket Asteroids | 350 hits; both agents active 8/8; zero friendly fire | coordination policy |
+| Two-rocket Asteroids showcase | 350 hits; both agents active 8/8; zero friendly fire | anonymous control meanings and pixel-derived motion tracks |
 | Photo → glyph → word | 96% apple; **53.22% overall** | direct photo-to-word training |
 
 The final row is intentionally shown as a mixed result: the apple sub-result passed, but the precommitted overall claim failed. GUM's learning-to-learn result also preserves the one seed that regressed to 0.90×.
+
+The Asteroids GIF is also easy to overread. It shows an engineered visual
+tracking, target-assignment, pursuit, collision-avoidance, and firing
+controller. GUM learned the shuffled anonymous controls and updated motion
+tracks from visible effects, but it did **not** learn the whole displayed
+policy end to end. The newer neural Asteroids learner is a separate, harder
+experiment and is reported separately.
 
 [Trace every claim to its audit](docs/EVIDENCE.md)
 
@@ -123,23 +130,38 @@ The strongest defensible description is:
 
 GUM School now has a reviewed curriculum, a crash-resumable promotion engine,
 three admitted foundational adapters, a bounded cross-seed training lane, and
-one officially promoted lesson.
-The learner now forms pixel-derived temporal object memory and can spawn helper
-policies when uncertainty persists, up to a hard maximum of four. Helpers learn
-on separate episodes, exchange value estimates, and vote during evaluation.
+four officially promoted lessons.
+The learner now has a persistent four-member mission team. Each member has a
+durable identity and separate recurrent weights; all four watch every mission,
+propose actions, and share reward-grounded successful experience. Captaincy
+rotates, exact failed retries change leadership and exploration strategy, and
+every public trajectory plus all four post-mission brains is retained in a
+hash-checked local archive.
 
 After the development rehearsal was quarantined, the source was frozen and a
 separate evaluator selected 32 withheld, structurally shifted trials. The
 trained swarm scored 32/32, versus 0/32 for a matched fresh swarm and 14/32 for
 a random control. All seven gates passed and the engine promoted the first
-lesson. This is a narrow object-tracking result; later schools and the transfer
-matrix have not run.
+lesson. Later official runs promoted functional categorization, anonymous
+causal-control grounding, and causal skill composition while retaining the
+earlier skills.
+
+The next maze study deliberately did not use the earlier engineered maze
+specialist. The promoted recurrent policy instead received generic episodic
+pixel novelty and anonymous-action effect memory. Across four independent,
+disjoint development replications it reached 125/512 unseen mazes, versus
+116/512 for the same inherited policy with the same exploration biology and
+52/512 for uniform random. Two replications improved and two regressed, so the
+corrected result supports useful exploration but not robust maze weight
+learning. The isolated runs are retained as diagnostic history; the cooperative
+mission structure is the new development direction, not an official promotion.
 
 [Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
 [Read the GUM School engine boundary](docs/GUM_SCHOOL_ENGINE.md)
 [Read the foundational world admission](docs/GUM_SCHOOL_WORLDS.md)
 [Read the bounded training rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
 [Read the first sealed examination](docs/GUM_SCHOOL_SEALED_EXAM.md)
+[Read the cooperative mission swarm design](docs/MISSION_SWARM.md)
 
 ## Research package
 
@@ -157,6 +179,7 @@ matrix have not run.
 - [GUM School training lane and rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
 - [GUM School sealed examinations](docs/GUM_SCHOOL_SEALED_EXAM.md)
 - [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
+- [Cooperative mission swarm](docs/MISSION_SWARM.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)
 - [Release verification](docs/VERIFICATION.md)

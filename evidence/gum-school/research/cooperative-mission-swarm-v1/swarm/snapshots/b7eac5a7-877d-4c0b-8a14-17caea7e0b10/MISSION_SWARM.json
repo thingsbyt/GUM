@@ -1,0 +1,119 @@
+{
+  "checkpoint": "b7eac5a7-877d-4c0b-8a14-17caea7e0b10",
+  "communication_rounds": 2,
+  "completed_missions": 3,
+  "failure_counts": {
+    "4dff7eed1477dba6b043f77486fde91cf5a569d9ec7734aaa49d654a96917ed6": 1
+  },
+  "format": "gum-school-mission-swarm-v1",
+  "knowledge_ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "96d3229667c2fd2b2ef0f6f02b0a840ee104415fdfc507306818d6276d715012",
+      "ledger": "KNOWLEDGE_LEDGER.jsonl",
+      "records": 3
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "96d3229667c2fd2b2ef0f6f02b0a840ee104415fdfc507306818d6276d715012",
+    "records": 3,
+    "valid": true
+  },
+  "members": [
+    {
+      "brain": {
+        "path": "snapshots/b7eac5a7-877d-4c0b-8a14-17caea7e0b10/b6b4f739-ee30-4e8a-8c3a-7f8358cd24df.pt",
+        "sha256": "sha256:2c786d62fb41adb0475d37e75759ac1a1d83746bc94804f19f68f40e9dd406ab"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.333237+00:00",
+        "fingerprint": "4274445447425ebce01846b878dcf9037e51afaba41fcd82a0033aa3203455c0",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+        "name": "Fortis-1",
+        "parent_id": null,
+        "role": "pathfinder",
+        "seed": 8650101
+      },
+      "missions": 3,
+      "shared_imports": 0,
+      "successes": 2
+    },
+    {
+      "brain": {
+        "path": "snapshots/b7eac5a7-877d-4c0b-8a14-17caea7e0b10/64f4b068-8364-4d7c-93eb-70befe540826.pt",
+        "sha256": "sha256:8f06db8f3de48bda0d694e8c61b8169f13ff241ea8fbe449ac7c4dc94bd4d043"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.341707+00:00",
+        "fingerprint": "1fcb0b48be2efee2d8a32b8698a1940b889281dbc3e6652fb42ddc3221845ba3",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "64f4b068-8364-4d7c-93eb-70befe540826",
+        "name": "Fortis-2",
+        "parent_id": null,
+        "role": "challenger",
+        "seed": 8650211
+      },
+      "missions": 3,
+      "shared_imports": 2,
+      "successes": 2
+    },
+    {
+      "brain": {
+        "path": "snapshots/b7eac5a7-877d-4c0b-8a14-17caea7e0b10/a3c6326d-975a-4e14-ad35-bb38c7dca454.pt",
+        "sha256": "sha256:50d1b5b151d3669a8247efd7f2c44f17af15d05e5b9475d9e933919fef3f63a3"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.347706+00:00",
+        "fingerprint": "0a20671102814f369940677b5cb57252f18e0f370f93cdd4d7a7ce52f477c803",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "a3c6326d-975a-4e14-ad35-bb38c7dca454",
+        "name": "Fortis-3",
+        "parent_id": null,
+        "role": "modeler",
+        "seed": 8650307
+      },
+      "missions": 3,
+      "shared_imports": 2,
+      "successes": 2
+    },
+    {
+      "brain": {
+        "path": "snapshots/b7eac5a7-877d-4c0b-8a14-17caea7e0b10/ff000542-4fbb-4219-806d-60448c41c681.pt",
+        "sha256": "sha256:2982d34866849421d8e90e431196381d13befb215dadb2be80f91fa80d66b10a"
+      },
+      "identity": {
+        "born_at_utc": "2026-10-09T21:14:55.353221+00:00",
+        "fingerprint": "5abac41c2a78f4faf6649f1b0fdb5318fa971571ce5cfd1c5f795c9702f96462",
+        "format": "gum-mission-member-identity-v1",
+        "generation": 0,
+        "member_id": "ff000542-4fbb-4219-806d-60448c41c681",
+        "name": "Fortis-4",
+        "parent_id": null,
+        "role": "keeper",
+        "seed": 8650401
+      },
+      "missions": 3,
+      "shared_imports": 2,
+      "successes": 2
+    }
+  ],
+  "mission_ledger": {
+    "anchor": {
+      "format": "gum-ledger-anchor-v1",
+      "head": "0c8e47e777cc60477f31d57839409577205174273a66ad05ab855be84016b3f2",
+      "ledger": "MISSION_LEDGER.jsonl",
+      "records": 7
+    },
+    "anchored": true,
+    "errors": [],
+    "head": "0c8e47e777cc60477f31d57839409577205174273a66ad05ab855be84016b3f2",
+    "records": 7,
+    "valid": true
+  },
+  "share_epochs": 1,
+  "strategy_revisions": 1
+}

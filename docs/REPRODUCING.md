@@ -60,6 +60,23 @@ python -m pytest -q tests/test_school_training.py
 The command refuses to reuse a nonempty workspace. Its result is a systems and
 development check, not sealed evidence.
 
+## Cooperative mission swarm smoke run
+
+This creates a new four-member team, gives it one causal mission and four
+distinct maze missions, then verifies the saved identities, brains, experience
+files, and hash-chained ledgers after reload. It is not a controlled comparison
+or promotion trial.
+
+```powershell
+python scripts/run_school_mission_swarm_smoke.py `
+  --output .test-temp/mission-swarm-output `
+  --work .test-temp/mission-swarm-worlds
+python -m pytest -q tests/test_school_mission_swarm.py
+```
+
+Both paths must be absent before the run. The command refuses to overwrite an
+existing archive so earlier learning cannot be silently replaced.
+
 ## Correct freeze procedure
 
 Never run an evaluation first and write its rules afterward. Use a new empty output directory.

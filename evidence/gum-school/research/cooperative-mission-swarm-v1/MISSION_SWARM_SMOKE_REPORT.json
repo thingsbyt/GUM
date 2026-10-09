@@ -1,0 +1,183 @@
+{
+  "claim_scope": "architecture smoke run; no baseline and no promotion claim",
+  "created_at_utc": "2026-10-09T21:15:04.517044+00:00",
+  "design_checks": {
+    "all_missions_preserved": true,
+    "distinct_worlds_not_blind_retries": true,
+    "four_durable_identities": true,
+    "hidden_world_state_given_to_learners": false,
+    "knowledge_ledger_valid": true,
+    "mission_ledger_valid": true
+  },
+  "device": "cuda",
+  "format": "gum-school-cooperative-mission-swarm-smoke-v1",
+  "missions": [
+    {
+      "attempt": 1,
+      "captain_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+      "experience": {
+        "path": "experiences/b5a6a4dc-4ced-4f2e-85c1-aeb703ffddbc.npz",
+        "sha256": "sha256:8cd20fc7f0025cec18c6e562bb2f344622232195a9914dca0f5c005a91af80d1"
+      },
+      "family": "causal-workshop",
+      "interactions": 14,
+      "mission_id": "b5a6a4dc-4ced-4f2e-85c1-aeb703ffddbc",
+      "proposal_disagreements": 13,
+      "return": 1.6500000000000001,
+      "seed": 21501,
+      "shared_imports": 3,
+      "success": true,
+      "world_id": "causal-workshop-ac3a863fbd238e22"
+    },
+    {
+      "attempt": 1,
+      "captain_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+      "experience": {
+        "path": "experiences/2649c55a-7f54-4b0a-831b-5950e845f128.npz",
+        "sha256": "sha256:5d3e98cf1548cd38586e14887952d550f26f9a5b484d731f3eaff1297aeec11f"
+      },
+      "family": "changing-maze",
+      "interactions": 197,
+      "mission_id": "2649c55a-7f54-4b0a-831b-5950e845f128",
+      "proposal_disagreements": 173,
+      "return": -2.22,
+      "seed": 31801,
+      "shared_imports": 3,
+      "success": true,
+      "world_id": "changing-maze-6a8b4014e634c9e2"
+    },
+    {
+      "attempt": 1,
+      "captain_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+      "experience": {
+        "path": "experiences/b7eac5a7-877d-4c0b-8a14-17caea7e0b10.npz",
+        "sha256": "sha256:aa53f518c0b1c2dc6ed931c6bd7fe4523ecf11ff8f272bb5f7baa4390f4fac7e"
+      },
+      "family": "changing-maze",
+      "interactions": 240,
+      "mission_id": "b7eac5a7-877d-4c0b-8a14-17caea7e0b10",
+      "proposal_disagreements": 202,
+      "return": -3.93,
+      "seed": 31802,
+      "shared_imports": 0,
+      "success": false,
+      "world_id": "changing-maze-e2f1faf9f81fcbbd"
+    },
+    {
+      "attempt": 1,
+      "captain_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+      "experience": {
+        "path": "experiences/b3759116-23f7-4ae6-9189-35af6841036a.npz",
+        "sha256": "sha256:46b0c88f0e2a1ed527dc456888ecd72ea56a31f08e49d881cc28228dbdb796cb"
+      },
+      "family": "changing-maze",
+      "interactions": 240,
+      "mission_id": "b3759116-23f7-4ae6-9189-35af6841036a",
+      "proposal_disagreements": 211,
+      "return": -3.36,
+      "seed": 31803,
+      "shared_imports": 0,
+      "success": false,
+      "world_id": "changing-maze-0b8b3fa6358b19a4"
+    },
+    {
+      "attempt": 1,
+      "captain_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+      "experience": {
+        "path": "experiences/e2fa77e1-36fd-4a36-9ed5-54e0d94a5e62.npz",
+        "sha256": "sha256:ad8fc9e16c220174d0296d1a76123edc98fd5df9955fe5cbeea2cb17c452c77f"
+      },
+      "family": "changing-maze",
+      "interactions": 240,
+      "mission_id": "e2fa77e1-36fd-4a36-9ed5-54e0d94a5e62",
+      "proposal_disagreements": 202,
+      "return": -3.5700000000000003,
+      "seed": 31804,
+      "shared_imports": 0,
+      "success": false,
+      "world_id": "changing-maze-11f805dd7df0ec65"
+    }
+  ],
+  "source_policy": {
+    "path": "evidence/gum-school/sealed-recurrent-composition-official-v1/snapshots/sha256-059137c51bcf5e977d4e56116590cadf1c64d63e9532b930cde60a2758d866a1/state/CAUSAL_META_POLICY.pt",
+    "sha256": "sha256:ea0577c86e68fbf9ed76e2dff0cde4e2e4a42d8cfc812e31c89758967be56453"
+  },
+  "status_after_reload": {
+    "active_mission": null,
+    "communication_rounds": 2,
+    "completed_missions": 5,
+    "experience_archive": {
+      "errors": [],
+      "records": 5,
+      "valid": true
+    },
+    "format": "gum-school-mission-swarm-v1",
+    "knowledge_ledger": {
+      "anchor": {
+        "format": "gum-ledger-anchor-v1",
+        "head": "e3970a41e0e28921db7f0a3dc663d4693be831e8370659a958ae4b7bec7b06dc",
+        "ledger": "KNOWLEDGE_LEDGER.jsonl",
+        "records": 5
+      },
+      "anchored": true,
+      "errors": [],
+      "head": "e3970a41e0e28921db7f0a3dc663d4693be831e8370659a958ae4b7bec7b06dc",
+      "records": 5,
+      "valid": true
+    },
+    "members": [
+      {
+        "fingerprint": "4274445447425ebce01846b878dcf9037e51afaba41fcd82a0033aa3203455c0",
+        "member_id": "b6b4f739-ee30-4e8a-8c3a-7f8358cd24df",
+        "missions": 5,
+        "name": "Fortis-1",
+        "role": "pathfinder",
+        "shared_imports": 0,
+        "successes": 2
+      },
+      {
+        "fingerprint": "1fcb0b48be2efee2d8a32b8698a1940b889281dbc3e6652fb42ddc3221845ba3",
+        "member_id": "64f4b068-8364-4d7c-93eb-70befe540826",
+        "missions": 5,
+        "name": "Fortis-2",
+        "role": "challenger",
+        "shared_imports": 2,
+        "successes": 2
+      },
+      {
+        "fingerprint": "0a20671102814f369940677b5cb57252f18e0f370f93cdd4d7a7ce52f477c803",
+        "member_id": "a3c6326d-975a-4e14-ad35-bb38c7dca454",
+        "missions": 5,
+        "name": "Fortis-3",
+        "role": "modeler",
+        "shared_imports": 2,
+        "successes": 2
+      },
+      {
+        "fingerprint": "5abac41c2a78f4faf6649f1b0fdb5318fa971571ce5cfd1c5f795c9702f96462",
+        "member_id": "ff000542-4fbb-4219-806d-60448c41c681",
+        "missions": 5,
+        "name": "Fortis-4",
+        "role": "keeper",
+        "shared_imports": 2,
+        "successes": 2
+      }
+    ],
+    "mission_ledger": {
+      "anchor": {
+        "format": "gum-ledger-anchor-v1",
+        "head": "5c1ca45683ca1f5aa4626f6546ae32e6612f9eb4ecd1666d9607d5e82067fc8f",
+        "ledger": "MISSION_LEDGER.jsonl",
+        "records": 11
+      },
+      "anchored": true,
+      "errors": [],
+      "head": "5c1ca45683ca1f5aa4626f6546ae32e6612f9eb4ecd1666d9607d5e82067fc8f",
+      "records": 11,
+      "valid": true
+    },
+    "strategy_revisions": 3,
+    "team_size": 4
+  },
+  "wall_clock_seconds": 12.876255800001672
+}

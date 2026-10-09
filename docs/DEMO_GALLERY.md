@@ -8,6 +8,13 @@ The recordings below are authentic runs from the project history. They make beha
 
 Two agents split threats and coordinate shots. The included audit reports 350 hits, both agents active in 8/8 runs, zero friendly fire, and ablation comparisons.
 
+This is an authentic run, but not end-to-end learned Asteroids play. The
+system learns shuffled anonymous control meanings and updates motion tracks
+from pixel changes. Visual component tracking, target assignment, three-step
+pursuit prediction, collision avoidance, firing-lane protection, and the
+turn/fire decision rule are engineered. That distinction is why this older
+showcase can look substantially stronger than the newer neural learner.
+
 ## Maze escape
 
 ![A GUM agent escaping a maze](../assets/demos/maze-escape.gif)
