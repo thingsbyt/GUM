@@ -1,0 +1,128 @@
+{
+  "analysis_plan": {
+    "attribution": {
+      "branches": [
+        "actor-loss-only",
+        "value-loss-only-with-original-0.5-coefficient",
+        "entropy-loss-only-with-original-negative-0.02-coefficient",
+        "original-full-update"
+      ],
+      "gradient_groups": [
+        "visual-encoder",
+        "recurrent-memory",
+        "policy-head",
+        "value-head"
+      ],
+      "measurements": [
+        "raw-return",
+        "value-estimate",
+        "raw-advantage",
+        "normalized-advantage",
+        "recorded-action-probability-before-and-after",
+        "component-gradient-norms-and-cosines",
+        "pre-gate-gate-between-gate-and-escape-escape-and-post-escape-actor-gradient-contributions",
+        "gradient-clip-scale",
+        "adam-step-versus-negative-gradient-cosine"
+      ],
+      "semantic_labels_are_diagnostic_only": true
+    },
+    "correction_decision_rule": [
+      {
+        "candidate": "limit-value-gradient-entry-to-shared-representation",
+        "criterion": "value-only and actor-only probability changes oppose at two or more audited causal contexts, and actor/value gradient cosine is negative in visual or recurrent parameters"
+      },
+      {
+        "candidate": "change-advantage-construction",
+        "criterion": "normalization reverses the sign of raw advantage at two or more audited causal contexts and the actor-only branch follows the reversed sign"
+      },
+      {
+        "candidate": "reduce-update-size",
+        "criterion": "full-gradient clipping scale is below 0.5 or the Adam parameter-step cosine with the negative full gradient is below 0.5 in a shared parameter group"
+      },
+      {
+        "candidate": "no-isolated-correction",
+        "criterion": "none of the preceding mechanisms meets its criterion; stop and prepare an established multi-agent baseline comparison"
+      }
+    ],
+    "correction_protocol": "After attribution, write a separate locked CORRECTION_PLAN.json naming exactly one selected mechanism, its measured justification, and a falsifying outcome before any corrected branch is evaluated.",
+    "independent_replication_unit": "one separately trained four-member team",
+    "reporting": "Report every team, paired branch differences, aggregate bootstrap uncertainty over teams when defined, and exact interaction/update/compute counts. Do not treat the four members as independent samples."
+  },
+  "budgets": {
+    "attribution_environment_interactions": 0,
+    "attribution_optimizer_steps": 16,
+    "correction_optimizer_steps_maximum": 16,
+    "evaluation_branches": 3,
+    "evaluation_episodes_per_branch_per_team": 64,
+    "evaluation_horizon": 80,
+    "evaluation_joint_ticks_maximum": 61440,
+    "independent_teams": 4,
+    "wall_time_minutes_target": 30
+  },
+  "created_at_utc": "2026-10-10T18:59:52.2454041Z",
+  "evaluation": {
+    "environment": "gum-cooperative-escape-development-v1",
+    "fresh_seed_blocks": {
+      "team-1": [9620000, 9620063],
+      "team-2": [9621000, 9621063],
+      "team-3": [9622000, 9622063],
+      "team-4": [9623000, 9623063]
+    },
+    "metrics": [
+      "escapes",
+      "legal-maximum-three-escape-completion",
+      "plate-occupancy-ticks-and-sustained-runs",
+      "gate-open-ticks",
+      "successful-crossings-during-openings",
+      "held-out-change-relative-to-no-update",
+      "recorded-context-retention",
+      "environment-interactions",
+      "optimizer-steps",
+      "wall-time",
+      "compute-device"
+    ],
+    "matched_instances_and_random_streams": true,
+    "previously_revealed_seed_block_prohibited": [9510000, 9510063],
+    "room_a_is_frozen_and_not_used_for_training": true
+  },
+  "format": "gum-cooperative-gradient-study-plan-v1",
+  "hypothesis": "The original complete update fails because one identifiable generic component of the existing update defeats or materially weakens useful actor credit. If no preregistered attribution criterion is met, no isolated correction will be tested.",
+  "integrity": {
+    "all_failures_retained": true,
+    "complete_transitions_required": true,
+    "fabricated_thoughts_prohibited": true,
+    "hidden_coordinates_prohibited": true,
+    "llm_generated_solutions_prohibited": true,
+    "new_critic_prohibited": true,
+    "new_roles_messages_world_model_or_reward_redistribution_prohibited": true,
+    "prescribed_actions_or_demonstrations_prohibited": true,
+    "semantic_event_labels_may_select_measurements_only": true,
+    "staged_or_cherry_picked_success_presentation_prohibited": true
+  },
+  "retention_and_generalization": {
+    "generalization_requirement": "A correction must improve paired held-out development performance across independently trained teams; recorded-context improvement alone is a retention result.",
+    "sealed_policy": "The fresh study seeds become revealed development evidence after this run. A sealed examination is permitted only after repeatable held-out improvement.",
+    "trajectory_selection": "For each preregistered team root, select the earliest completed training episode with escaped_count greater than zero, using no semantic event label. Require a complete archive, immediately preceding coherent checkpoint, and zero episodic action mixer so the ordinary update is exactly reconstructable.",
+    "training_data": "Use only each selected self-generated trajectory. Preserve and report the complete preceding team history, including failures."
+  },
+  "runtime": {
+    "cuda": "12.8",
+    "device": "NVIDIA GeForce RTX 3060",
+    "numpy": "2.5.2",
+    "platform": "Windows 11",
+    "python": "3.12.10",
+    "torch": "2.11.0+cu128"
+  },
+  "source": {
+    "audited_episode_id": "7e8df33d-3876-4908-b2c3-242815b1f210",
+    "audited_pre_update_checkpoint": "57433215-1ff0-4864-aa7f-0ef90fc0a8fc",
+    "base_commit": "0912838ccdb77e7d48fba3d479c4e78206335b13",
+    "team_roots": [
+      "work/escape-development-pilot-20261010/replication-1/novelty-off-action-mixer-off",
+      "work/escape-development-pilot-20261010/replication-2/novelty-off-action-mixer-off",
+      "work/escape-consolidation-pilot-20261010/replication-1/actor-critic-only",
+      "work/escape-consolidation-pilot-20261010/replication-2/actor-critic-only"
+    ]
+  },
+  "stopping_rule": "Run the frozen attribution once. Select at most one correction by the preregistered hierarchy. After the four-team comparison, continue only for repeatable held-out improvement; otherwise report a retention/generalization gap or stop isolated patching and prepare a matched established baseline."
+}
