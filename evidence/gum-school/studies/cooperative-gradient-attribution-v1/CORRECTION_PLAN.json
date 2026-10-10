@@ -1,0 +1,86 @@
+{
+  "attribution_source": {
+    "artifact": "work/cooperative-gradient-attribution-v1/audited/ATTRIBUTION.json",
+    "source_commit": "10ddc6b81b530999413f2d290d404ccdcd58b941"
+  },
+  "branches": {
+    "control": "exact pre-success checkpoint with no update",
+    "corrected": "one original actor-critic update with value-loss gradient stopped at the shared recurrent representation; the existing critic head still trains and still supplies the detached advantage baseline",
+    "original": "one exactly reconstructed original actor-critic update"
+  },
+  "created_at_utc": "2026-10-10T19:04:05.5190881Z",
+  "decision": {
+    "falsifying_outcomes": [
+      "The corrected update is not closer to the actor-only probability change than the original update at at least two of the three audited holder/crosser contexts.",
+      "Corrected held-out escapes do not exceed original held-out escapes in at least three of four independent team replications, or aggregate corrected escapes do not exceed aggregate original escapes."
+    ],
+    "observed_failure_mechanism": "The scaled value gradient is 112 to 358 times larger than the actor gradient in shared visual/recurrent groups across the four audited members. Value-only and actor-only updates move recorded-action probability in opposite directions at the holder-at-gate and crosser-at-escape contexts. Fortis-4 has negative actor/value cosine in both visual and recurrent groups. This meets the first preregistered correction criterion. Advantage-sign reversal occurs at only one of three audited contexts, so the second criterion is not selected. Gradient clipping never activates. Stateful Adam step alignment is low, but update-size is lower in the preregistered hierarchy.",
+    "selected_single_correction": "Set the value-loss gradient scale into shared visual and recurrent policy representation to zero. Do not change rewards, returns, advantage values, policy loss, entropy loss, critic head, optimizer, learning rate, observations, replay selection, or architecture width/depth.",
+    "selection_rule_met": "value-only and actor-only probability changes oppose at two audited contexts, and actor/value cosine is negative in Fortis-4 shared visual and recurrent parameters"
+  },
+  "format": "gum-cooperative-gradient-correction-plan-v1",
+  "integrity": {
+    "correction_selected_before_comparison": true,
+    "event_labels_used_to_select_training_targets": false,
+    "new_critic": false,
+    "new_reward_or_reward_redistribution": false,
+    "prescribed_actions_roles_or_demonstrations": false,
+    "room_a_changed": false,
+    "semantic_labels_used_for_diagnostics_only": true
+  },
+  "literature_classification": {
+    "claim": "Preventing critic-loss gradients from changing policy features is a narrow actor/critic optimization-decoupling test. Decoupling policy and value optimization is established prior work; a positive GUM result would be an implementation finding in this system, not a novel learning principle.",
+    "primary_sources": [
+      {
+        "relevance": "Phasic Policy Gradient explicitly motivates separating policy and value training to avoid objective interference while retaining useful feature sharing.",
+        "title": "Phasic Policy Gradient",
+        "url": "https://arxiv.org/abs/2009.04416"
+      },
+      {
+        "relevance": "IDAAC reports that shared policy/value representations can hurt visual generalization and evaluates decoupled optimization.",
+        "title": "Decoupling Value and Policy for Generalization in Reinforcement Learning",
+        "url": "https://proceedings.mlr.press/v139/raileanu21a.html"
+      },
+      {
+        "relevance": "PCGrad formalizes conflicting and magnitude-dominated multi-objective gradients. It is context only; gradient surgery is not implemented in this study.",
+        "title": "Gradient Surgery for Multi-Task Learning",
+        "url": "https://proceedings.neurips.cc/paper/2020/hash/3fe78a8acf5fda99de95303940a2420c-Abstract.html"
+      }
+    ]
+  },
+  "replications": [
+    {
+      "fresh_evaluation_seed_range": [9620000, 9620063],
+      "selected_episode_id": "7e8df33d-3876-4908-b2c3-242815b1f210",
+      "selection": "earliest successful training episode",
+      "team": "team-1",
+      "team_root": "work/escape-development-pilot-20261010/replication-1/novelty-off-action-mixer-off"
+    },
+    {
+      "fresh_evaluation_seed_range": [9621000, 9621063],
+      "selected_episode_id": "1eec3f10-dccc-4e33-91e3-09fec0516009",
+      "selection": "earliest successful training episode",
+      "team": "team-2",
+      "team_root": "work/escape-development-pilot-20261010/replication-2/novelty-off-action-mixer-off"
+    },
+    {
+      "fresh_evaluation_seed_range": [9622000, 9622063],
+      "selected_episode_id": "563927de-bee4-4636-b793-fdb7164052d0",
+      "selection": "earliest successful training episode",
+      "team": "team-3",
+      "team_root": "work/escape-consolidation-pilot-20261010/replication-1/actor-critic-only"
+    },
+    {
+      "fresh_evaluation_seed_range": [9623000, 9623063],
+      "selected_episode_id": "a47f25f7-dd37-409d-9625-643aff88aedf",
+      "selection": "earliest successful training episode",
+      "team": "team-4",
+      "team_root": "work/escape-consolidation-pilot-20261010/replication-2/actor-critic-only"
+    }
+  ],
+  "result_classification": {
+    "continue": "Both preregistered recorded-context and held-out replication criteria pass. Freeze the correction and proceed to new sealed instances.",
+    "recorded_only": "Recorded-context criterion passes but held-out criterion fails. Report retention/generalization gap and do not claim learned cooperation.",
+    "stop": "Recorded-context criterion fails, or neither recorded nor held-out behavior improves. Stop isolated patches and prepare a matched established multi-agent baseline."
+  }
+}
