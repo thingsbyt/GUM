@@ -7,8 +7,7 @@ from gum.storage import atomic_write_json
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument("study",type=Path);args=parser.parse_args();root=args.study.resolve()
-    original=json.loads((root/"RESULTS_IN_PROGRESS.json").read_text())
-    first=next(row for row in original["completed"] if row["team"]==1 and row["method"]=="gum")
+    first=json.loads((root/"FIRST_CASE_COMPLETED.json").read_text())["team"]
     rows=[first];sources=[];durations=[]
     for path in sorted((root/"parallel-cases").glob("*/STUDY_RESULTS.json")):
         result=json.loads(path.read_text());sources.append(result["provenance"]);durations.append(result["wall_seconds"])
