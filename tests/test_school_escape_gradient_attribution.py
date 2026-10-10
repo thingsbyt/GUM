@@ -11,6 +11,7 @@ from gum.protocol import PublicWorldSpec, Transition
 from gum.school.escape_gradient_attribution import (
     _apply_isolated_update,
     _component_gradients,
+    _gradients,
     _gradient_alignment,
     _parameter_deltas,
     _recorded_graph,
@@ -120,3 +121,22 @@ def test_full_replay_matches_and_value_update_leaves_policy_head_untouched(
     assert metrics["component"] == "value"
     assert float(torch.linalg.vector_norm(deltas["policy_head"])) == 0.0
     assert float(torch.linalg.vector_norm(deltas["visual_encoder"])) > 0.0
+
+
+def test_zero_value_shared_gradient_scale_trains_only_value_head(tmp_path: Path):
+    checkpoint, _, trajectory = _trajectory_and_checkpoint(tmp_path)
+    learner = RecurrentCausalLearner.load(checkpoint)
+    learner.config = RecurrentMetaConfig(
+        **{
+            **learner.config.__dict__,
+            "value_shared_gradient_scale": 0.0,
+        }
+    )
+    learner.policy.config = learner.config
+    graph = _recorded_graph(learner, trajectory)
+    vectors = _gradients(learner, graph["losses"]["value"])
+
+    assert float(torch.linalg.vector_norm(vectors["visual_encoder"])) == 0.0
+    assert float(torch.linalg.vector_norm(vectors["recurrent_layers"])) == 0.0
+    assert float(torch.linalg.vector_norm(vectors["policy_head"])) == 0.0
+    assert float(torch.linalg.vector_norm(vectors["value_head"])) > 0.0

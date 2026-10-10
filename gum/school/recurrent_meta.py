@@ -36,6 +36,7 @@ class RecurrentMetaConfig:
     discount: float = 0.97
     value_coefficient: float = 0.5
     entropy_coefficient: float = 0.02
+    value_shared_gradient_scale: float = 1.0
     gradient_clip: float = 1.0
     batch_episodes: int = 32
     evaluation_temperature: float = 0.25
@@ -55,6 +56,8 @@ class RecurrentMetaConfig:
             raise ValueError("discount must be in [0, 1]")
         if self.value_coefficient < 0.0 or self.entropy_coefficient < 0.0:
             raise ValueError("loss coefficients cannot be negative")
+        if not 0.0 <= self.value_shared_gradient_scale <= 1.0:
+            raise ValueError("value_shared_gradient_scale must be in [0, 1]")
         if self.gradient_clip <= 0.0:
             raise ValueError("gradient_clip must be positive")
         if self.batch_episodes < 1:
@@ -127,7 +130,14 @@ class RecurrentMetaPolicy(nn.Module):
         repeated_hidden = hidden[:, None, :].expand(-1, self.config.action_count, -1)
         actor_input = torch.cat((repeated_hidden, action_memory), dim=2)
         logits = self.actor(actor_input).squeeze(2)
-        return logits, self.critic(hidden).squeeze(1), hidden, action_memory
+        if self.config.value_shared_gradient_scale == 1.0:
+            critic_hidden = hidden
+        elif self.config.value_shared_gradient_scale == 0.0:
+            critic_hidden = hidden.detach()
+        else:
+            scale = self.config.value_shared_gradient_scale
+            critic_hidden = hidden.detach() + scale * (hidden - hidden.detach())
+        return logits, self.critic(critic_hidden).squeeze(1), hidden, action_memory
 
 
 class RecurrentCausalLearner:
