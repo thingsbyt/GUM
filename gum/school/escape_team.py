@@ -23,12 +23,15 @@ from gum.lineage import HashLedger, canonical, file_sha256
 from gum.storage import atomic_write_bytes, atomic_write_json
 
 from .escape_chamber import (
+    ACTION_COUNT,
     CONTRACT_VERSION,
     MEMBER_NAMES,
     MEMBER_SHAPES,
+    ROOM_A_ADAPTER,
     TEAM_SIZE,
     EscapeChamberRoomA,
     RewardTable,
+    make_escape_chamber,
 )
 from .recurrent_meta import RecurrentCausalLearner, RecurrentMetaConfig
 
@@ -120,6 +123,7 @@ class EscapeTeam:
         seeds: tuple[int, int, int, int] = (9_310_101, 9_310_211, 9_310_307, 9_310_401),
         source_policy: Path | None = None,
         config: RecurrentMetaConfig | None = None,
+        exploration_overrides: dict[str, float] | None = None,
         device: str = "cpu",
         reward_table: RewardTable | None = None,
     ) -> "EscapeTeam":
@@ -155,6 +159,24 @@ class EscapeTeam:
             episodic_action_exploration_mix=0.50,
             episodic_novelty_coefficient=0.01,
         )
+        overrides = dict(exploration_overrides or {})
+        permitted = {
+            "training_exploration_mix",
+            "episodic_action_exploration_mix",
+            "episodic_novelty_coefficient",
+            "entropy_coefficient",
+        }
+        unexpected = sorted(set(overrides).difference(permitted))
+        if unexpected:
+            raise EscapeTeamError(
+                "unsupported exploration override(s): " + ", ".join(unexpected)
+            )
+        if overrides:
+            shared_config = replace(shared_config, **overrides)
+        shared_config.validate()
+        initialization["exploration_configuration"] = {
+            key: getattr(shared_config, key) for key in sorted(permitted)
+        }
         members = []
         for index, seed in enumerate(seeds):
             learner = RecurrentCausalLearner(seed, config=shared_config, device=device)
@@ -198,13 +220,15 @@ class EscapeTeam:
         seed: int,
         training: bool,
         horizon: int = 240,
+        environment_adapter: str = ROOM_A_ADAPTER,
         on_step: Callable[[EscapeChamberRoomA, dict[str, Any]], None] | None = None,
     ) -> dict[str, Any]:
         if self._running:
             raise EscapeTeamError("an escape-team episode is already running")
         self._running = True
         episode_id = str(uuid.uuid4())
-        world = EscapeChamberRoomA(
+        world = make_escape_chamber(
+            environment_adapter,
             seed=int(seed), horizon=int(horizon), reward_table=self.reward_table
         )
         self._current_world = world
@@ -281,6 +305,7 @@ class EscapeTeam:
                 episode_id,
                 seed=int(seed),
                 training=training,
+                environment_adapter=environment_adapter,
                 observations=observed_rows,
                 next_observations=next_rows,
                 actions=action_rows,
@@ -296,6 +321,7 @@ class EscapeTeam:
                 "seed": int(seed),
                 "training": bool(training),
                 "treatment": self.reward_table.treatment,
+                "environment_adapter": environment_adapter,
                 "sharing_mode": self.sharing_mode,
                 "steps": world.steps,
                 "escaped_count": len(world.escape_order),
@@ -329,6 +355,7 @@ class EscapeTeam:
         *,
         seed: int,
         training: bool,
+        environment_adapter: str,
         observations,
         next_observations,
         actions,
@@ -360,6 +387,7 @@ class EscapeTeam:
             "sha256": f"sha256:{file_sha256(path)}",
             "contract_version": CONTRACT_VERSION,
             "environment_seed": int(seed),
+            "environment_adapter": environment_adapter,
             "training": bool(training),
             "joint_ticks": len(actions),
             "members": [member.identity.member_id for member in self.members],
@@ -368,6 +396,87 @@ class EscapeTeam:
                 "team_source_sha256": f"sha256:{file_sha256(Path(__file__))}",
             },
         }
+
+    def consolidate_rewarded_episode(
+        self,
+        episode_id: str,
+        *,
+        epochs: int = 25,
+    ) -> dict[str, Any]:
+        """Rehearse one genuinely rewarded trajectory and persist the result.
+
+        Selection uses only the public scalar outcome already recorded in the
+        episode capsule. Training receives member pixels, executed anonymous
+        actions, and scalar rewards; it receives no coordinates, mechanics,
+        semantic actions, roles, or authored targets.
+        """
+        if self._running:
+            raise EscapeTeamError("cannot consolidate while an episode is running")
+        if epochs < 1:
+            raise EscapeTeamError("consolidation epochs must be positive")
+        capsule = None
+        with self.ledger.path.open(encoding="utf-8") as handle:
+            for line in handle:
+                row = json.loads(line)
+                payload = row.get("payload", {})
+                if (
+                    row.get("event") == "episode-completed"
+                    and payload.get("episode_id") == episode_id
+                ):
+                    capsule = payload
+                    break
+        if capsule is None:
+            raise EscapeTeamError("episode is not present in the verified ledger")
+        if not capsule.get("training"):
+            raise EscapeTeamError("evaluation experience cannot be consolidated")
+        public_returns = [float(value) for value in capsule.get("returns", [])]
+        if not public_returns or max(public_returns) <= 0.0:
+            raise EscapeTeamError("consolidation requires genuine positive task reward")
+        reference = capsule["archive"]
+        archive_path = (self.root / reference["path"]).resolve()
+        try:
+            archive_path.relative_to(self.root.resolve())
+        except ValueError as error:
+            raise EscapeTeamError("transition archive path escapes team directory") from error
+        if f"sha256:{file_sha256(archive_path)}" != reference.get("sha256"):
+            raise EscapeTeamError("transition archive hash differs")
+        with np.load(archive_path, allow_pickle=False) as saved:
+            arrays = {name: saved[name] for name in saved.files}
+
+        updates = []
+        for index, member in enumerate(self.members):
+            active = arrays["active_before"][:, index].astype(bool)
+            actions = arrays["actions"][:, index][active].astype(int).tolist()
+            trajectory = {
+                "observations": [
+                    value for value in arrays["observations"][:, index][active]
+                ],
+                "actions": actions,
+                "rewards": arrays["rewards"][:, index][active].astype(float).tolist(),
+                "action_count": ACTION_COUNT,
+            }
+            if not actions or any(action < 0 for action in actions):
+                raise EscapeTeamError("rewarded member trajectory is incomplete")
+            updates.append(member.learner.fit_self_imitation(
+                [trajectory], epochs=epochs, batch_episodes=1
+            ))
+        consolidation_id = str(uuid.uuid4())
+        record = {
+            "consolidation_id": consolidation_id,
+            "episode_id": episode_id,
+            "archive": reference,
+            "selection": "positive-public-scalar-task-return",
+            "epochs": int(epochs),
+            "updates": updates,
+            "semantic_labels_used": False,
+            "scripted_targets_used": False,
+            "sharing_used": False,
+        }
+        self.ledger.append(
+            "reward-selected-consolidation", record, run_id=consolidation_id
+        )
+        self._checkpoint(f"consolidation-{consolidation_id}")
+        return record
 
     def _checkpoint(self, label: str) -> Path:
         snapshot = self.root / "snapshots" / label

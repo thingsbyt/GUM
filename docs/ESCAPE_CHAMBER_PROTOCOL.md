@@ -124,6 +124,21 @@ multi-seed learning curves, and transfer rooms remain future gates. Until those
 are frozen and run, Room A rehearsals are development history rather than a
 cooperation or learning breakthrough.
 
+## First learning diagnosis
+
+The first six-episode Room A rehearsal has now been replayed and measured. It
+contains one persistent team's history, zero escapes, 72 gate-opening events,
+and zero gate-crossing proposals made while the gate was open. Its exact-frame
+novelty return is about 9.7 times the magnitude of the external task return,
+and its action entropy is 99.9914% of the five-action maximum. Frozen visual
+probes do not show consistent improvement over matched birth encoders.
+
+These are measurements, not learner inputs and not proof of a single cause.
+They justify a declared easier development room and matched exploration
+ablations before adding roles, messages, or a world model. Room A remains the
+frozen hard target. See `docs/ESCAPE_CHAMBER_DIAGNOSIS.md` for the full claim
+boundary and study design.
+
 ## Run and inspect locally
 
 The live viewer creates or reloads one durable four-member team. The page begins

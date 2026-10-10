@@ -8,7 +8,7 @@ import pytest
 pytest.importorskip("torch")
 
 from gum.school import escape_team as escape_team_module
-from gum.school.escape_chamber import RewardTable
+from gum.school.escape_chamber import DEVELOPMENT_ADAPTER, RewardTable
 from gum.school.escape_team import EscapeTeam, EscapeTeamError
 from gum.school.recurrent_meta import RecurrentMetaConfig
 
@@ -66,6 +66,42 @@ def test_four_bodies_execute_separate_actions_and_archive_complete_transitions(t
     assert restored.sharing_mode == "off"
     assert all(member.episodes == 1 for member in restored.members)
     assert restored.verify_archives()["valid"]
+
+
+def test_development_adapter_and_exploration_override_are_persisted(tmp_path: Path):
+    team = EscapeTeam.create(
+        tmp_path / "development",
+        seeds=(501, 502, 503, 504),
+        config=RecurrentMetaConfig(
+            hidden_size=8, action_memory_size=4, visual_width=4, pooled_size=4,
+            batch_episodes=1,
+        ),
+        exploration_overrides={"episodic_novelty_coefficient": 0.0},
+    )
+    capsule = team.run_episode(
+        seed=811,
+        training=True,
+        horizon=3,
+        environment_adapter=DEVELOPMENT_ADAPTER,
+    )
+    loaded = EscapeTeam.load(team.root)
+
+    assert capsule["environment_adapter"] == DEVELOPMENT_ADAPTER
+    assert capsule["archive"]["environment_adapter"] == DEVELOPMENT_ADAPTER
+    assert loaded.members[0].learner.config.episodic_novelty_coefficient == 0.0
+
+
+def test_consolidation_rejects_unrewarded_experience(tmp_path: Path):
+    team = _team(tmp_path / "team")
+    capsule = team.run_episode(
+        seed=913,
+        training=True,
+        horizon=1,
+        environment_adapter=DEVELOPMENT_ADAPTER,
+    )
+    assert capsule["escaped_count"] == 0
+    with pytest.raises(EscapeTeamError, match="positive task reward"):
+        team.consolidate_rewarded_episode(capsule["episode_id"], epochs=1)
 
 
 def test_pointer_interruption_recovers_matching_episode_checkpoint(

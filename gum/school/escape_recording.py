@@ -13,7 +13,13 @@ from PIL import Image
 from gum.lineage import HashLedger, file_sha256
 from gum.storage import atomic_write_bytes, atomic_write_json
 
-from .escape_chamber import CONTRACT_VERSION, TEAM_SIZE, EscapeChamberRoomA, RewardTable
+from .escape_chamber import (
+    CONTRACT_VERSION,
+    ROOM_A_ADAPTER,
+    TEAM_SIZE,
+    RewardTable,
+    make_escape_chamber,
+)
 from .escape_team import LEDGER_FILENAME, EscapeTeam, EscapeTeamError
 
 
@@ -91,7 +97,9 @@ def record_episode_gif(
     if actions.ndim != 2 or actions.shape[1] != TEAM_SIZE:
         raise EscapeTeamError("joint action archive has the wrong shape")
     horizon = len(actions)
-    world = EscapeChamberRoomA(
+    adapter = archive_ref.get("environment_adapter", ROOM_A_ADAPTER)
+    world = make_escape_chamber(
+        adapter,
         seed=int(archive_ref["environment_seed"]),
         horizon=horizon,
         reward_table=table,
@@ -134,6 +142,7 @@ def record_episode_gif(
         "format": RECORDING_FORMAT,
         "episode_id": capsule["episode_id"],
         "environment_seed": int(archive_ref["environment_seed"]),
+        "environment_adapter": adapter,
         "contract_version": archive_ref.get("contract_version", CONTRACT_VERSION),
         "training": bool(capsule["training"]),
         "treatment": capsule["treatment"],

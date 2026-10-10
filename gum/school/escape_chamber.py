@@ -22,6 +22,7 @@ from gum.protocol import PublicWorldSpec, Transition
 TEAM_SIZE = 4
 ACTION_COUNT = 5
 ROOM_A_ADAPTER = "gum-cooperative-escape-room-a-v1"
+DEVELOPMENT_ADAPTER = "gum-cooperative-escape-development-v1"
 CONTRACT_VERSION = 1
 WAIT, NORTH, EAST, SOUTH, WEST = "wait", "north", "east", "south", "west"
 SEMANTIC_ACTIONS = (WAIT, NORTH, EAST, SOUTH, WEST)
@@ -128,6 +129,8 @@ class EscapeChamberRoomA:
     spawn_positions = ((3, 2), (4, 2), (3, 6), (4, 6))
     policy_shape = (96, 160, 3)
     spectator_shape = (720, 1280, 3)
+    adapter = ROOM_A_ADAPTER
+    room_label = "ROOM A"
 
     def __init__(
         self,
@@ -150,9 +153,9 @@ class EscapeChamberRoomA:
 
     def public_spec(self) -> PublicWorldSpec:
         return PublicWorldSpec(
-            world_id=f"escape-room-a-{self.seed}",
+            world_id=f"{self.adapter}-{self.seed}",
             family="cooperative-escape-chamber",
-            adapter=ROOM_A_ADAPTER,
+            adapter=self.adapter,
             agents=TEAM_SIZE,
             observation_kind="rgb-member-perspective-full-room",
             observation_shape=self.policy_shape,
@@ -511,7 +514,10 @@ class EscapeChamberRoomA:
         image.paste(room, (30, 54))
         draw = ImageDraw.Draw(image)
         font = ImageFont.load_default()
-        draw.text((31, 19), "ROOM A  /  ONE HOLDS, THREE LEAVE", fill=(238, 231, 210), font=font)
+        draw.text(
+            (31, 19), f"{self.room_label}  /  ONE HOLDS, THREE LEAVE",
+            fill=(238, 231, 210), font=font,
+        )
         draw.text((970, 54), f"EPISODE SEED  {self.episode_seed}", fill=(147, 158, 170), font=font)
         draw.text((970, 82), f"INCENTIVE  {self.reward_table.treatment.upper()}",
                   fill=(221, 186, 98), font=font)
@@ -541,6 +547,7 @@ class EscapeChamberRoomA:
         value = {
             "format": "gum-cooperative-escape-room-a-audit-v1",
             "contract_version": CONTRACT_VERSION,
+            "environment_adapter": self.adapter,
             "episode_seed": self.episode_seed,
             "action_map": list(self._action_map),
             "positions": [None if value is None else list(value) for value in self.positions],
@@ -564,6 +571,39 @@ class EscapeChamberRoomA:
         if semantic not in SEMANTIC_ACTIONS:
             raise EscapeChamberError("unknown semantic action")
         return self._action_map.index(semantic)
+
+
+class EscapeChamberDevelopment(EscapeChamberRoomA):
+    """Declared easier room used to identify the learning bottleneck.
+
+    It preserves the same pixels, anonymous controls, simultaneous physics,
+    sparse task reward, and holder/crosser requirement. No body starts on the
+    plate and no role is assigned. Only the geometry is simplified.
+    """
+
+    adapter = DEVELOPMENT_ADAPTER
+    room_label = "DEVELOPMENT ROOM"
+    plate = (5, 4)
+    spawn_positions = ((4, 4), (7, 4), (4, 3), (4, 5))
+
+
+def make_escape_chamber(
+    adapter: str,
+    *,
+    seed: int,
+    horizon: int = 240,
+    reward_table: RewardTable | None = None,
+) -> EscapeChamberRoomA:
+    """Construct a declared escape environment from persisted provenance."""
+    worlds = {
+        ROOM_A_ADAPTER: EscapeChamberRoomA,
+        DEVELOPMENT_ADAPTER: EscapeChamberDevelopment,
+    }
+    try:
+        world_type = worlds[adapter]
+    except KeyError as error:
+        raise EscapeChamberError(f"unknown escape environment adapter: {adapter}") from error
+    return world_type(seed=seed, horizon=horizon, reward_table=reward_table)
 
 
 def single_body_reachable_cells() -> set[tuple[int, int]]:

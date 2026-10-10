@@ -4,12 +4,14 @@ import numpy as np
 import pytest
 
 from gum.school.escape_chamber import (
+    DEVELOPMENT_ADAPTER,
     EAST,
     NORTH,
     SOUTH,
     WAIT,
     WEST,
     EscapeChamberError,
+    EscapeChamberDevelopment,
     EscapeChamberRoomA,
     RewardTable,
     room_a_invariant_report,
@@ -73,6 +75,21 @@ def test_single_body_cannot_reach_gate_outside_under_exhaustive_position_search(
     assert report["single_body_escape_possible"] is False
     assert report["single_body_reachable_cells"] == 49
     assert report["plate_gate_manhattan_distance"] >= 5
+
+
+def test_development_room_simplifies_geometry_without_supplying_holder():
+    world = EscapeChamberDevelopment(seed=881, horizon=3)
+    world.reset()
+
+    assert world.public_spec().adapter == DEVELOPMENT_ADAPTER
+    assert world.plate not in world.positions
+    assert world.gate_inside in world.positions
+    assert abs(world.plate[0] - world.gate_inside[0]) == 2
+
+    step = world.step(_joint(world, {0: EAST, 1: EAST}))
+
+    assert step.resolution["gate_open"] is True
+    assert step.resolution["gate_crossers"] == [1]
 
 
 def test_isolated_positive_control_gets_exactly_three_out_and_keeps_holder_inside():
