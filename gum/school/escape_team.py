@@ -275,7 +275,7 @@ class EscapeTeam:
                         member.learner.observe(
                             actions[index], step.transition_for(index), training=training
                         )
-                    elif step.rewards[index] != 0.0:
+                    else:
                         member.learner.credit_delayed_reward(
                             step.rewards[index], training=training
                         )
@@ -648,9 +648,15 @@ class EscapeTeam:
             if hashlib.sha256(canonical(fingerprint_body)).hexdigest() != identity.fingerprint:
                 raise EscapeTeamError("member identity fingerprint differs")
             brain = root / row["brain"]["path"]
+            method = value["initialization"].get("learning_method")
+            learner_type = RecurrentCausalLearner
+            if method in {"independent-ppo", "gum-elapsed-reward-reference"}:
+                from .independent_ppo import IndependentPPOLearner, ElapsedRewardGUMLearner
+                learner_type = (IndependentPPOLearner if method == "independent-ppo"
+                                else ElapsedRewardGUMLearner)
             members.append(_EscapeMember(
                 identity,
-                RecurrentCausalLearner.load(brain, device=device),
+                learner_type.load(brain, device=device),
                 episodes=int(row["episodes"]),
                 escapes=int(row["escapes"]),
                 returns=float(row["returns"]),
