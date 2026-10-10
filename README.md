@@ -156,12 +156,26 @@ corrected result supports useful exploration but not robust maze weight
 learning. The isolated runs are retained as diagnostic history; the cooperative
 mission structure is the new development direction, not an official promotion.
 
+A new four-body cooperative escape chamber is now available as a development
+apparatus. Four persistent learners act independently from their own pixel
+views in one simultaneous room; no captain or scripted learner route chooses
+their actions. The environment has an exact legal maximum of three escapes,
+because one living body must hold the pressure plate. A loopback-only live
+viewer shows the authoritative room beside all four exact learner rasters, and
+complete episodes can be replay-verified into playable recordings. This is
+infrastructure, not yet evidence that cooperation was learned.
+
+```bash
+python scripts/run_escape_chamber_watch.py --workspace work/escape-chamber-live --device cuda --open-browser
+```
+
 [Read the GUM School curriculum](docs/GUM_SCHOOL_CURRICULUM.md)
 [Read the GUM School engine boundary](docs/GUM_SCHOOL_ENGINE.md)
 [Read the foundational world admission](docs/GUM_SCHOOL_WORLDS.md)
 [Read the bounded training rehearsal](docs/GUM_SCHOOL_TRAINING_LANE.md)
 [Read the first sealed examination](docs/GUM_SCHOOL_SEALED_EXAM.md)
 [Read the cooperative mission swarm design](docs/MISSION_SWARM.md)
+[Read the cooperative escape chamber protocol](docs/ESCAPE_CHAMBER_PROTOCOL.md)
 
 ## Research package
 
@@ -180,6 +194,7 @@ mission structure is the new development direction, not an official promotion.
 - [GUM School sealed examinations](docs/GUM_SCHOOL_SEALED_EXAM.md)
 - [GUM School implementation handoff](docs/GUM_SCHOOL_HANDOFF.md)
 - [Cooperative mission swarm](docs/MISSION_SWARM.md)
+- [Cooperative escape chamber protocol](docs/ESCAPE_CHAMBER_PROTOCOL.md)
 - [Research context and citations](docs/RESEARCH_CONTEXT.md)
 - [Reproduce the experiments](docs/REPRODUCING.md)
 - [Release verification](docs/VERIFICATION.md)

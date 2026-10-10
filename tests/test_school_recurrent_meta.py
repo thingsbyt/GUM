@@ -138,6 +138,60 @@ def test_generic_action_explorer_learns_effects_from_pixel_change():
     assert sum(learner._episodic_action_counts.values())[action] == 1
 
 
+def test_each_learner_owns_a_reproducible_sampling_stream():
+    observation = np.zeros((72, 72, 3), dtype=np.uint8)
+    left = RecurrentCausalLearner(15)
+    right = RecurrentCausalLearner(15)
+    left.begin(_spec(), observation, training=True)
+    right.begin(_spec(), observation, training=True)
+    assert [left.act(observation, training=True) for _ in range(8)] == [
+        right.act(observation, training=True) for _ in range(8)
+    ]
+
+
+def test_training_sampling_stream_survives_checkpoint(tmp_path: Path):
+    observation = np.zeros((72, 72, 3), dtype=np.uint8)
+    learner = RecurrentCausalLearner(115)
+    learner.begin(_spec(), observation, training=True)
+    for _ in range(8):
+        learner.act(observation, training=True)
+    state_before_next_episode = learner._training_generator.get_state().clone()
+    learner.begin(_spec(), observation, training=True)
+    assert torch.equal(
+        state_before_next_episode,
+        learner._training_generator.get_state(),
+    )
+    path = tmp_path / "sampling-stream.pt"
+    learner.save(path)
+    restored = RecurrentCausalLearner.load(path)
+    assert torch.equal(
+        learner._training_generator.get_state(),
+        restored._training_generator.get_state(),
+    )
+    learner.begin(_spec(), observation, training=True)
+    restored.begin(_spec(), observation, training=True)
+    assert [learner.act(observation, training=True) for _ in range(8)] == [
+        restored.act(observation, training=True) for _ in range(8)
+    ]
+
+
+def test_delayed_team_reward_credits_last_action_without_new_interaction():
+    observation = np.zeros((72, 72, 3), dtype=np.uint8)
+    learner = RecurrentCausalLearner(16)
+    learner.begin(_spec(), observation, training=True)
+    action = learner.act(observation, training=True)
+    learner.observe(
+        action,
+        Transition(observation, 1.0, False, False, _ForbiddenInfo()),
+        training=True,
+    )
+    interactions = learner.training_interactions
+    learner.credit_delayed_reward(0.5, training=True)
+    assert learner._rewards == pytest.approx([1.5])
+    assert learner.training_interactions == interactions
+    assert learner.delayed_reward_events == 1
+
+
 def test_checkpoint_round_trip(tmp_path: Path):
     learner = RecurrentCausalLearner(9, config=RecurrentMetaConfig(hidden_size=16))
     path = tmp_path / "policy.pt"

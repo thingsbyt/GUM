@@ -168,7 +168,10 @@ class RecurrentCausalLearner:
         self._pending: list[dict[str, Any]] = []
         self._last_confidence = 0.0
         self._training = False
-        self._generator = torch.Generator(device="cpu")
+        self._training_generator = torch.Generator(device="cpu")
+        self._training_generator.manual_seed(self.seed % (2**63 - 1))
+        self._evaluation_generator = torch.Generator(device="cpu")
+        self.delayed_reward_events = 0
         self._episodic_counts: dict[str, int] = {}
         self._episodic_action_counts: dict[str, np.ndarray] = {}
         self._action_effect_changes = np.zeros(self.config.action_count, dtype=np.float64)
@@ -208,8 +211,13 @@ class RecurrentCausalLearner:
         self._action_effect_changes.fill(0.0)
         self._action_effect_trials.fill(0.0)
         self._acted_observation_key = None
-        # Evaluation remains stochastic but reproducible for each public world.
-        self._generator.manual_seed(self._episode_seed(spec))
+        # Training uses a continuous, checkpointed per-learner stream rather
+        # than PyTorch's process-global RNG. Frozen evaluation is reset from
+        # public specification so a repeated evaluation remains reproducible.
+        if not training:
+            self._evaluation_generator.manual_seed(
+                (self.seed + self._episode_seed(spec)) % (2**63 - 1)
+            )
 
     def _policy_step(self, observation: Any):
         if self._spec is None or self._hidden is None or self._action_memory is None:
@@ -283,12 +291,13 @@ class RecurrentCausalLearner:
                     (1.0 - action_mix) * probabilities
                     + action_mix * exploration_tensor
                 )
-            if training:
-                action_tensor = torch.multinomial(probabilities, 1).squeeze(1)
-            else:
-                action_tensor = torch.multinomial(
-                    probabilities.cpu(), 1, generator=self._generator
-                ).squeeze(1).to(self.device)
+            action_tensor = torch.multinomial(
+                probabilities.cpu(),
+                1,
+                generator=(
+                    self._training_generator if training else self._evaluation_generator
+                ),
+            ).squeeze(1).to(self.device)
             log_probabilities = torch.log(
                 probabilities.clamp_min(torch.finfo(probabilities.dtype).tiny)
             )
@@ -354,6 +363,27 @@ class RecurrentCausalLearner:
             self.training_interactions += 1
         else:
             self.evaluation_interactions += 1
+
+    def credit_delayed_reward(self, reward: float, *, training: bool) -> None:
+        """Credit public reward received while a body is no longer acting.
+
+        Multi-agent environments may continue paying team reward after one
+        body becomes inactive. The credit is attached to that member's last
+        executed action; it does not create a fictitious action, observation,
+        exploration count, or interaction. Evaluation callers retain outcome
+        rewards externally because there is no training trajectory to update.
+        """
+        if bool(training) != self._training:
+            raise ValueError("delayed reward training mode differs from begin")
+        value = float(reward)
+        if not np.isfinite(value):
+            raise ValueError("reward must be finite")
+        if not training or value == 0.0:
+            return
+        if not self._rewards:
+            raise RuntimeError("delayed reward requires a prior executed action")
+        self._rewards[-1] += value
+        self.delayed_reward_events += 1
 
     def finish_episode(self, *, training: bool) -> dict[str, float] | None:
         if bool(training) != self._training:
@@ -739,6 +769,7 @@ class RecurrentCausalLearner:
             "evaluation_episodes": self.evaluation_episodes,
             "evaluation_interactions": self.evaluation_interactions,
             "intrinsic_reward_total": self.intrinsic_reward_total,
+            "delayed_reward_events": self.delayed_reward_events,
             "information_boundary": [
                 "pixels", "previous_action", "scalar_reward", "termination", "memory"
             ],
@@ -754,6 +785,7 @@ class RecurrentCausalLearner:
                 "config": asdict(self.config),
                 "policy": self.policy.state_dict(),
                 "optimizer": self.optimizer.state_dict(),
+                "training_generator_state": self._training_generator.get_state(),
                 "status": self.status(),
             },
             path,
@@ -770,6 +802,8 @@ class RecurrentCausalLearner:
         result = cls(value["seed"], config=config, device=device)
         result.policy.load_state_dict(value["policy"])
         result.optimizer.load_state_dict(value["optimizer"])
+        if "training_generator_state" in value:
+            result._training_generator.set_state(value["training_generator_state"].cpu())
         status = value["status"]
         for field in (
             "training_episodes", "training_interactions",
@@ -777,4 +811,5 @@ class RecurrentCausalLearner:
         ):
             setattr(result, field, int(status[field]))
         result.intrinsic_reward_total = float(status.get("intrinsic_reward_total", 0.0))
+        result.delayed_reward_events = int(status.get("delayed_reward_events", 0))
         return result
