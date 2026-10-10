@@ -5,6 +5,7 @@ from dataclasses import asdict, replace
 import io
 import json
 from pathlib import Path
+import subprocess
 import time
 from typing import Any, Callable
 
@@ -565,6 +566,9 @@ def run_correction_study(
     atomic_write_json(recovery_path, recovery, backup=False, sort_keys=True)
     return {
         "format": STUDY_FORMAT,
+        "source_commit": subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=repo, text=True
+        ).strip(),
         "study_plan": {
             "path": plan_path.relative_to(repo).as_posix(),
             "sha256": f"sha256:{file_sha256(plan_path)}",

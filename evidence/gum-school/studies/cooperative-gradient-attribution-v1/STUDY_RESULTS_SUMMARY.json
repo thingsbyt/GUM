@@ -1,0 +1,118 @@
+{
+  "artifact_integrity": {
+    "attribution_sha256": "sha256:0f226561e8af8518f17dc834214ca5a3043e0a7c24529d0eae237faed6594e49",
+    "complete_evaluation_transition_archives": 768,
+    "correction_plan_sha256": "sha256:d5b4f821f4ced9edf743e635c77df66662b5cac8755d76b8f507fb0ea9f5a743",
+    "evaluation_joint_ticks_verified": 61440,
+    "recovery_record_sha256": "sha256:1cc1ee7cf238db7f6f5a0a384314b9a099ca3cf8d18906eb00d7e508626a708e",
+    "study_plan_sha256": "sha256:c3f4f546e577885c63156be0e098df163ff53a2d98dd8ea40fae895acd24cf83",
+    "study_results_sha256": "sha256:8bd5649bc61ce90a92ee8ec02a41cb9b0cb3187865e31c108398170c435e33d5"
+  },
+  "attribution": {
+    "adam_step_cosine_with_negative_full_gradient_all_parameters_range": [
+      0.21524573789067844,
+      0.2854031409909183
+    ],
+    "advantage_sign_reversal_at_audited_contexts": 1,
+    "gradient_clipping_activated": false,
+    "original_update_reproduced_exactly_for_all_members": true,
+    "value_to_actor_gradient_norm_ratio_in_shared_groups_range": [112.0, 358.0],
+    "value_and_actor_probability_effects_opposed_at_audited_contexts": 2
+  },
+  "branches": {
+    "control": {
+      "episodes": 256,
+      "episodes_with_escape": 12,
+      "legal_maximum_completions": 0,
+      "total_escapes": 12,
+      "total_gate_crossings": 37,
+      "total_gate_open_ticks": 1947,
+      "total_plate_ticks": 1947
+    },
+    "corrected": {
+      "episodes": 256,
+      "episodes_with_escape": 14,
+      "legal_maximum_completions": 0,
+      "total_escapes": 14,
+      "total_gate_crossings": 37,
+      "total_gate_open_ticks": 1972,
+      "total_plate_ticks": 1972
+    },
+    "original": {
+      "episodes": 256,
+      "episodes_with_escape": 14,
+      "legal_maximum_completions": 0,
+      "total_escapes": 14,
+      "total_gate_crossings": 38,
+      "total_gate_open_ticks": 1943,
+      "total_plate_ticks": 1943
+    }
+  },
+  "compute": {
+    "device": "NVIDIA GeForce RTX 3060",
+    "new_training_environment_interactions": 0,
+    "replay_optimizer_steps": 32,
+    "wall_time_seconds": 1255.11935730002
+  },
+  "correction": {
+    "description": "Stop value-loss gradients at the shared recurrent representation while retaining the existing critic head, detached advantage baseline, actor loss, entropy loss, optimizer, and rewards.",
+    "known_fix_class_not_novel_mechanism": true,
+    "mechanism_check_contexts_closer_to_actor_only": 3,
+    "mechanism_check_required": 2,
+    "mechanism_check_passed": true
+  },
+  "created_at_utc": "2026-10-10T19:30:54.9230321Z",
+  "decision": "recorded-context-only-retention-generalization-gap",
+  "format": "gum-cooperative-gradient-correction-summary-v1",
+  "held_out": {
+    "bootstrap_95_percent_interval_corrected_minus_original_escape_rate": [
+      0.0,
+      0.0
+    ],
+    "corrected_minus_original_escape_rate_by_team": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "held_out_criterion_passed": false,
+    "teams_with_strict_corrected_improvement": 0
+  },
+  "independent_replications": [
+    {
+      "control_escapes": 4,
+      "corrected_escapes": 6,
+      "episodes_per_branch": 64,
+      "original_escapes": 6,
+      "selected_episode_id": "7e8df33d-3876-4908-b2c3-242815b1f210",
+      "team": "team-1"
+    },
+    {
+      "control_escapes": 5,
+      "corrected_escapes": 5,
+      "episodes_per_branch": 64,
+      "original_escapes": 5,
+      "selected_episode_id": "1eec3f10-dccc-4e33-91e3-09fec0516009",
+      "team": "team-2"
+    },
+    {
+      "control_escapes": 1,
+      "corrected_escapes": 1,
+      "episodes_per_branch": 64,
+      "original_escapes": 1,
+      "selected_episode_id": "563927de-bee4-4636-b793-fdb7164052d0",
+      "team": "team-3"
+    },
+    {
+      "control_escapes": 2,
+      "corrected_escapes": 2,
+      "episodes_per_branch": 64,
+      "original_escapes": 2,
+      "selected_episode_id": "a47f25f7-dd37-409d-9625-643aff88aedf",
+      "team": "team-4"
+    }
+  ],
+  "result": "The correction removed the measured value-loss effect at the audited contexts but produced no held-out advantage over the original update in any team. This isolates a real recorded-context interference effect but does not explain or solve generalization. Stop isolated patches and prepare an established multi-agent baseline under the same contract.",
+  "source_commit": "1bf9d200ebb4e1bd928112789b2e6bc0cc8074e1",
+  "team_level_replications": 4
+}

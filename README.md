@@ -177,6 +177,7 @@ python scripts/run_escape_chamber_watch.py --workspace work/escape-chamber-live 
 [Read the cooperative mission swarm design](docs/MISSION_SWARM.md)
 [Read the cooperative escape chamber protocol](docs/ESCAPE_CHAMBER_PROTOCOL.md)
 [Read the cooperative escape learning diagnosis](docs/ESCAPE_CHAMBER_DIAGNOSIS.md)
+[Read the controlled cooperative gradient study](docs/COOPERATIVE_GRADIENT_STUDY.md)
 
 ## Research package
 
