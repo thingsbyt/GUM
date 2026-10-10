@@ -155,10 +155,14 @@ def analyze(rows, protocol):
         half = float(t.ppf(.975, len(changes)-1) * changes.std(ddof=1) / np.sqrt(len(changes)))
         meets = int(sum((after >= protocol["success_rule"]["minimum_final_rate"]) &
                         (changes >= protocol["success_rule"]["minimum_absolute_gain"])))
+        from scipy.stats import beta
+        pass_interval = [float(beta.ppf(.025,meets,len(selected)-meets+1)) if meets else 0.,
+                         float(beta.ppf(.975,meets+1,len(selected)-meets)) if meets<len(selected) else 1.]
         final[method] = {"team_gains": changes.tolist(), "mean_gain": float(changes.mean()),
                          "exploratory_team_bootstrap_95_interval": ci,
                          "exploratory_team_t_95_interval": [float(changes.mean()-half), float(changes.mean()+half)],
                          "teams_meeting_threshold": meets,
+                         "supplemental_exact_95_interval_team_threshold_pass_probability": pass_interval,
                          "development_success": meets >= protocol["success_rule"]["minimum_teams"] and ci[0] > 0}
     gum_rates = np.array(curves["gum"][-1]["team_completion_rates"])
     ppo_rates = np.array(curves["ppo"][-1]["team_completion_rates"])

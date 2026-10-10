@@ -21,6 +21,9 @@ def main():
         if state["method"]=="PPO":
             if state["checkpoint"]!=0 or state["phase"]!="frozen evaluation":
                 raise RuntimeError("refuse to interrupt duplicate training")
+            # Stop advancement immediately. Verifying hundreds of complete
+            # archives can take longer than the duplicate evaluation window.
+            process.suspend()
             raw=json.loads((root/"RESULTS_IN_PROGRESS.json").read_text())
             row=raw["current"]
             if row["team"]!=1 or row["method"]!="gum" or len(row["training"])!=256 or len(row["evaluations"]["256"]["episodes"])!=32:
