@@ -21,14 +21,14 @@ HTML = '''<!doctype html><html><head><meta charset="utf-8"><title>GUM / Independ
 <div id="eyes"></div><pre id="state"></pre><h2>Full archive playback</h2>
 <button onclick="list()">Load every recorded episode</button><select id="episodes"></select>
 <button onclick="startReplay()">Play selected episode</button><button onclick="live=true">Return to live view</button>
-<script>const token=__TOKEN__;let live=true,replayTick=0,replayLength=0;const q='?token='+token;
+<script>const token=__TOKEN__;let live=true,replayTick=0,replayLength=0,busy=false,lastFrame='';const q='?token='+token;
 async function fetchJSON(path){const r=await fetch(path);if(!r.ok)throw Error(await r.text());return r.json()}
 for(let i=0;i<4;i++)document.querySelector('#eyes').innerHTML+='<img id="eye'+i+'">';
-async function refresh(){try{let s;if(live){s=await fetchJSON('/state'+q)}else{if(replayTick<replayLength){s=await fetchJSON('/replay'+q+'&tick='+replayTick);replayTick++}else{return}}
+async function refresh(){if(busy)return;busy=true;try{let s;if(live){s=await fetchJSON('/state'+q)}else{if(replayTick<replayLength){s=await fetchJSON('/replay'+q+'&tick='+replayTick);replayTick++}else{return}}
 document.querySelector('#label').textContent=s.method+' · '+s.phase+' · team '+s.team+' / seed '+s.team_seed+' · episode '+s.episode+' · tick '+s.tick;
-document.querySelector('#state').textContent=JSON.stringify(s,null,2);let extra='&serial='+Date.now();document.querySelector('#room').src='/frame'+q+extra;
-for(let i=0;i<4;i++)document.querySelector('#eye'+i).src='/frame'+q+'&member='+i+extra;
-}catch(e){document.querySelector('#label').textContent=e.message}}
+document.querySelector('#state').textContent=JSON.stringify(s,null,2);const serial=s.frame_serial||s.episode+'/'+s.tick;let extra='&serial='+encodeURIComponent(serial);if(lastFrame!==serial){lastFrame=serial;document.querySelector('#room').src='/frame'+q+extra;
+for(let i=0;i<4;i++)document.querySelector('#eye'+i).src='/frame'+q+'&member='+i+extra;}
+}catch(e){document.querySelector('#label').textContent=e.message}finally{busy=false}}
 async function list(){const rows=await fetchJSON('/episodes'+q);let el=document.querySelector('#episodes');el.replaceChildren();for(const row of rows){let o=document.createElement('option');o.value=row.key;o.textContent=row.label;el.appendChild(o)}}
 async function startReplay(){const r=await fetchJSON('/replay'+q+'&key='+encodeURIComponent(document.querySelector('#episodes').value));live=false;replayTick=0;replayLength=r.length}
 setInterval(refresh,250);refresh();</script></body></html>'''
@@ -45,6 +45,7 @@ class StudyViewer:
         self.last_displayed = 0
         self.replay_world = None
         self.replay_arrays = None
+        self.frame_serial = 0
 
     def update(self, world, step, metadata):
         with self.lock:
@@ -52,10 +53,14 @@ class StudyViewer:
                           "state_sha256":step["state_sha256"],"escapes":len(world.escape_order)}
             if world.steps % 8 == 0 or world.steps == 1 or world._done:
                 self.frames = [world.spectator_frame(), *world.observations()]
+                self.frame_serial += 1
+                self.frame_tick = world.steps
+            self.state["frame_serial"] = self.frame_serial
+            self.state["frame_tick"] = getattr(self,"frame_tick",0)
 
     def episodes(self):
         rows = []
-        for path in sorted(self.root.glob("team-*/*/EPISODE_LEDGER.jsonl")):
+        for path in sorted(self.root.rglob("EPISODE_LEDGER.jsonl")):
             if not HashLedger(path).verify()["valid"]: raise ValueError("invalid ledger")
             for line in path.read_text().splitlines():
                 record = json.loads(line)
@@ -94,8 +99,8 @@ class StudyViewer:
         with self.lock:
             self.replay_frames = [world.spectator_frame(),*world.observations()]
             self.replaying = True
-        return {"method":self.replay_key.split('/')[1].upper(),"phase":"replay of "+("training" if self.replay_row["training"] else "frozen evaluation"),
-                "team":self.replay_key.split('/')[0],"team_seed":self.replay_team_seed,"environment_seed":world.seed,
+        return {"method":self.replay_key.split('/')[-2].upper(),"phase":"replay of "+("training" if self.replay_row["training"] else "frozen evaluation"),
+                "team":self.replay_key.split('/')[-3],"team_seed":self.replay_team_seed,"environment_seed":world.seed,
                 "episode":self.replay_row["episode_id"],"tick":world.steps,"escapes":len(world.escape_order),"recorded_actions":arrays["actions"][t].tolist()}
 
 
@@ -131,6 +136,7 @@ def start_viewer(root, port=8786):
                 self.send_header("Referrer-Policy","no-referrer");self.send_header("X-Frame-Options","DENY")
                 self.send_header("Content-Security-Policy","default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'")
                 self.end_headers();self.wfile.write(data)
+            except (BrokenPipeError, ConnectionError): pass
             except Exception as error: self.send_error(400,str(error))
         def log_message(self,*args): pass
     server=ThreadingHTTPServer(("127.0.0.1",port),Handler)

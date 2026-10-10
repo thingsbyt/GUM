@@ -172,7 +172,7 @@ def analyze(rows, protocol):
             "uncertainty_limit": "Four team replications are exploratory. Degenerate zero intervals describe observed ties; they do not prove a population effect or impossibility."}
 
 
-def run_study(output, *, device="cpu", viewer=None):
+def run_study(output, *, device="cpu", viewer=None, only_case=None):
     repo = Path(__file__).resolve().parents[2]
     protocol = json.loads((repo / PROTOCOL_PATH).read_text())
     output = Path(output).resolve()
@@ -192,13 +192,15 @@ def run_study(output, *, device="cpu", viewer=None):
                   "torch": torch.__version__, "numpy": np.__version__, "device": device,
                   "cpu": platform.processor(), "torch_threads": 1,
                   "dependencies": subprocess.check_output([__import__("sys").executable,"-m","pip","freeze"],text=True).splitlines(),
-                  "started_at_utc": datetime.now(timezone.utc).isoformat()}
+                  "started_at_utc": datetime.now(timezone.utc).isoformat(), "only_case": only_case}
     atomic_write_json(output / "PROVENANCE.json", provenance, backup=False)
     atomic_write_json(output / "PROTOCOL.json", protocol, backup=False)
     started = time.perf_counter()
     rows = []
     for index, team_seed in enumerate(protocol["team_seeds"]):
         for method in ("gum", "ppo"):
+            if only_case is not None and (index+1,method) != tuple(only_case):
+                continue
             root = output / f"team-{index+1}" / method
             seeds = tuple(team_seed + offset for offset in (101,211,307,401))
             team = create_baseline_team(root, method, seeds, device=device)
@@ -256,7 +258,7 @@ def run_study(output, *, device="cpu", viewer=None):
             row["recovery_verified"] = True
             rows.append(row)
     result = {"format":"gum-independent-ppo-development-study-v1", "protocol":protocol,"provenance":provenance,
-              "teams":rows,"analysis":analyze(rows,protocol), "wall_seconds":time.perf_counter()-started,
+              "teams":rows,"analysis":(analyze(rows,protocol) if only_case is None else {"pending_aggregate":True}), "wall_seconds":time.perf_counter()-started,
               "hard_room_a_used":False,"implementation_checks_passed":True,"tuning_environment_interactions":0}
     atomic_write_json(output / "STUDY_RESULTS.json",result,backup=False)
     return result
