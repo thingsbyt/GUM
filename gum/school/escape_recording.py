@@ -8,7 +8,7 @@ import subprocess
 from typing import Any
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 
 from gum.lineage import HashLedger, file_sha256
 from gum.storage import atomic_write_bytes, atomic_write_json
@@ -90,6 +90,9 @@ def record_episode_gif(
         raise EscapeTeamError("transition archive hash differs")
 
     manifest = EscapeTeam._resolve_checkpoint(root)
+    method = manifest.get("initialization", {}).get("learning_method", "gum")
+    method_label = "PPO" if method == "independent-ppo" else "GUM"
+    phase_label = "TRAINING" if capsule["training"] else "FROZEN EVALUATION"
     table = RewardTable(**manifest["reward_table"])
     with np.load(archive_path, allow_pickle=False) as saved:
         arrays = {name: saved[name] for name in saved.files}
@@ -130,7 +133,11 @@ def record_episode_gif(
     for frame in frames:
         image = Image.fromarray(frame)
         height = round(image.height * width / image.width)
-        resized.append(image.resize((width, height), Image.Resampling.LANCZOS))
+        image = image.resize((width, height), Image.Resampling.LANCZOS)
+        draw = ImageDraw.Draw(image)
+        draw.rectangle((0, 0, width, 24), fill=(9, 13, 19))
+        draw.text((8, 6), f"REPLAY / {phase_label} / {method_label} / ENVIRONMENT SEED {archive_ref['environment_seed']} / EPISODE {capsule['episode_id']}", fill=(238, 231, 210))
+        resized.append(image)
     buffer = io.BytesIO()
     resized[0].save(
         buffer, format="GIF", save_all=True, append_images=resized[1:],
@@ -145,6 +152,8 @@ def record_episode_gif(
         "environment_adapter": adapter,
         "contract_version": archive_ref.get("contract_version", CONTRACT_VERSION),
         "training": bool(capsule["training"]),
+        "learning_method": method_label,
+        "display_phase": f"replay of {phase_label.lower()}",
         "treatment": capsule["treatment"],
         "sharing_mode": capsule["sharing_mode"],
         "joint_ticks": horizon,

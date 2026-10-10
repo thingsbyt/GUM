@@ -3,6 +3,15 @@
   "global_warning": "These are bounded internal experiments, not independent replication and not evidence of consciousness or unrestricted general intelligence. Open each evidence file for its exact protocol and scope.",
   "claims": [
     {
+      "id": "independent-ppo-cooperative-development-pilot-v1",
+      "status": "negative-development-pilot",
+      "title": "Independent PPO / GUM cooperative reference point",
+      "headline": "Neither method achieved three-member completion under the locked pilot budget",
+      "metrics": ["Four independent teams per method", "256 training episodes per team", "0/128 final three-member completions per method", "3,072 primary episodes retained", "PPO separate implementation/learning validation passed"],
+      "scope": "Exploratory development-room pilot with matched public pixel, anonymous-action, team-reward and joint-interaction contracts. Separate policies and optimizers; no direct sharing or messaging. Methods differ in architecture, discount, sampling and optimization; compute is reported, not equalized. All fixed checkpoints and replications are retained. Does not show reliable cooperation, equivalence, or task impossibility. Room A was not examined; historical gradient correction was not promoted.",
+      "evidence": "evidence/gum-school/studies/independent-ppo-v1/RESULTS_SUMMARY.json"
+    },
+    {
       "id": "school-maze-memory-reward-gated-v1",
       "status": "passed-development",
       "title": "Reward-gated episodic spatial memory",

@@ -62,12 +62,15 @@ class StudyViewer:
         rows = []
         for path in sorted(self.root.rglob("EPISODE_LEDGER.jsonl")):
             if not HashLedger(path).verify()["valid"]: raise ValueError("invalid ledger")
+            cumulative = {"training_joint_ticks":0,"evaluation_joint_ticks":0}
             for line in path.read_text().splitlines():
                 record = json.loads(line)
                 if record["event"] != "episode-completed": continue
                 row = record["payload"]
                 key = path.parent.relative_to(self.root).as_posix()+"/"+row["episode_id"]
-                rows.append({"key":key,"label":f"{path.parent.parent.name} {path.parent.name.upper()} · {'training' if row['training'] else 'frozen evaluation'} · seed {row['seed']} · {row['escaped_count']}/3 · {row['episode_id']}","row":row,"root":str(path.parent)})
+                rows.append({"key":key,"label":f"{path.parent.parent.name} {path.parent.name.upper()} · {'training' if row['training'] else 'frozen evaluation'} · seed {row['seed']} · {row['escaped_count']}/3 · {row['episode_id']}","row":row,"root":str(path.parent),"cumulative_before":dict(cumulative)})
+                prefix = "training" if row["training"] else "evaluation"
+                cumulative[prefix+"_joint_ticks"] += row["steps"]
         return rows
 
     def replay(self, key=None, tick=None):
@@ -82,8 +85,12 @@ class StudyViewer:
             self.replay_world.reset()
             self.replay_row = row
             self.replay_key = key
+            self.replay_cumulative_before = entry["cumulative_before"]
             pointer=json.loads((root/"ESCAPE_TEAM.json").read_text())
             manifest=json.loads((root/pointer["manifest"]).read_text())
+            self.replay_method = "PPO" if manifest.get("initialization",{}).get("learning_method","").startswith("independent-ppo") else "GUM"
+            parts = key.split('/')
+            self.replay_team_label = parts[-3] if len(parts)>=3 else root.name
             self.replay_team_seed=manifest["members"][0]["identity"]["seed"]-101
             return {"length":row["steps"]}
         world, arrays = self.replay_world, self.replay_arrays
@@ -99,9 +106,13 @@ class StudyViewer:
         with self.lock:
             self.replay_frames = [world.spectator_frame(),*world.observations()]
             self.replaying = True
-        return {"method":self.replay_key.split('/')[-2].upper(),"phase":"replay of "+("training" if self.replay_row["training"] else "frozen evaluation"),
-                "team":self.replay_key.split('/')[-3],"team_seed":self.replay_team_seed,"environment_seed":world.seed,
-                "episode":self.replay_row["episode_id"],"tick":world.steps,"escapes":len(world.escape_order),"recorded_actions":arrays["actions"][t].tolist()}
+        cumulative = dict(self.replay_cumulative_before)
+        prefix = "training" if self.replay_row["training"] else "evaluation"
+        cumulative[prefix+"_joint_ticks"] += world.steps
+        cumulative["current_episode_individual_actions"] = int((arrays["actions"][:world.steps]>=0).sum())
+        return {"method":self.replay_method,"phase":"replay of "+("training" if self.replay_row["training"] else "frozen evaluation"),
+                "team":self.replay_team_label,"team_seed":self.replay_team_seed,"environment_seed":world.seed,
+                "episode":self.replay_row["episode_id"],"tick":world.steps,"escapes":len(world.escape_order),"recorded_actions":arrays["actions"][t].tolist(),"cumulative":cumulative}
 
 
 def start_viewer(root, port=8786):

@@ -165,6 +165,15 @@ viewer shows the authoritative room beside all four exact learner rasters, and
 complete episodes can be replay-verified into playable recordings. This is
 infrastructure, not yet evidence that cooperation was learned.
 
+The preregistered Independent PPO comparison is complete: four independent
+teams per method, matched pixel/reward contracts and 256 development training
+episodes per team. Neither GUM nor PPO achieved a three-member completion in
+training or at the fixed evaluation checkpoints. PPO passed separate learning
+and implementation validation. This bounded pilot does not establish that the
+room is unlearnable; Room A remains untouched and no correction is promoted.
+[Protocol](docs/INDEPENDENT_PPO_PROTOCOL.md) ·
+[Full interpretation and every team](docs/INDEPENDENT_PPO_STUDY.md).
+
 ```bash
 python scripts/run_escape_chamber_watch.py --workspace work/escape-chamber-live --device cuda --open-browser
 ```

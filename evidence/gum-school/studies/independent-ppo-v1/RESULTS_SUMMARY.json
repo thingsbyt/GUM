@@ -1,0 +1,845 @@
+{
+  "source_commit": "ad4d0429c6e19336ea490d90b74bbf797b84ee9b",
+  "protocol_sha256": "f06d5b2a789d4a1e5add53291d5a44e1efd263665cfa973d80347da98c5702af",
+  "study_results_sha256": "996c51daa6325c435693c5973eee6fcc38106bd2826043d2db35dfc8f38b0ca0",
+  "analysis": {
+    "curves": {
+      "gum": [
+        {
+          "training_episodes": 0,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        },
+        {
+          "training_episodes": 64,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        },
+        {
+          "training_episodes": 128,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        },
+        {
+          "training_episodes": 256,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        }
+      ],
+      "ppo": [
+        {
+          "training_episodes": 0,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        },
+        {
+          "training_episodes": 64,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        },
+        {
+          "training_episodes": 128,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        },
+        {
+          "training_episodes": 256,
+          "team_completion_rates": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_completion_rate": 0.0
+        }
+      ]
+    },
+    "methods": {
+      "gum": {
+        "team_gains": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mean_gain": 0.0,
+        "exploratory_team_bootstrap_95_interval": [
+          0.0,
+          0.0
+        ],
+        "exploratory_team_t_95_interval": [
+          0.0,
+          0.0
+        ],
+        "teams_meeting_threshold": 0,
+        "supplemental_exact_95_interval_team_threshold_pass_probability": [
+          0.0,
+          0.6023646356164746
+        ],
+        "development_success": false
+      },
+      "ppo": {
+        "team_gains": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mean_gain": 0.0,
+        "exploratory_team_bootstrap_95_interval": [
+          0.0,
+          0.0
+        ],
+        "exploratory_team_t_95_interval": [
+          0.0,
+          0.0
+        ],
+        "teams_meeting_threshold": 0,
+        "supplemental_exact_95_interval_team_threshold_pass_probability": [
+          0.0,
+          0.6023646356164746
+        ],
+        "development_success": false
+      }
+    },
+    "paired_team_ppo_minus_gum": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "paired_exploratory_bootstrap_95_interval": [
+      0.0,
+      0.0
+    ],
+    "decision": "both-failed-under-pilot-budget-no-room-a-examination",
+    "uncertainty_limit": "Four team replications are exploratory. Degenerate zero intervals describe observed ties; they do not prove a population effect or impossibility."
+  },
+  "learning_curves": [
+    {
+      "team": 1,
+      "method": "gum",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 4,
+      "gate_crossings": 8,
+      "plate_ticks": 280,
+      "mean_maximum_sustained_plate_ticks": 2.4375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10135
+    },
+    {
+      "team": 1,
+      "method": "gum",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 4,
+      "gate_crossings": 7,
+      "plate_ticks": 293,
+      "mean_maximum_sustained_plate_ticks": 2.5625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10135
+    },
+    {
+      "team": 1,
+      "method": "gum",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 6,
+      "plate_ticks": 315,
+      "mean_maximum_sustained_plate_ticks": 2.65625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10142
+    },
+    {
+      "team": 1,
+      "method": "gum",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 7,
+      "plate_ticks": 269,
+      "mean_maximum_sustained_plate_ticks": 2.4375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10142
+    },
+    {
+      "team": 1,
+      "method": "ppo",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 4,
+      "gate_crossings": 8,
+      "plate_ticks": 279,
+      "mean_maximum_sustained_plate_ticks": 2.5,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10135
+    },
+    {
+      "team": 1,
+      "method": "ppo",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 5,
+      "plate_ticks": 278,
+      "mean_maximum_sustained_plate_ticks": 2.375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10178
+    },
+    {
+      "team": 1,
+      "method": "ppo",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 5,
+      "gate_crossings": 8,
+      "plate_ticks": 184,
+      "mean_maximum_sustained_plate_ticks": 2.0625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10131
+    },
+    {
+      "team": 1,
+      "method": "ppo",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 4,
+      "gate_crossings": 8,
+      "plate_ticks": 172,
+      "mean_maximum_sustained_plate_ticks": 2.1875,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10063
+    },
+    {
+      "team": 2,
+      "method": "gum",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 7,
+      "plate_ticks": 291,
+      "mean_maximum_sustained_plate_ticks": 2.5,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10130
+    },
+    {
+      "team": 2,
+      "method": "gum",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 6,
+      "plate_ticks": 279,
+      "mean_maximum_sustained_plate_ticks": 2.40625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10130
+    },
+    {
+      "team": 2,
+      "method": "gum",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 7,
+      "plate_ticks": 287,
+      "mean_maximum_sustained_plate_ticks": 2.34375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10130
+    },
+    {
+      "team": 2,
+      "method": "gum",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 2,
+      "gate_crossings": 7,
+      "plate_ticks": 300,
+      "mean_maximum_sustained_plate_ticks": 2.65625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10141
+    },
+    {
+      "team": 2,
+      "method": "ppo",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 7,
+      "plate_ticks": 295,
+      "mean_maximum_sustained_plate_ticks": 2.53125,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10130
+    },
+    {
+      "team": 2,
+      "method": "ppo",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 7,
+      "gate_crossings": 10,
+      "plate_ticks": 241,
+      "mean_maximum_sustained_plate_ticks": 2.21875,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 9991
+    },
+    {
+      "team": 2,
+      "method": "ppo",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 2,
+      "gate_crossings": 2,
+      "plate_ticks": 162,
+      "mean_maximum_sustained_plate_ticks": 1.5625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10150
+    },
+    {
+      "team": 2,
+      "method": "ppo",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 2,
+      "gate_crossings": 5,
+      "plate_ticks": 124,
+      "mean_maximum_sustained_plate_ticks": 1.53125,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10161
+    },
+    {
+      "team": 3,
+      "method": "gum",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 5,
+      "gate_crossings": 10,
+      "plate_ticks": 247,
+      "mean_maximum_sustained_plate_ticks": 2.09375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10118
+    },
+    {
+      "team": 3,
+      "method": "gum",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 5,
+      "gate_crossings": 10,
+      "plate_ticks": 238,
+      "mean_maximum_sustained_plate_ticks": 2.15625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10118
+    },
+    {
+      "team": 3,
+      "method": "gum",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 6,
+      "plate_ticks": 216,
+      "mean_maximum_sustained_plate_ticks": 2.0625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10142
+    },
+    {
+      "team": 3,
+      "method": "gum",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 6,
+      "gate_crossings": 8,
+      "plate_ticks": 174,
+      "mean_maximum_sustained_plate_ticks": 1.84375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 9901
+    },
+    {
+      "team": 3,
+      "method": "ppo",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 5,
+      "gate_crossings": 11,
+      "plate_ticks": 247,
+      "mean_maximum_sustained_plate_ticks": 2.09375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10118
+    },
+    {
+      "team": 3,
+      "method": "ppo",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 3,
+      "gate_crossings": 4,
+      "plate_ticks": 208,
+      "mean_maximum_sustained_plate_ticks": 1.9375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10124
+    },
+    {
+      "team": 3,
+      "method": "ppo",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 4,
+      "gate_crossings": 8,
+      "plate_ticks": 116,
+      "mean_maximum_sustained_plate_ticks": 1.53125,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10120
+    },
+    {
+      "team": 3,
+      "method": "ppo",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 5,
+      "gate_crossings": 6,
+      "plate_ticks": 81,
+      "mean_maximum_sustained_plate_ticks": 1.15625,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 9957
+    },
+    {
+      "team": 4,
+      "method": "gum",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 1,
+      "gate_crossings": 5,
+      "plate_ticks": 254,
+      "mean_maximum_sustained_plate_ticks": 2.53125,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10224
+    },
+    {
+      "team": 4,
+      "method": "gum",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 1,
+      "gate_crossings": 5,
+      "plate_ticks": 249,
+      "mean_maximum_sustained_plate_ticks": 2.4375,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10193
+    },
+    {
+      "team": 4,
+      "method": "gum",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 0,
+      "gate_crossings": 5,
+      "plate_ticks": 269,
+      "mean_maximum_sustained_plate_ticks": 2.5,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10240
+    },
+    {
+      "team": 4,
+      "method": "gum",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 2,
+      "gate_crossings": 6,
+      "plate_ticks": 235,
+      "mean_maximum_sustained_plate_ticks": 2.25,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10177
+    },
+    {
+      "team": 4,
+      "method": "ppo",
+      "checkpoint": 0,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 1,
+      "gate_crossings": 5,
+      "plate_ticks": 254,
+      "mean_maximum_sustained_plate_ticks": 2.5,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10224
+    },
+    {
+      "team": 4,
+      "method": "ppo",
+      "checkpoint": 64,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 1,
+      "gate_crossings": 3,
+      "plate_ticks": 184,
+      "mean_maximum_sustained_plate_ticks": 2.125,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10211
+    },
+    {
+      "team": 4,
+      "method": "ppo",
+      "checkpoint": 128,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 4,
+      "gate_crossings": 5,
+      "plate_ticks": 75,
+      "mean_maximum_sustained_plate_ticks": 1.3125,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10088
+    },
+    {
+      "team": 4,
+      "method": "ppo",
+      "checkpoint": 256,
+      "episodes": 32,
+      "completions": 0,
+      "completion_rate": 0.0,
+      "escapes": 0,
+      "gate_crossings": 0,
+      "plate_ticks": 159,
+      "mean_maximum_sustained_plate_ticks": 3.21875,
+      "mean_completion_tick_when_complete": null,
+      "joint_ticks": 2560,
+      "individual_actions": 10240
+    }
+  ],
+  "resources": [
+    {
+      "team": 1,
+      "method": "gum",
+      "parameters_per_member": 33186,
+      "training_wall_seconds": 1258.971662200318,
+      "evaluation_wall_seconds": 608.9084580000199,
+      "peak_process_rss_bytes": 707969024,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 81294,
+      "evaluation_individual_actions": 40554,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 1024,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 904.875,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 81294,
+      "derived_padded_recurrent_update_slots": 81294
+    },
+    {
+      "team": 1,
+      "method": "ppo",
+      "parameters_per_member": 76102,
+      "training_wall_seconds": 1266.6893927999772,
+      "evaluation_wall_seconds": 747.7191765000753,
+      "peak_process_rss_bytes": 677875712,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 80866,
+      "evaluation_individual_actions": 40507,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 512,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 834.859375,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 323464,
+      "derived_padded_recurrent_update_slots": 327680
+    },
+    {
+      "team": 2,
+      "method": "gum",
+      "parameters_per_member": 33186,
+      "training_wall_seconds": 1520.3826362002,
+      "evaluation_wall_seconds": 718.0923117000784,
+      "peak_process_rss_bytes": 690118656,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 81476,
+      "evaluation_individual_actions": 40531,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 1024,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 828.71875,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 81476,
+      "derived_padded_recurrent_update_slots": 81476
+    },
+    {
+      "team": 2,
+      "method": "ppo",
+      "parameters_per_member": 76102,
+      "training_wall_seconds": 1249.5202820000413,
+      "evaluation_wall_seconds": 728.8601047000266,
+      "peak_process_rss_bytes": 668143616,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 81160,
+      "evaluation_individual_actions": 40432,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 512,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 656.890625,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 324640,
+      "derived_padded_recurrent_update_slots": 327680
+    },
+    {
+      "team": 3,
+      "method": "gum",
+      "parameters_per_member": 33186,
+      "training_wall_seconds": 1517.5346492998942,
+      "evaluation_wall_seconds": 720.9308568998531,
+      "peak_process_rss_bytes": 691728384,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 81151,
+      "evaluation_individual_actions": 40279,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 1024,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 832.421875,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 81151,
+      "derived_padded_recurrent_update_slots": 81151
+    },
+    {
+      "team": 3,
+      "method": "ppo",
+      "parameters_per_member": 76102,
+      "training_wall_seconds": 1246.921562199801,
+      "evaluation_wall_seconds": 731.6442250999389,
+      "peak_process_rss_bytes": 668340224,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 81063,
+      "evaluation_individual_actions": 40319,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 512,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 658.671875,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 324252,
+      "derived_padded_recurrent_update_slots": 327680
+    },
+    {
+      "team": 4,
+      "method": "gum",
+      "parameters_per_member": 33186,
+      "training_wall_seconds": 1517.2942356000713,
+      "evaluation_wall_seconds": 715.5137286998215,
+      "peak_process_rss_bytes": 690458624,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 81219,
+      "evaluation_individual_actions": 40834,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 1024,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 833.40625,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 81219,
+      "derived_padded_recurrent_update_slots": 81219
+    },
+    {
+      "team": 4,
+      "method": "ppo",
+      "parameters_per_member": 76102,
+      "training_wall_seconds": 1244.3361521001789,
+      "evaluation_wall_seconds": 727.698522000137,
+      "peak_process_rss_bytes": 668360704,
+      "training_joint_ticks": 20480,
+      "evaluation_joint_ticks": 10240,
+      "training_individual_actions": 81343,
+      "evaluation_individual_actions": 40763,
+      "optimizer_steps": 1024,
+      "optimization_epochs": 512,
+      "peak_cuda_allocated_bytes": 0,
+      "worker_cpu_seconds_at_collection": 659.421875,
+      "cpu_time_scope": "worker process through collection: includes startup, environment, archive/recovery and viewer work; not isolated optimization",
+      "derived_valid_action_loss_presentations": 325372,
+      "derived_padded_recurrent_update_slots": 327680
+    }
+  ],
+  "validation_passed": true,
+  "room_a_used": false,
+  "training_episodes": 2048,
+  "evaluation_episodes": 1024,
+  "training_completions_by_team": [
+    {
+      "team": 1,
+      "method": "gum",
+      "completions": 0
+    },
+    {
+      "team": 1,
+      "method": "ppo",
+      "completions": 0
+    },
+    {
+      "team": 2,
+      "method": "gum",
+      "completions": 0
+    },
+    {
+      "team": 2,
+      "method": "ppo",
+      "completions": 0
+    },
+    {
+      "team": 3,
+      "method": "gum",
+      "completions": 0
+    },
+    {
+      "team": 3,
+      "method": "ppo",
+      "completions": 0
+    },
+    {
+      "team": 4,
+      "method": "gum",
+      "completions": 0
+    },
+    {
+      "team": 4,
+      "method": "ppo",
+      "completions": 0
+    }
+  ],
+  "wall_seconds": 16521.017956000433,
+  "elapsed_makespan_seconds": 2760.710401,
+  "implementation_validation_resource_use": {
+    "training_interactions": 12288,
+    "frozen_evaluation_interactions": 1536,
+    "optimizer_steps": 3071,
+    "wall_seconds": 37.47904760000529,
+    "chamber_tuning_interactions": 0,
+    "historical_gum_development_expenditure": "not quantified or equalized"
+  }
+}

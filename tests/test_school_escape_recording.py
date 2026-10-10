@@ -7,6 +7,7 @@ pytest.importorskip("torch")
 
 from gum.school.escape_recording import RECORDING_FORMAT, record_episode_gif
 from gum.school.escape_team import EscapeTeam
+from gum.school.escape_study_viewer import StudyViewer
 from gum.school.recurrent_meta import RecurrentMetaConfig
 
 
@@ -34,3 +35,13 @@ def test_recording_replays_every_archived_tick_and_writes_sidecar(tmp_path):
         assert image.n_frames == 4
     sidecar = json.loads(output.with_suffix(".gif.json").read_text(encoding="utf-8"))
     assert sidecar["recording_sha256"].startswith("sha256:")
+    assert sidecar["learning_method"] == "GUM"
+    assert sidecar["display_phase"] == "replay of frozen evaluation"
+    viewer = StudyViewer(team.root)
+    entry = viewer.episodes()[0]
+    viewer.replay(key=entry["key"])
+    for tick in range(3):
+        state = viewer.replay(tick=tick)
+        assert state["phase"] == "replay of frozen evaluation"
+        assert state["cumulative"]["evaluation_joint_ticks"] == tick+1
+        assert state["cumulative"]["current_episode_individual_actions"] == 4*(tick+1)
