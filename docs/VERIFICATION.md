@@ -368,8 +368,15 @@ protocol, audit, summary, and full raw-trace archive are linked from
 Verify the v0.2.1 source and evidence package with:
 
 ```powershell
+git archive --format=zip --output=v0.2.1.zip 04759bd182e99bef1f7950f9e00ae1b80b716db0
+# Extract v0.2.1.zip, then run this from the extracted snapshot:
 python scripts/verify_freeze.py --manifest RELEASE_MANIFEST_v0.2.1.json
 ```
+
+That manifest describes commit `04759bd182e99bef1f7950f9e00ae1b80b716db0`.
+It is historical evidence, so checking it against current HEAD is expected to
+report later files as changed. CI checks out that exact commit in a separate
+directory before running the historical verifier.
 
 ## Tested software
 

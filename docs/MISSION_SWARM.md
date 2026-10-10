@@ -33,9 +33,11 @@ profile. Failure is evidence, not a cue to rerun an identical strategy.
 
 ## Nothing learned is discarded
 
-After every mission, including failure, the system atomically preserves:
+After every mission, including failure, the system durably preserves:
 
-1. the complete public observation/action/reward experience as compressed data;
+1. the complete public transition sequence as compressed data: pre-action and
+   next observations, actions, rewards, termination/truncation flags, and all
+   four proposals;
 2. all four post-mission neural checkpoints;
 3. a compact experience capsule;
 4. append-only hash-chained mission and knowledge records; and
@@ -44,6 +46,15 @@ After every mission, including failure, the system atomically preserves:
 The archive is local and auditable. Its hash chain detects modification while
 its anchor remains trusted, but it is not a remote notarization or an identity
 signature.
+
+Reload reconciles the root checkpoint pointer with both anchored ledgers. If a
+process stops after committing a mission but before replacing the pointer, the
+single complete checkpoint matching the durable ledger heads is recovered and
+the pointer is repaired. If no unique coherent checkpoint exists, reload stops
+with an explicit inconsistency error rather than combining state from different
+moments. Experience files created before the v2 transition format are retained
+as historical pre-action traces; new archives are required to include terminal
+next observations and per-step termination/truncation flags.
 
 ## First architecture smoke run
 

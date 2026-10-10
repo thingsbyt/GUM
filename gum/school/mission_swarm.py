@@ -205,8 +205,11 @@ class MissionSwarm:
             "member_training": modes,
             "spec": spec,
             "observations": [],
+            "next_observations": [],
             "actions": [],
             "rewards": [],
+            "terminated": [],
+            "truncated": [],
             "proposal_disagreements": 0,
             "proposal_rows": [],
         }
@@ -266,6 +269,11 @@ class MissionSwarm:
             )
         self._active["actions"].append(int(action))
         self._active["rewards"].append(float(transition.reward))
+        self._active["next_observations"].append(
+            np.asarray(transition.observation).copy()
+        )
+        self._active["terminated"].append(bool(transition.terminated))
+        self._active["truncated"].append(bool(transition.truncated))
 
     def finish_mission(self, *, success: bool) -> dict[str, Any]:
         if self._active is None:
@@ -337,12 +345,32 @@ class MissionSwarm:
     def _preserve_experience(self, active: dict[str, Any]) -> dict[str, str]:
         """Atomically preserve every public transition and team proposal."""
         rows = active["proposal_rows"]
+        transition_count = len(active["actions"])
+        field_lengths = {
+            name: len(active[name])
+            for name in (
+                "observations", "next_observations", "rewards",
+                "terminated", "truncated", "proposal_rows",
+            )
+        }
+        if any(length != transition_count for length in field_lengths.values()):
+            raise MissionSwarmError(
+                "cannot archive an incomplete transition sequence: "
+                + ", ".join(
+                    f"{name}={length}" for name, length in field_lengths.items()
+                )
+            )
         buffer = io.BytesIO()
         np.savez_compressed(
             buffer,
             observations=np.asarray(active["observations"], dtype=np.uint8),
+            next_observations=np.asarray(
+                active["next_observations"], dtype=np.uint8
+            ),
             actions=np.asarray(active["actions"], dtype=np.int64),
             rewards=np.asarray(active["rewards"], dtype=np.float32),
+            terminated=np.asarray(active["terminated"], dtype=np.bool_),
+            truncated=np.asarray(active["truncated"], dtype=np.bool_),
             proposals=np.asarray(
                 [row["proposals"] for row in rows], dtype=np.int64
             ),
@@ -356,6 +384,7 @@ class MissionSwarm:
         path = self.root / "experiences" / f"{active['mission_id']}.npz"
         atomic_write_bytes(path, buffer.getvalue(), backup=False)
         return {
+            "format": "gum-mission-experience-v2",
             "path": path.relative_to(self.root).as_posix(),
             "sha256": f"sha256:{file_sha256(path)}",
         }
@@ -407,18 +436,156 @@ class MissionSwarm:
         atomic_write_json(self.root / MANIFEST_FILENAME, pointer, backup=False, sort_keys=True)
         return checkpoint_manifest
 
+    @staticmethod
+    def _ledger_event_count(path: Path, event: str) -> int:
+        count = 0
+        if path.exists():
+            with path.open(encoding="utf-8") as handle:
+                for line in handle:
+                    if line.strip() and json.loads(line).get("event") == event:
+                        count += 1
+        return count
+
+    @classmethod
+    def _checkpoint_errors(
+        cls,
+        root: Path,
+        manifest_path: Path,
+        value: dict[str, Any],
+        mission_state: dict[str, Any],
+        knowledge_state: dict[str, Any],
+        completed_records: int,
+        experience_records: int,
+    ) -> list[str]:
+        errors = []
+        if not isinstance(value, dict):
+            return ["checkpoint manifest is not an object"]
+        if value.get("format") != cls.format:
+            errors.append("unsupported checkpoint format")
+        members = value.get("members", [])
+        if not isinstance(members, list) or len(members) != TEAM_SIZE:
+            errors.append("checkpoint does not contain four members")
+            members = []
+        if value.get("checkpoint") != manifest_path.parent.name:
+            errors.append("checkpoint label differs from directory")
+        for name, actual in (
+            ("mission_ledger", mission_state),
+            ("knowledge_ledger", knowledge_state),
+        ):
+            expected = value.get(name, {})
+            if not isinstance(expected, dict):
+                errors.append(f"{name} checkpoint is malformed")
+                expected = {}
+            if expected.get("records") != actual.get("records"):
+                errors.append(f"{name} record count differs")
+            if expected.get("head") != actual.get("head"):
+                errors.append(f"{name} head differs")
+        completed = value.get("completed_missions")
+        if completed != completed_records or completed != experience_records:
+            errors.append("completed mission count differs from durable ledgers")
+        for row in members:
+            if not isinstance(row, dict):
+                errors.append("member checkpoint is malformed")
+                continue
+            if row.get("missions") != completed:
+                errors.append("member mission count differs from swarm count")
+            brain = row.get("brain", {})
+            if not isinstance(brain, dict):
+                errors.append("member brain reference is malformed")
+                continue
+            path_value = brain.get("path")
+            if not isinstance(path_value, str):
+                errors.append("member brain reference is missing")
+                continue
+            brain_path = (root / path_value).resolve()
+            try:
+                brain_path.relative_to(root)
+            except ValueError:
+                errors.append("member brain path escapes swarm directory")
+                continue
+            if not brain_path.is_file():
+                errors.append("member brain is missing")
+            elif f"sha256:{file_sha256(brain_path)}" != brain.get("sha256"):
+                errors.append("member brain hash differs")
+        return errors
+
+    @classmethod
+    def _resolve_checkpoint(cls, root: Path) -> tuple[Path, dict[str, Any]]:
+        """Resolve the one checkpoint consistent with both anchored ledgers.
+
+        The root pointer is deliberately written last. If that final atomic
+        write is interrupted, the new checkpoint and ledger records are still
+        durable. Reload therefore validates the pointer against the live
+        ledgers and repairs it only when one complete snapshot matches them.
+        """
+        root = root.resolve()
+        mission_state = HashLedger(root / LEDGER_FILENAME).verify()
+        knowledge_state = HashLedger(root / KNOWLEDGE_FILENAME).verify()
+        if not mission_state["valid"] or not knowledge_state["valid"]:
+            raise MissionSwarmError("cannot reconcile checkpoints with invalid ledgers")
+        completed_records = cls._ledger_event_count(
+            root / LEDGER_FILENAME, "mission-completed"
+        )
+        experience_records = cls._ledger_event_count(
+            root / KNOWLEDGE_FILENAME, "experience-capsule"
+        )
+
+        pointer_errors = []
+        pointer_path = root / MANIFEST_FILENAME
+        try:
+            pointer = json.loads(pointer_path.read_text(encoding="utf-8"))
+            if pointer.get("format") != "gum-school-mission-swarm-pointer-v1":
+                raise MissionSwarmError("unsupported mission swarm pointer")
+            manifest_path = (root / pointer["manifest"]).resolve()
+            manifest_path.relative_to(root)
+            if f"sha256:{file_sha256(manifest_path)}" != pointer.get("manifest_sha256"):
+                raise MissionSwarmError("mission swarm manifest hash differs")
+            value = json.loads(manifest_path.read_text(encoding="utf-8"))
+            pointer_errors = cls._checkpoint_errors(
+                root, manifest_path, value, mission_state, knowledge_state,
+                completed_records, experience_records,
+            )
+            if not pointer_errors:
+                return manifest_path, value
+        except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
+            pointer_errors = [f"pointer is unreadable: {error}"]
+
+        matches = []
+        for manifest_path in sorted(
+            (root / "snapshots").glob(f"*/{MANIFEST_FILENAME}")
+        ):
+            try:
+                value = json.loads(manifest_path.read_text(encoding="utf-8"))
+                errors = cls._checkpoint_errors(
+                    root, manifest_path.resolve(), value,
+                    mission_state, knowledge_state,
+                    completed_records, experience_records,
+                )
+                if not errors:
+                    matches.append((manifest_path.resolve(), value))
+            except (OSError, TypeError, ValueError, json.JSONDecodeError):
+                continue
+        if len(matches) != 1:
+            detail = "; ".join(pointer_errors) or "pointer does not match the ledgers"
+            raise MissionSwarmError(
+                "checkpoint/ledger inconsistency detected; "
+                f"found {len(matches)} recoverable checkpoints ({detail})"
+            )
+        manifest_path, value = matches[0]
+        repaired_pointer = {
+            "format": "gum-school-mission-swarm-pointer-v1",
+            "checkpoint": value["checkpoint"],
+            "manifest": manifest_path.relative_to(root).as_posix(),
+            "manifest_sha256": f"sha256:{file_sha256(manifest_path)}",
+            "recovered_after_incomplete_pointer_update": True,
+        }
+        atomic_write_json(pointer_path, repaired_pointer, backup=False, sort_keys=True)
+        return manifest_path, value
+
     @classmethod
     def load(cls, root: Path, *, device: str = "cpu") -> "MissionSwarm":
-        root = Path(root)
-        pointer = json.loads((root / MANIFEST_FILENAME).read_text(encoding="utf-8"))
-        if pointer.get("format") != "gum-school-mission-swarm-pointer-v1":
-            raise MissionSwarmError("unsupported mission swarm pointer")
-        manifest_path = root / pointer["manifest"]
-        if f"sha256:{file_sha256(manifest_path)}" != pointer.get("manifest_sha256"):
-            raise MissionSwarmError("mission swarm manifest hash differs")
-        value = json.loads(manifest_path.read_text(encoding="utf-8"))
-        if value.get("format") != cls.format or len(value.get("members", [])) != TEAM_SIZE:
-            raise MissionSwarmError("unsupported mission swarm checkpoint")
+        root = Path(root).resolve()
+        _, value = cls._resolve_checkpoint(root)
         members = []
         for row in value["members"]:
             identity_value = row["identity"]
@@ -492,6 +659,34 @@ class MissionSwarm:
                         errors.append(f"line {number}: experience file is missing")
                     elif f"sha256:{file_sha256(path)}" != expected:
                         errors.append(f"line {number}: experience hash differs")
+                    elif experience.get("format") == "gum-mission-experience-v2":
+                        try:
+                            with np.load(path, allow_pickle=False) as archive:
+                                required = {
+                                    "observations", "next_observations", "actions",
+                                    "rewards", "terminated", "truncated",
+                                    "proposals", "confidences", "selected",
+                                }
+                                missing = sorted(required.difference(archive.files))
+                                if missing:
+                                    errors.append(
+                                        f"line {number}: incomplete transition fields: "
+                                        + ", ".join(missing)
+                                    )
+                                else:
+                                    lengths = {
+                                        name: len(archive[name]) for name in required
+                                    }
+                                    if len(set(lengths.values())) != 1:
+                                        errors.append(
+                                            f"line {number}: transition field lengths differ"
+                                        )
+                        except (OSError, ValueError) as error:
+                            errors.append(
+                                f"line {number}: experience archive unreadable: {error}"
+                            )
+                    elif experience.get("format") is not None:
+                        errors.append(f"line {number}: unsupported experience format")
         return {"valid": not errors, "records": records, "errors": errors}
 
     def status(self) -> dict[str, Any]:
