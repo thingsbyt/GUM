@@ -552,6 +552,89 @@ class RecurrentCausalLearner:
             "final_cross_entropy": final_loss,
         }
 
+    def fit_recorded_actor_critic(
+        self,
+        trajectory: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Reconstruct the ordinary on-policy update for recorded actions.
+
+        This is an audit/control hook, not an off-policy learning claim. It is
+        exact only when the episodic action mixer is disabled; that mixer has
+        additional within-episode state not present in the public trajectory.
+        """
+        if self.config.episodic_action_exploration_mix != 0.0:
+            raise ValueError(
+                "recorded actor-critic reconstruction requires action mixer off"
+            )
+        if self._pending:
+            raise RuntimeError("cannot reconstruct with pending training episodes")
+        observations = trajectory.get("observations", [])
+        actions = [int(value) for value in trajectory.get("actions", [])]
+        rewards = [float(value) for value in trajectory.get("rewards", [])]
+        action_count = int(trajectory.get("action_count", self.config.action_count))
+        if not observations or not (
+            len(observations) == len(actions) == len(rewards)
+        ):
+            raise ValueError("recorded actor-critic trajectory is incomplete")
+        if not 2 <= action_count <= self.config.action_count:
+            raise ValueError("recorded action count is invalid")
+        if any(not 0 <= action < action_count for action in actions):
+            raise ValueError("recorded action is outside the action contract")
+
+        hidden = torch.zeros(1, self.config.hidden_size, device=self.device)
+        action_memory = torch.zeros(
+            1,
+            self.config.action_count,
+            self.config.action_memory_size,
+            device=self.device,
+        )
+        previous_action = self.config.action_count
+        previous_reward = 0.0
+        log_probs = []
+        values = []
+        entropies = []
+        chosen_probabilities = []
+        for step, (observation, action, reward) in enumerate(
+            zip(observations, actions, rewards, strict=True)
+        ):
+            pixels = torch.from_numpy(np.asarray(observation).copy()).to(self.device)
+            logits, value, hidden, action_memory = self.policy(
+                pixels,
+                torch.tensor([previous_action], device=self.device),
+                torch.tensor(
+                    [previous_reward], dtype=torch.float32, device=self.device
+                ),
+                torch.tensor([float(step == 0)], dtype=torch.float32, device=self.device),
+                hidden,
+                action_memory,
+            )
+            probabilities = torch.softmax(logits[:, :action_count], dim=-1)
+            if self.config.training_exploration_mix > 0.0:
+                mix = self.config.training_exploration_mix
+                probabilities = (1.0 - mix) * probabilities + mix / action_count
+            log_all = torch.log(
+                probabilities.clamp_min(torch.finfo(probabilities.dtype).tiny)
+            )
+            target = torch.tensor([[action]], device=self.device)
+            log_probs.append(log_all.gather(1, target).squeeze())
+            values.append(value.squeeze())
+            entropies.append(-(probabilities * log_all).sum())
+            chosen_probabilities.append(float(probabilities[0, action].detach()))
+            previous_action = action
+            previous_reward = reward
+
+        self._pending.append({
+            "log_probs": torch.stack(log_probs),
+            "values": torch.stack(values),
+            "entropies": torch.stack(entropies),
+            "rewards": rewards,
+        })
+        result = self._update_pending()
+        assert result is not None
+        self.training_episodes += 1
+        self.training_interactions += len(actions)
+        return {**result, "chosen_probabilities_before": chosen_probabilities}
+
     def fit_reward_event_imitation(
         self,
         trajectories: list[dict[str, Any]],

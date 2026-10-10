@@ -243,6 +243,58 @@ def test_reward_outcome_replay_counts_scalar_supervision_tokens():
     assert result["updates"] == 1
 
 
+def test_recorded_actor_critic_reconstructs_ordinary_update(tmp_path: Path):
+    config = RecurrentMetaConfig(
+        hidden_size=16,
+        action_memory_size=8,
+        batch_episodes=1,
+        training_exploration_mix=0.2,
+    )
+    online = RecurrentCausalLearner(117, config=config)
+    checkpoint = tmp_path / "before.pt"
+    online.save(checkpoint)
+    observations = []
+    for value in (10, 40, 90, 160):
+        frame = np.full((72, 72, 3), value, dtype=np.uint8)
+        observations.append(frame)
+    rewards = [-0.01, -0.01, 0.5, -0.01]
+    actions = []
+    online.begin(_spec(), observations[0], training=True)
+    for index, (observation, reward) in enumerate(
+        zip(observations, rewards, strict=True)
+    ):
+        action = online.act(observation, training=True)
+        actions.append(action)
+        online.observe(
+            action,
+            Transition(
+                observations[min(index + 1, len(observations) - 1)],
+                reward,
+                False,
+                index == len(observations) - 1,
+                _ForbiddenInfo(),
+            ),
+            training=True,
+        )
+    ordinary = online.finish_episode(training=True)
+    assert ordinary is not None
+
+    reconstructed = RecurrentCausalLearner.load(checkpoint)
+    replayed = reconstructed.fit_recorded_actor_critic({
+        "observations": observations,
+        "actions": actions,
+        "rewards": rewards,
+        "action_count": _spec().action_count,
+    })
+
+    for expected, actual in zip(
+        online.policy.parameters(), reconstructed.policy.parameters(), strict=True
+    ):
+        torch.testing.assert_close(expected, actual, rtol=0.0, atol=1e-7)
+    for key in ("loss", "actor_loss", "value_loss", "entropy"):
+        assert replayed[key] == pytest.approx(ordinary[key], abs=1e-7)
+
+
 def test_saved_research_result_is_a_development_pass_only():
     report_path = (
         Path(__file__).resolve().parents[1]

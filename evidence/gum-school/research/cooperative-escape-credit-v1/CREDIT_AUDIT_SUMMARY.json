@@ -1,0 +1,70 @@
+{
+  "claim_scope": "single successful development-episode credit audit; no cooperation or promotion claim",
+  "created_at_utc": "2026-10-10T15:13:13.7828374Z",
+  "device": "cuda",
+  "environment": "gum-cooperative-escape-development-v1",
+  "episode_id": "7e8df33d-3876-4908-b2c3-242815b1f210",
+  "evaluation": {
+    "episodes_per_branch": 64,
+    "horizon": 80,
+    "paired_against_control": {
+      "ordinary_actor_critic": {
+        "net_escape_difference": -1,
+        "seeds_better_than_control": 0,
+        "seeds_tied_with_control": 63,
+        "seeds_worse_than_control": 1
+      },
+      "reward_outcome_replay": {
+        "net_escape_difference": -1,
+        "seeds_better_than_control": 0,
+        "seeds_tied_with_control": 63,
+        "seeds_worse_than_control": 1
+      }
+    },
+    "results": {
+      "control": {
+        "episodes_with_escape": 4,
+        "total_escapes": 4,
+        "total_gate_crossings": 11,
+        "total_plate_ticks": 532
+      },
+      "ordinary_actor_critic": {
+        "episodes_with_escape": 3,
+        "total_escapes": 3,
+        "total_gate_crossings": 11,
+        "total_plate_ticks": 518
+      },
+      "reward_outcome_replay": {
+        "episodes_with_escape": 3,
+        "total_escapes": 3,
+        "total_gate_crossings": 10,
+        "total_plate_ticks": 502
+      }
+    },
+    "seed_overlap_with_training_history": false,
+    "seed_start": 9510000
+  },
+  "format": "gum-cooperative-escape-credit-audit-summary-v1",
+  "integrity": {
+    "delayed_team_reward_attachment_covered_by_contract_test": true,
+    "executed_actions_used_as_policy_targets": true,
+    "observations_actions_rewards_and_terminal_flags_replay_exactly": true,
+    "ordinary_update_matches_saved_post_episode_weights_exactly": true,
+    "semantic_labels_used_for_training": false
+  },
+  "observed_episode": {
+    "crosser": "Fortis-2",
+    "escape_tick": 49,
+    "gate_crossing_tick": 16,
+    "holder": "Fortis-4",
+    "holder_gate_tick_normalized_advantage": 0.12600753668684958,
+    "holder_gate_tick_probability_after_ordinary_update": 0.19986329972743988,
+    "holder_gate_tick_probability_before": 0.19987401366233826,
+    "post_escape_delayed_reward_events": 0,
+    "reward_each_at_escape_tick": 0.999,
+    "reward_each_at_gate_crossing_tick": -0.001
+  },
+  "pre_episode_checkpoint": "57433215-1ff0-4864-aa7f-0ef90fc0a8fc",
+  "result": "Bookkeeping is correct and the holder receives temporal credit, but neither tested update improves recorded cooperation reliably or held-out escape performance. Investigate loss attribution, optimization, and representation before adding a joint-action critic.",
+  "room_a_modified_or_trained": false
+}

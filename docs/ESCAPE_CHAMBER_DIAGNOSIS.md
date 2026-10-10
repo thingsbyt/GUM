@@ -116,9 +116,55 @@ supports examining agent-temporal credit assignment and the policy update
 itself, using these frozen pilots as regression fixtures, before adding
 communication, roles, or a larger world model.
 
+## Successful-episode credit audit
+
+The next bounded audit used one real rewarded development episode
+(`7e8df33d-3876-4908-b2c3-242815b1f210`) and its immediately preceding
+checkpoint. It introduced no critic, role system, message channel, authored
+action, or semantic training label. Deterministic replay verified every
+observation, executed action, reward, terminal flag, and environment-state
+hash. Reconstructing the existing actor-critic calculation from those records
+reproduced all four saved post-episode policy tensors exactly.
+
+Diagnostic replay shows what physically happened. Fortis-4 occupied the plate
+while Fortis-2 crossed the open gate at tick 16. Fortis-2 escaped at tick 49.
+At the crossing tick every member received the ordinary `-0.001` active cost;
+at the escape tick every member received `+0.999`, the team escape bonus minus
+that cost. Only one member escaped, so this episode contains no later reward to
+test post-escape delayed-reward attachment. The general attachment path remains
+covered by a separate contract test.
+
+The holder's tick-16 action did receive a positive discounted return and a
+positive normalized advantage (`+0.1260`). The reward was therefore not lost.
+However, after the complete shared-parameter update, the probability of that
+same action in that same recorded context moved from `0.199874` to `0.199863`.
+The crosser's gate action received a negative normalized advantage (`-0.6906`),
+while its later escape action received `+2.1078`. Across complete trajectories,
+the ordinary update's mean absolute change in chosen-action probability ranged
+from `0.000051` to `0.000401` across members. Useful temporal credit exists,
+but the net policy change is small and can oppose the sign of an individual
+causal action's local advantage because all time steps update shared weights.
+
+Three branches began from byte-identical copies of the pre-episode checkpoint:
+no update, the exact ordinary update, and one scalar reward-outcome replay
+update. On the same 64 untouched development-room seeds, the control escaped
+four times, ordinary actor-critic escaped three times, and reward-outcome replay
+escaped three times. Both updated branches tied the control on 63 seeds and
+lost one escape on the remaining seed; neither won a seed. These small counts
+do not establish harm, but they provide no evidence that either update retained
+useful cooperation or generalized it.
+
+The bounded conclusion is therefore more specific than “learning is broken.”
+Bookkeeping is correct and successful experience reaches optimization. The
+present update does not convert this one success into a useful recorded-context
+change or a held-out advantage. The next investigation should remain inside
+loss attribution, optimization, and representation before a joint-action
+critic is justified.
+
 ## Reproduce
 
 ```bash
 python scripts/diagnose_escape_chamber.py work/escape-chamber-rehearsal --output diagnostic.json
 python scripts/run_escape_development_study.py work/escape-development-pilot --device cuda
+python scripts/audit_escape_credit.py TEAM_ROOT EPISODE_ID OUTPUT_ROOT --device cuda
 ```

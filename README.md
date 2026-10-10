@@ -176,6 +176,7 @@ python scripts/run_escape_chamber_watch.py --workspace work/escape-chamber-live 
 [Read the first sealed examination](docs/GUM_SCHOOL_SEALED_EXAM.md)
 [Read the cooperative mission swarm design](docs/MISSION_SWARM.md)
 [Read the cooperative escape chamber protocol](docs/ESCAPE_CHAMBER_PROTOCOL.md)
+[Read the cooperative escape learning diagnosis](docs/ESCAPE_CHAMBER_DIAGNOSIS.md)
 
 ## Research package
 
